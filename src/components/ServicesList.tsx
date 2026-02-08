@@ -41,21 +41,16 @@ export function ServicesList() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <section className="py-32 px-6 lg:px-8 bg-white">
+    <section className="py-24 lg:py-32 px-6 lg:px-8 bg-[#0a0a0a]">
       <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#1d1d1f] mb-6">
-            <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-            </svg>
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#1d1d1f] mb-2 font-[family-name:var(--font-space-grotesk)]">
-            Lo que construimos
-          </h2>
-          <p className="text-2xl lg:text-3xl text-[#86868b] font-light italic">
+        {/* Header - compact */}
+        <div className="mb-12">
+          <p className="text-sm font-mono text-white/40 tracking-widest uppercase">
             Technical Specs
           </p>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            Lo que construimos
+          </h2>
         </div>
 
         {/* Services List */}
@@ -69,22 +64,22 @@ export function ServicesList() {
             >
               <div
                 className={cn(
-                  "relative overflow-hidden border bg-white transition-all duration-300 ease-in-out",
+                  "relative overflow-hidden border transition-all duration-300 ease-in-out",
                   hoveredItem === service.id
-                    ? "h-44 border-[#1d1d1f] shadow-lg shadow-[#1d1d1f]/10 bg-[#FAF9F6]"
-                    : "h-20 border-[#E8E6E1] hover:border-[#1d1d1f]/30"
+                    ? "h-44 border-white/30 shadow-lg shadow-white/5 bg-white/5"
+                    : "h-20 border-white/10 hover:border-white/20 bg-transparent"
                 )}
               >
                 {/* Corner brackets */}
                 {hoveredItem === service.id && (
                   <>
                     <div className="absolute top-3 left-3 w-6 h-6">
-                      <div className="absolute top-0 left-0 w-4 h-0.5 bg-[#1d1d1f]" />
-                      <div className="absolute top-0 left-0 w-0.5 h-4 bg-[#1d1d1f]" />
+                      <div className="absolute top-0 left-0 w-4 h-0.5 bg-white/60" />
+                      <div className="absolute top-0 left-0 w-0.5 h-4 bg-white/60" />
                     </div>
                     <div className="absolute bottom-3 right-3 w-6 h-6">
-                      <div className="absolute bottom-0 right-0 w-4 h-0.5 bg-[#1d1d1f]" />
-                      <div className="absolute bottom-0 right-0 w-0.5 h-4 bg-[#1d1d1f]" />
+                      <div className="absolute bottom-0 right-0 w-4 h-0.5 bg-white/60" />
+                      <div className="absolute bottom-0 right-0 w-0.5 h-4 bg-white/60" />
                     </div>
                   </>
                 )}
@@ -93,18 +88,15 @@ export function ServicesList() {
                 <div className="flex flex-col justify-start h-full px-6 md:px-8 py-4">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3
-                        className={cn(
-                          "text-xl font-semibold transition-colors duration-300 font-[family-name:var(--font-space-grotesk)]",
-                          hoveredItem === service.id ? "text-[#1d1d1f]" : "text-[#1d1d1f]"
-                        )}
-                      >
+                      <h3 className="text-xl font-semibold text-white transition-colors duration-300">
                         {service.title}
                       </h3>
                       <p
                         className={cn(
                           "mt-1 text-sm transition-colors duration-300",
-                          hoveredItem === service.id ? "text-[#52525b]" : "text-[#86868b]"
+                          hoveredItem === service.id
+                            ? "text-white/60"
+                            : "text-white/40"
                         )}
                       >
                         {service.subtitle}
@@ -115,7 +107,7 @@ export function ServicesList() {
                   {/* Body text - visible on hover */}
                   <p
                     className={cn(
-                      "mt-3 text-sm text-[#52525b] leading-relaxed transition-all duration-300 pr-12",
+                      "mt-3 text-sm text-white/50 leading-relaxed transition-all duration-300 pr-12",
                       hoveredItem === service.id ? "opacity-100" : "opacity-0"
                     )}
                   >

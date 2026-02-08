@@ -8,6 +8,9 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
+const inputClass =
+  "w-full px-4 py-3 border border-white/10 bg-white/5 text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 transition-all";
+
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,15 +27,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setError("");
 
     try {
-      const response = await fetch("https://n8n.swfitservice.online/webhook/audit-lead-capture", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          timestamp: new Date().toISOString(),
-          source: "contact-form",
-        }),
-      });
+      const response = await fetch(
+        "https://n8n.swfitservice.online/webhook/audit-lead-capture",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...formData,
+            timestamp: new Date().toISOString(),
+            source: "contact-form",
+          }),
+        }
+      );
 
       if (!response.ok) throw new Error("Error al enviar");
 
@@ -56,17 +62,27 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+      <div
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={handleClose}
       />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden">
+      <div className="relative bg-[#111] border border-white/10 w-full max-w-lg mx-4 overflow-hidden">
+        {/* Corner brackets */}
+        <div className="absolute top-3 left-3 w-6 h-6">
+          <div className="absolute top-0 left-0 w-4 h-0.5 bg-white/40" />
+          <div className="absolute top-0 left-0 w-0.5 h-4 bg-white/40" />
+        </div>
+        <div className="absolute bottom-3 right-3 w-6 h-6">
+          <div className="absolute bottom-0 right-0 w-4 h-0.5 bg-white/40" />
+          <div className="absolute bottom-0 right-0 w-0.5 h-4 bg-white/40" />
+        </div>
+
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-[#86868b] hover:text-[#1d1d1f] transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white/40 hover:text-white transition-colors"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -78,10 +94,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             <>
               {/* Header */}
               <div className="mb-8">
-                <h3 className="text-2xl lg:text-3xl font-bold text-[#1d1d1f] mb-2 font-[family-name:var(--font-space-grotesk)]">
+                <p className="text-xs font-mono text-white/40 tracking-widest uppercase mb-2">
+                  Contacto
+                </p>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white">
                   Contáctanos
                 </h3>
-                <p className="text-[#86868b]">
+                <p className="mt-2 text-sm text-white/50">
                   Cuéntanos en qué podemos ayudarte.
                 </p>
               </div>
@@ -89,59 +108,51 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium text-[#1d1d1f] mb-2">
-                    Nombre
-                  </label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">Nombre</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E6E1] bg-[#FAF9F6] text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#1d1d1f] transition-all"
+                    className={inputClass}
                     placeholder="Tu nombre"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#1d1d1f] mb-2">
-                    Email
-                  </label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">Email</label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E6E1] bg-[#FAF9F6] text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#1d1d1f] transition-all"
+                    className={inputClass}
                     placeholder="tu@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#1d1d1f] mb-2">
-                    Mensaje
-                  </label>
+                  <label className="block text-sm font-medium text-white/70 mb-2">Mensaje</label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E8E6E1] bg-[#FAF9F6] text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-[#1d1d1f] transition-all resize-none"
+                    className={cn(inputClass, "resize-none")}
                     placeholder="¿En qué podemos ayudarte?"
                   />
                 </div>
 
-                {error && (
-                  <p className="text-red-500 text-sm">{error}</p>
-                )}
+                {error && <p className="text-red-400 text-sm">{error}</p>}
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className={cn(
-                    "w-full py-4 rounded-full font-semibold text-base transition-all",
+                    "w-full py-4 font-semibold text-base transition-all",
                     isSubmitting
-                      ? "bg-[#86868b] text-white cursor-not-allowed"
-                      : "bg-[#1d1d1f] text-white hover:bg-[#1d1d1f]/90"
+                      ? "bg-white/10 text-white/40 cursor-not-allowed"
+                      : "bg-white/10 text-white border border-white/30 backdrop-blur-md hover:bg-white/20 hover:border-white/50"
                   )}
                 >
                   {isSubmitting ? "Enviando..." : "Enviar mensaje"}
@@ -149,22 +160,21 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </form>
             </>
           ) : (
-            /* Success State */
             <div className="text-center py-8">
-              <div className="w-16 h-16 rounded-full bg-[#1d1d1f] flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 border border-white/20 flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-[#1d1d1f] mb-2 font-[family-name:var(--font-space-grotesk)]">
+              <h3 className="text-2xl font-bold text-white mb-2">
                 ¡Mensaje Enviado!
               </h3>
-              <p className="text-[#86868b] mb-6">
+              <p className="text-white/50 mb-6">
                 Te responderemos lo antes posible.
               </p>
               <button
                 onClick={handleClose}
-                className="text-[#1d1d1f] font-medium hover:underline"
+                className="text-white/70 font-medium hover:text-white transition-colors"
               >
                 Cerrar ventana
               </button>

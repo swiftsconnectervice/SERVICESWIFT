@@ -7,23 +7,29 @@ import { Navbar } from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAF9F6]">
+    <main className="min-h-screen bg-[#0a0a0a]">
       {/* Navigation */}
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative">
+      <section id="inicio" className="relative">
         <HeroStatic />
       </section>
 
       {/* Scenes Section - 01, 02, 03, 04 */}
-      <ScenesSection />
+      <div id="proceso">
+        <ScenesSection />
+      </div>
 
       {/* Technical Specs / Services */}
-      <ServicesList />
+      <div id="servicios">
+        <ServicesList />
+      </div>
 
       {/* Pricing / Inversión */}
-      <PricingSection />
+      <div id="inversion">
+        <PricingSection />
+      </div>
 
       {/* Excelencia Section */}
       <ExcelenciaSection />

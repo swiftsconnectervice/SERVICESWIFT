@@ -5,131 +5,81 @@ import { useEffect, useRef, useState } from "react";
 const SCENES = [
   {
     number: "01",
-    title: "Análisis de\nEstructura",
-    description: "La mayoría de los sitios web fallan porque intentan decir demasiado. Nosotros encontramos el núcleo de tu mensaje.",
-    image: "/hero/opcion 6/uno.png",
+    title: "Análisis de Estructura",
+    description:
+      "La mayoría de los sitios web fallan porque intentan decir demasiado. Nosotros encontramos el núcleo de tu mensaje.",
   },
   {
     number: "02",
-    title: "Planos de\nConversión",
-    description: "Wireframing lógico. Diseñamos la ruta crítica que seguirá el ojo (y el mouse) de tu usuario desde que entra hasta que paga. Cero decoración, 100% función.",
-    image: "/hero/opcion 6/dos.png",
+    title: "Planos de Conversión",
+    description:
+      "Wireframing lógico. Diseñamos la ruta crítica que seguirá el ojo (y el mouse) de tu usuario desde que entra hasta que paga. Cero decoración, 100% función.",
   },
   {
     number: "03",
-    title: "Compilación\nLimpia",
-    description: "Desarrollo modular. Escribimos código semántico, ligero y documentado. Tu sitio no solo funciona hoy; está preparado para escalar mañana sin romperse.",
-    image: "/hero/opcion 6/tres.png",
+    title: "Compilación Limpia",
+    description:
+      "Desarrollo modular. Escribimos código semántico, ligero y documentado. Tu sitio no solo funciona hoy; está preparado para escalar mañana sin romperse.",
   },
   {
     number: "04",
-    title: "Stress Test &\nDeploy",
-    description: "No cruzamos los dedos al lanzar. Sometemos el sitio a pruebas de carga agresivas y auditorías de seguridad antes de abrir el servidor al público real.",
-    image: "/hero/opcion 6/cuatro.png",
+    title: "Stress Test & Deploy",
+    description:
+      "No cruzamos los dedos al lanzar. Sometemos el sitio a pruebas de carga agresivas y auditorías de seguridad antes de abrir el servidor al público real.",
   },
 ];
 
-function SceneSlide({ scene, index }: { scene: typeof SCENES[0]; index: number }) {
-  const slideRef = useRef<HTMLDivElement>(null);
+function SceneCard({
+  scene,
+  index,
+}: {
+  scene: (typeof SCENES)[0];
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.15 }
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 }
     );
-
-    if (slideRef.current) {
-      observer.observe(slideRef.current);
-    }
-
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
-  const isEven = index % 2 === 0;
-
   return (
-    <div 
-      ref={slideRef}
-      className="h-screen w-full flex-shrink-0 snap-start snap-always relative overflow-hidden"
+    <div
+      ref={ref}
+      className={`group relative border-b border-white/10 py-16 lg:py-20 transition-all duration-700 ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
     >
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out"
-        style={{ 
-          backgroundImage: `url('${scene.image}')`,
-          transform: isVisible ? "scale(1)" : "scale(1.05)"
-        }}
-      />
-      
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center px-8 lg:px-16">
-        <div className="max-w-xl">
-          {/* Title with number */}
-          <div className={`flex items-start gap-4 ${isEven ? "" : "flex-row-reverse"}`}>
-            {isEven ? (
-              <>
-                <h2 
-                  className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] italic transition-all duration-700 ease-out ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                  }`}
-                  style={{ whiteSpace: "pre-line" }}
-                >
-                  {scene.title}
-                </h2>
-                <div className="flex flex-col items-start">
-                  <span 
-                    className={`text-6xl sm:text-7xl lg:text-8xl font-light text-white/80 italic leading-none transition-all duration-700 ease-out delay-100 ${
-                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                    }`}
-                  >
-                    {scene.number}
-                  </span>
-                  <div 
-                    className={`h-[2px] bg-white/60 mt-2 transition-all duration-700 ease-out delay-200 ${
-                      isVisible ? "w-16 opacity-100" : "w-0 opacity-0"
-                    }`}
-                  />
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="flex flex-col items-start">
-                  <span 
-                    className={`text-6xl sm:text-7xl lg:text-8xl font-light text-white/80 italic leading-none transition-all duration-700 ease-out ${
-                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                    }`}
-                  >
-                    {scene.number}
-                  </span>
-                  <div 
-                    className={`h-[2px] bg-white/60 mt-2 transition-all duration-700 ease-out delay-200 ${
-                      isVisible ? "w-16 opacity-100" : "w-0 opacity-0"
-                    }`}
-                  />
-                </div>
-                <h2 
-                  className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] italic transition-all duration-700 ease-out delay-100 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                  }`}
-                  style={{ whiteSpace: "pre-line" }}
-                >
-                  {scene.title}
-                </h2>
-              </>
-            )}
-          </div>
-          
-          {/* Description */}
-          <p 
-            className={`mt-8 text-base sm:text-lg text-white/90 leading-relaxed font-medium max-w-sm italic transition-all duration-700 ease-out delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-16">
+        {/* Number */}
+        <span className="text-6xl lg:text-8xl font-extralight text-white/20 font-mono leading-none shrink-0 group-hover:text-white/40 transition-colors duration-500">
+          {scene.number}
+        </span>
+
+        {/* Content */}
+        <div className="flex-1">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
+            {scene.title}
+          </h3>
+          <p className="mt-4 text-base lg:text-lg text-white/60 leading-relaxed max-w-xl">
             {scene.description}
           </p>
+        </div>
+
+        {/* Decorative line */}
+        <div className="hidden lg:flex items-center shrink-0">
+          <div
+            className={`h-[1px] bg-white/20 transition-all duration-700 ease-out ${
+              isVisible ? "w-24" : "w-0"
+            }`}
+            style={{ transitionDelay: `${index * 100 + 300}ms` }}
+          />
         </div>
       </div>
     </div>
@@ -138,10 +88,23 @@ function SceneSlide({ scene, index }: { scene: typeof SCENES[0]; index: number }
 
 export function ScenesSection() {
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-      {SCENES.map((scene, index) => (
-        <SceneSlide key={scene.number} scene={scene} index={index} />
-      ))}
-    </div>
+    <section className="bg-[#0a0a0a] py-20 lg:py-32">
+      {/* Section header */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 mb-16">
+        <p className="text-sm font-mono text-white/40 tracking-widest uppercase">
+          Proceso
+        </p>
+        <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          Cómo trabajamos
+        </h2>
+      </div>
+
+      {/* Steps */}
+      <div className="border-t border-white/10">
+        {SCENES.map((scene, index) => (
+          <SceneCard key={scene.number} scene={scene} index={index} />
+        ))}
+      </div>
+    </section>
   );
 }

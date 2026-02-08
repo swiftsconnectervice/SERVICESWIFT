@@ -27,43 +27,30 @@ export function ExcelenciaSection() {
 
   return (
     <>
-      <section 
+      <section
         ref={sectionRef}
-        className="relative py-24 px-6 lg:px-8 bg-[#FAF9F6]"
+        className="relative py-32 lg:py-40 px-6 lg:px-8 bg-[#0a0a0a]"
       >
-        <div className="max-w-4xl mx-auto flex flex-col items-center">
+        <div className="max-w-3xl mx-auto flex flex-col items-center">
           {/* Top line */}
-          <div 
-            className={`h-[2px] bg-[#1d1d1f] mb-8 transition-all duration-700 ease-out ${
-              isVisible ? "w-12 opacity-100" : "w-0 opacity-0"
+          <div
+            className={`h-[1px] bg-white/30 mb-12 transition-all duration-700 ease-out ${
+              isVisible ? "w-16 opacity-100" : "w-0 opacity-0"
             }`}
           />
-          
-          {/* Image */}
-          <div 
-            className={`w-full max-w-2xl transition-all duration-700 ease-out delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <img 
-              src="/hero/opcion 6/cero.jpeg" 
-              alt="Arquitectura"
-              className="w-full h-auto"
-            />
-          </div>
-          
+
           {/* Title */}
-          <h2 
-            className={`mt-12 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1d1d1f] text-center italic transition-all duration-700 ease-out delay-200 ${
+          <h2
+            className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center italic leading-tight transition-all duration-700 ease-out delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             La excelencia no es un accidente. Es una arquitectura.
           </h2>
-          
+
           {/* Subtitle */}
-          <p 
-            className={`mt-4 text-base sm:text-lg text-[#86868b] text-center transition-all duration-700 ease-out delay-300 ${
+          <p
+            className={`mt-6 text-base sm:text-lg text-white/50 text-center leading-relaxed transition-all duration-700 ease-out delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -71,16 +58,16 @@ export function ExcelenciaSection() {
             <br />
             capítulo de tu negocio.
           </p>
-          
+
           {/* CTA Button */}
-          <div 
-            className={`mt-8 transition-all duration-700 ease-out delay-400 ${
+          <div
+            className={`mt-10 transition-all duration-700 ease-out delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-[#1d1d1f] text-white font-semibold hover:bg-[#1d1d1f]/90 rounded-full px-8 py-4 text-base transition-colors"
+              className="bg-white/10 text-white font-semibold border border-white/30 backdrop-blur-md rounded-full px-8 py-4 text-base transition-all hover:bg-white/20 hover:border-white/50 hover:scale-105"
             >
               Iniciar Transformación
             </button>

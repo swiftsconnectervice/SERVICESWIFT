@@ -85,21 +85,16 @@ export function PricingSection() {
 
   return (
     <>
-      <section className="py-32 px-6 lg:px-8 bg-white">
+      <section className="py-24 lg:py-32 px-6 lg:px-8 bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#1d1d1f] mb-6">
-              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#1d1d1f] mb-2 font-[family-name:var(--font-space-grotesk)]">
-              Inversión
-            </h2>
-            <p className="text-2xl lg:text-3xl text-[#86868b] font-light italic">
+          {/* Header - compact */}
+          <div className="mb-16">
+            <p className="text-sm font-mono text-white/40 tracking-widest uppercase">
               Blueprints disponibles
             </p>
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              Inversión
+            </h2>
           </div>
 
           {/* Pricing Cards */}
@@ -114,7 +109,7 @@ export function PricingSection() {
                 {/* Popular badge */}
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                    <span className="bg-[#1d1d1f] text-white text-xs font-medium px-3 py-1 rounded-full">
+                    <span className="bg-white text-black text-xs font-medium px-3 py-1 rounded-full">
                       Más elegido
                     </span>
                   </div>
@@ -122,61 +117,61 @@ export function PricingSection() {
 
                 <div
                   className={cn(
-                    "relative h-full border bg-white transition-all duration-300 p-8",
+                    "relative h-full border transition-all duration-300 p-8",
                     plan.popular
-                      ? "border-[#1d1d1f] shadow-lg shadow-[#1d1d1f]/10"
+                      ? "border-white/30 bg-white/5 shadow-lg shadow-white/5"
                       : hoveredPlan === plan.id
-                      ? "border-[#1d1d1f] shadow-lg shadow-[#1d1d1f]/10"
-                      : "border-[#E8E6E1]"
+                      ? "border-white/30 bg-white/5 shadow-lg shadow-white/5"
+                      : "border-white/10 bg-transparent"
                   )}
                 >
                   {/* Corner brackets on hover or popular */}
                   {(hoveredPlan === plan.id || plan.popular) && (
                     <>
                       <div className="absolute top-3 left-3 w-6 h-6">
-                        <div className="absolute top-0 left-0 w-4 h-0.5 bg-[#1d1d1f]" />
-                        <div className="absolute top-0 left-0 w-0.5 h-4 bg-[#1d1d1f]" />
+                        <div className="absolute top-0 left-0 w-4 h-0.5 bg-white/60" />
+                        <div className="absolute top-0 left-0 w-0.5 h-4 bg-white/60" />
                       </div>
                       <div className="absolute bottom-3 right-3 w-6 h-6">
-                        <div className="absolute bottom-0 right-0 w-4 h-0.5 bg-[#1d1d1f]" />
-                        <div className="absolute bottom-0 right-0 w-0.5 h-4 bg-[#1d1d1f]" />
+                        <div className="absolute bottom-0 right-0 w-4 h-0.5 bg-white/60" />
+                        <div className="absolute bottom-0 right-0 w-0.5 h-4 bg-white/60" />
                       </div>
                     </>
                   )}
 
                   {/* Tag number */}
-                  <span className="text-sm font-mono text-[#86868b]">{plan.tag}</span>
+                  <span className="text-sm font-mono text-white/40">{plan.tag}</span>
 
                   {/* Plan name */}
-                  <h3 className="mt-2 text-xl font-semibold text-[#1d1d1f] font-[family-name:var(--font-space-grotesk)]">
+                  <h3 className="mt-2 text-xl font-semibold text-white">
                     {plan.name}
                   </h3>
 
                   {/* Subtitle */}
-                  <p className="mt-1 text-sm text-[#86868b] italic">
+                  <p className="mt-1 text-sm text-white/50 italic">
                     {plan.subtitle}
                   </p>
 
                   {/* Price */}
                   <div className="mt-6">
-                    <span className="text-2xl font-bold text-[#1d1d1f] font-[family-name:var(--font-space-grotesk)]">
+                    <span className="text-2xl font-bold text-white">
                       {plan.price}
                     </span>
                   </div>
 
                   {/* Time */}
-                  <p className="mt-1 text-xs font-mono text-[#86868b]">
+                  <p className="mt-1 text-xs font-mono text-white/40">
                     Entrega: {plan.time}
                   </p>
 
                   {/* Divider */}
-                  <div className="my-6 h-px bg-[#E8E6E1]" />
+                  <div className="my-6 h-px bg-white/10" />
 
                   {/* Features */}
                   <ul className="space-y-3">
                     {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3 text-sm text-[#52525b]">
-                        <span className="text-[#1d1d1f] mt-0.5">—</span>
+                      <li key={index} className="flex items-start gap-3 text-sm text-white/60">
+                        <span className="text-white/40 mt-0.5">—</span>
                         {feature}
                       </li>
                     ))}
@@ -188,8 +183,8 @@ export function PricingSection() {
                     className={cn(
                       "mt-8 w-full py-3 rounded-full font-medium text-sm transition-all duration-300",
                       plan.popular
-                        ? "bg-[#1d1d1f] text-white hover:bg-[#1d1d1f]/90"
-                        : "border border-[#1d1d1f] text-[#1d1d1f] hover:bg-[#1d1d1f] hover:text-white"
+                        ? "bg-white text-black hover:bg-white/90"
+                        : "border border-white/30 text-white hover:bg-white/10"
                     )}
                   >
                     {plan.cta}
@@ -200,11 +195,11 @@ export function PricingSection() {
           </div>
 
           {/* Bottom note */}
-          <p className="mt-12 text-center text-sm text-[#86868b]">
+          <p className="mt-12 text-center text-sm text-white/40">
             ¿Necesitas algo diferente?{" "}
-            <button 
+            <button
               onClick={handleCustomClick}
-              className="text-[#1d1d1f] font-medium hover:underline"
+              className="text-white font-medium hover:underline"
             >
               Hablemos de tu proyecto
             </button>
@@ -212,9 +207,9 @@ export function PricingSection() {
         </div>
       </section>
 
-      <AuditModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <AuditModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         selectedPlan={selectedPlanName}
       />
     </>
