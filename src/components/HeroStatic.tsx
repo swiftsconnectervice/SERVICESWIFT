@@ -11,7 +11,7 @@ export function HeroStatic() {
 
   return (
     <>
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative h-svh w-full overflow-hidden">
         {/* Background Video */}
         <video
           autoPlay

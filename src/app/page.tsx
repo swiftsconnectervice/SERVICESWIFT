@@ -35,7 +35,7 @@ export default function Home() {
       <ExcelenciaSection />
 
       {/* Footer */}
-      <footer className="py-12 px-6 lg:px-8 bg-[#1d1d1f]">
+      <footer className="py-12 px-6 lg:px-8 bg-[#0a0a0a] border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <span className="text-2xl font-semibold text-white font-[family-name:var(--font-space-grotesk)]">
