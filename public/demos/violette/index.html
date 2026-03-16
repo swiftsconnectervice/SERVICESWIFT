@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Violette Reposteria Gourmet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'violette': '#7c3aed',
+            'violette-light': '#a78bfa',
+            'violette-dark': '#4c1d95',
+            'cream': '#fdf8f0',
+            'blush': '#fce7f3',
+            'gold': '#d4a017',
+          },
+          fontFamily: {
+            'pacifico': ['Pacifico', 'cursive'],
+            'poppins': ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    .hover-scale { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .hover-scale:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body class="bg-cream text-gray-800 selection:bg-violette-light selection:text-white">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-cream/95 backdrop-blur-md border-b border-violette/20 px-6 py-4 flex justify-between items-center">
+<div class="font-pacifico text-2xl text-violette">Violette</div>
+<div class="hidden md:flex gap-8 font-poppins text-sm uppercase tracking-wider">
+<a class="hover:text-violette transition-colors" href="#catalogo">Catalogo</a>
+<a class="hover:text-violette transition-colors" href="#compromisos">Compromisos</a>
+<a class="hover:text-violette transition-colors" href="#servicios">Servicios</a>
+<a class="hover:text-violette transition-colors" href="#contacto">Contacto</a>
+</div>
+<a href="tel:2224290351" class="bg-violette text-white font-poppins px-6 py-2 rounded-full hover:bg-violette-dark hover:shadow-lg transition-all">
+    Hacer Pedido
+</a>
+</nav>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Tarta de uvas con ganache de chocolate blanco" class="w-full h-full object-cover brightness-75" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=1600&q=80&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-b from-violette-dark/40 to-cream/60"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+<p class="font-poppins text-violette-light text-sm uppercase tracking-[0.4em] mb-4">Reposteria Gourmet · San Andres Cholula</p>
+<h1 class="font-pacifico text-6xl md:text-8xl text-white drop-shadow-2xl mb-6 animate-float">
+    Creando recuerdos
+</h1>
+<p class="font-poppins text-white/90 text-xl mb-10 drop-shadow-md">
+    Para que estos momentos se vuelvan inolvidables.
+</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="#catalogo" class="bg-violette hover:bg-violette-dark text-white font-poppins px-10 py-4 rounded-full shadow-2xl transition-all hover:scale-105">
+    Ver Catalogo
+</a>
+<a href="#contacto" class="bg-white/20 backdrop-blur border border-white text-white font-poppins px-10 py-4 rounded-full hover:bg-white hover:text-violette transition-all">
+    Hacer Pedido
+</a>
+</div>
+</div>
+</section>
+
+<!-- Compromisos -->
+<section class="py-24 px-6 bg-white" id="compromisos">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-pacifico text-4xl text-violette mb-4">Nuestros Compromisos</h2>
+<p class="font-poppins text-sm uppercase tracking-widest text-gray-400">Lo que nos hace diferentes</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-blush rounded-3xl p-8 text-center hover-scale">
+<div class="text-5xl mb-4">🌿</div>
+<h3 class="font-pacifico text-2xl text-violette mb-3">Sin Conservadores</h3>
+<p class="font-poppins text-sm text-gray-600 leading-relaxed">Todos nuestros postres son libres de conservadores y productos industriales. Solo ingredientes naturales.</p>
+</div>
+<div class="bg-blush rounded-3xl p-8 text-center hover-scale">
+<div class="text-5xl mb-4">🏪</div>
+<h3 class="font-pacifico text-2xl text-violette mb-3">Economia Local</h3>
+<p class="font-poppins text-sm text-gray-600 leading-relaxed">Apoyamos la economia local comprando insumos a empresas nacionales y locales de Puebla.</p>
+</div>
+<div class="bg-blush rounded-3xl p-8 text-center hover-scale">
+<div class="text-5xl mb-4">♻️</div>
+<h3 class="font-pacifico text-2xl text-violette mb-3">Eco Responsable</h3>
+<p class="font-poppins text-sm text-gray-600 leading-relaxed">Respeto al medio ambiente utilizando productos ecologicos, naturales y reciclables en todos nuestros procesos.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Catalogo Especialidades -->
+<section class="py-24 px-6 bg-cream" id="catalogo">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-pacifico text-5xl text-violette mb-4">Nuestras Especialidades</h2>
+<p class="font-poppins text-sm uppercase tracking-widest text-gray-400">No dudes en llevar una de nuestras creaciones</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="group relative bg-white rounded-3xl p-4 shadow-xl hover-scale">
+<span class="absolute -top-4 -right-2 z-10 bg-violette-light font-poppins text-white text-xs px-4 py-2 rounded-full shadow-md border-2 border-white rotate-12">ESTRELLA</span>
+<div class="h-56 rounded-2xl overflow-hidden mb-4">
+<img alt="Tarta de uvas con ganache de chocolate blanco" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80&fit=crop"/>
+</div>
+<h3 class="font-pacifico text-xl text-gray-800 mb-1">Tarta de Uvas</h3>
+<p class="font-poppins text-xs text-gray-400 italic mb-3">Con ganache de chocolate blanco</p>
+<p class="font-poppins text-xs text-violette">Individual 10cm · Chico 16cm · Mediano 21cm · Grande 28cm</p>
+</div>
+<div class="group relative bg-white rounded-3xl p-4 shadow-xl hover-scale">
+<span class="absolute -top-4 -right-2 z-10 bg-violette-light font-poppins text-white text-xs px-4 py-2 rounded-full shadow-md border-2 border-white rotate-12">ESTRELLA</span>
+<div class="h-56 rounded-2xl overflow-hidden mb-4">
+<img alt="Pavlova de frutos rojos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&fit=crop"/>
+</div>
+<h3 class="font-pacifico text-xl text-gray-800 mb-1">Pavlova</h3>
+<p class="font-poppins text-xs text-gray-400 italic mb-3">De frutos rojos</p>
+<p class="font-poppins text-xs text-violette">Individual 10cm · Chico 16cm · Mediano 21cm · Grande 28cm</p>
+</div>
+<div class="group relative bg-white rounded-3xl p-4 shadow-xl hover-scale">
+<span class="absolute -top-4 -right-2 z-10 bg-gold font-poppins text-white text-xs px-4 py-2 rounded-full shadow-md border-2 border-white rotate-12">CLASICO</span>
+<div class="h-56 rounded-2xl overflow-hidden mb-4">
+<img alt="Moelleux chocolat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80&fit=crop"/>
+</div>
+<h3 class="font-pacifico text-xl text-gray-800 mb-1">Moelleux Chocolat</h3>
+<p class="font-poppins text-xs text-gray-400 italic mb-3">Pastel de chocolate fundido</p>
+<p class="font-poppins text-xs text-violette">Individual 10cm · Chico 16cm · Mediano 21cm · Grande 28cm</p>
+</div>
+<div class="group relative bg-white rounded-3xl p-4 shadow-xl hover-scale">
+<span class="absolute -top-4 -right-2 z-10 bg-gold font-poppins text-white text-xs px-4 py-2 rounded-full shadow-md border-2 border-white rotate-12">CLASICO</span>
+<div class="h-56 rounded-2xl overflow-hidden mb-4">
+<img alt="Selva Negra" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&fit=crop"/>
+</div>
+<h3 class="font-pacifico text-xl text-gray-800 mb-1">Selva Negra</h3>
+<p class="font-poppins text-xs text-gray-400 italic mb-3">Chocolate, cerezas y crema</p>
+<p class="font-poppins text-xs text-violette">Individual 10cm · Chico 16cm · Mediano 21cm · Grande 28cm</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Categorias -->
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="font-pacifico text-4xl text-center text-violette mb-12">Toda nuestra coleccion</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="bg-violette h-40 rounded-2xl flex flex-col items-center justify-center text-white cursor-pointer hover:bg-violette-dark transition-all hover:-translate-y-2 group">
+<div class="text-4xl mb-2 group-hover:scale-125 transition-transform">🎂</div>
+<span class="font-poppins font-bold text-sm uppercase tracking-wider">Especialidades</span>
+<span class="font-poppins text-xs opacity-70 mt-1">Sacher · Selva Negra · Pavlova</span>
+</div>
+<div class="bg-violette-light h-40 rounded-2xl flex flex-col items-center justify-center text-white cursor-pointer hover:bg-violette transition-all hover:-translate-y-2 group">
+<div class="text-4xl mb-2 group-hover:scale-125 transition-transform">🍰</div>
+<span class="font-poppins font-bold text-sm uppercase tracking-wider">Pasteles Clasicos</span>
+<span class="font-poppins text-xs opacity-70 mt-1">Boston · Moka · Limon</span>
+</div>
+<div class="bg-pink-300 h-40 rounded-2xl flex flex-col items-center justify-center text-white cursor-pointer hover:bg-pink-400 transition-all hover:-translate-y-2 group">
+<div class="text-4xl mb-2 group-hover:scale-125 transition-transform">🥧</div>
+<span class="font-poppins font-bold text-sm uppercase tracking-wider">Tartas</span>
+<span class="font-poppins text-xs opacity-70 mt-1">Manzana · Coco Maracuya</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Banner Personalizacion -->
+<section class="bg-violette-dark py-16 px-6 text-white overflow-hidden relative">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+<div class="text-center md:text-left">
+<h2 class="font-poppins text-3xl font-bold mb-2">Pasteles personalizados</h2>
+<p class="font-pacifico text-5xl text-violette-light drop-shadow-lg mb-4">Decoramos segun tus gustos</p>
+<p class="font-poppins text-lg opacity-80">Entrega gratis a partir de $2,000 de compra</p>
+</div>
+<a href="#contacto" class="bg-white text-violette-dark font-poppins font-bold px-10 py-5 rounded-full shadow-2xl hover:bg-cream transition-all hover:scale-105 whitespace-nowrap">
+    Pedir el mio
+</a>
+</div>
+<div class="absolute top-0 right-0 font-poppins text-9xl text-white/5 select-none pointer-events-none">GOURMET</div>
+</section>
+
+<!-- Servicios -->
+<section class="py-24 px-6 bg-cream" id="servicios">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-pacifico text-4xl text-violette mb-4">Como funciona</h2>
+<p class="font-poppins text-sm uppercase tracking-widest text-gray-400">Tu pedido, sin complicaciones</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white rounded-3xl p-8 text-center shadow-lg hover-scale">
+<div class="text-5xl mb-4">🚚</div>
+<h3 class="font-pacifico text-2xl text-violette mb-3">Entrega a domicilio</h3>
+<p class="font-poppins text-sm text-gray-600 leading-relaxed">Recibe tu pedido directamente en el lugar de tu evento. Entrega gratis a partir de $2,000 de compra.</p>
+</div>
+<div class="bg-white rounded-3xl p-8 text-center shadow-lg hover-scale">
+<div class="text-5xl mb-4">💳</div>
+<h3 class="font-pacifico text-2xl text-violette mb-3">Formas de pago</h3>
+<p class="font-poppins text-sm text-gray-600 leading-relaxed">Aceptamos tarjeta de credito/debito, transferencia bancaria o efectivo. Como prefieras.</p>
+</div>
+<div class="bg-white rounded-3xl p-8 text-center shadow-lg hover-scale">
+<div class="text-5xl mb-4">🎨</div>
+<h3 class="font-pacifico text-2xl text-violette mb-3">Personalizacion</h3>
+<p class="font-poppins text-sm text-gray-600 leading-relaxed">Decoramos tu pastel segun tus gustos. Dinos tu idea y lo hacemos realidad para tu evento especial.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 px-6 bg-white" id="contacto">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-start">
+<div>
+<h2 class="font-pacifico text-5xl text-violette mb-8">Haz tu pedido</h2>
+<p class="font-poppins text-gray-500 mb-10 leading-relaxed">Bienvenido a Violette Reposteria Gourmet. No dudes en llevar unas de nuestras especialidades.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-blush rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-lg">📍</span>
+</div>
+<div>
+<p class="font-poppins font-semibold text-sm">Direccion</p>
+<p class="font-poppins text-sm text-gray-500">Calle 10 Oriente #201, San Andres Cholula, Puebla.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-blush rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-lg">📞</span>
+</div>
+<div>
+<p class="font-poppins font-semibold text-sm">Telefono</p>
+<a href="tel:2224290351" class="font-poppins text-sm text-violette hover:underline">22 24 29 03 51</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-blush rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-lg">✉️</span>
+</div>
+<div>
+<p class="font-poppins font-semibold text-sm">Email</p>
+<a href="mailto:contacto@violette.com.mx" class="font-poppins text-sm text-violette hover:underline">contacto@violette.com.mx</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-blush rounded-full flex items-center justify-center flex-shrink-0">
+<span class="text-lg">🕐</span>
+</div>
+<div>
+<p class="font-poppins font-semibold text-sm">Horarios</p>
+<div class="font-poppins text-sm text-gray-500 space-y-1">
+<p>Miercoles a Domingo: 13:00 - 20:00</p>
+<p class="text-red-400">Lunes y Martes: Cerrado</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-blush rounded-3xl p-10">
+<h3 class="font-pacifico text-3xl text-violette mb-6">Cuéntanos tu pedido</h3>
+<form class="space-y-6">
+<div>
+<label class="font-poppins text-xs uppercase tracking-widest block mb-2 text-gray-400">Nombre</label>
+<input class="w-full bg-white rounded-2xl border-0 focus:ring-2 focus:ring-violette text-sm font-poppins p-4" type="text"/>
+</div>
+<div>
+<label class="font-poppins text-xs uppercase tracking-widest block mb-2 text-gray-400">Telefono o WhatsApp</label>
+<input class="w-full bg-white rounded-2xl border-0 focus:ring-2 focus:ring-violette text-sm font-poppins p-4" type="tel"/>
+</div>
+<div>
+<label class="font-poppins text-xs uppercase tracking-widest block mb-2 text-gray-400">Que deseas pedir?</label>
+<textarea class="w-full bg-white rounded-2xl border-0 focus:ring-2 focus:ring-violette text-sm font-poppins p-4 resize-none" rows="4"></textarea>
+</div>
+<button class="w-full bg-violette text-white font-poppins font-bold py-4 rounded-full hover:bg-violette-dark transition-all hover:scale-105" type="submit">
+    Enviar pedido
+</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white border-t-8 border-violette pt-16 pb-10 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-pacifico text-3xl text-violette">Violette</div>
+<div class="font-poppins text-sm text-gray-400 text-center">
+    Calle 10 Oriente #201, San Andres Cholula, Puebla · 22 24 29 03 51
+</div>
+<div class="font-poppins text-sm text-gray-400">
+    2025 Violette Reposteria Gourmet.
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-110 transition-transform" href="https://wa.me/522224290351">
+<span class="font-poppins font-bold bg-violette px-4 py-2 rounded-full text-xs">Hacer pedido 🎂</span>
+<svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.589.943 3.147 1.44 5.033 1.441 5.482.002 9.944-4.461 9.947-9.945.002-2.657-1.032-5.155-2.908-7.03s-4.375-2.912-7.033-2.913c-5.483 0-9.944 4.461-9.947 9.945 0 2.017.511 3.93 1.489 5.669l-1.106 4.037 4.125-1.082zm10.929-3.981c-.273-.137-1.613-.795-1.863-.886-.25-.091-.432-.137-.613.137-.182.273-.705.886-.864 1.068-.159.182-.318.205-.591.068-.273-.137-1.15-.424-2.191-1.353-.808-.721-1.353-1.611-1.512-1.884-.159-.273-.017-.42.12-.556.123-.122.273-.318.409-.477.137-.159.182-.273.273-.454.091-.182.045-.341-.023-.477-.068-.137-.613-1.477-.841-2.023-.222-.534-.447-.461-.613-.469-.159-.008-.341-.01-.523-.01-.182 0-.477.068-.727.341s-.954.932-.954 2.273c0 1.341.977 2.636 1.114 2.818.137.182 1.92 2.932 4.653 4.113.65.28 1.157.448 1.551.573.653.208 1.247.178 1.716.108.523-.078 1.613-.659 1.841-1.295.227-.636.227-1.182.159-1.295-.068-.113-.25-.182-.523-.318z"></path></svg>
+</a>
+</body></html>
