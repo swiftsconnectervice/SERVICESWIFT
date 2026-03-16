@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Margu Casa Gourmet · Puebla</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'charcoal':  '#2a2a2a',
+          'charcoal2': '#1e1e1e',
+          'rose':      '#d4607a',
+          'rose-light':'#e8899a',
+          'rose-pale': '#f5dde3',
+          'warm':      '#f9f5f2',
+          'warm-dark': '#ede8e3',
+          'gold':      '#c9a96e',
+        },
+        fontFamily: {
+          'script': ['Dancing Script', 'cursive'],
+          'serif':  ['Cormorant Garamond', 'serif'],
+          'sans':   ['Montserrat', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .hover-scale { transition: transform 0.3s ease; }
+  .hover-scale:hover { transform: scale(1.03); }
+  /* Hero slider */
+  .slide { display: none; }
+  .slide.active { display: block; }
+  .hero-overlay { background: linear-gradient(to right, rgba(30,30,30,0.75) 40%, rgba(30,30,30,0.2)); }
+  .divider::before, .divider::after {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    background: #d4607a;
+    vertical-align: middle;
+    margin: 0 12px;
+  }
+</style>
+</head>
+<body class="bg-warm text-charcoal font-sans selection:bg-rose/20">
+
+<!-- Top bar -->
+<div class="bg-charcoal2 text-white/50 text-[11px] font-sans py-2 px-6 flex justify-between items-center">
+  <span class="tracking-widest uppercase">Empresa 100% Poblana · Desde 2011</span>
+  <div class="flex gap-5">
+    <a href="mailto:ventas@margu.com.mx" class="hover:text-rose-light transition-colors flex items-center gap-1">
+      <span class="material-symbols-outlined text-sm">mail</span> ventas@margu.com.mx
+    </a>
+    <a href="#sucursales" class="hover:text-rose-light transition-colors flex items-center gap-1">
+      <span class="material-symbols-outlined text-sm">location_on</span> Sucursales
+    </a>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 bg-charcoal/95 backdrop-blur-md px-8 py-4 flex justify-between items-center">
+  <div class="hidden md:flex gap-8 font-sans text-[11px] uppercase tracking-widest text-white/60">
+    <a href="#inicio" class="hover:text-rose-light transition-colors text-rose-light">Inicio</a>
+    <a href="#productos" class="hover:text-rose-light transition-colors">Productos</a>
+    <a href="#nosotros" class="hover:text-rose-light transition-colors">Acerca</a>
+  </div>
+  <!-- Logo centro -->
+  <div class="text-center mx-auto md:mx-0 absolute left-1/2 -translate-x-1/2">
+    <h1 class="font-script text-4xl text-white leading-none">Margú</h1>
+    <p class="font-sans text-[9px] uppercase tracking-[0.4em] text-white/50 mt-0.5">Casa Gourmet</p>
+  </div>
+  <div class="hidden md:flex gap-8 font-sans text-[11px] uppercase tracking-widest text-white/60">
+    <a href="#sucursales" class="hover:text-rose-light transition-colors">Sucursales</a>
+    <a href="#contacto" class="hover:text-rose-light transition-colors">Contacto</a>
+    <div class="flex gap-3 items-center ml-2">
+      <!-- Instagram -->
+      <a href="#" class="w-7 h-7 border border-white/20 rounded-full flex items-center justify-center hover:border-rose-light transition-colors">
+        <svg class="w-3.5 h-3.5 fill-white/60 hover:fill-rose-light" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <!-- Facebook -->
+      <a href="#" class="w-7 h-7 border border-white/20 rounded-full flex items-center justify-center hover:border-rose-light transition-colors">
+        <svg class="w-3.5 h-3.5 fill-white/60" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero con slider -->
+<section class="relative h-screen overflow-hidden" id="inicio">
+  <!-- Slide 1 -->
+  <div class="slide active absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Pastel Red Velvet"/>
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+  <!-- Slide 2 -->
+  <div class="slide absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Postres gourmet"/>
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+  <!-- Slide 3 -->
+  <div class="slide absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Pasteleria artesanal"/>
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+
+  <!-- Contenido hero -->
+  <div class="relative z-10 h-full flex items-center px-12 md:px-24">
+    <div class="max-w-xl">
+      <p class="font-sans text-rose-light text-[11px] uppercase tracking-[0.5em] mb-6">Puebla · Desde 2011</p>
+      <h2 class="font-serif text-6xl md:text-7xl text-white font-light italic leading-tight mb-6">
+        Mas que antojo<br/>de ocasion.
+      </h2>
+      <p class="font-sans text-white/70 text-sm font-light leading-relaxed mb-10 max-w-sm">
+        Dulzuras para enamorarse y festejar. Pasteles y postres artesanales para cualquier tipo de evento.
+      </p>
+      <div class="flex gap-4">
+        <a href="#productos" class="bg-rose hover:bg-rose-light text-white font-sans text-[11px] uppercase tracking-[0.3em] px-10 py-4 transition-all hover:scale-105 inline-block">
+          Ver Productos
+        </a>
+        <a href="#contacto" class="border border-white/40 text-white hover:border-rose-light font-sans text-[11px] uppercase tracking-[0.3em] px-10 py-4 transition-all inline-block">
+          Hacer Pedido
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles slider -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+    <button onclick="goSlide(0)" class="dot w-2 h-2 rounded-full bg-white/40 hover:bg-rose transition-all" data-index="0"></button>
+    <button onclick="goSlide(1)" class="dot w-2 h-2 rounded-full bg-white/40 hover:bg-rose transition-all" data-index="1"></button>
+    <button onclick="goSlide(2)" class="dot w-2 h-2 rounded-full bg-white/40 hover:bg-rose transition-all" data-index="2"></button>
+  </div>
+  <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/30 text-white/60 hover:border-rose-light hover:text-rose-light flex items-center justify-center transition-all">
+    <span class="material-symbols-outlined text-lg">chevron_left</span>
+  </button>
+  <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/30 text-white/60 hover:border-rose-light hover:text-rose-light flex items-center justify-center transition-all">
+    <span class="material-symbols-outlined text-lg">chevron_right</span>
+  </button>
+
+  <!-- Numero slide -->
+  <div class="absolute bottom-8 left-12 z-20 font-sans text-white/30 text-xs">
+    <span id="slideNum" class="text-rose font-semibold text-2xl">01</span>
+    <span class="mx-2">/</span>03
+  </div>
+</section>
+
+<!-- Propuesta de valor -->
+<section class="py-20 bg-charcoal text-white">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+    <div>
+      <span class="material-symbols-outlined text-rose text-4xl mb-4 block">workspace_premium</span>
+      <h3 class="font-serif text-xl italic mb-3">Elaboracion Artesanal</h3>
+      <p class="font-sans text-sm text-white/50 font-light leading-relaxed">Ingredientes de primera calidad, sin conservadores. Cada pieza preparada con dedicacion y tecnica.</p>
+    </div>
+    <div>
+      <span class="material-symbols-outlined text-rose text-4xl mb-4 block">local_shipping</span>
+      <h3 class="font-serif text-xl italic mb-3">Entrega a Domicilio</h3>
+      <p class="font-sans text-sm text-white/50 font-light leading-relaxed">Llevamos tu pedido directamente al lugar de tu evento. Comodidad y puntualidad garantizadas.</p>
+    </div>
+    <div>
+      <span class="material-symbols-outlined text-rose text-4xl mb-4 block">cake</span>
+      <h3 class="font-serif text-xl italic mb-3">Pasteles Tematicos</h3>
+      <p class="font-sans text-sm text-white/50 font-light leading-relaxed">Disenamos tu pastel a medida: bodas, XV anos, cumpleanos, eventos corporativos y mas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Productos -->
+<section class="py-24 px-6 bg-warm" id="productos">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="divider font-sans text-[11px] uppercase tracking-[0.5em] text-rose">Nuestro Catalogo</p>
+      <h2 class="font-serif text-5xl italic text-charcoal mt-4">Dulzuras para cada momento</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Red Velvet -->
+      <div class="group bg-white hover-scale shadow-sm overflow-hidden">
+        <div class="h-64 overflow-hidden relative">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=600&q=80&fit=crop" alt="Red Velvet"/>
+          <div class="absolute top-4 left-4 bg-rose text-white font-sans text-[10px] uppercase tracking-widest px-3 py-1">Favorito</div>
+        </div>
+        <div class="p-6 border-t-2 border-rose">
+          <h3 class="font-serif text-2xl italic text-charcoal mb-2">Red Velvet</h3>
+          <p class="font-sans text-xs text-charcoal/50 font-light leading-relaxed">Terciopelo rojo con frosting de queso crema. Suave, humedo y elegante.</p>
+        </div>
+      </div>
+      <!-- Ferrero -->
+      <div class="group bg-white hover-scale shadow-sm overflow-hidden">
+        <div class="h-64 overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80&fit=crop" alt="Ferrero"/>
+        </div>
+        <div class="p-6 border-t-2 border-gold">
+          <h3 class="font-serif text-2xl italic text-charcoal mb-2">Ferrero</h3>
+          <p class="font-sans text-xs text-charcoal/50 font-light leading-relaxed">Chocolate, avellanas y crema de nutella. Decorado con bombones Ferrero Rocher.</p>
+        </div>
+      </div>
+      <!-- Tres Leches -->
+      <div class="group bg-white hover-scale shadow-sm overflow-hidden">
+        <div class="h-64 overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80&fit=crop" alt="Tres Leches"/>
+        </div>
+        <div class="p-6 border-t-2 border-rose">
+          <h3 class="font-serif text-2xl italic text-charcoal mb-2">Tres Leches</h3>
+          <p class="font-sans text-xs text-charcoal/50 font-light leading-relaxed">Bizcocho empapado en tres tipos de leche, cubierto con crema batida y canela.</p>
+        </div>
+      </div>
+      <!-- Milky Way -->
+      <div class="group bg-white hover-scale shadow-sm overflow-hidden">
+        <div class="h-64 overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&fit=crop" alt="Milky Way"/>
+        </div>
+        <div class="p-6 border-t-2 border-gold">
+          <h3 class="font-serif text-2xl italic text-charcoal mb-2">Milky Way</h3>
+          <p class="font-sans text-xs text-charcoal/50 font-light leading-relaxed">Caramelo, chocolate y nougat. Una experiencia dulce e irresistible.</p>
+        </div>
+      </div>
+      <!-- Tarta de Platano -->
+      <div class="group bg-white hover-scale shadow-sm overflow-hidden">
+        <div class="h-64 overflow-hidden">
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&fit=crop" alt="Tarta de Platano"/>
+        </div>
+        <div class="p-6 border-t-2 border-rose">
+          <h3 class="font-serif text-2xl italic text-charcoal mb-2">Tarta de Platano</h3>
+          <p class="font-sans text-xs text-charcoal/50 font-light leading-relaxed">Base crujiente, crema de platano y caramelo. Fresca y delicada.</p>
+        </div>
+      </div>
+      <!-- Pedido especial -->
+      <div class="group bg-charcoal hover-scale shadow-sm overflow-hidden flex flex-col justify-between">
+        <div class="p-10 flex-1 flex flex-col items-center justify-center text-center">
+          <span class="material-symbols-outlined text-rose text-5xl mb-6">star</span>
+          <h3 class="font-serif text-2xl italic text-white mb-3">Pasteles Tematicos</h3>
+          <p class="font-sans text-xs text-white/50 font-light leading-relaxed">Disenamos el pastel de tus suenos. Cualquier tema, tamano y sabor. Consultanos.</p>
+        </div>
+        <a href="#contacto" class="bg-rose text-white font-sans text-[11px] uppercase tracking-widest text-center py-4 hover:bg-rose-light transition-colors block">
+          Solicitar cotizacion
+        </a>
+      </div>
+    </div>
+    <!-- Otros productos -->
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <div class="bg-warm-dark p-6 text-center border border-rose/10 hover:border-rose/30 transition-all">
+        <span class="material-symbols-outlined text-rose text-3xl mb-3 block">cookie</span>
+        <h4 class="font-serif text-xl italic text-charcoal mb-2">Galletas Artesanales</h4>
+        <p class="font-sans text-xs text-charcoal/50 font-light">Decoradas a mano, perfectas para regalar o eventos.</p>
+      </div>
+      <div class="bg-warm-dark p-6 text-center border border-rose/10 hover:border-rose/30 transition-all">
+        <span class="material-symbols-outlined text-rose text-3xl mb-3 block">icecream</span>
+        <h4 class="font-serif text-xl italic text-charcoal mb-2">Gelatinas Gourmet</h4>
+        <p class="font-sans text-xs text-charcoal/50 font-light">Maracuya con mango y otras combinaciones tropicales.</p>
+      </div>
+      <div class="bg-warm-dark p-6 text-center border border-rose/10 hover:border-rose/30 transition-all">
+        <span class="material-symbols-outlined text-rose text-3xl mb-3 block">cake</span>
+        <h4 class="font-serif text-xl italic text-charcoal mb-2">Panque de Limon</h4>
+        <p class="font-sans text-xs text-charcoal/50 font-light">Esponjoso, con glaseado de limon y ralladura fresca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nosotros -->
+<section class="py-24 bg-warm-dark px-6" id="nosotros">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+    <div class="relative">
+      <img class="w-full aspect-square object-cover shadow-2xl" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80&fit=crop" alt="Margu taller"/>
+      <div class="absolute -bottom-6 -right-6 bg-rose text-white p-8 text-center hidden md:block">
+        <span class="font-serif text-5xl italic block">14</span>
+        <p class="font-sans text-[10px] uppercase tracking-widest mt-1 opacity-80">Anos en Puebla</p>
+      </div>
+    </div>
+    <div>
+      <p class="font-sans text-rose text-[11px] uppercase tracking-[0.5em] mb-4">Quienes somos</p>
+      <h2 class="font-serif text-5xl italic text-charcoal mb-8 leading-tight">Empresa 100%<br/>poblana</h2>
+      <div class="space-y-5 font-sans text-sm text-charcoal/60 font-light leading-relaxed">
+        <p>Margu Casa Gourmet abrio sus puertas en febrero de 2011 con una sola mision: enamorar paladares con dulzuras artesanales de primera calidad.</p>
+        <p>Cada postre que sale de nuestra cocina lleva ingredientes seleccionados, sin conservadores ni atajos. Conservamos el sabor, la frescura y la fineza que nos distingue desde el primer dia.</p>
+        <p>Hoy contamos con varias sucursales en Puebla y seguimos creciendo gracias a la confianza de nuestros clientes.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-charcoal/10">
+        <div class="text-center">
+          <span class="material-symbols-outlined text-rose text-3xl mb-2 block">eco</span>
+          <p class="font-sans text-[10px] uppercase tracking-widest text-charcoal/40">Sin conservadores</p>
+        </div>
+        <div class="text-center">
+          <span class="material-symbols-outlined text-rose text-3xl mb-2 block">handshake</span>
+          <p class="font-sans text-[10px] uppercase tracking-widest text-charcoal/40">Empresa local</p>
+        </div>
+        <div class="text-center">
+          <span class="material-symbols-outlined text-rose text-3xl mb-2 block">workspace_premium</span>
+          <p class="font-sans text-[10px] uppercase tracking-widest text-charcoal/40">Calidad premium</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section class="py-20 bg-charcoal px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="divider font-sans text-[11px] uppercase tracking-[0.5em] text-rose">Lo que dicen nuestros clientes</p>
+      <h2 class="font-serif text-4xl italic text-white mt-4">Testimonios</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-charcoal2 p-8 border-t-2 border-rose">
+        <div class="flex gap-1 mb-4">
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+        </div>
+        <p class="font-sans text-sm text-white/60 font-light leading-relaxed italic">"El pastel tematico que pedimos para la boda fue espectacular. Los ingredientes se notaban de primera calidad y el sabor era increible."</p>
+        <p class="font-sans text-[11px] text-rose mt-5 uppercase tracking-widest">— Ana L.</p>
+      </div>
+      <div class="bg-charcoal2 p-8 border-t-2 border-gold">
+        <div class="flex gap-1 mb-4">
+          <span class="material-symbols-outlined text-gold text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-gold text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-gold text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-gold text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-gold text-sm" style="font-variation-settings:'FILL' 1">star</span>
+        </div>
+        <p class="font-sans text-sm text-white/60 font-light leading-relaxed italic">"La relacion calidad-precio no tiene competencia. El Red Velvet es mi favorito, siempre lo pido para mis cumpleanos."</p>
+        <p class="font-sans text-[11px] text-gold mt-5 uppercase tracking-widest">— Carlos M.</p>
+      </div>
+      <div class="bg-charcoal2 p-8 border-t-2 border-rose">
+        <div class="flex gap-1 mb-4">
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+          <span class="material-symbols-outlined text-rose text-sm" style="font-variation-settings:'FILL' 1">star</span>
+        </div>
+        <p class="font-sans text-sm text-white/60 font-light leading-relaxed italic">"Entrega puntual y el pastel llego perfecto. La elaboracion artesanal se nota desde el primer bocado. Super recomendado."</p>
+        <p class="font-sans text-[11px] text-rose mt-5 uppercase tracking-widest">— Sofia R.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sucursales -->
+<section class="py-24 px-6 bg-warm" id="sucursales">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="divider font-sans text-[11px] uppercase tracking-[0.5em] text-rose">Encuentranos</p>
+      <h2 class="font-serif text-4xl italic text-charcoal mt-4">Nuestras Sucursales</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white p-8 border border-rose/10 hover:border-rose/40 transition-all">
+        <p class="font-sans text-[11px] uppercase tracking-widest text-rose mb-4">Sucursal Centro</p>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-rose text-xl mt-0.5">location_on</span>
+            <p class="font-sans text-sm text-charcoal/60 font-light">Calle 5 de Mayo #210, Centro Historico<br/>Puebla de Zaragoza, Pue.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-rose text-xl mt-0.5">schedule</span>
+            <p class="font-sans text-sm text-charcoal/60 font-light">Lunes a Sabado: 10:00 – 20:00<br/>Domingos: 11:00 – 18:00</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-rose text-xl mt-0.5">call</span>
+            <p class="font-sans text-sm text-charcoal/60 font-light">222 000 0001</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-8 border border-rose/10 hover:border-rose/40 transition-all">
+        <p class="font-sans text-[11px] uppercase tracking-widest text-rose mb-4">Sucursal Angelopolis</p>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-rose text-xl mt-0.5">location_on</span>
+            <p class="font-sans text-sm text-charcoal/60 font-light">Blvrd. del Niño Poblano #2510, Reserva Territorial<br/>San Andres Cholula, Pue.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-rose text-xl mt-0.5">schedule</span>
+            <p class="font-sans text-sm text-charcoal/60 font-light">Lunes a Sabado: 10:00 – 21:00<br/>Domingos: 11:00 – 19:00</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-rose text-xl mt-0.5">call</span>
+            <p class="font-sans text-sm text-charcoal/60 font-light">222 000 0002</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 px-6 bg-warm-dark" id="contacto">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+    <div>
+      <p class="font-sans text-rose text-[11px] uppercase tracking-[0.5em] mb-4">Escribenos</p>
+      <h2 class="font-serif text-4xl italic text-charcoal mb-8">Haz tu pedido</h2>
+      <p class="font-sans text-sm text-charcoal/50 font-light leading-relaxed mb-8">Contactanos con al menos 48 horas de anticipacion para pedidos especiales y pasteles tematicos.</p>
+      <div class="space-y-5">
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-rose text-2xl">mail</span>
+          <p class="font-sans text-sm text-charcoal/60 font-light">ventas@margu.com.mx</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-rose text-2xl">call</span>
+          <p class="font-sans text-sm text-charcoal/60 font-light">222 000 0000</p>
+        </div>
+      </div>
+      <a href="https://wa.me/522220000000" target="_blank" class="inline-flex items-center gap-3 bg-[#25d366] text-white font-sans text-[11px] uppercase tracking-widest px-8 py-4 hover:bg-green-600 transition-all hover:scale-105 mt-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir por WhatsApp
+      </a>
+    </div>
+    <form class="space-y-5" onsubmit="return false;">
+      <div>
+        <label class="font-sans text-[11px] uppercase tracking-widest text-rose block mb-2">Nombre</label>
+        <input type="text" placeholder="Tu nombre" class="w-full border border-charcoal/10 bg-white px-4 py-3 font-sans text-sm text-charcoal focus:outline-none focus:border-rose transition-colors"/>
+      </div>
+      <div>
+        <label class="font-sans text-[11px] uppercase tracking-widest text-rose block mb-2">Telefono o correo</label>
+        <input type="text" placeholder="Para contactarte" class="w-full border border-charcoal/10 bg-white px-4 py-3 font-sans text-sm text-charcoal focus:outline-none focus:border-rose transition-colors"/>
+      </div>
+      <div>
+        <label class="font-sans text-[11px] uppercase tracking-widest text-rose block mb-2">Tipo de pedido</label>
+        <select class="w-full border border-charcoal/10 bg-white px-4 py-3 font-sans text-sm text-charcoal focus:outline-none focus:border-rose transition-colors">
+          <option>Pastel de celebracion</option>
+          <option>Pastel tematico</option>
+          <option>Tarta o panque</option>
+          <option>Galletas o postres</option>
+          <option>Pedido corporativo</option>
+        </select>
+      </div>
+      <div>
+        <label class="font-sans text-[11px] uppercase tracking-widest text-rose block mb-2">Mensaje</label>
+        <textarea rows="4" placeholder="Cuentanos sobre tu pedido: fecha, tamano, sabor, tema..." class="w-full border border-charcoal/10 bg-white px-4 py-3 font-sans text-sm text-charcoal focus:outline-none focus:border-rose transition-colors resize-none"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-rose text-white font-sans text-[11px] uppercase tracking-widest py-4 hover:bg-rose-light transition-all hover:scale-[1.02]">
+        Enviar solicitud
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-charcoal2 text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/10">
+      <div>
+        <h3 class="font-script text-4xl mb-2">Margú</h3>
+        <p class="font-sans text-[10px] uppercase tracking-[0.4em] text-rose mb-4">Casa Gourmet · Desde 2011</p>
+        <p class="font-sans text-sm text-white/40 font-light leading-relaxed">Empresa 100% poblana. Dulzuras artesanales para enamorarse y festejar.</p>
+        <div class="flex gap-3 mt-6">
+          <a href="#" class="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center hover:border-rose transition-colors">
+            <svg class="w-3.5 h-3.5 fill-white/50" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center hover:border-rose transition-colors">
+            <svg class="w-3.5 h-3.5 fill-white/50" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="font-sans text-[11px] uppercase tracking-widest text-rose mb-6">Navegacion</p>
+        <ul class="space-y-3 font-sans text-sm text-white/40 font-light">
+          <li><a href="#inicio" class="hover:text-rose transition-colors">Inicio</a></li>
+          <li><a href="#productos" class="hover:text-rose transition-colors">Productos</a></li>
+          <li><a href="#nosotros" class="hover:text-rose transition-colors">Acerca</a></li>
+          <li><a href="#sucursales" class="hover:text-rose transition-colors">Sucursales</a></li>
+          <li><a href="#contacto" class="hover:text-rose transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-sans text-[11px] uppercase tracking-widest text-rose mb-6">Contacto</p>
+        <ul class="space-y-3 font-sans text-sm text-white/40 font-light">
+          <li>ventas@margu.com.mx</li>
+          <li>222 000 0000</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-sans text-xs text-white/20">© 2025 Margu Casa Gourmet. Todos los derechos reservados.</p>
+      <p class="font-sans text-xs text-white/20 italic">Sitio web por <span class="text-rose">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/522220000000" target="_blank" aria-label="Contactar por WhatsApp"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const nums = ['01','02','03'];
+
+  function goSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('bg-rose');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('bg-rose');
+    document.getElementById('slideNum').textContent = nums[current];
+  }
+  function nextSlide() { goSlide((current + 1) % slides.length); }
+  function prevSlide() { goSlide((current - 1 + slides.length) % slides.length); }
+
+  // Auto-advance cada 5s
+  setInterval(nextSlide, 5000);
+  // Activar primer dot
+  dots[0].classList.add('bg-rose');
+</script>
+</body>
+</html>
