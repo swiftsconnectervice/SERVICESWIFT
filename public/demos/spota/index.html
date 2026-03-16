@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0040cc",
+                        "primary-dark": "#000b70",
+                        "primary-light": "#1e73be",
+                        "background-light": "#f0f4ff",
+                        "background-dark": "#000b70",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .fine-divider { height: 0.5px; background-color: #0040cc; opacity: 0.3; }
+        .text-balanced { text-wrap: balance; }
+    </style>
+</head>
+<body class="bg-white text-[#0a0a2e] font-display selection:bg-primary/20">
+
+<!-- Top Navigation -->
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-primary/10 shadow-sm">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">dentistry</span>
+<div>
+<h1 class="font-serif text-lg tracking-widest uppercase text-primary-dark leading-tight">Clinicas Dentales Spota</h1>
+<p class="text-[9px] uppercase tracking-[0.3em] text-primary-light">Puebla y Cholula</p>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-10 text-[11px] uppercase tracking-[0.2em] font-medium">
+<a class="hover:text-primary transition-colors" href="#quienes">Quienes Somos</a>
+<a class="hover:text-primary transition-colors" href="#servicios">Servicios</a>
+<a class="hover:text-primary transition-colors" href="#testimonios">Testimonios</a>
+<a class="hover:text-primary transition-colors" href="#contacto">Contacto</a>
+</div>
+<a href="tel:2227032561" class="bg-primary text-white px-6 py-2.5 text-[11px] uppercase tracking-widest hover:bg-primary-dark transition-all duration-300">
+    Haz tu Cita
+</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="relative h-[90vh] w-full overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-primary-dark/60 z-10"></div>
+<img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80&fit=crop" alt="Clinicas Dentales Spota Puebla"/>
+</div>
+<div class="relative z-20 text-center text-white px-6 max-w-4xl">
+<div class="inline-flex items-center gap-2 bg-primary/80 px-4 py-2 mb-6 text-[10px] uppercase tracking-[0.3em]">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+    Dentistas en Puebla y Cholula
+</div>
+<h1 class="font-serif text-5xl md:text-7xl mb-6 text-balanced italic">Clinicas Dentales Spota</h1>
+<div class="flex items-center justify-center gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star_half</span>
+<span class="text-sm font-light ml-2 opacity-90">4.7 estrellas · 54 resenas en Google</span>
+</div>
+<p class="text-lg font-light tracking-wide mb-10 max-w-2xl mx-auto text-balanced opacity-90">
+    Servicio integral en odontologia y estetica dental con los mas altos estandares de calidad profesional.
+</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="tel:2227032561" class="bg-primary hover:bg-primary-dark text-white px-10 py-4 text-xs uppercase tracking-[0.3em] font-bold transition-all duration-300 inline-block">
+    Haz tu Cita
+</a>
+<a href="https://wa.me/522227032561" class="border border-white text-white hover:bg-white hover:text-primary-dark px-10 py-4 text-xs uppercase tracking-[0.3em] font-bold transition-all duration-300 inline-block">
+    WhatsApp
+</a>
+</div>
+</div>
+</section>
+
+<!-- Quienes Somos -->
+<section class="py-32 px-6 max-w-7xl mx-auto" id="quienes">
+<div class="text-center mb-24">
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Nuestra Historia</span>
+<h2 class="font-serif text-4xl italic">Quienes Somos</h2>
+<div class="fine-divider w-24 mx-auto mt-8"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-16">
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-4xl font-light mb-6 block">groups</span>
+<h3 class="font-serif text-2xl mb-4 italic">Equipo Especializado</h3>
+<p class="text-sm leading-relaxed text-[#555] font-light max-w-xs mx-auto">
+    Un grupo de reconocidos dentistas, generales y especialistas, solidamente preparados que ofrecen un servicio integral en odontologia y estetica dental.
+</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-4xl font-light mb-6 block">biotech</span>
+<h3 class="font-serif text-2xl mb-4 italic">Actualizacion Constante</h3>
+<p class="text-sm leading-relaxed text-[#555] font-light max-w-xs mx-auto">
+    Nos actualizamos constantemente en nuevas tecnicas, materiales y tecnologia para aplicarla de forma eficaz en cada tratamiento.
+</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-4xl font-light mb-6 block">favorite</span>
+<h3 class="font-serif text-2xl mb-4 italic">Nuestra Mision</h3>
+<p class="text-sm leading-relaxed text-[#555] font-light max-w-xs mx-auto">
+    La salud del paciente, a traves de la prevencion, funcionalidad y estetica en nuestros tratamientos. Orientamos y aclaramos dudas antes de cualquier procedimiento.
+</p>
+</div>
+</div>
+</section>
+
+<!-- Servicios -->
+<section class="bg-background-light py-32 px-6" id="servicios">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Especialidades</span>
+<h2 class="font-serif text-4xl italic">Nuestros Servicios</h2>
+<div class="fine-divider w-24 mx-auto mt-8"></div>
+</div>
+<div class="grid md:grid-cols-4 gap-6">
+<div class="bg-white p-6 border-t-2 border-primary hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-2xl mb-3 block">light_mode</span>
+<h4 class="font-serif text-lg mb-1 italic">Blanqueamiento Dental</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Estetica</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-2xl mb-3 block">diamond</span>
+<h4 class="font-serif text-lg mb-1 italic">Carillas Dentales</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Cosmetica</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-2xl mb-3 block">sentiment_very_satisfied</span>
+<h4 class="font-serif text-lg mb-1 italic">Diseno de Sonrisa</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Estetica</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-2xl mb-3 block">auto_fix_high</span>
+<h4 class="font-serif text-lg mb-1 italic">Coronas y Resinas</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Restauracion</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary-light hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary-light text-2xl mb-3 block">clean_hands</span>
+<h4 class="font-serif text-lg mb-1 italic">Limpieza Dental</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Prevencion</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary-light hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary-light text-2xl mb-3 block">vaccines</span>
+<h4 class="font-serif text-lg mb-1 italic">Aplicacion de Fluor</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Prevencion</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary-light hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary-light text-2xl mb-3 block">shield</span>
+<h4 class="font-serif text-lg mb-1 italic">Selladores</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Prevencion</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary-dark hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary-dark text-2xl mb-3 block">surgical</span>
+<h4 class="font-serif text-lg mb-1 italic">Cirugia de Encias</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Cirugia</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary-dark hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary-dark text-2xl mb-3 block">pin_drop</span>
+<h4 class="font-serif text-lg mb-1 italic">Implantes Dentales</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Implantologia</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary-dark hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary-dark text-2xl mb-3 block">emergency</span>
+<h4 class="font-serif text-lg mb-1 italic">Muelas del Juicio</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Extraccion</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-2xl mb-3 block">straighten</span>
+<h4 class="font-serif text-lg mb-1 italic">Ortodoncia</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Correctivos</p>
+</div>
+<div class="bg-white p-6 border-t-2 border-primary hover:shadow-md transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-2xl mb-3 block">dentistry</span>
+<h4 class="font-serif text-lg mb-1 italic">Endodoncia</h4>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Especialidad</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Diferenciacion -->
+<section class="py-32 bg-white px-6">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<img class="w-full aspect-square object-cover shadow-2xl" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80&fit=crop" alt="Clinicas Dentales Spota equipo profesional"/>
+<div class="absolute -bottom-10 -right-10 bg-primary p-10 hidden lg:block">
+<p class="font-serif text-xl italic max-w-[180px] leading-snug text-white">
+    "Los mejores precios del mercado."
+</p>
+</div>
+</div>
+<div>
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Por que elegirnos</span>
+<h2 class="font-serif text-5xl mb-10 italic">Calidad al mejor precio</h2>
+<div class="space-y-8 text-sm text-[#444] font-light leading-relaxed">
+<p>Contamos con los mejores precios y mas economicos del mercado, sin comprometer la calidad de nuestros tratamientos ni la atencion que mereces.</p>
+<p>Atendemos pacientes en nuestras clinicas de Angelopolis y Centro de Puebla. Tambien recibimos pacientes internacionales — <em>Dental tourism in Mexico</em>.</p>
+<div class="fine-divider w-full"></div>
+<div class="flex gap-10">
+<div>
+<span class="block text-xl font-serif italic text-primary">4.7 ★</span>
+<span class="text-[10px] uppercase tracking-widest">54 resenas Google</span>
+</div>
+<div>
+<span class="block text-xl font-serif italic text-primary">2 Sedes</span>
+<span class="text-[10px] uppercase tracking-widest">Angelopolis y Centro</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonios -->
+<section class="py-32 px-6 bg-background-light" id="testimonios">
+<div class="max-w-7xl mx-auto text-center mb-20">
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Lo que dicen nuestros pacientes</span>
+<h2 class="font-serif text-4xl italic">Testimonios</h2>
+<div class="flex items-center justify-center gap-1 mt-4">
+<span class="material-symbols-outlined text-yellow-500 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-xl">star_half</span>
+<span class="text-sm text-[#555] ml-2">4.7 / 5 en Google</span>
+</div>
+</div>
+<div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+<div class="bg-white p-8 border border-primary/10">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+</div>
+<p class="text-sm font-light text-[#444] leading-relaxed italic mb-4">
+    "Excelente atencion, muy profesionales y eticos. El tratamiento fue completamente sin dolor, lo recomiendo ampliamente."
+</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">Paciente verificado</p>
+</div>
+<div class="bg-white p-8 border border-primary/10">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+</div>
+<p class="text-sm font-light text-[#444] leading-relaxed italic mb-4">
+    "Me hicieron carillas y quedaron increiblemente naturales. No se nota que son artificiales, estoy muy contenta con el resultado."
+</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">Paciente verificado</p>
+</div>
+<div class="bg-white p-8 border border-primary/10">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-500 text-sm">star_half</span>
+</div>
+<p class="text-sm font-light text-[#444] leading-relaxed italic mb-4">
+    "La extraccion fue rapida y sin dolor. El doctor me explico todo antes del procedimiento, muy transparentes y profesionales."
+</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">Paciente verificado</p>
+</div>
+</div>
+</section>
+
+<!-- Contacto -->
+<section class="py-32 bg-white px-6 border-t border-primary/10" id="contacto">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32">
+<div>
+<h2 class="font-serif text-5xl italic mb-12">Haz tu Cita</h2>
+<div class="space-y-10">
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-4">Ubicaciones</h4>
+<div class="text-sm font-light text-[#444] leading-relaxed space-y-2">
+<p>Angelopolis, Puebla</p>
+<p>Centro de Puebla</p>
+</div>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-4">Telefono</h4>
+<a class="text-2xl font-serif italic hover:text-primary transition-colors flex items-center gap-2" href="tel:2227032561">
+<span class="material-symbols-outlined text-sm">call</span>
+    222 703 2561
+</a>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-4">WhatsApp</h4>
+<a class="text-sm font-light text-[#444] hover:text-primary transition-colors flex items-center gap-2" href="https://wa.me/522227032561">
+<span class="material-symbols-outlined text-sm">chat</span>
+    Escribenos por WhatsApp
+</a>
+</div>
+<div class="bg-primary p-8 text-white">
+<p class="text-[10px] uppercase tracking-[0.3em] mb-2 opacity-70">Turismo Dental</p>
+<p class="font-serif text-xl italic">Dental tourism in Mexico</p>
+<p class="text-sm font-light mt-2 opacity-80">We welcome international patients. Best prices in Mexico.</p>
+</div>
+</div>
+</div>
+<div class="bg-background-light p-12 border border-primary/10">
+<h3 class="font-serif text-2xl italic mb-8">Agenda tu Consulta</h3>
+<form class="space-y-8">
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Nombre Completo</label>
+<input class="w-full bg-transparent border-0 border-b border-[#ccc] focus:border-primary focus:ring-0 text-sm font-light py-2" type="text"/>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Telefono o WhatsApp</label>
+<input class="w-full bg-transparent border-0 border-b border-[#ccc] focus:border-primary focus:ring-0 text-sm font-light py-2" type="tel"/>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Servicio de interes</label>
+<input class="w-full bg-transparent border-0 border-b border-[#ccc] focus:border-primary focus:ring-0 text-sm font-light py-2" type="text"/>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Mensaje</label>
+<textarea class="w-full bg-transparent border-0 border-b border-[#ccc] focus:border-primary focus:ring-0 text-sm font-light py-2 resize-none" rows="3"></textarea>
+</div>
+<button class="w-full bg-primary text-white text-[11px] uppercase tracking-[0.4em] py-5 font-bold hover:bg-primary-dark transition-all duration-500" type="submit">
+    Haz tu Cita
+</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 px-6 bg-primary-dark text-white">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-2xl opacity-70">dentistry</span>
+<div>
+<h1 class="font-serif text-sm tracking-widest uppercase">Clinicas Dentales Spota</h1>
+<p class="text-[9px] uppercase tracking-[0.3em] opacity-50 mt-0.5">Puebla y Cholula</p>
+</div>
+</div>
+<div class="flex gap-8 text-[10px] uppercase tracking-widest opacity-50">
+<a href="tel:2227032561">222 703 2561</a>
+<a href="https://wa.me/522227032561">WhatsApp</a>
+</div>
+<div class="text-[10px] uppercase tracking-widest opacity-40">
+    2025 Clinicas Dentales Spota. Todos los derechos reservados.
+</div>
+</div>
+</footer>
+</body></html>
