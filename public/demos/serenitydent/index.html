@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0abfbc",
+                        "primary-dark": "#088a88",
+                        "accent": "#7c3aed",
+                        "background-light": "#f0fffe",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .fine-divider { height: 0.5px; background-color: #0abfbc; opacity: 0.4; }
+        .text-balanced { text-wrap: balance; }
+    </style>
+</head>
+<body class="bg-white text-[#1a1a2e] font-display selection:bg-primary/20">
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-primary/20 shadow-sm">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">dentistry</span>
+<div>
+<h1 class="font-serif text-xl tracking-wide text-[#1a1a2e] leading-tight"><span class="text-accent font-bold">Serenity</span><span class="text-primary font-bold">Dent</span></h1>
+<p class="text-[9px] uppercase tracking-[0.3em] text-primary-dark">San Andres Cholula, Puebla</p>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-10 text-[11px] uppercase tracking-[0.2em] font-medium">
+<a class="hover:text-primary transition-colors" href="#servicios">Servicios</a>
+<a class="hover:text-primary transition-colors" href="#diferenciadores">Nosotros</a>
+<a class="hover:text-primary transition-colors" href="#convenios">Convenios</a>
+<a class="hover:text-primary transition-colors" href="#testimonios">Clientes</a>
+<a class="hover:text-primary transition-colors" href="#contacto">Contacto</a>
+</div>
+<a href="tel:2213676937" class="bg-accent text-white px-6 py-2.5 text-[11px] uppercase tracking-widest hover:bg-purple-800 transition-all duration-300">
+    Reserva una Cita
+</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="relative min-h-[90vh] w-full overflow-hidden flex items-center">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
+<img class="w-full h-full object-cover object-top" src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=1600&q=80&fit=crop" alt="Serenity Dent clinica dental"/>
+</div>
+<div class="relative z-20 px-6 max-w-7xl mx-auto w-full">
+<div class="max-w-xl">
+<p class="text-primary font-medium text-sm mb-3">Nos encanta ver sonrisas felices.</p>
+<h1 class="font-serif text-5xl md:text-6xl mb-6 text-balanced leading-tight">
+    Por eso tu salud dental<br/>
+    <span class="italic text-primary">es nuestra prioridad.</span>
+</h1>
+<p class="text-base font-light text-[#444] mb-8 max-w-md leading-relaxed">
+    Brindamos atencion dental de alta calidad. Nuestro personal siempre esta en la mejor disposicion de atenderte y ayudarte en todo momento.
+</p>
+<div class="flex flex-wrap gap-4">
+<a href="#contacto" class="bg-accent text-white px-8 py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-purple-800 transition-all duration-300 inline-block">
+    Reserva una Cita
+</a>
+<a href="#servicios" class="border-2 border-primary text-primary px-8 py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all duration-300 inline-block">
+    Consulta nuestros Servicios
+</a>
+</div>
+<div class="flex items-center gap-2 mt-8">
+<div class="flex gap-0.5">
+<span class="material-symbols-outlined text-yellow-400 text-lg">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-lg">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-lg">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-lg">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-lg">star</span>
+</div>
+<span class="text-sm text-[#555] font-light">Mas de 100 calificaciones de 5 estrellas en Google</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Diferenciadores -->
+<section class="py-32 px-6 bg-background-light" id="diferenciadores">
+<div class="text-center mb-20">
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Por que elegirnos</span>
+<h2 class="font-serif text-4xl italic">Amables y Profesionales</h2>
+<div class="fine-divider w-24 mx-auto mt-6"></div>
+</div>
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+</div>
+<h3 class="font-serif text-xl mb-3 italic">Certificados</h3>
+<p class="text-sm leading-relaxed text-[#555] font-light">
+    Profesionistas certificados y especializados en el cuidado de tu salud dental.
+</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+</div>
+<h3 class="font-serif text-xl mb-3 italic">Altamente Capacitados</h3>
+<p class="text-sm leading-relaxed text-[#555] font-light">
+    Personal altamente capacitado y entrenado para brindarte la mejor atencion.
+</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
+<span class="material-symbols-outlined text-primary text-3xl">home_heart</span>
+</div>
+<h3 class="font-serif text-xl mb-3 italic">Como en Casa</h3>
+<p class="text-sm leading-relaxed text-[#555] font-light">
+    Ambiente calido y amigable. Siempre te atenderan y te haran sentir como en casa.
+</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
+<span class="material-symbols-outlined text-primary text-3xl">monitoring</span>
+</div>
+<h3 class="font-serif text-xl mb-3 italic">Control Personalizado</h3>
+<p class="text-sm leading-relaxed text-[#555] font-light">
+    Llevamos control y registro de tu salud dental en todo momento y siempre te mantendremos informado.
+</p>
+</div>
+</div>
+</section>
+
+<!-- Servicios -->
+<section class="py-32 px-6 bg-white" id="servicios">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Lo que ofrecemos</span>
+<h2 class="font-serif text-4xl italic">Nuestros Servicios</h2>
+<div class="fine-divider w-24 mx-auto mt-6"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Pilar 1 -->
+<div class="border border-primary/20 p-10 hover:border-primary transition-all duration-300 group">
+<div class="w-12 h-12 bg-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-white text-2xl">surgical</span>
+</div>
+<h3 class="font-serif text-2xl mb-4 italic">Cuidado Completo</h3>
+<div class="fine-divider w-full mb-6"></div>
+<ul class="space-y-3 text-sm text-[#555] font-light">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Endodoncia</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Cirugia</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Muelas del Juicio — Desde $2,600</li>
+</ul>
+</div>
+<!-- Pilar 2 -->
+<div class="border border-primary/20 p-10 hover:border-primary transition-all duration-300 group">
+<div class="w-12 h-12 bg-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-white text-2xl">clean_hands</span>
+</div>
+<h3 class="font-serif text-2xl mb-4 italic">Odontologia Preventiva</h3>
+<div class="fine-divider w-full mb-6"></div>
+<ul class="space-y-3 text-sm text-[#555] font-light">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Limpieza Dental</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Blanqueamiento</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Odontopediatria</li>
+</ul>
+</div>
+<!-- Pilar 3 -->
+<div class="border border-primary/20 p-10 hover:border-primary transition-all duration-300 group">
+<div class="w-12 h-12 bg-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-white text-2xl">auto_fix_high</span>
+</div>
+<h3 class="font-serif text-2xl mb-4 italic">Odontologia Restauradora</h3>
+<div class="fine-divider w-full mb-6"></div>
+<ul class="space-y-3 text-sm text-[#555] font-light">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Resinas Dentales</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Coronas Dentales</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span>Brackets y Ortodoncia</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Convenios -->
+<section class="py-32 px-6 bg-background-light" id="convenios">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+<div>
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Beneficios Especiales</span>
+<h2 class="font-serif text-5xl mb-8 italic">Nuestros Convenios</h2>
+<p class="text-sm text-[#444] font-light leading-relaxed mb-10">
+    Colaboradores y familiares de las siguientes empresas e instituciones tienen beneficios especiales en todos nuestros servicios.
+</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-white p-5 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-2xl">account_balance</span>
+<div>
+<p class="font-medium text-sm">Municipio de Puebla</p>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Gobierno</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white p-5 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-2xl">credit_card</span>
+<div>
+<p class="font-medium text-sm">Grupo Financiero Banorte</p>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Sector Financiero</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white p-5 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-2xl">storefront</span>
+<div>
+<p class="font-medium text-sm">Grupo Gran Bodega</p>
+<p class="text-[10px] uppercase tracking-widest text-[#888]">Retail</p>
+</div>
+</div>
+</div>
+<p class="text-xs text-[#888] mt-6">Para nuevas alianzas: <a href="mailto:alianzas@serenitydent.com.mx" class="text-primary hover:underline">alianzas@serenitydent.com.mx</a></p>
+</div>
+<div class="relative">
+<img class="w-full aspect-square object-cover shadow-xl" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80&fit=crop" alt="Equipo Serenity Dent"/>
+<div class="absolute -bottom-8 -left-8 bg-primary p-8 hidden lg:block">
+<p class="font-serif text-xl italic text-white max-w-[160px] leading-snug">
+    "Tu sonrisa, nuestra mision."
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonios -->
+<section class="py-32 px-6 bg-white" id="testimonios">
+<div class="max-w-7xl mx-auto text-center mb-20">
+<span class="text-primary text-[10px] uppercase tracking-[0.5em] mb-4 block">Nuestros Pacientes</span>
+<h2 class="font-serif text-4xl italic">Lo que dicen de nosotros</h2>
+<div class="flex items-center justify-center gap-1 mt-4">
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<span class="text-sm text-[#555] ml-2 font-light">Mas de 100 calificaciones de 5 estrellas en Google</span>
+</div>
+</div>
+<div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+<div class="bg-background-light p-8 border-l-4 border-primary">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+</div>
+<p class="text-sm font-light text-[#444] leading-relaxed italic mb-4">
+    "La limpieza fue muy detallada y el trato excelente. Me explicaron todo el proceso paso a paso. Super recomendado."
+</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">Paciente verificado</p>
+</div>
+<div class="bg-background-light p-8 border-l-4 border-primary">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+</div>
+<p class="text-sm font-light text-[#444] leading-relaxed italic mb-4">
+    "Muy profesionales y eticos. El servicio es increible, te hacen sentir muy comodo durante todo el procedimiento."
+</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">Paciente verificado</p>
+</div>
+<div class="bg-background-light p-8 border-l-4 border-primary">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+<span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
+</div>
+<p class="text-sm font-light text-[#444] leading-relaxed italic mb-4">
+    "Fui por una extraccion y no senti absolutamente nada. El ambiente es muy calido y el personal siempre amable."
+</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">Paciente verificado</p>
+</div>
+</div>
+</section>
+
+<!-- Contacto -->
+<section class="py-32 px-6 bg-background-light border-t border-primary/10" id="contacto">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32">
+<div>
+<h2 class="font-serif text-5xl italic mb-12">Contacto</h2>
+<div class="space-y-10">
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-3">Direccion</h4>
+<p class="text-sm font-light text-[#444] leading-relaxed">Blvrd. Atlixco 5001, Emiliano Zapata,<br/>72810 San Andres Cholula, Pue.</p>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-3">Horarios</h4>
+<div class="text-sm font-light text-[#444] space-y-1">
+<p>Lunes a Viernes: 9:00 am - 7:00 pm</p>
+<p>Sabados: 9:00 am - 5:00 pm</p>
+<p>Domingos: 9:00 am - 3:00 pm</p>
+</div>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-3">Telefono</h4>
+<a class="text-2xl font-serif italic hover:text-primary transition-colors flex items-center gap-2" href="tel:2213676937">
+<span class="material-symbols-outlined text-sm">call</span>221 367 6937
+</a>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-3">Email</h4>
+<a class="text-sm font-light text-[#444] hover:text-primary transition-colors" href="mailto:info@serenitydent.com.mx">info@serenitydent.com.mx</a>
+</div>
+</div>
+</div>
+<div class="bg-white p-12 shadow-sm border border-primary/10">
+<h3 class="font-serif text-2xl italic mb-2">Reserva tu Cita</h3>
+<p class="text-sm text-[#888] font-light mb-8">Te contactaremos a la brevedad.</p>
+<form class="space-y-8">
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Nombre Completo</label>
+<input class="w-full bg-transparent border-0 border-b border-[#ddd] focus:border-primary focus:ring-0 text-sm font-light py-2" type="text"/>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Telefono</label>
+<input class="w-full bg-transparent border-0 border-b border-[#ddd] focus:border-primary focus:ring-0 text-sm font-light py-2" type="tel"/>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Servicio de interes</label>
+<input class="w-full bg-transparent border-0 border-b border-[#ddd] focus:border-primary focus:ring-0 text-sm font-light py-2" type="text"/>
+</div>
+<div>
+<label class="text-[10px] uppercase tracking-[0.3em] block mb-2 opacity-50">Mensaje</label>
+<textarea class="w-full bg-transparent border-0 border-b border-[#ddd] focus:border-primary focus:ring-0 text-sm font-light py-2 resize-none" rows="3"></textarea>
+</div>
+<button class="w-full bg-accent text-white text-[11px] uppercase tracking-[0.4em] py-5 font-bold hover:bg-purple-800 transition-all duration-500" type="submit">
+    Reserva una Cita
+</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 px-6 bg-primary text-white">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-2xl opacity-80">dentistry</span>
+<div>
+<h1 class="font-serif text-sm tracking-widest uppercase">SerenityDent</h1>
+<p class="text-[9px] uppercase tracking-[0.3em] opacity-60 mt-0.5">San Andres Cholula, Puebla</p>
+</div>
+</div>
+<div class="flex gap-8 text-[10px] uppercase tracking-widest opacity-70">
+<a href="tel:2213676937" class="hover:opacity-100">221 367 6937</a>
+<a href="mailto:info@serenitydent.com.mx" class="hover:opacity-100">info@serenitydent.com.mx</a>
+</div>
+<div class="text-[10px] uppercase tracking-widest opacity-50">
+    2025 SerenityDent. Todos los derechos reservados.
+</div>
+</div>
+</footer>
+</body></html>
