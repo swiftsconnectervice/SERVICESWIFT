@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brown Caffeine Lab · Puebla</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#4a2c17",
+          "accent":  "#c9813a",
+          "bg-light": "#F7F3EC",
+          "bg-dark":  "#1c1510",
+        },
+        fontFamily: { "display": ["Work Sans", "sans-serif"] },
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: "Work Sans", sans-serif; }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+</style>
+</head>
+<body class="bg-bg-light text-slate-900">
+
+<!-- Header -->
+<header class="flex items-center justify-between px-6 md:px-20 py-5 sticky top-0 bg-bg-light/95 backdrop-blur-md z-50 border-b border-primary/8">
+  <div class="flex items-center gap-3">
+    <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
+      <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'wght' 300">coffee</span>
+    </div>
+    <div>
+      <h2 class="text-primary text-sm font-black tracking-tight uppercase leading-none">Brown Caffeine Lab</h2>
+      <p class="text-accent text-[9px] tracking-[0.3em] uppercase font-semibold">Puebla · Specialty Coffee</p>
+    </div>
+  </div>
+  <nav class="hidden md:flex items-center gap-10">
+    <a href="#menu" class="text-primary/60 hover:text-primary text-[11px] font-semibold tracking-widest uppercase transition-colors">Menu</a>
+    <a href="#metodos" class="text-primary/60 hover:text-primary text-[11px] font-semibold tracking-widest uppercase transition-colors">Metodos</a>
+    <a href="#espacio" class="text-primary/60 hover:text-primary text-[11px] font-semibold tracking-widest uppercase transition-colors">El Lab</a>
+    <a href="#cursos" class="text-primary/60 hover:text-primary text-[11px] font-semibold tracking-widest uppercase transition-colors">Cursos</a>
+    <a href="#contacto" class="text-primary/60 hover:text-primary text-[11px] font-semibold tracking-widest uppercase transition-colors">Contacto</a>
+  </nav>
+  <a href="#contacto" class="hidden md:flex items-center justify-center rounded-full h-10 px-6 bg-primary text-white text-[11px] font-bold uppercase tracking-widest hover:bg-primary/80 transition-all">
+    Visitar el Lab
+  </a>
+</header>
+
+<!-- Hero -->
+<section class="relative h-[88vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden grain">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 z-10"></div>
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Brown Caffeine Lab"/>
+  </div>
+  <div class="relative z-20 max-w-3xl flex flex-col gap-8 items-center">
+    <span class="text-accent text-[11px] font-bold tracking-[0.5em] uppercase">Specialty Coffee · Puebla</span>
+    <h1 class="text-white text-5xl md:text-7xl font-black leading-tight tracking-tight">
+      Ciencia, sabor<br/>y mucho cafe.
+    </h1>
+    <p class="text-white/80 text-lg font-light max-w-lg leading-relaxed">
+      Un laboratorio donde cada taza es un experimento de precision. Cafe de especialidad, metodos de extraccion y baristas apasionados.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 mt-2">
+      <a href="#menu" class="flex items-center justify-center rounded-full h-14 px-8 bg-white text-primary text-sm font-bold uppercase tracking-widest hover:bg-bg-light transition-all shadow-xl">
+        Ver el menu
+      </a>
+      <a href="#metodos" class="flex items-center justify-center rounded-full h-14 px-8 border-2 border-white text-white text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+        Nuestros metodos
+      </a>
+    </div>
+  </div>
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-50">
+    <span class="material-symbols-outlined text-white text-sm animate-bounce">keyboard_arrow_down</span>
+  </div>
+</section>
+
+<!-- Stats bar -->
+<div class="bg-primary text-white py-8 px-6 md:px-20">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div><span class="font-black text-3xl text-accent block">+40</span><p class="text-[10px] uppercase tracking-widest text-white/50 mt-1">Bebidas en menu</p></div>
+    <div><span class="font-black text-3xl text-accent block">6</span><p class="text-[10px] uppercase tracking-widest text-white/50 mt-1">Origenes de cafe</p></div>
+    <div><span class="font-black text-3xl text-accent block">4</span><p class="text-[10px] uppercase tracking-widest text-white/50 mt-1">Metodos de extraccion</p></div>
+    <div><span class="font-black text-3xl text-accent block">100%</span><p class="text-[10px] uppercase tracking-widest text-white/50 mt-1">Cafe de especialidad</p></div>
+  </div>
+</div>
+
+<!-- Menu -->
+<section class="py-24 px-6 md:px-20 bg-bg-light" id="menu">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col gap-2 mb-16">
+      <span class="text-accent text-[11px] font-bold tracking-[0.3em] uppercase">Lo que servimos</span>
+      <h2 class="text-primary text-4xl font-light">El Menu del Lab</h2>
+    </div>
+    <!-- Tabs de categoria -->
+    <div class="flex gap-2 mb-12 flex-wrap">
+      <button onclick="showCat('espresso')" id="tab-espresso" class="cat-tab rounded-full px-5 py-2 text-[11px] font-bold uppercase tracking-widest bg-primary text-white transition-all">Espresso</button>
+      <button onclick="showCat('filtrado')" id="tab-filtrado" class="cat-tab rounded-full px-5 py-2 text-[11px] font-bold uppercase tracking-widest bg-primary/10 text-primary hover:bg-primary/20 transition-all">Filtrado</button>
+      <button onclick="showCat('frio')" id="tab-frio" class="cat-tab rounded-full px-5 py-2 text-[11px] font-bold uppercase tracking-widest bg-primary/10 text-primary hover:bg-primary/20 transition-all">Frio</button>
+      <button onclick="showCat('food')" id="tab-food" class="cat-tab rounded-full px-5 py-2 text-[11px] font-bold uppercase tracking-widest bg-primary/10 text-primary hover:bg-primary/20 transition-all">Para comer</button>
+    </div>
+
+    <!-- Espresso -->
+    <div id="cat-espresso" class="cat-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all group">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-all">
+          <span class="material-symbols-outlined text-primary text-xl">coffee</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between items-start"><h3 class="font-bold text-primary">Espresso</h3><span class="text-accent font-bold text-sm">$45</span></div>
+          <p class="text-primary/50 text-xs font-light mt-1">Doble shot. Cuerpo intenso, crema densa y final largo.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all group">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-all">
+          <span class="material-symbols-outlined text-primary text-xl">local_cafe</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between items-start"><h3 class="font-bold text-primary">Cappuccino</h3><span class="text-accent font-bold text-sm">$65</span></div>
+          <p class="text-primary/50 text-xs font-light mt-1">Espresso con leche vaporizada y microespuma sedosa.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all group">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-all">
+          <span class="material-symbols-outlined text-primary text-xl">emoji_food_beverage</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between items-start"><h3 class="font-bold text-primary">Latte</h3><span class="text-accent font-bold text-sm">$70</span></div>
+          <p class="text-primary/50 text-xs font-light mt-1">Espresso suave con leche cremosa. Latte art incluido.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all group">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-all">
+          <span class="material-symbols-outlined text-primary text-xl">coffee</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between items-start"><h3 class="font-bold text-primary">Flat White</h3><span class="text-accent font-bold text-sm">$68</span></div>
+          <p class="text-primary/50 text-xs font-light mt-1">Doble ristretto con leche texturizada. Mas intenso que el latte.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all group">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-all">
+          <span class="material-symbols-outlined text-primary text-xl">local_cafe</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between items-start"><h3 class="font-bold text-primary">Cortado</h3><span class="text-accent font-bold text-sm">$55</span></div>
+          <p class="text-primary/50 text-xs font-light mt-1">Espresso cortado con igual parte de leche caliente.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-accent/5 border border-accent/20 hover:border-accent/50 transition-all group">
+        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-accent text-xl">star</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-between items-start"><h3 class="font-bold text-primary">Lab Signature</h3><span class="text-accent font-bold text-sm">$85</span></div>
+          <p class="text-primary/50 text-xs font-light mt-1">Espresso, leche de avena, cardamomo y miel de agave. Nuestra firma.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtrado -->
+    <div id="cat-filtrado" class="cat-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">coffee_maker</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">V60 Pour Over</h3><span class="text-accent font-bold text-sm">$75</span></div><p class="text-primary/50 text-xs font-light mt-1">Extraccion manual. Notas brillantes y acidez limpia.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">coffee_maker</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Chemex</h3><span class="text-accent font-bold text-sm">$80</span></div><p class="text-primary/50 text-xs font-light mt-1">Claridad excepcional. Cuerpo ligero y notas florales.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">coffee_maker</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">AeroPress</h3><span class="text-accent font-bold text-sm">$70</span></div><p class="text-primary/50 text-xs font-light mt-1">Cuerpo intenso y dulce. Metodo de inmersion rapida.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">coffee_maker</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">French Press</h3><span class="text-accent font-bold text-sm">$65</span></div><p class="text-primary/50 text-xs font-light mt-1">Inmersion completa. Cuerpo robusto y textura aterciopelada.</p></div>
+      </div>
+    </div>
+
+    <!-- Frio -->
+    <div id="cat-frio" class="cat-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">ac_unit</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Cold Brew</h3><span class="text-accent font-bold text-sm">$75</span></div><p class="text-primary/50 text-xs font-light mt-1">Extraccion en frio 18 horas. Suave, dulce y sin acidez.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">ac_unit</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Nitro Cold Brew</h3><span class="text-accent font-bold text-sm">$90</span></div><p class="text-primary/50 text-xs font-light mt-1">Cold brew infusionado con nitrogeno. Cremoso y espumoso.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">ac_unit</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Iced Latte</h3><span class="text-accent font-bold text-sm">$72</span></div><p class="text-primary/50 text-xs font-light mt-1">Espresso sobre hielo con leche fria. Refrescante y equilibrado.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-accent/5 border border-accent/20 hover:border-accent/50 transition-all">
+        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-accent text-xl">star</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Brown Shake</h3><span class="text-accent font-bold text-sm">$95</span></div><p class="text-primary/50 text-xs font-light mt-1">Cold brew, leche de coco, cacao y sal de mar. Exclusivo del Lab.</p></div>
+      </div>
+    </div>
+
+    <!-- Para comer -->
+    <div id="cat-food" class="cat-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">bakery_dining</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Croissant de Mantequilla</h3><span class="text-accent font-bold text-sm">$55</span></div><p class="text-primary/50 text-xs font-light mt-1">Hojaldrado, crujiente por fuera y suave por dentro.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">cake</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Banana Bread</h3><span class="text-accent font-bold text-sm">$50</span></div><p class="text-primary/50 text-xs font-light mt-1">Humedo, con nuez y chips de chocolate. Horneado diario.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">lunch_dining</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Avocado Toast</h3><span class="text-accent font-bold text-sm">$95</span></div><p class="text-primary/50 text-xs font-light mt-1">Pan artesanal, aguacate, huevo pochado y chile de arbol.</p></div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-white border border-primary/8 hover:border-accent/40 transition-all">
+        <div class="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-xl">cookie</span></div>
+        <div class="flex-1"><div class="flex justify-between items-start"><h3 class="font-bold text-primary">Cookie de Cafe</h3><span class="text-accent font-bold text-sm">$35</span></div><p class="text-primary/50 text-xs font-light mt-1">Galleta artesanal con espresso, chocolate y sal de mar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Origenes -->
+<section class="py-24 px-6 md:px-20 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col gap-2 mb-16 text-center items-center">
+      <span class="text-accent text-[11px] font-bold tracking-[0.3em] uppercase">De donde viene tu cafe</span>
+      <h2 class="text-primary text-4xl font-light">Origenes del Lab</h2>
+      <p class="text-primary/50 text-sm font-light max-w-md mt-2">Trabajamos directamente con productores de altura. Cada origen tiene su historia y su perfil de sabor unico.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="flex flex-col gap-5 group cursor-pointer">
+        <div class="aspect-square overflow-hidden rounded-xl bg-primary/5">
+          <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&q=80&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 scale-110 group-hover:scale-100" alt="Cafe Colombia"/>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h3 class="text-xl font-bold text-primary">Colombia Huila</h3>
+          <span class="font-mono text-sm bg-primary/8 px-2 py-0.5 rounded text-primary/70 w-fit">1,800 msnm</span>
+          <p class="text-primary/50 text-sm font-light italic">Chocolate amargo, ciruela y panela</p>
+          <button class="mt-3 border border-primary/20 hover:border-primary py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all text-primary">Pedir esta cosecha</button>
+        </div>
+      </div>
+      <div class="flex flex-col gap-5 group cursor-pointer">
+        <div class="aspect-square overflow-hidden rounded-xl bg-primary/5">
+          <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&q=80&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 scale-110 group-hover:scale-100" alt="Cafe Etiopia"/>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h3 class="text-xl font-bold text-primary">Etiopia Yirgacheffe</h3>
+          <span class="font-mono text-sm bg-primary/8 px-2 py-0.5 rounded text-primary/70 w-fit">2,200 msnm</span>
+          <p class="text-primary/50 text-sm font-light italic">Bergamota, jazmin y frutos rojos</p>
+          <button class="mt-3 border border-primary/20 hover:border-primary py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all text-primary">Pedir esta cosecha</button>
+        </div>
+      </div>
+      <div class="flex flex-col gap-5 group cursor-pointer">
+        <div class="aspect-square overflow-hidden rounded-xl bg-primary/5">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80&fit=crop" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 scale-110 group-hover:scale-100" alt="Cafe Mexico"/>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h3 class="text-xl font-bold text-primary">Mexico Chiapas</h3>
+          <span class="font-mono text-sm bg-primary/8 px-2 py-0.5 rounded text-primary/70 w-fit">1,500 msnm</span>
+          <p class="text-primary/50 text-sm font-light italic">Almendra, miel y cacao suave</p>
+          <button class="mt-3 border border-primary/20 hover:border-primary py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all text-primary">Pedir esta cosecha</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="border-primary/5 mx-20"/>
+
+<!-- Metodos -->
+<section class="py-24 px-6 md:px-20 bg-primary text-white" id="metodos">
+  <div class="flex flex-col gap-2 mb-16">
+    <span class="text-white/50 text-[11px] font-bold tracking-[0.3em] uppercase">Como preparamos tu cafe</span>
+    <h2 class="text-4xl font-light">Los Metodos del Lab</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="flex flex-col gap-5">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80&fit=crop" class="w-full aspect-[4/5] object-cover rounded-sm brightness-90 contrast-110" alt="Espresso"/>
+      <div><h4 class="text-lg font-bold tracking-widest uppercase mb-2">Espresso</h4><p class="text-white/60 text-sm font-light leading-relaxed">Alta presion, extraccion rapida. La base de todas nuestras bebidas con leche.</p></div>
+    </div>
+    <div class="flex flex-col gap-5">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80&fit=crop" class="w-full aspect-[4/5] object-cover rounded-sm brightness-90 contrast-110" alt="V60"/>
+      <div><h4 class="text-lg font-bold tracking-widest uppercase mb-2">V60 Pour Over</h4><p class="text-white/60 text-sm font-light leading-relaxed">Vertido manual controlado. Resalta la acidez brillante y notas frutales.</p></div>
+    </div>
+    <div class="flex flex-col gap-5">
+      <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80&fit=crop" class="w-full aspect-[4/5] object-cover rounded-sm brightness-90 contrast-110" alt="Cold Brew"/>
+      <div><h4 class="text-lg font-bold tracking-widest uppercase mb-2">Cold Brew</h4><p class="text-white/60 text-sm font-light leading-relaxed">18 horas de extraccion en frio. Suave, dulce y sin acidez agresiva.</p></div>
+    </div>
+    <div class="flex flex-col gap-5">
+      <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80&fit=crop" class="w-full aspect-[4/5] object-cover rounded-sm brightness-90 contrast-110" alt="AeroPress"/>
+      <div><h4 class="text-lg font-bold tracking-widest uppercase mb-2">AeroPress</h4><p class="text-white/60 text-sm font-light leading-relaxed">Inmersion y presion manual. Cuerpo intenso, dulce y sin amargor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- El Lab (espacio) -->
+<section class="py-24 px-6 md:px-20 bg-bg-light" id="espacio">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div class="relative group">
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=80&fit=crop" class="w-full h-[580px] object-cover rounded-lg" alt="Brown Caffeine Lab interior"/>
+      <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-all rounded-lg"></div>
+    </div>
+    <div class="flex flex-col gap-8">
+      <div>
+        <span class="text-accent text-[11px] font-bold tracking-[0.3em] uppercase block mb-3">Nuestro espacio</span>
+        <h2 class="text-primary text-5xl font-light mb-6">El Lab</h2>
+        <p class="text-primary/60 text-lg font-light leading-relaxed">Un espacio disenado para que el cafe sea el protagonista. Luz natural, madera oscura y el aroma constante de granos recien tostados.</p>
+      </div>
+      <p class="text-primary/50 text-sm font-light leading-relaxed">Contamos con barra de especialidad, zona de trabajo con wifi de alta velocidad, mesas comunitarias y un rincon tranquilo para leer o trabajar. El ambiente perfecto para concentrarte o simplemente disfrutar.</p>
+      <div class="flex flex-col gap-0">
+        <div class="flex items-center gap-4 border-b border-primary/10 py-4">
+          <span class="material-symbols-outlined text-accent">schedule</span>
+          <div><p class="text-sm font-semibold text-primary">Lunes a Viernes: 7:00 — 21:00</p><p class="text-xs text-primary/40">Sabados y Domingos: 8:00 — 20:00</p></div>
+        </div>
+        <div class="flex items-center gap-4 border-b border-primary/10 py-4">
+          <span class="material-symbols-outlined text-accent">location_on</span>
+          <p class="text-sm font-semibold text-primary">Av. Juarez 312, Col. Centro, Puebla</p>
+        </div>
+        <div class="flex items-center gap-4 border-b border-primary/10 py-4">
+          <span class="material-symbols-outlined text-accent">wifi</span>
+          <p class="text-sm font-semibold text-primary">WiFi de alta velocidad incluido</p>
+        </div>
+        <div class="flex items-center gap-4 py-4">
+          <span class="material-symbols-outlined text-accent">local_parking</span>
+          <p class="text-sm font-semibold text-primary">Estacionamiento disponible</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cursos -->
+<section class="py-24 px-6 md:px-20 bg-white" id="cursos">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-primary/5 rounded-2xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 border border-primary/10">
+      <div class="flex flex-col gap-5 max-w-lg">
+        <span class="text-accent text-[11px] font-bold tracking-[0.3em] uppercase">Aprende con nosotros</span>
+        <h2 class="text-primary text-4xl font-bold">Cursos y Catas</h2>
+        <p class="text-primary/60 text-sm font-light leading-relaxed">Aprende a preparar cafe de especialidad en casa, distingue perfiles de sabor y conoce los secretos de la extraccion perfecta. Cursos para todos los niveles.</p>
+        <div class="grid grid-cols-2 gap-4 mt-2">
+          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-sm">check_circle</span><p class="text-xs text-primary/60 font-medium">Introduccion al espresso</p></div>
+          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-sm">check_circle</span><p class="text-xs text-primary/60 font-medium">Latte art basico</p></div>
+          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-sm">check_circle</span><p class="text-xs text-primary/60 font-medium">Cata de origenes</p></div>
+          <div class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-sm">check_circle</span><p class="text-xs text-primary/60 font-medium">Metodos de filtrado</p></div>
+        </div>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm border border-primary/8 w-full md:w-80 flex-shrink-0">
+        <div class="flex flex-col gap-6">
+          <div>
+            <span class="text-primary font-bold text-lg block">Proximo curso: Espresso en Casa</span>
+            <div class="flex gap-4 mt-3">
+              <span class="text-primary/50 text-[11px] uppercase font-bold flex items-center gap-1"><span class="material-symbols-outlined text-xs">group</span> 8 personas</span>
+              <span class="text-primary/50 text-[11px] uppercase font-bold flex items-center gap-1"><span class="material-symbols-outlined text-xs">event</span> Sabado 10am</span>
+            </div>
+            <p class="text-accent font-black text-2xl mt-4">$350 <span class="text-primary/30 text-sm font-light">por persona</span></p>
+          </div>
+          <a href="#contacto" class="w-full bg-primary text-white py-4 rounded-lg font-bold text-[11px] uppercase tracking-[0.2em] hover:bg-primary/80 transition-all text-center block">Reservar cupo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 px-6 md:px-20 bg-bg-light" id="contacto">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col gap-2 mb-16 text-center items-center">
+      <span class="text-accent text-[11px] font-bold tracking-[0.3em] uppercase">Escribenos</span>
+      <h2 class="text-primary text-4xl font-light">Contacto</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-16">
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-accent text-2xl mt-0.5">location_on</span>
+          <div><p class="text-[11px] uppercase tracking-widest text-accent font-bold mb-1">Ubicacion</p><p class="text-sm text-primary/60 font-light">Av. Juarez 312, Col. Centro<br/>Puebla de Zaragoza, Pue.</p></div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-accent text-2xl mt-0.5">call</span>
+          <div><p class="text-[11px] uppercase tracking-widest text-accent font-bold mb-1">Telefono</p><p class="text-sm text-primary/60 font-light">222 000 0000</p></div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-accent text-2xl mt-0.5">mail</span>
+          <div><p class="text-[11px] uppercase tracking-widest text-accent font-bold mb-1">Correo</p><p class="text-sm text-primary/60 font-light">hola@browncaffeinelab.mx</p></div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-accent text-2xl mt-0.5">schedule</span>
+          <div><p class="text-[11px] uppercase tracking-widest text-accent font-bold mb-1">Horarios</p><p class="text-sm text-primary/60 font-light">Lun – Vie: 7:00 – 21:00<br/>Sab – Dom: 8:00 – 20:00</p></div>
+        </div>
+        <a href="https://wa.me/522220000000" target="_blank" class="inline-flex items-center gap-3 bg-[#25d366] text-white font-sans text-[11px] uppercase tracking-widest px-8 py-4 rounded-full hover:bg-green-600 transition-all hover:scale-105 mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+      <form class="space-y-5" onsubmit="return false;">
+        <div><label class="text-[11px] uppercase tracking-widest text-accent font-bold block mb-2">Nombre</label><input type="text" placeholder="Tu nombre" class="w-full border border-primary/15 bg-white px-4 py-3 text-sm text-primary focus:outline-none focus:border-accent transition-colors rounded"/></div>
+        <div><label class="text-[11px] uppercase tracking-widest text-accent font-bold block mb-2">Correo o telefono</label><input type="text" placeholder="Para contactarte" class="w-full border border-primary/15 bg-white px-4 py-3 text-sm text-primary focus:outline-none focus:border-accent transition-colors rounded"/></div>
+        <div>
+          <label class="text-[11px] uppercase tracking-widest text-accent font-bold block mb-2">Asunto</label>
+          <select class="w-full border border-primary/15 bg-white px-4 py-3 text-sm text-primary/60 focus:outline-none focus:border-accent transition-colors rounded">
+            <option>Reservacion de mesa</option>
+            <option>Informacion de cursos</option>
+            <option>Pedido de cafe en grano</option>
+            <option>Evento privado</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div><label class="text-[11px] uppercase tracking-widest text-accent font-bold block mb-2">Mensaje</label><textarea rows="4" placeholder="Cuentanos en que podemos ayudarte..." class="w-full border border-primary/15 bg-white px-4 py-3 text-sm text-primary focus:outline-none focus:border-accent transition-colors resize-none rounded"></textarea></div>
+        <button type="submit" class="w-full bg-primary text-white font-bold text-[11px] uppercase tracking-widest py-4 rounded-lg hover:bg-primary/80 transition-all hover:scale-[1.02]">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-bg-dark text-white py-16 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'wght' 300">coffee</span></div>
+          <div><h3 class="font-black text-sm uppercase tracking-tight leading-none">Brown Caffeine Lab</h3><p class="text-accent text-[9px] tracking-[0.3em] uppercase">Specialty Coffee · Puebla</p></div>
+        </div>
+        <p class="text-white/30 text-xs font-light leading-relaxed">Ciencia, sabor y mucho cafe. Un laboratorio donde cada taza es un experimento de precision.</p>
+      </div>
+      <div>
+        <p class="text-[11px] uppercase tracking-widest text-accent font-bold mb-6">Navegacion</p>
+        <ul class="space-y-3 text-sm text-white/30 font-light">
+          <li><a href="#menu" class="hover:text-accent transition-colors">Menu</a></li>
+          <li><a href="#metodos" class="hover:text-accent transition-colors">Metodos</a></li>
+          <li><a href="#espacio" class="hover:text-accent transition-colors">El Lab</a></li>
+          <li><a href="#cursos" class="hover:text-accent transition-colors">Cursos y Catas</a></li>
+          <li><a href="#contacto" class="hover:text-accent transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[11px] uppercase tracking-widest text-accent font-bold mb-6">Horarios</p>
+        <p class="text-sm text-white/30 font-light">Lun – Vie: 7:00 – 21:00<br/>Sab – Dom: 8:00 – 20:00</p>
+        <p class="text-[11px] uppercase tracking-widest text-accent font-bold mt-6 mb-3">Ubicacion</p>
+        <p class="text-sm text-white/30 font-light">Av. Juarez 312, Col. Centro<br/>Puebla de Zaragoza, Pue.</p>
+      </div>
+    </div>
+    <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-white/20">© 2025 Brown Caffeine Lab. Todos los derechos reservados.</p>
+      <p class="text-xs text-white/20 italic">Sitio web por <span class="text-accent">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/522220000000" target="_blank" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  function showCat(cat) {
+    document.querySelectorAll('.cat-content').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.cat-tab').forEach(el => {
+      el.classList.remove('bg-primary','text-white');
+      el.classList.add('bg-primary/10','text-primary');
+    });
+    document.getElementById('cat-' + cat).classList.remove('hidden');
+    const tab = document.getElementById('tab-' + cat);
+    tab.classList.remove('bg-primary/10','text-primary');
+    tab.classList.add('bg-primary','text-white');
+  }
+</script>
+</body>
+</html>
