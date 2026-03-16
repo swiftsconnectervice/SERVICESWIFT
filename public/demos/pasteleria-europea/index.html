@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pasteleria Europea d'maruque</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'teal':    '#5bbfb5',
+            'teal-dark': '#3d9e94',
+            'coral':   '#e8453c',
+            'brown':   '#3d1f0d',
+            'brown-light': '#7a4a2e',
+            'cream':   '#fdf6ec',
+            'cream-dark': '#f5e9d4',
+          },
+          fontFamily: {
+            'serif': ['Playfair Display', 'serif'],
+            'sans':  ['Lato', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .hover-scale { transition: transform 0.3s ease; }
+    .hover-scale:hover { transform: scale(1.03); }
+    .divider-ornament::before, .divider-ornament::after {
+      content: '';
+      display: inline-block;
+      width: 60px;
+      height: 1px;
+      background: #5bbfb5;
+      vertical-align: middle;
+      margin: 0 12px;
+    }
+  </style>
+</head>
+<body class="bg-cream text-brown font-sans selection:bg-teal/30">
+
+<!-- Top bar -->
+<div class="bg-brown text-cream text-xs font-sans py-2 px-6 flex justify-between items-center">
+<span class="tracking-widest uppercase opacity-70">Pasteleria Europea d'maruque · Desde 1979</span>
+<div class="flex gap-6 opacity-70">
+<a href="tel:0000000000" class="hover:opacity-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">call</span> Llamar
+</a>
+<a href="#contacto" class="hover:opacity-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Ubicacion
+</a>
+</div>
+</div>
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b-2 border-teal/30 px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-teal flex items-center justify-center">
+<span class="material-symbols-outlined text-teal text-lg">bakery_dining</span>
+</div>
+<div>
+<h1 class="font-serif text-xl text-brown leading-tight">Pasteleria <span class="text-coral italic">Europea</span></h1>
+<p class="text-[9px] uppercase tracking-[0.3em] text-teal-dark">d'maruque · Desde 1979</p>
+</div>
+</div>
+<div class="hidden md:flex gap-8 font-sans text-xs uppercase tracking-wider text-brown-light">
+<a class="hover:text-teal transition-colors" href="#especialidades">Especialidades</a>
+<a class="hover:text-teal transition-colors" href="#nosotros">Nosotros</a>
+<a class="hover:text-teal transition-colors" href="#catalogo">Catalogo</a>
+<a class="hover:text-teal transition-colors" href="#contacto">Contacto</a>
+</div>
+<a href="#contacto" class="bg-coral text-white font-sans text-xs uppercase tracking-widest px-6 py-2.5 hover:bg-red-700 transition-all duration-300">
+    Hacer Pedido
+</a>
+</nav>
+
+<!-- Hero -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&fit=crop" alt="Pasteleria Europea d'maruque"/>
+<div class="absolute inset-0 bg-brown/55"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+<p class="font-sans text-teal text-xs uppercase tracking-[0.5em] mb-6">Desde 1979 · Tradicion Europea</p>
+<h1 class="font-serif text-6xl md:text-8xl text-cream italic drop-shadow-2xl mb-6 leading-tight">
+    El arte de la<br/>pasteleria fina
+</h1>
+<p class="font-sans text-cream/80 text-lg font-light mb-10 max-w-xl mx-auto leading-relaxed">
+    Mas de cuatro decadas elaborando pasteles y postres con recetas europeas autenticas, ingredientes seleccionados y el mismo amor de siempre.
+</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="#especialidades" class="bg-coral hover:bg-red-700 text-white font-sans text-xs uppercase tracking-[0.3em] px-10 py-4 transition-all hover:scale-105 inline-block">
+    Ver Especialidades
+</a>
+<a href="#contacto" class="border border-cream text-cream hover:bg-cream hover:text-brown font-sans text-xs uppercase tracking-[0.3em] px-10 py-4 transition-all inline-block">
+    Hacer un Pedido
+</a>
+</div>
+</div>
+</section>
+
+<!-- Herencia -->
+<section class="py-20 bg-cream-dark">
+<div class="max-w-5xl mx-auto px-6 text-center">
+<p class="divider-ornament font-sans text-xs uppercase tracking-[0.5em] text-teal-dark">Nuestra Historia</p>
+<h2 class="font-serif text-4xl italic text-brown mt-6 mb-6">Cuatro decadas de tradicion</h2>
+<p class="font-sans text-brown-light font-light leading-relaxed max-w-2xl mx-auto text-base">
+    Desde 1979, Pasteleria Europea d'maruque ha sido el lugar de referencia para quienes buscan pasteles y postres elaborados con recetas tradicionales europeas. Cada pieza es preparada a mano, con ingredientes frescos y la dedicacion que solo da el tiempo.
+</p>
+<div class="grid md:grid-cols-3 gap-10 mt-16">
+<div class="text-center">
+<span class="font-serif text-5xl italic text-coral">+45</span>
+<p class="font-sans text-xs uppercase tracking-widest text-brown-light mt-2">Anos de experiencia</p>
+</div>
+<div class="text-center">
+<span class="font-serif text-5xl italic text-coral">100%</span>
+<p class="font-sans text-xs uppercase tracking-widest text-brown-light mt-2">Recetas artesanales</p>
+</div>
+<div class="text-center">
+<span class="font-serif text-5xl italic text-coral">Diario</span>
+<p class="font-sans text-xs uppercase tracking-widest text-brown-light mt-2">Horneado fresco</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Especialidades -->
+<section class="py-24 px-6 bg-cream" id="especialidades">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<p class="divider-ornament font-sans text-xs uppercase tracking-[0.5em] text-teal-dark">Lo mejor de la casa</p>
+<h2 class="font-serif text-4xl italic text-brown mt-4">Nuestras Especialidades</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="group bg-white hover-scale shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80&fit=crop" alt="Selva Negra"/>
+</div>
+<div class="p-5 border-t-2 border-teal">
+<h3 class="font-serif text-xl italic text-brown mb-1">Selva Negra</h3>
+<p class="font-sans text-xs text-brown-light font-light">Chocolate, cerezas y crema batida. Receta alemana clasica.</p>
+</div>
+</div>
+<div class="group bg-white hover-scale shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80&fit=crop" alt="Tarta de Frutas"/>
+</div>
+<div class="p-5 border-t-2 border-teal">
+<h3 class="font-serif text-xl italic text-brown mb-1">Tarta de Frutas</h3>
+<p class="font-sans text-xs text-brown-light font-light">Base de masa sable, crema pastelera y frutas frescas de temporada.</p>
+</div>
+</div>
+<div class="group bg-white hover-scale shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80&fit=crop" alt="Opera"/>
+</div>
+<div class="p-5 border-t-2 border-coral">
+<h3 class="font-serif text-xl italic text-brown mb-1">Opera</h3>
+<p class="font-sans text-xs text-brown-light font-light">Bizcocho de almendra, cafe y ganache de chocolate. Clasico frances.</p>
+</div>
+</div>
+<div class="group bg-white hover-scale shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&fit=crop" alt="Pavlova"/>
+</div>
+<div class="p-5 border-t-2 border-coral">
+<h3 class="font-serif text-xl italic text-brown mb-1">Pavlova</h3>
+<p class="font-sans text-xs text-brown-light font-light">Merengue crujiente, crema chantilly y frutos rojos frescos.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Nosotros -->
+<section class="py-24 bg-brown text-cream px-6" id="nosotros">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+<div>
+<img class="w-full aspect-square object-cover shadow-2xl" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80&fit=crop" alt="Pasteleria Europea taller"/>
+</div>
+<div>
+<p class="font-sans text-teal text-xs uppercase tracking-[0.5em] mb-4">Quienes somos</p>
+<h2 class="font-serif text-5xl italic mb-8 leading-tight">Tradicion que<br/>se saborea</h2>
+<div class="space-y-6 font-sans text-sm text-cream/80 font-light leading-relaxed">
+<p>En Pasteleria Europea d'maruque cada receta tiene historia. Nuestros maestros pasteleros se formaron con tecnicas europeas tradicionales que hemos preservado y perfeccionado durante mas de cuatro decadas.</p>
+<p>Usamos unicamente ingredientes frescos y de primera calidad: mantequilla real, chocolate de origen, frutas de temporada y harinas seleccionadas. Sin conservadores, sin atajos.</p>
+</div>
+<div class="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-cream/20">
+<div class="text-center">
+<span class="material-symbols-outlined text-teal text-3xl mb-2 block">eco</span>
+<p class="font-sans text-xs uppercase tracking-widest text-cream/60">Sin conservadores</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-teal text-3xl mb-2 block">workspace_premium</span>
+<p class="font-sans text-xs uppercase tracking-widest text-cream/60">Ingredientes premium</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-teal text-3xl mb-2 block">schedule</span>
+<p class="font-sans text-xs uppercase tracking-widest text-cream/60">Horneado diario</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Catalogo categorias -->
+<section class="py-24 px-6 bg-cream-dark" id="catalogo">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<p class="divider-ornament font-sans text-xs uppercase tracking-[0.5em] text-teal-dark">Todo nuestro catalogo</p>
+<h2 class="font-serif text-4xl italic text-brown mt-4">Para cada ocasion</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-cream p-8 border border-teal/20 hover:border-teal transition-all duration-300 text-center">
+<span class="material-symbols-outlined text-teal text-4xl mb-4 block">cake</span>
+<h3 class="font-serif text-2xl italic text-brown mb-3">Pasteles de Celebracion</h3>
+<p class="font-sans text-sm text-brown-light font-light leading-relaxed">Pasteles personalizados para bodas, XV anos, cumpleanos y eventos corporativos. Disenados a tu medida.</p>
+</div>
+<div class="bg-cream p-8 border border-coral/20 hover:border-coral transition-all duration-300 text-center">
+<span class="material-symbols-outlined text-coral text-4xl mb-4 block">bakery_dining</span>
+<h3 class="font-serif text-2xl italic text-brown mb-3">Panaderia Fina</h3>
+<p class="font-sans text-sm text-brown-light font-light leading-relaxed">Croissants, brioche, pan de centeno y piezas de bolleria elaboradas cada manana con masa madre propia.</p>
+</div>
+<div class="bg-cream p-8 border border-teal/20 hover:border-teal transition-all duration-300 text-center">
+<span class="material-symbols-outlined text-teal text-4xl mb-4 block">local_cafe</span>
+<h3 class="font-serif text-2xl italic text-brown mb-3">Postres Individuales</h3>
+<p class="font-sans text-sm text-brown-light font-light leading-relaxed">Eclairs, macarons, tartaletas y petit fours. Perfectos para regalar o disfrutar con un buen cafe.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Banner pedidos -->
+<section class="bg-teal py-16 px-6 text-white overflow-hidden relative">
+<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+<div>
+<p class="font-sans text-xs uppercase tracking-[0.4em] opacity-70 mb-2">Pedidos especiales</p>
+<h2 class="font-serif text-4xl italic">Tu pastel, a tu manera</h2>
+<p class="font-sans text-sm font-light opacity-80 mt-2">Personalizamos diseno, sabor y tamano. Con 72 horas de anticipacion.</p>
+</div>
+<a href="#contacto" class="bg-white text-teal-dark font-sans font-bold text-xs uppercase tracking-widest px-10 py-5 hover:bg-cream transition-all hover:scale-105 whitespace-nowrap">
+    Solicitar pedido
+</a>
+</div>
+<div class="absolute top-0 right-0 font-serif text-9xl text-white/5 select-none pointer-events-none italic">1979</div>
+</section>
+
+
+<!-- Contacto -->
+<section class="py-24 px-6 bg-cream" id="contacto">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<p class="divider-ornament font-sans text-xs uppercase tracking-[0.5em] text-teal-dark">Visitanos o escribenos</p>
+<h2 class="font-serif text-4xl italic text-brown mt-4">Contacto</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-16 items-start">
+<!-- Info -->
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-teal text-2xl mt-1">location_on</span>
+<div>
+<p class="font-sans text-xs uppercase tracking-widest text-teal-dark mb-1">Direccion</p>
+<p class="font-sans text-brown font-light">Calle 5 de Mayo #312, Centro Historico<br/>Puebla de Zaragoza, Pue. 72000</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-teal text-2xl mt-1">call</span>
+<div>
+<p class="font-sans text-xs uppercase tracking-widest text-teal-dark mb-1">Telefono</p>
+<p class="font-sans text-brown font-light">222 000 0000</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-teal text-2xl mt-1">schedule</span>
+<div>
+<p class="font-sans text-xs uppercase tracking-widest text-teal-dark mb-1">Horarios</p>
+<p class="font-sans text-brown font-light">Lunes a Sabado: 9:00 am – 8:00 pm<br/>Domingos: 10:00 am – 4:00 pm</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-teal text-2xl mt-1">mail</span>
+<div>
+<p class="font-sans text-xs uppercase tracking-widest text-teal-dark mb-1">Correo</p>
+<p class="font-sans text-brown font-light">pedidos@pasteleriaeuropea.mx</p>
+</div>
+</div>
+<a href="https://wa.me/522220000000" target="_blank" class="inline-flex items-center gap-3 bg-[#25d366] text-white font-sans text-xs uppercase tracking-widest px-8 py-4 hover:bg-green-600 transition-all hover:scale-105 mt-4">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Pedir por WhatsApp
+</a>
+</div>
+<!-- Formulario -->
+<form class="space-y-5" onsubmit="return false;">
+<div>
+<label class="font-sans text-xs uppercase tracking-widest text-teal-dark block mb-2">Nombre</label>
+<input type="text" placeholder="Tu nombre completo" class="w-full border border-teal/30 bg-cream-dark px-4 py-3 font-sans text-sm text-brown focus:outline-none focus:border-teal transition-colors"/>
+</div>
+<div>
+<label class="font-sans text-xs uppercase tracking-widest text-teal-dark block mb-2">Telefono o correo</label>
+<input type="text" placeholder="Para contactarte" class="w-full border border-teal/30 bg-cream-dark px-4 py-3 font-sans text-sm text-brown focus:outline-none focus:border-teal transition-colors"/>
+</div>
+<div>
+<label class="font-sans text-xs uppercase tracking-widest text-teal-dark block mb-2">Tipo de pedido</label>
+<select class="w-full border border-teal/30 bg-cream-dark px-4 py-3 font-sans text-sm text-brown focus:outline-none focus:border-teal transition-colors">
+<option>Pastel de celebracion</option>
+<option>Tarta o postre individual</option>
+<option>Panaderia fina</option>
+<option>Pedido corporativo</option>
+<option>Otro</option>
+</select>
+</div>
+<div>
+<label class="font-sans text-xs uppercase tracking-widest text-teal-dark block mb-2">Mensaje</label>
+<textarea rows="4" placeholder="Cuentanos sobre tu pedido: fecha, tamano, sabor, decoracion..." class="w-full border border-teal/30 bg-cream-dark px-4 py-3 font-sans text-sm text-brown focus:outline-none focus:border-teal transition-colors resize-none"></textarea>
+</div>
+<button type="submit" class="w-full bg-coral text-white font-sans text-xs uppercase tracking-widest py-4 hover:bg-red-700 transition-all hover:scale-[1.02]">
+Enviar solicitud
+</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-brown text-cream py-16 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-cream/10">
+<div>
+<h3 class="font-serif text-2xl italic mb-4">Pasteleria <span class="text-coral">Europea</span></h3>
+<p class="font-sans text-xs uppercase tracking-[0.3em] text-teal mb-4">d'maruque · Desde 1979</p>
+<p class="font-sans text-sm text-cream/60 font-light leading-relaxed">Mas de cuatro decadas elaborando pasteles y postres con recetas europeas autenticas.</p>
+</div>
+<div>
+<p class="font-sans text-xs uppercase tracking-widest text-teal mb-6">Navegacion</p>
+<ul class="space-y-3 font-sans text-sm text-cream/60 font-light">
+<li><a href="#especialidades" class="hover:text-teal transition-colors">Especialidades</a></li>
+<li><a href="#nosotros" class="hover:text-teal transition-colors">Nosotros</a></li>
+<li><a href="#catalogo" class="hover:text-teal transition-colors">Catalogo</a></li>
+<li><a href="#contacto" class="hover:text-teal transition-colors">Contacto</a></li>
+</ul>
+</div>
+<div>
+<p class="font-sans text-xs uppercase tracking-widest text-teal mb-6">Horarios</p>
+<ul class="space-y-2 font-sans text-sm text-cream/60 font-light">
+<li>Lunes a Sabado: 9:00 – 20:00</li>
+<li>Domingos: 10:00 – 16:00</li>
+</ul>
+<p class="font-sans text-xs uppercase tracking-widest text-teal mt-6 mb-3">Contacto</p>
+<p class="font-sans text-sm text-cream/60 font-light">222 000 0000<br/>pedidos@pasteleriaeuropea.mx</p>
+</div>
+</div>
+<div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-sans text-xs text-cream/30">© 2025 Pasteleria Europea d'maruque. Todos los derechos reservados.</p>
+<p class="font-sans text-xs text-cream/30 italic">Sitio web por <span class="text-teal">Web Architects</span></p>
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/522220000000" target="_blank" aria-label="Contactar por WhatsApp"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
