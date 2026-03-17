@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafevera Calavera · San Miguel Chapultepec, CDMX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        'barro':   '#8b3a1e',
+        'barro2':  '#6b2c14',
+        'arena':   '#f2ead8',
+        'arena2':  '#e8dcc4',
+        'verde':   '#2d5a27',
+        'ocre':    '#c97d2e',
+        'negro':   '#1a1208',
+      },
+      fontFamily: {
+        'display': ['Space Grotesk','sans-serif'],
+        'serif':   ['Playfair Display','serif'],
+      }
+    }}
+  }
+</script>
+<style>
+  body { font-family: 'Space Grotesk', sans-serif; }
+  .tex { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23f2ead8'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23c97d2e' opacity='0.08'/%3E%3C/svg%3E"); }
+  .tag { display:inline-block; border:1px solid; padding:2px 10px; font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; }
+  .menu-item { border-bottom: 1px dashed rgba(139,58,30,0.15); }
+  .menu-item:last-child { border-bottom: none; }
+</style>
+</head>
+<body class="bg-arena text-negro font-display">
+
+<!-- Barra superior -->
+<div class="bg-barro text-arena text-[11px] py-2 px-6 flex justify-between items-center">
+  <span class="tracking-widest opacity-70 uppercase">San Miguel Chapultepec · CDMX · Desde 2018</span>
+  <div class="flex gap-5 opacity-70">
+    <a href="tel:5570912915" class="hover:opacity-100 flex items-center gap-1"><span class="material-symbols-outlined text-sm">call</span>55 7091 2915</a>
+    <a href="mailto:cafeveramx@gmail.com" class="hover:opacity-100 hidden md:flex items-center gap-1"><span class="material-symbols-outlined text-sm">mail</span>cafeveramx@gmail.com</a>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="sticky top-0 z-50 bg-arena/96 backdrop-blur-md border-b border-barro/10 px-6 md:px-16 py-4 flex justify-between items-center">
+  <div class="flex items-center gap-3">
+    <!-- Logo calavera -->
+    <div class="w-10 h-10 rounded-full bg-barro flex items-center justify-center">
+      <span class="text-arena text-lg font-bold font-serif italic">C</span>
+    </div>
+    <div>
+      <h1 class="font-serif text-lg text-barro leading-none italic">Cafevera <span class="not-italic font-bold">Calavera</span></h1>
+      <p class="text-[9px] uppercase tracking-[0.3em] text-ocre font-semibold">Cafeteria de barrio · CDMX</p>
+    </div>
+  </div>
+  <nav class="hidden md:flex gap-8 text-[11px] uppercase tracking-widest font-semibold text-barro/60">
+    <a href="#menu" class="hover:text-barro transition-colors">Menu</a>
+    <a href="#cafe" class="hover:text-barro transition-colors">El Cafe</a>
+    <a href="#comunidad" class="hover:text-barro transition-colors">Comunidad</a>
+    <a href="#radio" class="hover:text-barro transition-colors">Radio</a>
+    <a href="#contacto" class="hover:text-barro transition-colors">Visitar</a>
+  </nav>
+  <a href="#contacto" class="hidden md:inline-flex items-center gap-2 bg-barro text-arena text-[11px] uppercase tracking-widest font-semibold px-5 py-2.5 rounded-full hover:bg-barro2 transition-all">
+    <span class="material-symbols-outlined text-sm">location_on</span> Como llegar
+  </a>
+</header>
+
+<!-- Hero -->
+<section class="relative min-h-[90vh] flex items-end overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Cafevera Calavera"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-negro/90 via-negro/40 to-negro/10"></div>
+  </div>
+  <div class="relative z-10 w-full px-8 md:px-20 pb-20 pt-32">
+    <div class="max-w-2xl">
+      <span class="tag border-arena/40 text-arena/70 mb-6 block">Cafeteria de barrio · San Miguel Chapultepec</span>
+      <h1 class="font-serif text-6xl md:text-8xl text-arena italic leading-none mb-6">
+        Buen<br/>cafe.
+      </h1>
+      <p class="text-arena/70 text-lg font-light leading-relaxed mb-10 max-w-md">
+        Un espacio para la conversacion, el aprendizaje y la vida comunitaria. Cafe mexicano, panaderia artesanal y mucho barrio.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#menu" class="bg-ocre text-white text-[11px] uppercase tracking-widest font-semibold px-8 py-4 rounded-full hover:bg-ocre/80 transition-all hover:scale-105">
+          Ver el menu
+        </a>
+        <a href="#comunidad" class="border border-arena/40 text-arena text-[11px] uppercase tracking-widest font-semibold px-8 py-4 rounded-full hover:bg-arena/10 transition-all">
+          Nuestra comunidad
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Horario flotante -->
+  <div class="absolute top-8 right-8 z-20 bg-arena/95 backdrop-blur-sm p-5 rounded-xl border border-barro/10 hidden md:block">
+    <p class="text-[10px] uppercase tracking-widest text-ocre font-bold mb-3">Horarios</p>
+    <div class="space-y-1 text-xs text-barro/70 font-medium">
+      <p>Lun – Vie: <span class="text-barro font-semibold">8:00 – 21:00</span></p>
+      <p>Sabado: <span class="text-barro font-semibold">9:00 – 21:00</span></p>
+      <p>Domingo: <span class="text-barro font-semibold">10:00 – 19:00</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- Propuesta de valor -->
+<section class="py-16 bg-barro text-arena px-6 md:px-20">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8 text-center">
+    <div>
+      <span class="material-symbols-outlined text-ocre text-4xl mb-3 block">coffee</span>
+      <h3 class="font-serif italic text-lg mb-2">Cafe Mexicano</h3>
+      <p class="text-arena/50 text-xs font-light leading-relaxed">Blend de Oaxaca y Veracruz. Tueste medio, notas de cacao y caramelo.</p>
+    </div>
+    <div>
+      <span class="material-symbols-outlined text-ocre text-4xl mb-3 block">bakery_dining</span>
+      <h3 class="font-serif italic text-lg mb-2">Pan de Vecinos</h3>
+      <p class="text-arena/50 text-xs font-light leading-relaxed">Panaderia artesanal elaborada por vecinos de la colonia. Masa madre y harinas organicas.</p>
+    </div>
+    <div>
+      <span class="material-symbols-outlined text-ocre text-4xl mb-3 block">menu_book</span>
+      <h3 class="font-serif italic text-lg mb-2">Biblioteca</h3>
+      <p class="text-arena/50 text-xs font-light leading-relaxed">Mas de 200 libros donados por vecinos. Ven, lee y dona el tuyo.</p>
+    </div>
+    <div>
+      <span class="material-symbols-outlined text-ocre text-4xl mb-3 block">radio</span>
+      <h3 class="font-serif italic text-lg mb-2">Radio Cafevera</h3>
+      <p class="text-arena/50 text-xs font-light leading-relaxed">Podcast en Spotify sobre cafe y vida barrial en San Miguel Chapultepec.</p>
+    </div>
+  </div>
+</section>
+
+<!-- El Cafe de la Barra -->
+<section class="py-24 px-6 md:px-20 bg-arena tex" id="cafe">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+    <div>
+      <span class="tag border-ocre text-ocre mb-6 block w-fit">Blend #1 · Temporada actual</span>
+      <h2 class="font-serif text-5xl italic text-barro mb-8 leading-tight">El Cafe<br/>de la Barra</h2>
+      <div class="space-y-5 text-sm text-barro/60 font-light leading-relaxed">
+        <p>Arabiga de Oaxaca y Veracruz, cultivado a 1,550 msnm. Variedades Typica, Bourbon y Mundo Novo con tueste medio.</p>
+        <p>Un cafe que huele a Mexico: acidez ligera, notas citricas, nueces tostadas, cacao y caramelo. Preparado con cuidado en cada taza.</p>
+      </div>
+      <!-- Notas de sabor -->
+      <div class="mt-10 grid grid-cols-2 gap-4">
+        <div class="bg-white/60 border border-barro/10 p-4 rounded-xl">
+          <span class="material-symbols-outlined text-ocre text-xl mb-2 block">lemon</span>
+          <p class="text-[11px] uppercase tracking-widest text-barro/50 font-semibold">Notas citricas</p>
+  
+        </div>
+        <div class="bg-white/60 border border-barro/10 p-4 rounded-xl">
+          <span class="material-symbols-outlined text-ocre text-xl mb-2 block">egg</span>
+          <p class="text-[11px] uppercase tracking-widest text-barro/50 font-semibold">Nueces tostadas</p>
+        </div>
+        <div class="bg-white/60 border border-barro/10 p-4 rounded-xl">
+          <span class="material-symbols-outlined text-ocre text-xl mb-2 block">cookie</span>
+          <p class="text-[11px] uppercase tracking-widest text-barro/50 font-semibold">Cacao y caramelo</p>
+        </div>
+        <div class="bg-white/60 border border-barro/10 p-4 rounded-xl">
+          <span class="material-symbols-outlined text-ocre text-xl mb-2 block">landscape</span>
+          <p class="text-[11px] uppercase tracking-widest text-barro/50 font-semibold">1,550 msnm</p>
+        </div>
+      </div>
+    </div>
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80&fit=crop" class="w-full aspect-square object-cover rounded-2xl shadow-xl" alt="Cafe de la barra"/>
+      <div class="absolute -bottom-5 -left-5 bg-barro text-arena p-6 rounded-xl shadow-lg">
+        <p class="font-serif italic text-2xl leading-none">Oaxaca</p>
+        <p class="text-[10px] uppercase tracking-widest text-arena/50 mt-1">+ Veracruz</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="py-24 px-6 md:px-20 bg-white" id="menu">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col gap-2 mb-16">
+      <span class="tag border-ocre text-ocre w-fit">Lo que servimos</span>
+      <h2 class="font-serif text-5xl italic text-barro mt-3">El Menu</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-12">
+
+      <!-- Bebidas de cafe -->
+      <div>
+        <h3 class="font-serif italic text-2xl text-barro mb-6 pb-3 border-b-2 border-barro/10">Bebidas de Cafe</h3>
+        <div class="space-y-0">
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Espresso</p><p class="text-xs text-barro/40 font-light">Doble shot, crema densa</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$45</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Americano</p><p class="text-xs text-barro/40 font-light">Espresso con agua caliente</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$50</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Cappuccino</p><p class="text-xs text-barro/40 font-light">Espresso con microespuma</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$65</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Latte</p><p class="text-xs text-barro/40 font-light">Espresso con leche cremosa</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$68</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Frappe de Cafe</p><p class="text-xs text-barro/40 font-light">Frio, cremoso y dulce</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$75</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Chocolate Oaxaqueno</p><p class="text-xs text-barro/40 font-light">Chocolate artesanal de Oaxaca</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$70</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comida -->
+      <div>
+        <h3 class="font-serif italic text-2xl text-barro mb-6 pb-3 border-b-2 border-barro/10">Para Comer</h3>
+        <div class="space-y-0">
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Mollete</p><p class="text-xs text-barro/40 font-light">Bolillo, frijoles, queso y pico de gallo</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$75</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Sincronizada</p><p class="text-xs text-barro/40 font-light">Jamon, queso y tortilla de harina</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$80</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Sandwich de Chapata</p><p class="text-xs text-barro/40 font-light">Pan artesanal, jamon serrano y queso</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$95</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Crepa Dulce</p><p class="text-xs text-barro/40 font-light">Nutella, platano o frutos rojos</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$85</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Ensalada del Barrio</p><p class="text-xs text-barro/40 font-light">Mixta con aderezo de limon y chile</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$90</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panaderia y bebidas especiales -->
+      <div>
+        <h3 class="font-serif italic text-2xl text-barro mb-6 pb-3 border-b-2 border-barro/10">Panaderia y Mas</h3>
+        <div class="space-y-0">
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Pan de Masa Madre</p><p class="text-xs text-barro/40 font-light">Hecho por vecinos de la colonia</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$45</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Croissant Artesanal</p><p class="text-xs text-barro/40 font-light">Mantequilla, harina organica</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$55</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Smoothie de Temporada</p><p class="text-xs text-barro/40 font-light">Frutas frescas del mercado</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$70</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Soda Italiana</p><p class="text-xs text-barro/40 font-light">Agua mineral con sirope artesanal</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$55</span>
+          </div>
+          <div class="menu-item py-4 flex justify-between items-start">
+            <div><p class="font-semibold text-sm text-barro">Refresco de Manzana</p><p class="text-xs text-barro/40 font-light">De Zacatlan, Puebla. Natural y artesanal</p></div>
+            <span class="text-ocre font-bold text-sm ml-4">$50</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Comunidad -->
+<section class="py-24 px-6 md:px-20 bg-arena tex" id="comunidad">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col gap-2 mb-16">
+      <span class="tag border-verde text-verde w-fit">Mas que una cafeteria</span>
+      <h2 class="font-serif text-5xl italic text-barro mt-3">La Comunidad</h2>
+      <p class="text-barro/50 text-sm font-light max-w-lg mt-2 leading-relaxed">Somos un espacio dedicado a la conversacion, el aprendizaje y la vida barrial en San Miguel Chapultepec.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Biblioteca -->
+      <div class="bg-white rounded-2xl overflow-hidden border border-barro/8 hover:shadow-lg transition-all group">
+        <div class="h-52 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Biblioteca comunitaria"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-verde text-xl">menu_book</span>
+            <span class="tag border-verde text-verde text-[9px]">Biblioteca</span>
+          </div>
+          <h3 class="font-serif italic text-xl text-barro mb-2">Biblioteca Comunitaria</h3>
+          <p class="text-barro/50 text-sm font-light leading-relaxed">Mas de 200 libros donados por vecinos. Ven a leer, lleva uno prestado o dona el tuyo. El conocimiento es de todos.</p>
+        </div>
+      </div>
+
+      <!-- Galeria -->
+      <div class="bg-white rounded-2xl overflow-hidden border border-barro/8 hover:shadow-lg transition-all group">
+        <div class="h-52 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Galeria de arte"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-barro text-xl">palette</span>
+            <span class="tag border-barro text-barro text-[9px]">Galeria</span>
+          </div>
+          <h3 class="font-serif italic text-xl text-barro mb-2">Galeria de Arte</h3>
+          <p class="text-barro/50 text-sm font-light leading-relaxed">Nuestras paredes son un lienzo para la comunidad. Exposiciones fotograficas y picturicas de artistas del barrio.</p>
+        </div>
+      </div>
+
+      <!-- Talleres -->
+      <div class="bg-white rounded-2xl overflow-hidden border border-barro/8 hover:shadow-lg transition-all group">
+        <div class="h-52 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Talleres"/>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="material-symbols-outlined text-ocre text-xl">school</span>
+            <span class="tag border-ocre text-ocre text-[9px]">Talleres</span>
+          </div>
+          <h3 class="font-serif italic text-xl text-barro mb-2">Talleres y Actividades</h3>
+          <p class="text-barro/50 text-sm font-light leading-relaxed">Actividades didacticas para ninos y adultos. Desde cata de cafe hasta talleres de escritura y arte.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Radio Cafevera -->
+<section class="py-24 px-6 md:px-20 bg-negro text-arena" id="radio">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="tag border-ocre text-ocre mb-6 block w-fit">Podcast · Spotify &amp; Anchor</span>
+      <h2 class="font-serif text-5xl italic mb-8 leading-tight">Radio<br/>Cafevera</h2>
+      <div class="space-y-5 text-sm text-arena/50 font-light leading-relaxed">
+        <p>Un espacio en audio donde hablamos sobre el cafe, la vida barrial y las historias de San Miguel Chapultepec. Entrevistamos a clientes, vecinos y personajes de la colonia.</p>
+        <p>Disponible en Spotify y Anchor. Escuchanos mientras trabajas, caminas o tomas tu cafe de la manana.</p>
+      </div>
+      <div class="flex flex-wrap gap-4 mt-10">
+        <a href="#" class="flex items-center gap-3 bg-[#1DB954] text-white text-[11px] uppercase tracking-widest font-semibold px-6 py-3 rounded-full hover:bg-[#1aa34a] transition-all">
+          <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          Escuchar en Spotify
+        </a>
+        <a href="#" class="flex items-center gap-3 border border-arena/20 text-arena text-[11px] uppercase tracking-widest font-semibold px-6 py-3 rounded-full hover:bg-arena/10 transition-all">
+          <span class="material-symbols-outlined text-sm">podcasts</span>
+          Ver episodios
+        </a>
+      </div>
+    </div>
+    <!-- Episodios ficticios -->
+    <div class="space-y-4">
+      <p class="text-[11px] uppercase tracking-widest text-ocre font-semibold mb-6">Episodios recientes</p>
+      <div class="flex items-start gap-4 p-5 bg-white/5 rounded-xl border border-white/8 hover:bg-white/10 transition-all cursor-pointer group">
+        <div class="w-12 h-12 rounded-lg bg-barro flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-arena text-xl">play_arrow</span>
+        </div>
+        <div class="flex-1">
+          <p class="font-semibold text-sm text-arena">Ep. 24 · El cafe de Chiapas y sus productores</p>
+          <p class="text-arena/40 text-xs font-light mt-1">Entrevista con Don Aurelio, caficultor de Ocosingo</p>
+          <p class="text-ocre text-[10px] uppercase tracking-widest mt-2">42 min · hace 2 semanas</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-5 bg-white/5 rounded-xl border border-white/8 hover:bg-white/10 transition-all cursor-pointer group">
+        <div class="w-12 h-12 rounded-lg bg-verde flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-arena text-xl">play_arrow</span>
+        </div>
+        <div class="flex-1">
+          <p class="font-semibold text-sm text-arena">Ep. 23 · La panaderia del barrio</p>
+          <p class="text-arena/40 text-xs font-light mt-1">Conoce a los vecinos que hornean nuestro pan cada manana</p>
+          <p class="text-ocre text-[10px] uppercase tracking-widest mt-2">35 min · hace 1 mes</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-5 bg-white/5 rounded-xl border border-white/8 hover:bg-white/10 transition-all cursor-pointer group">
+        <div class="w-12 h-12 rounded-lg bg-ocre flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-arena text-xl">play_arrow</span>
+        </div>
+        <div class="flex-1">
+          <p class="font-semibold text-sm text-arena">Ep. 22 · San Miguel Chapultepec: historia y presente</p>
+          <p class="text-arena/40 text-xs font-light mt-1">Conversacion con vecinos sobre la transformacion de la colonia</p>
+          <p class="text-ocre text-[10px] uppercase tracking-widest mt-2">51 min · hace 6 semanas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre nosotros -->
+<section class="py-24 px-6 md:px-20 bg-arena2">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80&fit=crop" class="w-full aspect-square object-cover rounded-2xl shadow-xl" alt="Cafevera Calavera interior"/>
+      <div class="absolute -top-5 -right-5 bg-ocre text-white p-6 rounded-xl shadow-lg hidden md:block">
+        <p class="font-serif italic text-3xl leading-none">2018</p>
+        <p class="text-[10px] uppercase tracking-widest text-white/70 mt-1">Fundada en CDMX</p>
+      </div>
+    </div>
+    <div>
+      <span class="tag border-barro text-barro mb-6 block w-fit">Quienes somos</span>
+      <h2 class="font-serif text-5xl italic text-barro mb-8 leading-tight">Cafeteria<br/>de barrio.</h2>
+      <div class="space-y-5 text-sm text-barro/60 font-light leading-relaxed">
+        <p>Abrimos en 2018 en la colonia San Miguel Chapultepec con una idea simple: hacer buen cafe y crear un espacio para la comunidad.</p>
+        <p>Usamos productos mexicanos de alta calidad: cafe de Chiapas, chocolates de Oaxaca y pan elaborado por vecinos de la zona. Creemos que el comercio local fortalece el barrio.</p>
+        <p>Nuestra biblioteca, galeria y talleres son parte de lo que somos. No somos solo una cafeteria, somos un punto de encuentro.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-barro/10">
+        <div class="text-center">
+          <span class="font-serif italic text-3xl text-barro block">+200</span>
+          <p class="text-[10px] uppercase tracking-widest text-barro/40 mt-1">Libros en biblioteca</p>
+        </div>
+        <div class="text-center">
+          <span class="font-serif italic text-3xl text-barro block">7</span>
+          <p class="text-[10px] uppercase tracking-widest text-barro/40 mt-1">Anos en el barrio</p>
+        </div>
+        <div class="text-center">
+          <span class="font-serif italic text-3xl text-barro block">100%</span>
+          <p class="text-[10px] uppercase tracking-widest text-barro/40 mt-1">Productos mexicanos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto / Visitar -->
+<section class="py-24 px-6 md:px-20 bg-white" id="contacto">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col gap-2 mb-16 text-center items-center">
+      <span class="tag border-ocre text-ocre">Visitanos</span>
+      <h2 class="font-serif text-5xl italic text-barro mt-4">Como llegar</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <!-- Info -->
+      <div class="space-y-7">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-barro/8 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-barro text-xl">location_on</span>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-ocre font-bold mb-1">Direccion</p>
+            <p class="text-sm text-barro/60 font-light leading-relaxed">Gobernador Ignacio Esteva 39a<br/>San Miguel Chapultepec I Secc.<br/>Miguel Hidalgo, CP 11850, CDMX</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-barro/8 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-barro text-xl">schedule</span>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-ocre font-bold mb-2">Horarios</p>
+            <div class="space-y-1 text-sm text-barro/60 font-light">
+              <p>Lunes a Viernes: <span class="font-semibold text-barro">8:00 – 21:00</span></p>
+              <p>Sabado: <span class="font-semibold text-barro">9:00 – 21:00</span></p>
+              <p>Domingo: <span class="font-semibold text-barro">10:00 – 19:00</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-barro/8 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-barro text-xl">call</span>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-ocre font-bold mb-1">Telefono</p>
+            <p class="text-sm text-barro/60 font-light">55 7091 2915</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-barro/8 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-barro text-xl">mail</span>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-ocre font-bold mb-1">Correo</p>
+            <p class="text-sm text-barro/60 font-light">cafeveramx@gmail.com</p>
+          </div>
+        </div>
+        <a href="https://wa.me/525570912915" target="_blank" class="inline-flex items-center gap-3 bg-[#25d366] text-white text-[11px] uppercase tracking-widest font-semibold px-8 py-4 rounded-full hover:bg-green-600 transition-all hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+      <!-- Formulario -->
+      <form class="space-y-5 bg-arena rounded-2xl p-8 border border-barro/8" onsubmit="return false;">
+        <h3 class="font-serif italic text-2xl text-barro mb-2">Mandanos un mensaje</h3>
+        <div><label class="text-[11px] uppercase tracking-widest text-ocre font-bold block mb-2">Nombre</label><input type="text" placeholder="Tu nombre" class="w-full border border-barro/15 bg-white px-4 py-3 text-sm text-barro focus:outline-none focus:border-ocre transition-colors rounded-lg"/></div>
+        <div><label class="text-[11px] uppercase tracking-widest text-ocre font-bold block mb-2">Correo o telefono</label><input type="text" placeholder="Para responderte" class="w-full border border-barro/15 bg-white px-4 py-3 text-sm text-barro focus:outline-none focus:border-ocre transition-colors rounded-lg"/></div>
+        <div>
+          <label class="text-[11px] uppercase tracking-widest text-ocre font-bold block mb-2">Asunto</label>
+          <select class="w-full border border-barro/15 bg-white px-4 py-3 text-sm text-barro/60 focus:outline-none focus:border-ocre transition-colors rounded-lg">
+            <option>Informacion general</option>
+            <option>Talleres y actividades</option>
+            <option>Galeria de arte</option>
+            <option>Biblioteca comunitaria</option>
+            <option>Radio Cafevera</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div><label class="text-[11px] uppercase tracking-widest text-ocre font-bold block mb-2">Mensaje</label><textarea rows="4" placeholder="Cuentanos en que podemos ayudarte..." class="w-full border border-barro/15 bg-white px-4 py-3 text-sm text-barro focus:outline-none focus:border-ocre transition-colors resize-none rounded-lg"></textarea></div>
+        <button type="submit" class="w-full bg-barro text-arena font-bold text-[11px] uppercase tracking-widest py-4 rounded-full hover:bg-barro2 transition-all hover:scale-[1.02]">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-negro text-arena py-16 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full bg-barro flex items-center justify-center"><span class="font-serif italic text-arena text-lg font-bold">C</span></div>
+          <div>
+            <h3 class="font-serif italic text-lg text-arena leading-none">Cafevera <span class="not-italic font-bold">Calavera</span></h3>
+            <p class="text-ocre text-[9px] tracking-[0.3em] uppercase">Cafeteria de barrio · CDMX</p>
+          </div>
+        </div>
+        <p class="text-arena/30 text-xs font-light leading-relaxed">Somos una cafeteria de barrio que ofrece cafe y productos mexicanos. Buen cafe.</p>
+        <p class="text-arena/30 text-xs font-light mt-4">Fundada en 2018 · San Miguel Chapultepec</p>
+      </div>
+      <div>
+        <p class="text-[11px] uppercase tracking-widest text-ocre font-bold mb-6">Navegacion</p>
+        <ul class="space-y-3 text-sm text-arena/30 font-light">
+          <li><a href="#menu" class="hover:text-ocre transition-colors">El Menu</a></li>
+          <li><a href="#cafe" class="hover:text-ocre transition-colors">El Cafe de la Barra</a></li>
+          <li><a href="#comunidad" class="hover:text-ocre transition-colors">Comunidad</a></li>
+          <li><a href="#radio" class="hover:text-ocre transition-colors">Radio Cafevera</a></li>
+          <li><a href="#contacto" class="hover:text-ocre transition-colors">Visitanos</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[11px] uppercase tracking-widest text-ocre font-bold mb-6">Contacto</p>
+        <div class="space-y-2 text-sm text-arena/30 font-light">
+          <p>Gobernador Ignacio Esteva 39a</p>
+          <p>San Miguel Chapultepec, CDMX</p>
+          <p class="mt-3">55 7091 2915</p>
+          <p>cafeveramx@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-arena/20">© 2025 Cafevera Calavera. Todos los derechos reservados.</p>
+      <p class="text-xs text-arena/20 italic">Sitio web por <span class="text-ocre">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/525570912915" target="_blank" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+</body>
+</html>
