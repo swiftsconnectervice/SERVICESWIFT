@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TECHYLAM · Techos y Estructuras Metálicas en CDMX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "steel":       "#0a0a0a",
+      "steel-mid":   "#1a1a1a",
+      "steel-light": "#2a2a2a",
+      "zinc-800":    "#27272a",
+      "zinc-700":    "#3f3f46",
+      "zinc-600":    "#52525b",
+      "zinc-400":    "#a1a1aa",
+      "zinc-300":    "#d4d4d8",
+      "zinc-100":    "#f4f4f5",
+      "accent":      "#2563eb",
+      "accent-light":"#60a5fa",
+      "accent-dim":  "#1d4ed8",
+      "warn":        "#f59e0b",
+    },
+    fontFamily: {
+      "display": ["Outfit","sans-serif"],
+      "mono":    ["Space Mono","monospace"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Outfit", sans-serif; }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .line-accent { background: linear-gradient(90deg, #2563eb 0%, transparent 100%); }
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(37,99,235,0.15); }
+</style>
+</head>
+<body class="bg-steel text-white font-display">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-steel/90 backdrop-blur-xl border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center h-16">
+    <div class="flex items-center gap-2">
+      <div class="w-2 h-8 bg-accent rounded-full"></div>
+      <span class="text-lg font-bold tracking-tight">TECHYLAM</span>
+      <span class="hidden sm:block text-[10px] font-mono text-zinc-600 ml-2 uppercase tracking-widest">Estructuras Metálicas</span>
+    </div>
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#servicios" class="text-xs font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Servicios</a>
+      <a href="#nosotros" class="text-xs font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Nosotros</a>
+      <a href="#beneficios" class="text-xs font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Beneficios</a>
+      <a href="#contacto" class="text-xs font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-wider">Contacto</a>
+    </div>
+    <a href="tel:5585905608" class="flex items-center gap-2 bg-accent hover:bg-accent-dim text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all">
+      <span class="material-symbols-outlined text-sm">call</span>
+      <span class="hidden sm:inline">55-8590-5608</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center overflow-hidden pt-16">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-20" alt="Estructura metálica"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-steel via-steel/80 to-steel"></div>
+    <div class="absolute inset-0 grid-bg"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-12 bg-accent"></div>
+          <span class="font-mono text-[11px] text-accent uppercase tracking-widest">CDMX · República Mexicana</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">
+          Instalación de techos y
+          <span class="text-accent">estructuras metálicas</span>
+          en CDMX.
+        </h1>
+        <p class="text-zinc-400 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
+          Avanzados sistemas de fabricación y montaje de cubiertas autosoportantes. La mejor opción para naves industriales, cubiertas y fachadas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#contacto" class="bg-accent hover:bg-accent-dim text-white font-semibold py-4 px-8 rounded-full transition-all text-sm text-center">
+            Solicitar cotización
+          </a>
+          <a href="#servicios" class="border border-white/10 hover:border-accent/40 hover:bg-white/5 text-white font-semibold py-4 px-8 rounded-full transition-all text-sm text-center">
+            Ver servicios
+          </a>
+        </div>
+      </div>
+      <div class="hidden lg:block relative">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1587582423116-ec07293f0395?w=800&q=80&fit=crop" class="w-full h-full object-cover" alt="Montaje de estructura metálica"/>
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-steel-mid border border-white/10 rounded-xl p-5">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined text-accent text-xl">verified</span>
+            </div>
+            <div>
+              <div class="font-bold text-sm">Toda la República</div>
+              <div class="font-mono text-[10px] text-zinc-400">Proyectos a nivel nacional</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="bg-steel-mid border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/5">
+    <div class="py-10 px-6 text-center">
+      <div class="font-mono text-2xl md:text-3xl font-bold text-accent mb-1">6+</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-zinc-400">Tipos de cubiertas</div>
+    </div>
+    <div class="py-10 px-6 text-center">
+      <div class="font-mono text-2xl md:text-3xl font-bold text-white mb-1">CDMX</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-zinc-400">Base de operaciones</div>
+    </div>
+    <div class="py-10 px-6 text-center">
+      <div class="font-mono text-2xl md:text-3xl font-bold text-white mb-1">Nacional</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-zinc-400">Cobertura</div>
+    </div>
+    <div class="py-10 px-6 text-center">
+      <div class="font-mono text-2xl md:text-3xl font-bold text-accent mb-1">100%</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-zinc-400">Calidad industrial</div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios -->
+<section class="py-20 md:py-28 bg-steel grid-bg" id="servicios">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-px w-12 bg-accent"></div>
+      <span class="font-mono text-[11px] text-accent uppercase tracking-widest">Soluciones constructivas</span>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-16">
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Servicios especializados</h2>
+      <p class="text-zinc-400 text-sm max-w-sm">Fabricación, montaje e instalación con los más altos estándares de la industria de la construcción.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Estructuras -->
+      <div class="bg-steel-mid border border-white/5 rounded-2xl p-8 card-hover group">
+        <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+          <span class="material-symbols-outlined text-accent text-2xl">view_in_ar</span>
+        </div>
+        <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">01</div>
+        <h3 class="text-xl font-bold mb-3">Estructuras Metálicas</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Fabricación y montaje de estructuras metálicas y losacero para naves industriales, centros comerciales y proyectos a gran escala.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Acero estructural</span>
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Losacero</span>
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Montaje</span>
+        </div>
+      </div>
+
+      <!-- Cubiertas -->
+      <div class="bg-steel-mid border border-white/5 rounded-2xl p-8 card-hover group">
+        <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+          <span class="material-symbols-outlined text-accent text-2xl">roofing</span>
+        </div>
+        <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">02</div>
+        <h3 class="text-xl font-bold mb-3">Cubiertas y Techos</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Sistemas autosoportantes, convencionales, planas, engargolables, acrílicas y de policarbonato. Soluciones para cada necesidad.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Autosoportantes</span>
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Acrílicas</span>
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Policarbonato</span>
+        </div>
+      </div>
+
+      <!-- Paneles -->
+      <div class="bg-steel-mid border border-white/5 rounded-2xl p-8 card-hover group">
+        <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+          <span class="material-symbols-outlined text-accent text-2xl">grid_view</span>
+        </div>
+        <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-3">03</div>
+        <h3 class="text-xl font-bold mb-3">Paneles y Fachadas</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Panel para cubiertas, panel para muros y fachadas con perfiles acanalados. Acabados modernos y alta resistencia.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Panel muro</span>
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Acanalados</span>
+          <span class="text-[10px] font-mono bg-white/5 text-zinc-400 px-3 py-1 rounded-full">Fachadas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tipos de cubiertas (galería) -->
+<section class="py-20 md:py-28 bg-steel-mid">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-px w-12 bg-accent"></div>
+      <span class="font-mono text-[11px] text-accent uppercase tracking-widest">Catálogo</span>
+    </div>
+    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-16">Tipos de cubiertas</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Cubierta autosoportante"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-steel via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">01</div>
+          <h3 class="text-lg font-bold">Autosoportantes</h3>
+          <p class="text-zinc-400 text-xs mt-1">Sin estructura intermedia, grandes claros</p>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Cubierta convencional"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-steel via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">02</div>
+          <h3 class="text-lg font-bold">Convencionales</h3>
+          <p class="text-zinc-400 text-xs mt-1">Lámina galvanizada sobre estructura</p>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Cubierta plana"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-steel via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">03</div>
+          <h3 class="text-lg font-bold">Planas</h3>
+          <p class="text-zinc-400 text-xs mt-1">Diseño limpio para espacios comerciales</p>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Cubierta engargolable"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-steel via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">04</div>
+          <h3 class="text-lg font-bold">Engargolables</h3>
+          <p class="text-zinc-400 text-xs mt-1">Unión mecánica, máxima hermeticidad</p>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Cubierta acrílica"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-steel via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">05</div>
+          <h3 class="text-lg font-bold">Acrílicas</h3>
+          <p class="text-zinc-400 text-xs mt-1">Iluminación natural, alta transparencia</p>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Cubierta policarbonato"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-steel via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">06</div>
+          <h3 class="text-lg font-bold">Policarbonato</h3>
+          <p class="text-zinc-400 text-xs mt-1">Resistencia y ligereza, filtro UV</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nosotros -->
+<section class="py-20 md:py-28 bg-steel grid-bg" id="nosotros">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80&fit=crop" class="w-full h-full object-cover" alt="Equipo TECHYLAM"/>
+        </div>
+        <div class="absolute -top-4 -right-4 bg-accent rounded-xl p-4 text-center">
+          <div class="font-mono text-2xl font-bold">CDMX</div>
+          <div class="text-[10px] font-medium uppercase tracking-wider opacity-80">Base central</div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-accent"></div>
+          <span class="font-mono text-[11px] text-accent uppercase tracking-widest">Conoce a TECHYLAM</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-6">Una cubierta bien diseñada no solo protege, también transforma.</h2>
+        <p class="text-zinc-400 leading-relaxed mb-6">
+          TECHYLAM es la mejor opción para la construcción de naves industriales. Somos una empresa especializada en la fabricación y montaje de estructuras metálicas y diversos tipos de cubiertas.
+        </p>
+        <p class="text-zinc-400 leading-relaxed mb-8">
+          Cada proyecto que realizamos lo hacemos con profesionalismo. Somos responsables y eficientes, cumplimos con los estándares de calidad marcados por la industria de la construcción. Contamos con personal en constante capacitación y a la vanguardia en el empleo de materiales tecnológicos.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-steel-mid border border-white/5 rounded-xl p-4">
+            <span class="material-symbols-outlined text-accent text-xl mb-2">public</span>
+            <div class="text-sm font-semibold">Cobertura nacional</div>
+            <div class="text-xs text-zinc-400 mt-1">Proyectos en toda la República</div>
+          </div>
+          <div class="bg-steel-mid border border-white/5 rounded-xl p-4">
+            <span class="material-symbols-outlined text-accent text-xl mb-2">school</span>
+            <div class="text-sm font-semibold">Capacitación continua</div>
+            <div class="text-xs text-zinc-400 mt-1">Personal a la vanguardia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Beneficios -->
+<section class="py-20 md:py-28 bg-steel-mid" id="beneficios">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-px w-12 bg-accent"></div>
+      <span class="font-mono text-[11px] text-accent uppercase tracking-widest">¿Por qué elegirnos?</span>
+    </div>
+    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-16">Beneficios de trabajar con TECHYLAM</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div class="bg-steel border border-white/5 rounded-2xl p-6 text-center card-hover">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-accent">design_services</span>
+        </div>
+        <h3 class="font-bold text-sm mb-2">Diseños a la medida</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed">Adaptados a las necesidades específicas de cada proyecto.</p>
+      </div>
+      <div class="bg-steel border border-white/5 rounded-2xl p-6 text-center card-hover">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-accent">speed</span>
+        </div>
+        <h3 class="font-bold text-sm mb-2">Instalación eficiente</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed">Procesos sin contratiempos y optimización de tiempos.</p>
+      </div>
+      <div class="bg-steel border border-white/5 rounded-2xl p-6 text-center card-hover">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-accent">memory</span>
+        </div>
+        <h3 class="font-bold text-sm mb-2">Tecnología</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed">Materiales de alta tecnología y resistencia comprobada.</p>
+      </div>
+      <div class="bg-steel border border-white/5 rounded-2xl p-6 text-center card-hover">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-accent">palette</span>
+        </div>
+        <h3 class="font-bold text-sm mb-2">Estética moderna</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed">Opciones con acabados modernos y atractivos.</p>
+      </div>
+      <div class="bg-steel border border-white/5 rounded-2xl p-6 text-center card-hover">
+        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-accent">support_agent</span>
+        </div>
+        <h3 class="font-bold text-sm mb-2">Asesoría integral</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed">Acompañamiento desde la cotización hasta la entrega final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="py-20 bg-accent relative overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 md:px-8 text-center">
+    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">¿Tienes un proyecto en mente?</h2>
+    <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">Contáctanos para conocer tu proyecto, cotizar los trabajos pertinentes y proceder a la fabricación.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#contacto" class="bg-white text-accent font-bold py-4 px-8 rounded-full text-sm hover:bg-zinc-100 transition-all">
+        Solicitar cotización
+      </a>
+      <a href="https://wa.me/5215585905608" target="_blank" rel="noopener" class="border-2 border-white/30 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-full text-sm transition-all flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-20 md:py-28 bg-steel grid-bg" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <!-- Info -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-accent"></div>
+          <span class="font-mono text-[11px] text-accent uppercase tracking-widest">Contacto</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-6">Cuéntanos sobre tu proyecto</h2>
+        <p class="text-zinc-400 leading-relaxed mb-10">Contáctanos vía telefónica o por correo electrónico para conocer tu proyecto, cotizar los trabajos pertinentes y proceder a la fabricación.</p>
+
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-steel-mid border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent">call</span>
+            </div>
+            <div>
+              <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-1">Teléfono / WhatsApp</div>
+              <a href="tel:5585905608" class="text-sm font-semibold hover:text-accent transition-colors">55-8590-5608</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-steel-mid border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent">location_on</span>
+            </div>
+            <div>
+              <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-1">Ubicación</div>
+              <p class="text-sm font-semibold">Ciudad de México, CDMX</p>
+              <p class="text-xs text-zinc-400 mt-0.5">Proyectos en toda la República Mexicana</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-steel-mid border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent">share</span>
+            </div>
+            <div>
+              <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-1">Redes sociales</div>
+              <div class="flex gap-3 mt-1">
+                <span class="text-sm text-zinc-400 hover:text-accent transition-colors cursor-pointer">Twitter</span>
+                <span class="text-zinc-600">·</span>
+                <span class="text-sm text-zinc-400 hover:text-accent transition-colors cursor-pointer">Facebook</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="bg-steel-mid border border-white/5 rounded-2xl p-8 md:p-10">
+        <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-6">Formulario de cotización</div>
+        <form class="space-y-5" onsubmit="return false;">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-medium text-zinc-400 mb-2">Nombre</label>
+              <input type="text" placeholder="Tu nombre" class="w-full bg-steel border border-white/5 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:border-accent focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-zinc-400 mb-2">Empresa</label>
+              <input type="text" placeholder="Tu empresa" class="w-full bg-steel border border-white/5 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:border-accent focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-medium text-zinc-400 mb-2">Teléfono</label>
+              <input type="tel" placeholder="55 0000 0000" class="w-full bg-steel border border-white/5 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:border-accent focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-zinc-400 mb-2">Email</label>
+              <input type="email" placeholder="correo@empresa.com" class="w-full bg-steel border border-white/5 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:border-accent focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-zinc-400 mb-2">Tipo de servicio</label>
+            <select class="w-full bg-steel border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:border-accent focus:outline-none transition-colors appearance-none">
+              <option value="">Selecciona un servicio</option>
+              <option>Estructuras metálicas</option>
+              <option>Cubiertas autosoportantes</option>
+              <option>Cubiertas convencionales / planas</option>
+              <option>Cubiertas acrílicas o policarbonato</option>
+              <option>Paneles y fachadas</option>
+              <option>Losacero</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-zinc-400 mb-2">Descripción del proyecto</label>
+            <textarea rows="4" placeholder="Cuéntanos los detalles de tu proyecto, dimensiones, ubicación..." class="w-full bg-steel border border-white/5 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:border-accent focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-accent hover:bg-accent-dim text-white font-bold py-4 rounded-full text-sm transition-all active:scale-[0.98]">
+            Enviar solicitud de cotización
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-steel-mid border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-2 h-6 bg-accent rounded-full"></div>
+          <span class="text-lg font-bold tracking-tight">TECHYLAM</span>
+        </div>
+        <p class="text-zinc-400 text-sm leading-relaxed max-w-xs">Especialistas en fabricación y montaje de estructuras metálicas y cubiertas. Ciudad de México, con cobertura en toda la República.</p>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-4">Servicios</div>
+        <ul class="space-y-2 text-sm text-zinc-400">
+          <li><a href="#servicios" class="hover:text-white transition-colors">Estructuras metálicas</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Cubiertas y techos</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Paneles y fachadas</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Losacero</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest mb-4">Contacto</div>
+        <ul class="space-y-2 text-sm text-zinc-400">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent text-sm">call</span>
+            <a href="tel:5585905608" class="hover:text-white transition-colors">55-8590-5608</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent text-sm">location_on</span>
+            Ciudad de México, CDMX
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">© 2025 TECHYLAM · Todos los derechos reservados</p>
+      <p class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">Diseño web por <span class="text-accent">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/5215585905608?text=Hola%2C%20me%20interesa%20cotizar%20un%20proyecto%20de%20estructuras%20met%C3%A1licas." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
