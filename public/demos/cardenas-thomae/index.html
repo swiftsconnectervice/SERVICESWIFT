@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cárdenas Thomae · Defensa Legal Profesional</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "charcoal":    "#0f0f0f",
+      "charcoal-md": "#1a1a1a",
+      "charcoal-lt": "#252525",
+      "gold":        "#c4a265",
+      "gold-dk":     "#a8893f",
+      "gold-lt":     "#dcc48e",
+      "cream":       "#f5f0e8",
+      "cream-dk":    "#e8e0d0",
+      "slate":       "#8a8a8a",
+      "slate-lt":    "#a0a0a0",
+    },
+    fontFamily: {
+      "display": ["Cormorant Garamond","serif"],
+      "body":    ["Inter","sans-serif"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Inter", sans-serif; background: #0f0f0f; color: #e8e0d0; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+  /* Fade-in + slide-up */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+  .reveal-d4 { transition-delay: 0.4s; }
+  .reveal-d5 { transition-delay: 0.5s; }
+
+  /* Line draw */
+  .line-draw { width: 0; transition: width 1.2s cubic-bezier(0.16,1,0.3,1); }
+  .line-draw.visible { width: 100%; }
+
+  /* Image reveal mask */
+  .img-reveal { position: relative; overflow: hidden; }
+  .img-reveal::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: #c4a265;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 1s cubic-bezier(0.77,0,0.175,1);
+    transition-delay: 0.2s;
+  }
+  .img-reveal.visible::after { transform: scaleX(0); }
+
+  /* Parallax helper */
+  .parallax-bg {
+    will-change: transform;
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-charcoal/90 backdrop-blur-xl border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-8 h-8 border border-gold/60 flex items-center justify-center">
+        <span class="font-display text-gold font-semibold text-xs">CT</span>
+      </div>
+      <div class="hidden sm:block leading-tight">
+        <span class="text-[11px] font-semibold text-white tracking-[0.15em] uppercase">Cárdenas Thomae</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-10">
+      <a href="#about" class="text-[10px] text-slate-lt hover:text-gold transition-colors font-medium uppercase tracking-[0.18em]">El Despacho</a>
+      <a href="#areas" class="text-[10px] text-slate-lt hover:text-gold transition-colors font-medium uppercase tracking-[0.18em]">Áreas</a>
+      <a href="#diferenciadores" class="text-[10px] text-slate-lt hover:text-gold transition-colors font-medium uppercase tracking-[0.18em]">Por Qué Elegirnos</a>
+      <a href="#contacto" class="text-[10px] text-slate-lt hover:text-gold transition-colors font-medium uppercase tracking-[0.18em]">Contacto</a>
+    </nav>
+    <a href="#contacto" class="border border-gold/50 hover:bg-gold hover:text-charcoal text-gold text-[10px] font-semibold px-5 py-2 transition-all uppercase tracking-[0.15em]">
+      Consulta
+    </a>
+  </div>
+</header>
+
+<!-- Hero with parallax -->
+<section class="relative min-h-screen flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="heroParallax">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-40" alt="Despacho legal"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-charcoal/60 to-transparent"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full pb-20 md:pb-28 pt-32">
+    <div class="max-w-3xl">
+      <div class="reveal flex items-center gap-4 mb-8">
+        <div class="w-16 h-px bg-gold"></div>
+        <span class="text-gold text-[10px] font-medium uppercase tracking-[0.35em]">Nuevo Laredo, Tamaulipas · +25 años de experiencia</span>
+      </div>
+      <h1 class="reveal reveal-d1 text-5xl sm:text-6xl md:text-7xl font-display text-white leading-[1.05] mb-6 font-light">
+        Defensa Legal<br/>
+        <span class="text-gold italic font-normal">Profesional.</span>
+      </h1>
+      <p class="reveal reveal-d2 text-white/45 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+        Estrategias dentro del marco legal para resolver disputas con el gobierno y optimizar la operación de su empresa.
+      </p>
+      <div class="reveal reveal-d3 flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="bg-gold hover:bg-gold-dk text-charcoal font-semibold py-4 px-8 text-sm text-center transition-colors uppercase tracking-[0.15em]">
+          Agendar consulta
+        </a>
+        <a href="#areas" class="border border-white/15 hover:border-gold/40 text-white font-medium py-4 px-8 text-sm text-center transition-all uppercase tracking-[0.15em]">
+          Áreas de práctica
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider line-draw -->
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+  <div class="line-draw h-px bg-gold/20 mx-auto"></div>
+</div>
+
+<!-- About -->
+<section class="py-24 bg-charcoal" id="about">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-gold"></div>
+          <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">El despacho</span>
+        </div>
+        <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-display text-white leading-tight mb-6 font-light">
+          Experiencia, pragmatismo y <span class="text-gold italic">conocimiento especializado.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-cream-dk/70 leading-relaxed mb-6">
+          Dirigido por el Lic. Raúl Cárdenas Thomae, experto en Comercio Exterior, Contabilidad y Tributación Internacional, nuestro despacho genera estrategias dentro del marco legal para resolver disputas con el gobierno y optimizar la operación de las empresas.
+        </p>
+        <p class="reveal reveal-d3 text-cream-dk/70 leading-relaxed mb-10">
+          Ubicados estratégicamente en Nuevo Laredo — la aduana principal de América Latina — contamos con más de 25 años de experiencia en defensa legal profesional.
+        </p>
+        <div class="reveal reveal-d4 grid grid-cols-3 gap-6">
+          <div class="border-l border-gold/30 pl-4">
+            <div class="font-display text-3xl text-white font-light">+25</div>
+            <div class="text-[9px] text-slate uppercase tracking-[0.2em] mt-1">Años exp.</div>
+          </div>
+          <div class="border-l border-gold/30 pl-4">
+            <div class="font-display text-3xl text-white font-light">24/7</div>
+            <div class="text-[9px] text-slate uppercase tracking-[0.2em] mt-1">Atención</div>
+          </div>
+          <div class="border-l border-gold/30 pl-4">
+            <div class="font-display text-3xl text-white font-light">100%</div>
+            <div class="text-[9px] text-slate uppercase tracking-[0.2em] mt-1">Confidencial</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal img-reveal">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&fit=crop" class="w-full aspect-[4/5] object-cover" alt="Lic. Raúl Cárdenas Thomae"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+  <div class="line-draw h-px bg-gold/20 mx-auto"></div>
+</div>
+
+<!-- Áreas de Práctica -->
+<section class="py-24 bg-charcoal-md" id="areas">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="reveal flex items-center gap-3 mb-4">
+      <div class="w-10 h-px bg-gold"></div>
+      <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">Áreas de práctica</span>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+      <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-display text-white leading-tight font-light max-w-lg">
+        Especialistas en la relación<br/><span class="text-gold italic">gobierno — particulares.</span>
+      </h2>
+      <p class="reveal reveal-d2 text-slate text-sm max-w-xs">Derecho administrativo, fiscal, aduanero y corporativo con enfoque en resultados.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5">
+      <!-- Card 1 -->
+      <div class="reveal bg-charcoal-md p-10 md:p-12 group hover:bg-charcoal-lt transition-colors">
+        <span class="material-symbols-outlined text-gold text-2xl mb-6">account_balance</span>
+        <h3 class="text-xl font-display text-white mb-4 font-normal">Derecho Fiscal</h3>
+        <p class="text-slate text-sm leading-relaxed">Estrategias para que el contribuyente esté al corriente con el SAT, IMSS, INFONAVIT y autoridades estatales, tanto en auditorías como después de ellas.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="reveal reveal-d1 bg-charcoal-md p-10 md:p-12 group hover:bg-charcoal-lt transition-colors">
+        <span class="material-symbols-outlined text-gold text-2xl mb-6">local_shipping</span>
+        <h3 class="text-xl font-display text-white mb-4 font-normal">Litigio Aduanero y Comercio Exterior</h3>
+        <p class="text-slate text-sm leading-relaxed">Desde la aduana principal de América Latina, combatimos actos de autoridad y solucionamos la situación fiscal en importaciones y exportaciones.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="reveal bg-charcoal-md p-10 md:p-12 group hover:bg-charcoal-lt transition-colors">
+        <span class="material-symbols-outlined text-gold text-2xl mb-6">apartment</span>
+        <h3 class="text-xl font-display text-white mb-4 font-normal">Derecho Corporativo y Laboral</h3>
+        <p class="text-slate text-sm leading-relaxed">Protección ante posibles reclamos de trabajadores, asesoría en contratos y estructuración corporativa integral.</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="reveal reveal-d1 bg-charcoal-md p-10 md:p-12 group hover:bg-charcoal-lt transition-colors">
+        <span class="material-symbols-outlined text-gold text-2xl mb-6">inventory</span>
+        <h3 class="text-xl font-display text-white mb-4 font-normal">Padrones de Importadores</h3>
+        <p class="text-slate text-sm leading-relaxed">Apoyo especializado para comercializar mercancías de forma directa en México, gestionando altas, bajas y renovaciones ante la autoridad aduanera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+  <div class="line-draw h-px bg-gold/20 mx-auto"></div>
+</div>
+
+<!-- Diferenciadores -->
+<section class="py-24 bg-charcoal" id="diferenciadores">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-20">
+      <div class="reveal flex items-center justify-center gap-3 mb-4">
+        <div class="w-10 h-px bg-gold"></div>
+        <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">Por qué elegirnos</span>
+        <div class="w-10 h-px bg-gold"></div>
+      </div>
+      <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-display text-white font-light">Compromiso con <span class="text-gold italic">resultados.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="reveal text-center">
+        <div class="w-16 h-16 border border-gold/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-gold text-xl">schedule</span>
+        </div>
+        <h4 class="text-white font-display text-lg mb-2">+25 Años</h4>
+        <p class="text-slate text-xs leading-relaxed">Más de dos décadas de experiencia en defensa legal profesional.</p>
+      </div>
+      <div class="reveal reveal-d1 text-center">
+        <div class="w-16 h-16 border border-gold/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-gold text-xl">support_agent</span>
+        </div>
+        <h4 class="text-white font-display text-lg mb-2">Atención 24/7</h4>
+        <p class="text-slate text-xs leading-relaxed">Atención personalizada disponible las 24 horas, los 7 días de la semana.</p>
+      </div>
+      <div class="reveal reveal-d2 text-center">
+        <div class="w-16 h-16 border border-gold/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-gold text-xl">lock</span>
+        </div>
+        <h4 class="text-white font-display text-lg mb-2">100% Confidencial</h4>
+        <p class="text-slate text-xs leading-relaxed">Manejo discreto y seguro de toda la información y casos de nuestros clientes.</p>
+      </div>
+      <div class="reveal reveal-d3 text-center">
+        <div class="w-16 h-16 border border-gold/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-gold text-xl">trending_up</span>
+        </div>
+        <h4 class="text-white font-display text-lg mb-2">Enfoque en Resultados</h4>
+        <p class="text-slate text-xs leading-relaxed">Objetivo de 100% recuperación de inversión para nuestros clientes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner with parallax image -->
+<section class="relative py-28 overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="ctaParallax">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-25" alt="Ciudad"/>
+    </div>
+    <div class="absolute inset-0 bg-charcoal/70"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 md:px-10 text-center">
+    <h2 class="reveal text-3xl md:text-4xl font-display text-white font-light mb-6">
+      Su socio legal en la <span class="text-gold italic">frontera norte.</span>
+    </h2>
+    <p class="reveal reveal-d1 text-slate text-sm leading-relaxed mb-10 max-w-lg mx-auto">
+      Desde Nuevo Laredo, sede estratégica junto a la aduana principal de América Latina, brindamos asesoría especializada en comercio exterior y defensa fiscal.
+    </p>
+    <a href="#contacto" class="reveal reveal-d2 inline-block bg-gold hover:bg-gold-dk text-charcoal font-semibold py-4 px-10 text-sm transition-colors uppercase tracking-[0.15em]">
+      Contactar ahora
+    </a>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+  <div class="line-draw h-px bg-gold/20 mx-auto"></div>
+</div>
+
+<!-- Contacto -->
+<section class="py-24 bg-charcoal" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-gold"></div>
+          <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">Contacto</span>
+        </div>
+        <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-display text-white leading-tight mb-6 font-light">
+          Hablemos de <span class="text-gold italic">su caso.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-cream-dk/60 leading-relaxed mb-12">
+          Llámenos, envíenos un correo o visítenos en nuestra oficina. Ofrecemos asistencia rápida a través de WhatsApp y asesoría personalizada desde el primer contacto.
+        </p>
+
+        <div class="space-y-8">
+          <div class="reveal flex items-start gap-5">
+            <div class="w-10 h-10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-gold text-lg">location_on</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-slate uppercase tracking-[0.2em] font-medium mb-1">Ubicación</div>
+              <p class="text-sm text-cream-dk/80">Nuevo Laredo, Tamaulipas<br/>Sede estratégica junto a la Aduana</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d1 flex items-start gap-5">
+            <div class="w-10 h-10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-gold text-lg">call</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-slate uppercase tracking-[0.2em] font-medium mb-1">Teléfono</div>
+              <a href="tel:8671290391" class="text-sm text-cream-dk/80 hover:text-gold transition-colors">(867) 129-03-91</a>
+            </div>
+          </div>
+          <div class="reveal reveal-d2 flex items-start gap-5">
+            <div class="w-10 h-10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-gold text-lg">mail</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-slate uppercase tracking-[0.2em] font-medium mb-1">Email</div>
+              <a href="mailto:raul@cardenasthomae.com" class="text-sm text-cream-dk/80 hover:text-gold transition-colors">raul@cardenasthomae.com</a>
+            </div>
+          </div>
+          <div class="reveal reveal-d3 flex items-start gap-5">
+            <div class="w-10 h-10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-gold text-lg">schedule</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-slate uppercase tracking-[0.2em] font-medium mb-1">Disponibilidad</div>
+              <p class="text-sm text-cream-dk/80">Atención personalizada 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal bg-charcoal-lt p-8 md:p-10 border border-white/5">
+        <div class="text-[9px] text-slate uppercase tracking-[0.2em] font-medium mb-8">Formulario de contacto</div>
+        <form class="space-y-6" onsubmit="return false;">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-[9px] text-slate uppercase tracking-[0.15em] font-medium mb-2">Nombre</label>
+              <input type="text" placeholder="Su nombre completo" class="w-full bg-charcoal border border-white/10 px-4 py-3 text-sm text-cream-dk placeholder-slate/50 focus:border-gold/50 focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-[9px] text-slate uppercase tracking-[0.15em] font-medium mb-2">Teléfono</label>
+              <input type="tel" placeholder="(867) 000-00-00" class="w-full bg-charcoal border border-white/10 px-4 py-3 text-sm text-cream-dk placeholder-slate/50 focus:border-gold/50 focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-[9px] text-slate uppercase tracking-[0.15em] font-medium mb-2">Email</label>
+            <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-charcoal border border-white/10 px-4 py-3 text-sm text-cream-dk placeholder-slate/50 focus:border-gold/50 focus:outline-none transition-colors"/>
+          </div>
+          <div>
+            <label class="block text-[9px] text-slate uppercase tracking-[0.15em] font-medium mb-2">Área de interés</label>
+            <select class="w-full bg-charcoal border border-white/10 px-4 py-3 text-sm text-cream-dk focus:border-gold/50 focus:outline-none transition-colors appearance-none">
+              <option value="">Seleccionar área</option>
+              <option>Derecho Fiscal</option>
+              <option>Litigio Aduanero</option>
+              <option>Comercio Exterior</option>
+              <option>Derecho Corporativo</option>
+              <option>Derecho Laboral</option>
+              <option>Padrones de Importadores</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[9px] text-slate uppercase tracking-[0.15em] font-medium mb-2">Mensaje</label>
+            <textarea rows="4" placeholder="Describa brevemente su caso..." class="w-full bg-charcoal border border-white/10 px-4 py-3 text-sm text-cream-dk placeholder-slate/50 focus:border-gold/50 focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-gold hover:bg-gold-dk text-charcoal font-semibold py-4 text-sm transition-colors uppercase tracking-[0.15em]">
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-charcoal border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 border border-gold/40 flex items-center justify-center">
+            <span class="font-display text-gold font-semibold text-xs">CT</span>
+          </div>
+          <span class="text-[11px] font-semibold text-white tracking-[0.15em] uppercase">Cárdenas Thomae</span>
+        </div>
+        <p class="text-slate text-xs leading-relaxed max-w-xs mt-3">Defensa legal profesional. Especialistas en derecho fiscal, aduanero y comercio exterior desde Nuevo Laredo, Tamaulipas.</p>
+      </div>
+      <div>
+        <div class="text-gold text-[9px] font-medium uppercase tracking-[0.2em] mb-4">Navegación</div>
+        <ul class="space-y-3 text-xs text-slate">
+          <li><a href="#about" class="hover:text-white transition-colors">El Despacho</a></li>
+          <li><a href="#areas" class="hover:text-white transition-colors">Áreas de Práctica</a></li>
+          <li><a href="#diferenciadores" class="hover:text-white transition-colors">Por Qué Elegirnos</a></li>
+          <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-gold text-[9px] font-medium uppercase tracking-[0.2em] mb-4">Contacto directo</div>
+        <ul class="space-y-3 text-xs text-slate">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-gold text-sm">call</span>
+            <a href="tel:8671290391" class="hover:text-white transition-colors">(867) 129-03-91</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-gold text-sm">mail</span>
+            <a href="mailto:raul@cardenasthomae.com" class="hover:text-white transition-colors">raul@cardenasthomae.com</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-gold text-sm">location_on</span>
+            Nuevo Laredo, Tamaulipas
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-slate/50 text-[9px] uppercase tracking-[0.2em]">© 2025 Cárdenas Thomae · Defensa Legal Profesional</p>
+      <p class="text-slate/50 text-[9px] uppercase tracking-[0.2em]">Diseño web por <span class="text-gold">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/528671290391?text=Hola%2C%20me%20interesa%20agendar%20una%20consulta%20legal." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- Scripts: IntersectionObserver for reveals, line-draws, img-reveals + Parallax -->
+<script>
+// Reveal animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .line-draw, .img-reveal').forEach(el => observer.observe(el));
+
+// Parallax on scroll
+const heroP = document.getElementById('heroParallax');
+const ctaP = document.getElementById('ctaParallax');
+
+function parallax() {
+  const scrollY = window.scrollY;
+  if (heroP) heroP.style.transform = `translateY(${scrollY * 0.15}px)`;
+  if (ctaP) {
+    const rect = ctaP.parentElement.getBoundingClientRect();
+    const offset = rect.top * 0.12;
+    ctaP.style.transform = `translateY(${offset}px)`;
+  }
+}
+window.addEventListener('scroll', parallax, { passive: true });
+parallax();
+</script>
+
+</body>
+</html>
