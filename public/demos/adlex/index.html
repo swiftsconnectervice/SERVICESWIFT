@@ -11,22 +11,23 @@
 tailwind.config = {
   theme: { extend: {
     colors: {
-      "primary":               "#022448",
-      "primary-container":     "#1e3a5f",
+      "primary":               "#7a1b2d",
+      "primary-container":     "#5c1422",
       "on-primary":            "#ffffff",
-      "on-primary-container":  "#8aa4cf",
-      "secondary":             "#755b00",
-      "secondary-container":   "#fed255",
+      "on-primary-container":  "#d4a0aa",
+      "secondary":             "#3a3a3a",
+      "secondary-container":   "#e8e8e8",
       "on-secondary":          "#ffffff",
-      "surface":               "#faf9f6",
-      "surface-container-low": "#f4f3f0",
-      "surface-container":     "#efeeeb",
-      "surface-container-high":"#e9e8e5",
+      "surface":               "#faf8f6",
+      "surface-container-low": "#f3f1ef",
+      "surface-container":     "#eceae8",
+      "surface-container-high":"#e5e3e1",
       "surface-container-lowest":"#ffffff",
-      "on-surface":            "#1a1c1a",
-      "on-surface-variant":    "#43474e",
-      "outline":               "#74777f",
-      "outline-variant":       "#c4c6cf",
+      "on-surface":            "#1a1a1a",
+      "on-surface-variant":    "#4a4a4a",
+      "outline":               "#777777",
+      "outline-variant":       "#c8c8c8",
+      "accent":                "#c9a96e",
     },
     fontFamily: {
       "headline": ["Newsreader","serif"],
@@ -41,21 +42,21 @@ tailwind.config = {
   .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 </style>
 </head>
-<body class="bg-surface font-body text-on-surface selection:bg-secondary/30">
+<body class="bg-surface font-body text-on-surface selection:bg-primary/30">
 
 <!-- Nav -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 glass-nav shadow-[0_4px_40px_rgba(2,36,72,0.04)]">
+<header class="fixed top-0 w-full z-50 bg-surface/80 glass-nav shadow-[0_4px_40px_rgba(122,27,45,0.04)]">
   <div class="flex items-center justify-between px-6 md:px-12 py-5 max-w-[1920px] mx-auto">
     <a href="#" class="flex items-center gap-3">
       <span class="text-xl font-semibold tracking-[0.15em] uppercase text-primary font-headline">Adlex</span>
       <span class="hidden sm:block text-[10px] font-body text-on-surface-variant uppercase tracking-widest">Abogados</span>
     </a>
     <nav class="hidden lg:flex items-center space-x-10">
-      <a href="#servicios" class="text-primary opacity-80 hover:text-secondary transition-all duration-500 font-headline tracking-tight">Servicios</a>
-      <a href="#firma" class="text-primary opacity-80 hover:text-secondary transition-all duration-500 font-headline tracking-tight">La Firma</a>
-      <a href="#valores" class="text-primary opacity-80 hover:text-secondary transition-all duration-500 font-headline tracking-tight">Valores</a>
-      <a href="#recursos" class="text-primary opacity-80 hover:text-secondary transition-all duration-500 font-headline tracking-tight">Recursos</a>
-      <a href="#contacto" class="text-primary opacity-80 hover:text-secondary transition-all duration-500 font-headline tracking-tight">Contacto</a>
+      <a href="#servicios" class="text-primary opacity-80 hover:text-primary transition-all duration-500 font-headline tracking-tight">Servicios</a>
+      <a href="#firma" class="text-primary opacity-80 hover:text-primary transition-all duration-500 font-headline tracking-tight">La Firma</a>
+      <a href="#valores" class="text-primary opacity-80 hover:text-primary transition-all duration-500 font-headline tracking-tight">Valores</a>
+      <a href="#recursos" class="text-primary opacity-80 hover:text-primary transition-all duration-500 font-headline tracking-tight">Recursos</a>
+      <a href="#contacto" class="text-primary opacity-80 hover:text-primary transition-all duration-500 font-headline tracking-tight">Contacto</a>
     </nav>
     <a href="#contacto" class="bg-primary text-on-primary px-6 py-2.5 text-sm uppercase tracking-widest font-medium hover:bg-primary-container transition-all">
       Agendar consulta
@@ -71,13 +72,13 @@ tailwind.config = {
   </div>
   <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full py-24">
     <div class="max-w-2xl">
-      <span class="inline-block text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-6">Jurídico · Fiscal · Laboral</span>
+      <span class="inline-block text-accent font-medium tracking-[0.3em] uppercase text-xs mb-6">Jurídico · Fiscal · Laboral</span>
       <h1 class="text-4xl sm:text-5xl md:text-7xl font-headline text-on-primary leading-[1.1] mb-8 tracking-tight">
         Tu socio legal para el éxito empresarial.
       </h1>
       <p class="text-lg md:text-xl text-on-primary/80 mb-10 leading-relaxed font-light">
         Somos una firma comprometida con la entera satisfacción de nuestros clientes, enfocándonos en brindar asesoría legal especializada en todas nuestras áreas de práctica.
-        <br/><span class="text-secondary italic">Rectitud. Empatía. Resultados.</span>
+        <br/><span class="text-accent italic">Rectitud. Empatía. Resultados.</span>
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a href="#contacto" class="bg-primary-container text-on-primary px-10 py-4 text-sm uppercase tracking-widest font-semibold text-center hover:bg-primary transition-colors border border-outline-variant/20">
@@ -96,7 +97,7 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
       <div class="max-w-xl">
-        <span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Áreas de especialidad</span>
+        <span class="text-primary font-medium tracking-[0.3em] uppercase text-xs mb-4 block text-accent">Áreas de especialidad</span>
         <h2 class="text-4xl md:text-5xl font-headline text-primary mb-6">Asesoría legal especializada</h2>
         <p class="text-on-surface-variant">Ofrecemos soluciones integrales en los pilares jurídico, fiscal y laboral, con un enfoque estratégico que anticipa y resuelve.</p>
       </div>
@@ -107,37 +108,37 @@ tailwind.config = {
     <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/20 overflow-hidden border border-outline-variant/20">
       <!-- Fiscal -->
       <div class="bg-surface p-10 md:p-14 hover:bg-primary group transition-all duration-500">
-        <span class="material-symbols-outlined text-secondary text-4xl mb-8 group-hover:text-on-primary transition-colors">balance</span>
+        <span class="material-symbols-outlined text-primary text-4xl mb-8 group-hover:text-on-primary transition-colors">balance</span>
         <h3 class="text-2xl font-headline text-primary mb-4 group-hover:text-on-primary transition-colors">Defensa y Estrategia Fiscal</h3>
         <p class="text-on-surface-variant group-hover:text-on-primary/70 transition-colors mb-6 text-sm leading-relaxed">Especialistas en defender a contribuyentes en procesos de auditoría. Juicios de amparo contra leyes o reformas fiscales violatorias de garantías tributarias.</p>
         <ul class="space-y-2 text-sm text-on-surface-variant group-hover:text-on-primary/60 transition-colors">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Defensa en auditorías fiscales</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Juicios de amparo tributario</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Derecho aduanero y financiero</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Defensa en auditorías fiscales</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Juicios de amparo tributario</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Derecho aduanero y financiero</li>
         </ul>
       </div>
 
       <!-- Corporativo -->
       <div class="bg-surface p-10 md:p-14 hover:bg-primary group transition-all duration-500">
-        <span class="material-symbols-outlined text-secondary text-4xl mb-8 group-hover:text-on-primary transition-colors">view_column</span>
+        <span class="material-symbols-outlined text-primary text-4xl mb-8 group-hover:text-on-primary transition-colors">view_column</span>
         <h3 class="text-2xl font-headline text-primary mb-4 group-hover:text-on-primary transition-colors">Derecho Corporativo</h3>
         <p class="text-on-surface-variant group-hover:text-on-primary/70 transition-colors mb-6 text-sm leading-relaxed">Constitución de empresas, documentos societarios, propiedad intelectual y contratos mercantiles nacionales e internacionales.</p>
         <ul class="space-y-2 text-sm text-on-surface-variant group-hover:text-on-primary/60 transition-colors">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Constitución y actas constitutivas</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Registro de marcas y patentes</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Contratos de compraventa y servicios</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Constitución y actas constitutivas</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Registro de marcas y patentes</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Contratos de compraventa y servicios</li>
         </ul>
       </div>
 
       <!-- Licitaciones -->
       <div class="bg-surface p-10 md:p-14 hover:bg-primary group transition-all duration-500">
-        <span class="material-symbols-outlined text-secondary text-4xl mb-8 group-hover:text-on-primary transition-colors">account_balance</span>
+        <span class="material-symbols-outlined text-primary text-4xl mb-8 group-hover:text-on-primary transition-colors">account_balance</span>
         <h3 class="text-2xl font-headline text-primary mb-4 group-hover:text-on-primary transition-colors">Licitaciones y Gestión Gubernamental</h3>
         <p class="text-on-surface-variant group-hover:text-on-primary/70 transition-colors mb-6 text-sm leading-relaxed">Asesoría jurídica especializada en contrataciones con el Sector Público a nivel municipal, local y federal.</p>
         <ul class="space-y-2 text-sm text-on-surface-variant group-hover:text-on-primary/60 transition-colors">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Contrataciones públicas</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Peritaje independiente</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-xs group-hover:text-on-primary/80">chevron_right</span>Procesos de licitación</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Contrataciones públicas</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Peritaje independiente</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xs group-hover:text-on-primary/80">chevron_right</span>Procesos de licitación</li>
         </ul>
       </div>
     </div>
@@ -149,32 +150,32 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
       <div>
-        <span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Derecho Corporativo</span>
+        <span class="text-primary font-medium tracking-[0.3em] uppercase text-xs mb-4 block text-accent">Derecho Corporativo</span>
         <h2 class="text-3xl md:text-4xl font-headline text-primary mb-8 leading-tight">Soluciones integrales para tu empresa</h2>
         <div class="space-y-8">
           <div class="flex items-start gap-6">
-            <span class="material-symbols-outlined text-secondary text-2xl mt-1">apartment</span>
+            <span class="material-symbols-outlined text-primary text-2xl mt-1">apartment</span>
             <div>
               <h4 class="font-headline text-primary text-lg mb-2">Constitución de empresas</h4>
               <p class="text-on-surface-variant text-sm leading-relaxed">Asesoría en la elección del tipo social que mejor se adecue a las necesidades del cliente.</p>
             </div>
           </div>
           <div class="flex items-start gap-6">
-            <span class="material-symbols-outlined text-secondary text-2xl mt-1">description</span>
+            <span class="material-symbols-outlined text-primary text-2xl mt-1">description</span>
             <div>
               <h4 class="font-headline text-primary text-lg mb-2">Documentos societarios</h4>
               <p class="text-on-surface-variant text-sm leading-relaxed">Elaboración de actas constitutivas, registros de accionistas y títulos de acciones.</p>
             </div>
           </div>
           <div class="flex items-start gap-6">
-            <span class="material-symbols-outlined text-secondary text-2xl mt-1">verified</span>
+            <span class="material-symbols-outlined text-primary text-2xl mt-1">verified</span>
             <div>
               <h4 class="font-headline text-primary text-lg mb-2">Propiedad intelectual</h4>
               <p class="text-on-surface-variant text-sm leading-relaxed">Trámites para registro de marcas, nombres, avisos comerciales y derechos de autor.</p>
             </div>
           </div>
           <div class="flex items-start gap-6">
-            <span class="material-symbols-outlined text-secondary text-2xl mt-1">handshake</span>
+            <span class="material-symbols-outlined text-primary text-2xl mt-1">handshake</span>
             <div>
               <h4 class="font-headline text-primary text-lg mb-2">Contratos mercantiles</h4>
               <p class="text-on-surface-variant text-sm leading-relaxed">Preparación de contratos de compraventa nacional e internacional, arrendamiento, permuta y prestación de servicios.</p>
@@ -187,7 +188,7 @@ tailwind.config = {
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Equipo legal Adlex"/>
         </div>
         <div class="absolute -bottom-8 -left-8 bg-primary p-8 hidden md:block">
-          <span class="text-secondary text-4xl font-headline italic">Adlex</span>
+          <span class="text-accent text-4xl font-headline italic">Adlex</span>
           <p class="text-on-primary text-xs uppercase tracking-widest mt-2">Socio legal confiable</p>
         </div>
       </div>
@@ -199,16 +200,16 @@ tailwind.config = {
 <section class="bg-primary-container relative overflow-hidden" id="firma">
   <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row">
     <div class="w-full md:w-[45%] py-24 px-6 md:px-12 flex flex-col justify-center">
-      <span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-8">Nuestra firma</span>
+      <span class="text-primary font-medium tracking-[0.3em] uppercase text-xs mb-8 text-accent">Nuestra firma</span>
       <h2 class="text-4xl md:text-5xl font-headline text-on-primary mb-8 leading-tight">Tu socio confiable en el complejo mundo legal empresarial.</h2>
       <p class="text-on-primary/70 leading-relaxed mb-10">Nos dedicamos a comprender a fondo el negocio de nuestros clientes para proporcionar asesoramiento personalizado. Nuestras propuestas y estrategias legales están enfocadas en la entera satisfacción del cliente.</p>
       <div class="space-y-8">
-        <div class="border-l-2 border-secondary pl-8">
+        <div class="border-l-2 border-accent pl-8">
           <p class="text-on-primary/60 text-xs uppercase tracking-widest mb-2">Enfoque principal</p>
           <h4 class="text-on-primary text-xl font-headline mb-1">Tres pilares: Jurídico, Fiscal y Laboral</h4>
           <p class="text-on-primary/40 text-sm">Cobertura integral para el sector empresarial.</p>
         </div>
-        <div class="border-l-2 border-secondary pl-8">
+        <div class="border-l-2 border-accent pl-8">
           <p class="text-on-primary/60 text-xs uppercase tracking-widest mb-2">Compromiso</p>
           <h4 class="text-on-primary text-xl font-headline mb-1">Asesoramiento personalizado</h4>
           <p class="text-on-primary/40 text-sm">Comprendemos a fondo tu negocio para proteger tus intereses.</p>
@@ -219,7 +220,7 @@ tailwind.config = {
       <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Sala de juntas Adlex"/>
       <div class="absolute inset-0 bg-primary/20"></div>
       <div class="absolute bottom-12 left-0 md:-left-12 bg-surface p-10 max-w-md shadow-2xl">
-        <span class="text-secondary text-5xl font-headline leading-none mb-4 block">&ldquo;</span>
+        <span class="text-primary text-5xl font-headline leading-none mb-4 block">&ldquo;</span>
         <p class="text-primary italic text-lg leading-relaxed mb-6 font-headline">Adlex no solo entiende la ley, entiende nuestro negocio. Su asesoría fiscal nos dio certidumbre en un momento crítico.</p>
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 bg-surface-container-high overflow-hidden flex items-center justify-center">
@@ -239,7 +240,7 @@ tailwind.config = {
 <section class="py-24 bg-surface" id="valores">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="text-center mb-16">
-      <span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Lo que nos define</span>
+      <span class="text-primary font-medium tracking-[0.3em] uppercase text-xs mb-4 block text-accent">Lo que nos define</span>
       <h2 class="text-4xl md:text-5xl font-headline text-primary">Valores de la firma</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -266,28 +267,28 @@ tailwind.config = {
 <section class="py-24 bg-surface-container-low" id="recursos">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="text-center mb-16">
-      <span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Perspectivas legales</span>
+      <span class="text-primary font-medium tracking-[0.3em] uppercase text-xs mb-4 block text-accent">Perspectivas legales</span>
       <h2 class="text-4xl font-headline text-primary mb-4">Reformas y Estrategias</h2>
       <p class="text-on-surface-variant max-w-2xl mx-auto">Mantenemos actualizados a nuestros clientes sobre reformas legales y estrategias fiscales relevantes.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="bg-surface border border-outline-variant/10 p-8 hover:shadow-xl transition-all group">
-        <p class="text-xs text-secondary font-bold uppercase tracking-widest mb-4">Derecho Fiscal</p>
-        <h3 class="text-xl font-headline text-primary mb-4 group-hover:text-secondary transition-colors">Estrategias de defensa ante auditorías del SAT</h3>
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-4">Derecho Fiscal</p>
+        <h3 class="text-xl font-headline text-primary mb-4 group-hover:text-primary transition-colors">Estrategias de defensa ante auditorías del SAT</h3>
         <p class="text-sm text-on-surface-variant mb-6">Cómo prepararse y responder ante un proceso de revisión fiscal.</p>
-        <a href="#" class="text-sm font-medium uppercase tracking-widest border-b border-secondary pb-1">Leer artículo</a>
+        <a href="#" class="text-sm font-medium uppercase tracking-widest border-b border-primary text-primary pb-1">Leer artículo</a>
       </div>
       <div class="bg-surface border border-outline-variant/10 p-8 hover:shadow-xl transition-all group">
-        <p class="text-xs text-secondary font-bold uppercase tracking-widest mb-4">Corporativo</p>
-        <h3 class="text-xl font-headline text-primary mb-4 group-hover:text-secondary transition-colors">Registro de marcas: protege tu propiedad intelectual</h3>
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-4">Corporativo</p>
+        <h3 class="text-xl font-headline text-primary mb-4 group-hover:text-primary transition-colors">Registro de marcas: protege tu propiedad intelectual</h3>
         <p class="text-sm text-on-surface-variant mb-6">Guía práctica para el registro de marcas y avisos comerciales en México.</p>
-        <a href="#" class="text-sm font-medium uppercase tracking-widest border-b border-secondary pb-1">Leer artículo</a>
+        <a href="#" class="text-sm font-medium uppercase tracking-widest border-b border-primary text-primary pb-1">Leer artículo</a>
       </div>
       <div class="bg-surface border border-outline-variant/10 p-8 hover:shadow-xl transition-all group">
-        <p class="text-xs text-secondary font-bold uppercase tracking-widest mb-4">Licitaciones</p>
-        <h3 class="text-xl font-headline text-primary mb-4 group-hover:text-secondary transition-colors">Contrataciones públicas: lo que tu empresa debe saber</h3>
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-4">Licitaciones</p>
+        <h3 class="text-xl font-headline text-primary mb-4 group-hover:text-primary transition-colors">Contrataciones públicas: lo que tu empresa debe saber</h3>
         <p class="text-sm text-on-surface-variant mb-6">Requisitos y mejores prácticas para participar en licitaciones gubernamentales.</p>
-        <a href="#" class="text-sm font-medium uppercase tracking-widest border-b border-secondary pb-1">Leer artículo</a>
+        <a href="#" class="text-sm font-medium uppercase tracking-widest border-b border-primary text-primary pb-1">Leer artículo</a>
       </div>
     </div>
   </div>
@@ -298,26 +299,26 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
       <div>
-        <span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Contacto</span>
+        <span class="text-primary font-medium tracking-[0.3em] uppercase text-xs mb-4 block text-accent">Contacto</span>
         <h2 class="text-4xl font-headline text-primary mb-8">Inicie una consulta confidencial</h2>
         <p class="text-on-surface-variant mb-12 leading-relaxed">Nuestros especialistas evaluarán su caso con absoluta discreción y profesionalismo. Somos su socio confiable en el complejo mundo legal empresarial.</p>
         <div class="space-y-8">
           <div class="flex items-start gap-6">
-            <span class="material-symbols-outlined text-secondary">call</span>
+            <span class="material-symbols-outlined text-primary">call</span>
             <div>
               <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Teléfono</h5>
               <a href="tel:5547480844" class="text-on-surface-variant text-sm hover:text-primary transition-colors">55 47 48 08 44</a>
             </div>
           </div>
           <div class="flex items-start gap-6">
-            <span class="material-symbols-outlined text-secondary">language</span>
+            <span class="material-symbols-outlined text-primary">language</span>
             <div>
               <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Sitio web</h5>
               <p class="text-on-surface-variant text-sm">www.adlexabogados.com.mx</p>
             </div>
           </div>
           <div class="flex items-start gap-6">
-            <span class="material-symbols-outlined text-secondary">schedule</span>
+            <span class="material-symbols-outlined text-primary">schedule</span>
             <div>
               <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Horarios</h5>
               <p class="text-on-surface-variant text-sm">Lunes a Viernes · Horario de oficina</p>
@@ -381,30 +382,30 @@ tailwind.config = {
       <p class="text-surface opacity-60 text-xs leading-loose uppercase tracking-wider">Tu socio legal para el éxito empresarial. Jurídico · Fiscal · Laboral.</p>
     </div>
     <div class="space-y-6">
-      <h6 class="text-secondary text-xs font-bold uppercase tracking-widest">Servicios</h6>
+      <h6 class="text-accent text-xs font-bold uppercase tracking-widest">Servicios</h6>
       <ul class="space-y-4">
-        <li><a href="#servicios" class="text-surface opacity-60 hover:opacity-100 hover:text-secondary transition-opacity text-sm uppercase tracking-wide">Defensa Fiscal</a></li>
-        <li><a href="#servicios" class="text-surface opacity-60 hover:opacity-100 hover:text-secondary transition-opacity text-sm uppercase tracking-wide">Derecho Corporativo</a></li>
-        <li><a href="#servicios" class="text-surface opacity-60 hover:opacity-100 hover:text-secondary transition-opacity text-sm uppercase tracking-wide">Licitaciones</a></li>
+        <li><a href="#servicios" class="text-surface opacity-60 hover:opacity-100 hover:text-primary transition-opacity text-sm uppercase tracking-wide">Defensa Fiscal</a></li>
+        <li><a href="#servicios" class="text-surface opacity-60 hover:opacity-100 hover:text-primary transition-opacity text-sm uppercase tracking-wide">Derecho Corporativo</a></li>
+        <li><a href="#servicios" class="text-surface opacity-60 hover:opacity-100 hover:text-primary transition-opacity text-sm uppercase tracking-wide">Licitaciones</a></li>
       </ul>
     </div>
     <div class="space-y-6">
-      <h6 class="text-secondary text-xs font-bold uppercase tracking-widest">Navegación</h6>
+      <h6 class="text-accent text-xs font-bold uppercase tracking-widest">Navegación</h6>
       <ul class="space-y-4">
-        <li><a href="#firma" class="text-surface opacity-60 hover:opacity-100 hover:text-secondary transition-opacity text-sm uppercase tracking-wide">La Firma</a></li>
-        <li><a href="#valores" class="text-surface opacity-60 hover:opacity-100 hover:text-secondary transition-opacity text-sm uppercase tracking-wide">Valores</a></li>
-        <li><a href="#recursos" class="text-surface opacity-60 hover:opacity-100 hover:text-secondary transition-opacity text-sm uppercase tracking-wide">Recursos</a></li>
+        <li><a href="#firma" class="text-surface opacity-60 hover:opacity-100 hover:text-primary transition-opacity text-sm uppercase tracking-wide">La Firma</a></li>
+        <li><a href="#valores" class="text-surface opacity-60 hover:opacity-100 hover:text-primary transition-opacity text-sm uppercase tracking-wide">Valores</a></li>
+        <li><a href="#recursos" class="text-surface opacity-60 hover:opacity-100 hover:text-primary transition-opacity text-sm uppercase tracking-wide">Recursos</a></li>
       </ul>
     </div>
     <div class="space-y-6">
-      <h6 class="text-secondary text-xs font-bold uppercase tracking-widest">Contacto</h6>
+      <h6 class="text-accent text-xs font-bold uppercase tracking-widest">Contacto</h6>
       <ul class="space-y-4">
         <li class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-secondary text-sm">call</span>
+          <span class="material-symbols-outlined text-accent text-sm">call</span>
           <a href="tel:5547480844" class="text-surface opacity-60 hover:opacity-100 transition-opacity text-sm">55 47 48 08 44</a>
         </li>
         <li class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-secondary text-sm">language</span>
+          <span class="material-symbols-outlined text-accent text-sm">language</span>
           <span class="text-surface opacity-60 text-sm">adlexabogados.com.mx</span>
         </li>
       </ul>
@@ -412,7 +413,7 @@ tailwind.config = {
   </div>
   <div class="px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
     <p class="text-surface opacity-40 text-[10px] uppercase tracking-[0.2em]">© 2025 Adlex Abogados. Todos los derechos reservados.</p>
-    <p class="text-surface opacity-40 text-[10px] uppercase tracking-[0.2em]">Diseño web por <span class="text-secondary">Web Architects</span></p>
+    <p class="text-surface opacity-40 text-[10px] uppercase tracking-[0.2em]">Diseño web por <span class="text-accent">Web Architects</span></p>
   </div>
 </footer>
 
