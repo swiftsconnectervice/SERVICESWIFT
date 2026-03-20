@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Torre Legal · Abogados en Toluca</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "forest":     "#1b4332",
+      "forest-md":  "#2d6a4f",
+      "forest-lt":  "#40916c",
+      "gold":       "#b8960c",
+      "gold-lt":    "#d4b44a",
+      "pearl":      "#f7f6f3",
+      "pearl-dk":   "#edeae4",
+      "pearl-md":   "#f2f0eb",
+      "ink":        "#1a1a1a",
+      "ink-md":     "#3a3a3a",
+      "ink-lt":     "#6b6b6b",
+      "ink-xlt":    "#999999",
+    },
+    fontFamily: {
+      "display": ["Libre Baskerville","serif"],
+      "body":    ["DM Sans","sans-serif"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "DM Sans", sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-pearl text-ink">
+
+<!-- Top bar -->
+<div class="bg-forest text-white/70 text-[11px] hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-9">
+    <div class="flex items-center gap-6">
+      <span class="flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-sm text-gold">location_on</span>
+        Toluca, Estado de México
+      </span>
+      <span class="flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-sm text-gold">schedule</span>
+        Atención personalizada
+      </span>
+    </div>
+    <a href="tel:7222534754" class="flex items-center gap-1.5 hover:text-white transition-colors">
+      <span class="material-symbols-outlined text-sm text-gold">call</span>
+      722 253 4754
+    </a>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-ink/5 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-9 h-9 bg-forest rounded-lg flex items-center justify-center">
+        <span class="material-symbols-outlined text-white text-lg">balance</span>
+      </div>
+      <div class="leading-tight">
+        <span class="text-sm font-bold text-ink tracking-tight">Torre Legal</span>
+        <span class="text-[9px] text-ink-xlt block tracking-wider uppercase">Abogados en Toluca</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-9">
+      <a href="#metodologia" class="text-[12px] text-ink-lt hover:text-forest transition-colors font-medium">Metodología</a>
+      <a href="#servicios" class="text-[12px] text-ink-lt hover:text-forest transition-colors font-medium">Servicios</a>
+      <a href="#nosotros" class="text-[12px] text-ink-lt hover:text-forest transition-colors font-medium">Nosotros</a>
+      <a href="#testimonios" class="text-[12px] text-ink-lt hover:text-forest transition-colors font-medium">Testimonios</a>
+      <a href="#contacto" class="text-[12px] text-ink-lt hover:text-forest transition-colors font-medium">Contacto</a>
+    </nav>
+    <a href="#contacto" class="bg-forest hover:bg-forest-md text-white text-[12px] font-semibold px-5 py-2.5 rounded-lg transition-colors">
+      Consulta gratuita
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative overflow-hidden bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[85vh] py-16 lg:py-0">
+      <div class="max-w-xl">
+        <div class="inline-flex items-center gap-2 bg-forest/5 text-forest text-[11px] font-semibold px-4 py-1.5 rounded-full mb-8">
+          <span class="w-1.5 h-1.5 bg-forest rounded-full"></span>
+          Bufete de abogados en Toluca
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-display text-ink leading-[1.15] mb-6">
+          Listos para inclinar la balanza
+          <span class="text-forest italic"> a tu favor.</span>
+        </h1>
+        <p class="text-ink-lt text-base leading-relaxed mb-8 max-w-md">
+          No trabajamos desde la improvisación, sino desde el criterio jurídico sólido y la planeación estructurada. Recibe orientación clara y estratégica desde la primera consulta.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="https://wa.me/527222534754?text=Hola%2C%20me%20interesa%20una%20consulta%20legal." target="_blank" rel="noopener"
+             class="bg-forest hover:bg-forest-md text-white font-semibold py-3.5 px-7 rounded-lg text-sm text-center transition-colors inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar WhatsApp
+          </a>
+          <a href="tel:7222534754" class="border border-ink/15 hover:border-forest/30 text-ink font-medium py-3.5 px-7 rounded-lg text-sm text-center transition-all inline-flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-base">call</span>
+            722 253 4754
+          </a>
+        </div>
+      </div>
+      <div class="relative hidden lg:block">
+        <div class="absolute -top-10 -right-10 w-72 h-72 bg-forest/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-gold/10 rounded-full blur-3xl"></div>
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-ink/10">
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop" class="w-full aspect-[4/5] object-cover" alt="Torre Legal - Abogados en Toluca"/>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/60 to-transparent p-8">
+            <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/10">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="material-symbols-outlined text-gold text-lg">verified</span>
+                <span class="text-white text-xs font-semibold uppercase tracking-wider">Lic. Rubén Garduño</span>
+              </div>
+              <p class="text-white/70 text-xs">Director · Criterio jurídico sólido y planeación estructurada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Metodología - 3 pasos -->
+<section class="py-24 bg-pearl" id="metodologia">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-20">
+      <span class="text-forest text-[11px] font-semibold uppercase tracking-[0.25em]">Nuestro proceso</span>
+      <h2 class="text-3xl md:text-4xl font-display text-ink mt-3 leading-tight">Metodología en <span class="text-forest italic">tres fases.</span></h2>
+      <p class="text-ink-lt text-sm mt-4 max-w-lg mx-auto">No improvisamos. Cada caso sigue un proceso estructurado para garantizar los mejores resultados posibles.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <!-- Connecting line (desktop) -->
+      <div class="hidden md:block absolute top-[52px] left-[16.66%] right-[16.66%] h-px bg-forest/15"></div>
+
+      <!-- Step 1 -->
+      <div class="relative text-center group">
+        <div class="w-[104px] h-[104px] bg-white rounded-2xl shadow-lg shadow-forest/5 border border-forest/10 flex items-center justify-center mx-auto mb-8 group-hover:shadow-forest/10 transition-shadow relative z-10">
+          <div>
+            <span class="text-forest text-[10px] font-bold uppercase tracking-wider block mb-1">Fase</span>
+            <span class="text-forest font-display text-3xl">01</span>
+          </div>
+        </div>
+        <h3 class="text-lg font-display text-ink mb-3">Análisis Legal Personalizado</h3>
+        <p class="text-ink-lt text-sm leading-relaxed max-w-xs mx-auto">Evaluación confidencial y estratégica de tu situación actual para entender cada detalle de tu caso.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative text-center group">
+        <div class="w-[104px] h-[104px] bg-forest rounded-2xl shadow-lg shadow-forest/20 flex items-center justify-center mx-auto mb-8 group-hover:shadow-forest/30 transition-shadow relative z-10">
+          <div>
+            <span class="text-white/60 text-[10px] font-bold uppercase tracking-wider block mb-1">Fase</span>
+            <span class="text-white font-display text-3xl">02</span>
+          </div>
+        </div>
+        <h3 class="text-lg font-display text-ink mb-3">Estrategia y Representación</h3>
+        <p class="text-ink-lt text-sm leading-relaxed max-w-xs mx-auto">Diseño de un plan jurídico claro con fundamento legal sólido y representación formal en cada etapa.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="relative text-center group">
+        <div class="w-[104px] h-[104px] bg-white rounded-2xl shadow-lg shadow-forest/5 border border-forest/10 flex items-center justify-center mx-auto mb-8 group-hover:shadow-forest/10 transition-shadow relative z-10">
+          <div>
+            <span class="text-forest text-[10px] font-bold uppercase tracking-wider block mb-1">Fase</span>
+            <span class="text-forest font-display text-3xl">03</span>
+          </div>
+        </div>
+        <h3 class="text-lg font-display text-ink mb-3">Resolución y Seguimiento</h3>
+        <p class="text-ink-lt text-sm leading-relaxed max-w-xs mx-auto">Impulso de resultados concretos con ejecución legal precisa y seguimiento continuo de tu caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios -->
+<section class="py-24 bg-white" id="servicios">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+      <div class="lg:col-span-2">
+        <span class="text-forest text-[11px] font-semibold uppercase tracking-[0.25em]">Áreas de práctica</span>
+        <h2 class="text-3xl md:text-4xl font-display text-ink mt-3 leading-tight mb-6">Orientación jurídica <span class="text-forest italic">clara y estratégica.</span></h2>
+        <p class="text-ink-lt text-sm leading-relaxed mb-8">Atendemos tanto a personas físicas como a empresas. Nuestro enfoque es que aclares tu situación legal mediante un análisis profesional y confidencial.</p>
+        <a href="#contacto" class="inline-flex items-center gap-2 text-forest text-sm font-semibold hover:gap-3 transition-all">
+          Agendar consulta
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+      <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-pearl rounded-xl p-7 hover:shadow-lg hover:shadow-forest/5 transition-all border border-transparent hover:border-forest/10">
+          <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-forest">gavel</span>
+          </div>
+          <h3 class="text-ink font-semibold mb-2">Derecho Civil</h3>
+          <p class="text-ink-lt text-xs leading-relaxed">Contratos, bienes raíces, sucesiones y asuntos patrimoniales con representación sólida.</p>
+        </div>
+        <div class="bg-pearl rounded-xl p-7 hover:shadow-lg hover:shadow-forest/5 transition-all border border-transparent hover:border-forest/10">
+          <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-forest">family_restroom</span>
+          </div>
+          <h3 class="text-ink font-semibold mb-2">Derecho Familiar</h3>
+          <p class="text-ink-lt text-xs leading-relaxed">Divorcios, pensiones, custodia, testamentos y asuntos de familia con sensibilidad.</p>
+        </div>
+        <div class="bg-pearl rounded-xl p-7 hover:shadow-lg hover:shadow-forest/5 transition-all border border-transparent hover:border-forest/10">
+          <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-forest">shield</span>
+          </div>
+          <h3 class="text-ink font-semibold mb-2">Derecho Penal</h3>
+          <p class="text-ink-lt text-xs leading-relaxed">Defensa penal estratégica, amparos y representación en procesos judiciales.</p>
+        </div>
+        <div class="bg-pearl rounded-xl p-7 hover:shadow-lg hover:shadow-forest/5 transition-all border border-transparent hover:border-forest/10">
+          <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-forest">work</span>
+          </div>
+          <h3 class="text-ink font-semibold mb-2">Derecho Laboral</h3>
+          <p class="text-ink-lt text-xs leading-relaxed">Despidos, contratos, reinstalaciones y defensa de derechos laborales.</p>
+        </div>
+        <div class="bg-pearl rounded-xl p-7 hover:shadow-lg hover:shadow-forest/5 transition-all border border-transparent hover:border-forest/10 sm:col-span-2">
+          <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-forest">apartment</span>
+          </div>
+          <h3 class="text-ink font-semibold mb-2">Abogados Corporativos</h3>
+          <p class="text-ink-lt text-xs leading-relaxed">Asesoría empresarial integral, constitución de sociedades, contratos mercantiles y cumplimiento regulatorio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nosotros / Filosofía -->
+<section class="py-24 bg-forest" id="nosotros">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop" class="w-full aspect-[5/4] object-cover" alt="Oficinas Torre Legal"/>
+        <div class="absolute inset-0 bg-forest/20"></div>
+      </div>
+      <div>
+        <span class="text-gold-lt text-[11px] font-semibold uppercase tracking-[0.25em]">Acerca de nosotros</span>
+        <h2 class="text-3xl md:text-4xl font-display text-white mt-3 leading-tight mb-6">Criterio jurídico sólido y <span class="text-gold-lt italic">planeación estructurada.</span></h2>
+        <p class="text-white/60 leading-relaxed mb-6">
+          En Torre Legal brindamos acompañamiento con enfoque preventivo y representación formal en cada etapa del proceso, ofreciendo claridad, respaldo y soluciones fundamentadas en el derecho.
+        </p>
+        <p class="text-white/60 leading-relaxed mb-10">
+          Nuestro equipo, liderado por el Lic. Rubén Garduño, se distingue por su atención rápida y personalizada, con talento para llegar a las soluciones de forma eficiente.
+        </p>
+        <div class="grid grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="font-display text-3xl text-white">100%</div>
+            <div class="text-[9px] text-white/40 uppercase tracking-wider mt-1">Compromiso</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display text-3xl text-white">24/7</div>
+            <div class="text-[9px] text-white/40 uppercase tracking-wider mt-1">Disponibilidad</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display text-3xl text-white">Toluca</div>
+            <div class="text-[9px] text-white/40 uppercase tracking-wider mt-1">Edo. de México</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section class="py-24 bg-pearl-md" id="testimonios">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16">
+      <span class="text-forest text-[11px] font-semibold uppercase tracking-[0.25em]">Testimonios</span>
+      <h2 class="text-3xl md:text-4xl font-display text-ink mt-3">Lo que dicen <span class="text-forest italic">nuestros clientes.</span></h2>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl p-10 md:p-14 shadow-lg shadow-ink/5 relative">
+        <span class="text-forest/10 font-display text-[120px] leading-none absolute top-4 left-8">&ldquo;</span>
+        <div class="relative z-10">
+          <p class="text-ink-md text-lg md:text-xl font-display italic leading-relaxed mb-8">
+            Atención rápida y personalizada. El Lic. Rubén Garduño es un profesional con talento para llegar rápidamente a las soluciones. Totalmente recomendado.
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center">
+              <span class="text-forest font-semibold text-sm">VM</span>
+            </div>
+            <div>
+              <div class="text-ink font-semibold text-sm">Vic Mejía</div>
+              <div class="text-ink-xlt text-xs">Cliente verificado</div>
+            </div>
+            <div class="ml-auto flex gap-0.5">
+              <span class="material-symbols-outlined text-gold text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-gold text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-gold text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-gold text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+              <span class="material-symbols-outlined text-gold text-lg" style="font-variation-settings: 'FILL' 1">star</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <div class="bg-forest rounded-2xl p-12 md:p-16 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-forest-md rounded-full -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+      <div class="absolute bottom-0 left-0 w-48 h-48 bg-forest-lt rounded-full translate-y-1/2 -translate-x-1/2 opacity-20"></div>
+      <div class="relative z-10">
+        <h2 class="text-2xl md:text-3xl font-display text-white mb-4">Recibe orientación jurídica clara y estratégica desde la primera consulta.</h2>
+        <p class="text-white/50 text-sm mb-8 max-w-md mx-auto">Aclara tu situación legal con un análisis profesional y confidencial. Sin compromiso.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="https://wa.me/527222534754?text=Hola%2C%20me%20interesa%20una%20consulta%20legal." target="_blank" rel="noopener"
+             class="bg-white text-forest font-semibold py-3.5 px-8 rounded-lg text-sm transition-colors hover:bg-pearl inline-flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar WhatsApp
+          </a>
+          <a href="tel:7222534754" class="border border-white/20 text-white font-medium py-3.5 px-8 rounded-lg text-sm transition-all hover:border-white/40 inline-flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-base">call</span>
+            722 253 4754
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 bg-pearl" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div>
+        <span class="text-forest text-[11px] font-semibold uppercase tracking-[0.25em]">Contacto</span>
+        <h2 class="text-3xl md:text-4xl font-display text-ink mt-3 leading-tight mb-6">Platiquemos sobre <span class="text-forest italic">tu caso.</span></h2>
+        <p class="text-ink-lt leading-relaxed mb-10">
+          Aclara tu situación legal con un análisis profesional y confidencial. Llámanos, envíanos un WhatsApp o llena el formulario.
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-forest">location_on</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-1">Ubicación</div>
+              <p class="text-sm text-ink">Laguna de Tixtla 119, Vicente Guerrero<br/>50110 Toluca de Lerdo, Méx.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-forest">call</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-1">Teléfono / WhatsApp</div>
+              <a href="tel:7222534754" class="text-sm text-ink hover:text-forest transition-colors">722 253 4754</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-forest/10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-forest">public</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-1">Sitio web</div>
+              <a href="https://torrelegal.com.mx/" target="_blank" rel="noopener" class="text-sm text-ink hover:text-forest transition-colors">torrelegal.com.mx</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 md:p-10 shadow-lg shadow-ink/5">
+        <div class="text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-6">Solicita tu consulta</div>
+        <form class="space-y-5" onsubmit="return false;">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-2">Nombre</label>
+              <input type="text" placeholder="Tu nombre" class="w-full bg-pearl border-0 rounded-lg px-4 py-3 text-sm text-ink placeholder-ink-xlt/60 focus:ring-2 focus:ring-forest/20 focus:outline-none transition"/>
+            </div>
+            <div>
+              <label class="block text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-2">Teléfono</label>
+              <input type="tel" placeholder="722 000 0000" class="w-full bg-pearl border-0 rounded-lg px-4 py-3 text-sm text-ink placeholder-ink-xlt/60 focus:ring-2 focus:ring-forest/20 focus:outline-none transition"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-2">Email</label>
+            <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-pearl border-0 rounded-lg px-4 py-3 text-sm text-ink placeholder-ink-xlt/60 focus:ring-2 focus:ring-forest/20 focus:outline-none transition"/>
+          </div>
+          <div>
+            <label class="block text-[10px] text-ink-xlt uppercase tracking-wider font-medium mb-2">¿Cómo podemos ayudarte?</label>
+            <textarea rows="4" placeholder="Describe brevemente tu situación legal..." class="w-full bg-pearl border-0 rounded-lg px-4 py-3 text-sm text-ink placeholder-ink-xlt/60 focus:ring-2 focus:ring-forest/20 focus:outline-none transition resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-forest hover:bg-forest-md text-white font-semibold py-4 rounded-lg text-sm transition-colors">
+            Enviar mensaje
+          </button>
+          <p class="text-ink-xlt text-[10px] text-center">Tu información es 100% confidencial.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-ink">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 bg-forest rounded-lg flex items-center justify-center">
+            <span class="material-symbols-outlined text-white text-lg">balance</span>
+          </div>
+          <div class="leading-tight">
+            <span class="text-sm font-bold text-white tracking-tight">Torre Legal</span>
+            <span class="text-[9px] text-white/30 block tracking-wider uppercase">Abogados en Toluca</span>
+          </div>
+        </div>
+        <p class="text-white/30 text-xs leading-relaxed max-w-xs mt-3">Bufete de abogados en Toluca listos para ayudarte a inclinar la balanza a tu favor.</p>
+      </div>
+      <div>
+        <div class="text-forest-lt text-[10px] font-medium uppercase tracking-wider mb-4">Navegación</div>
+        <ul class="space-y-3 text-xs text-white/40">
+          <li><a href="#metodologia" class="hover:text-white transition-colors">Metodología</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
+          <li><a href="#testimonios" class="hover:text-white transition-colors">Testimonios</a></li>
+          <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-forest-lt text-[10px] font-medium uppercase tracking-wider mb-4">Contacto</div>
+        <ul class="space-y-3 text-xs text-white/40">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-forest-lt text-sm">call</span>
+            <a href="tel:7222534754" class="hover:text-white transition-colors">722 253 4754</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-forest-lt text-sm">location_on</span>
+            Toluca, Estado de México
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-forest-lt text-sm">public</span>
+            <a href="https://torrelegal.com.mx/" target="_blank" class="hover:text-white transition-colors">torrelegal.com.mx</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/20 text-[10px] uppercase tracking-wider">© 2025 Torre Legal · Abogados en Toluca</p>
+      <p class="text-white/20 text-[10px] uppercase tracking-wider">Diseño web por <span class="text-forest-lt">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/527222534754?text=Hola%2C%20me%20interesa%20una%20consulta%20legal." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-xl flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
