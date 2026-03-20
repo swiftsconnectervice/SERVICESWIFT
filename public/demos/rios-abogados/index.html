@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rios Abogados · Boutique Legal en CDMX desde 1999</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "rojo":        "#c62828",
+      "rojo-dark":   "#a11d1d",
+      "rojo-light":  "#ef5350",
+      "rojo-bg":     "#fef2f2",
+      "carbon":      "#1c1c1c",
+      "carbon-mid":  "#333333",
+      "carbon-lt":   "#666666",
+      "gris":        "#999999",
+      "gris-light":  "#e0e0e0",
+      "cream":       "#fafafa",
+      "white":       "#ffffff",
+    },
+    fontFamily: {
+      "serif":  ["DM Serif Display","serif"],
+      "sans":   ["Inter","sans-serif"],
+      "mono":   ["IBM Plex Mono","monospace"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Inter", sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-white text-carbon">
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-lg border-b border-gris-light/50">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-rojo rounded-full flex items-center justify-center">
+        <span class="text-white font-bold text-xs">R</span>
+      </div>
+      <div class="leading-none">
+        <span class="text-sm font-bold text-carbon tracking-tight block">RIOS</span>
+        <span class="text-[9px] text-gris uppercase tracking-[0.15em]">Abogados</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="#servicios" class="text-xs text-carbon-lt hover:text-rojo transition-colors font-medium uppercase tracking-wider">Servicios</a>
+      <a href="#nosotros" class="text-xs text-carbon-lt hover:text-rojo transition-colors font-medium uppercase tracking-wider">Nosotros</a>
+      <a href="#iso" class="text-xs text-carbon-lt hover:text-rojo transition-colors font-medium uppercase tracking-wider">Calidad</a>
+      <a href="#contacto" class="text-xs text-carbon-lt hover:text-rojo transition-colors font-medium uppercase tracking-wider">Contacto</a>
+    </nav>
+    <a href="#contacto" class="bg-rojo hover:bg-rojo-dark text-white text-xs font-semibold px-6 py-2.5 rounded transition-colors uppercase tracking-wider">
+      Consulta gratis
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center pt-16 bg-carbon overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-15" alt="Rios Abogados"/>
+    <div class="absolute inset-0 bg-gradient-to-br from-carbon via-carbon/90 to-carbon/70"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <div class="inline-flex items-center gap-2 bg-rojo/10 border border-rojo/20 rounded-full px-4 py-1.5 mb-8">
+          <span class="material-symbols-outlined text-rojo text-sm">verified</span>
+          <span class="text-rojo text-xs font-medium uppercase tracking-wider">Certificación ISO 9001:2008</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif text-white leading-[1.1] mb-6">
+          Abogados de confianza con experiencia desde <span class="text-rojo-light">1999.</span>
+        </h1>
+        <p class="text-gris text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+          Boutique legal especializada en Propiedad Intelectual, Derecho Informático, Derecho Corporativo y Litigio. Solución de conflictos mediante litigio y mediación.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#contacto" class="bg-rojo hover:bg-rojo-dark text-white font-semibold py-4 px-8 rounded text-sm text-center transition-colors uppercase tracking-wider">
+            ¿Cómo podemos ayudarle?
+          </a>
+          <a href="#servicios" class="border border-white/20 hover:border-rojo/50 hover:bg-white/5 text-white font-semibold py-4 px-8 rounded text-sm text-center transition-all uppercase tracking-wider">
+            Nuestros servicios
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-5 hidden lg:block">
+        <!-- Consulta rápida -->
+        <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg p-8">
+          <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-6">Consulta gratis</h3>
+          <form class="space-y-4" onsubmit="return false;">
+            <input type="text" placeholder="Nombre" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white placeholder-gris focus:border-rojo focus:outline-none transition-colors"/>
+            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white placeholder-gris focus:border-rojo focus:outline-none transition-colors"/>
+            <input type="tel" placeholder="Teléfono" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-sm text-white placeholder-gris focus:border-rojo focus:outline-none transition-colors"/>
+            <button type="submit" class="w-full bg-rojo hover:bg-rojo-dark text-white font-bold py-3 rounded text-sm transition-colors uppercase tracking-wider">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="bg-white border-b border-gris-light/50">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-2 md:grid-cols-4 divide-x divide-gris-light/50">
+    <div class="py-10 px-4 text-center">
+      <div class="font-mono text-3xl font-medium text-rojo mb-1">1999</div>
+      <div class="text-[10px] text-gris uppercase tracking-widest font-medium">Desde</div>
+    </div>
+    <div class="py-10 px-4 text-center">
+      <div class="font-mono text-3xl font-medium text-carbon mb-1">ISO</div>
+      <div class="text-[10px] text-gris uppercase tracking-widest font-medium">9001:2008</div>
+    </div>
+    <div class="py-10 px-4 text-center">
+      <div class="font-mono text-3xl font-medium text-carbon mb-1">CDMX</div>
+      <div class="text-[10px] text-gris uppercase tracking-widest font-medium">Sede principal</div>
+    </div>
+    <div class="py-10 px-4 text-center">
+      <div class="font-mono text-3xl font-medium text-rojo mb-1">5+</div>
+      <div class="text-[10px] text-gris uppercase tracking-widest font-medium">Especialidades</div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios -->
+<section class="py-24 bg-cream" id="servicios">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="max-w-xl mb-16">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-px bg-rojo"></div>
+        <span class="text-rojo text-xs font-medium uppercase tracking-widest">Áreas de especialidad</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-serif text-carbon">Servicios legales especializados</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Informático -->
+      <div class="bg-white p-8 rounded-lg border border-gris-light/50 hover:border-rojo/30 hover:shadow-lg transition-all group">
+        <div class="w-12 h-12 bg-rojo-bg rounded-lg flex items-center justify-center mb-6 group-hover:bg-rojo group-hover:text-white transition-all">
+          <span class="material-symbols-outlined text-rojo text-xl group-hover:text-white transition-colors">computer</span>
+        </div>
+        <h3 class="text-lg font-semibold text-carbon mb-3">Derecho Informático y Datos Personales</h3>
+        <p class="text-carbon-lt text-sm leading-relaxed">Asistencia especializada en la Ley de Datos Personales y protección de información digital.</p>
+      </div>
+      <!-- Propiedad Industrial -->
+      <div class="bg-white p-8 rounded-lg border border-gris-light/50 hover:border-rojo/30 hover:shadow-lg transition-all group">
+        <div class="w-12 h-12 bg-rojo-bg rounded-lg flex items-center justify-center mb-6 group-hover:bg-rojo transition-all">
+          <span class="material-symbols-outlined text-rojo text-xl group-hover:text-white transition-colors">lightbulb</span>
+        </div>
+        <h3 class="text-lg font-semibold text-carbon mb-3">Propiedad Industrial</h3>
+        <p class="text-carbon-lt text-sm leading-relaxed">Protección de marcas, patentes y activos intelectuales de su empresa.</p>
+      </div>
+      <!-- Civil y Mercantil -->
+      <div class="bg-white p-8 rounded-lg border border-gris-light/50 hover:border-rojo/30 hover:shadow-lg transition-all group">
+        <div class="w-12 h-12 bg-rojo-bg rounded-lg flex items-center justify-center mb-6 group-hover:bg-rojo transition-all">
+          <span class="material-symbols-outlined text-rojo text-xl group-hover:text-white transition-colors">description</span>
+        </div>
+        <h3 class="text-lg font-semibold text-carbon mb-3">Derecho Civil y Mercantil</h3>
+        <p class="text-carbon-lt text-sm leading-relaxed">Asesoría y litigio en contratos, disputas comerciales y asuntos civiles.</p>
+      </div>
+      <!-- Amparo -->
+      <div class="bg-white p-8 rounded-lg border border-gris-light/50 hover:border-rojo/30 hover:shadow-lg transition-all group">
+        <div class="w-12 h-12 bg-rojo-bg rounded-lg flex items-center justify-center mb-6 group-hover:bg-rojo transition-all">
+          <span class="material-symbols-outlined text-rojo text-xl group-hover:text-white transition-colors">balance</span>
+        </div>
+        <h3 class="text-lg font-semibold text-carbon mb-3">Juicio de Amparo</h3>
+        <p class="text-carbon-lt text-sm leading-relaxed">Defensa de particulares mediante la vía del amparo en diversas situaciones legales.</p>
+      </div>
+      <!-- Mediación -->
+      <div class="bg-white p-8 rounded-lg border border-gris-light/50 hover:border-rojo/30 hover:shadow-lg transition-all group">
+        <div class="w-12 h-12 bg-rojo-bg rounded-lg flex items-center justify-center mb-6 group-hover:bg-rojo transition-all">
+          <span class="material-symbols-outlined text-rojo text-xl group-hover:text-white transition-colors">handshake</span>
+        </div>
+        <h3 class="text-lg font-semibold text-carbon mb-3">Mediación</h3>
+        <p class="text-carbon-lt text-sm leading-relaxed">Gran experiencia en mediación como método alternativo para la resolución de conflictos sin llegar a tribunales.</p>
+      </div>
+      <!-- CTA card -->
+      <div class="bg-rojo rounded-lg p-8 flex flex-col justify-center text-center">
+        <span class="material-symbols-outlined text-white/80 text-4xl mb-4 mx-auto">help</span>
+        <h3 class="text-white font-serif text-xl mb-3">¿No encuentra su caso?</h3>
+        <p class="text-white/70 text-sm mb-6">Contáctenos para una evaluación personalizada de su situación legal.</p>
+        <a href="#contacto" class="bg-white text-rojo font-semibold py-3 px-6 rounded text-sm hover:bg-cream transition-colors uppercase tracking-wider">Contactar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nosotros + ISO -->
+<section class="py-24 bg-white" id="nosotros">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-lg overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop" class="w-full h-full object-cover" alt="Oficinas Rios Abogados"/>
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-carbon rounded-lg p-6 hidden md:block">
+          <div class="font-mono text-3xl font-medium text-rojo-light">25+</div>
+          <div class="text-white text-xs uppercase tracking-widest mt-1">Años de experiencia</div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-px bg-rojo"></div>
+          <span class="text-rojo text-xs font-medium uppercase tracking-widest">Sobre la firma</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif text-carbon mb-6 leading-tight">Especialistas en la solución de conflictos.</h2>
+        <p class="text-carbon-lt leading-relaxed mb-6">Rios Abogados es una boutique legal con sede en la Ciudad de México, reconocida por su enfoque en tecnología y calidad. Desde 1999, priorizamos la tranquilidad del cliente mediante el litigio y la mediación.</p>
+        <p class="text-carbon-lt leading-relaxed mb-8">Nuestro enfoque personalizado nos permite entender cómo podemos ayudarle desde el primer contacto, manteniendo una calidad excepcional respaldada por procesos certificados.</p>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center gap-2 bg-cream rounded px-4 py-2">
+            <span class="material-symbols-outlined text-rojo text-sm">gavel</span>
+            <span class="text-xs font-medium text-carbon">Litigio</span>
+          </div>
+          <div class="flex items-center gap-2 bg-cream rounded px-4 py-2">
+            <span class="material-symbols-outlined text-rojo text-sm">handshake</span>
+            <span class="text-xs font-medium text-carbon">Mediación</span>
+          </div>
+          <div class="flex items-center gap-2 bg-cream rounded px-4 py-2">
+            <span class="material-symbols-outlined text-rojo text-sm">verified</span>
+            <span class="text-xs font-medium text-carbon">ISO 9001</span>
+          </div>
+          <div class="flex items-center gap-2 bg-cream rounded px-4 py-2">
+            <span class="material-symbols-outlined text-rojo text-sm">computer</span>
+            <span class="text-xs font-medium text-carbon">Derecho Digital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISO Banner -->
+<section class="bg-carbon py-16" id="iso">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="max-w-lg">
+        <div class="inline-flex items-center gap-2 bg-rojo/10 border border-rojo/20 rounded-full px-4 py-1.5 mb-6">
+          <span class="material-symbols-outlined text-rojo text-sm">workspace_premium</span>
+          <span class="text-rojo text-xs font-medium uppercase tracking-wider">Certificación de calidad</span>
+        </div>
+        <h2 class="text-3xl font-serif text-white mb-4">Certificación ISO 9001:2008</h2>
+        <p class="text-gris leading-relaxed">Somos una de las pocas firmas legales en México con esta certificación, lo que garantiza la constante calidad en nuestros servicios y procesos internos.</p>
+      </div>
+      <div class="flex gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 border-2 border-rojo rounded-full flex items-center justify-center mb-3">
+            <span class="material-symbols-outlined text-rojo text-3xl">verified</span>
+          </div>
+          <div class="text-white text-xs font-medium uppercase tracking-wider">Calidad</div>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 border-2 border-gris/30 rounded-full flex items-center justify-center mb-3">
+            <span class="material-symbols-outlined text-gris text-3xl">security</span>
+          </div>
+          <div class="text-white text-xs font-medium uppercase tracking-wider">Confianza</div>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 border-2 border-gris/30 rounded-full flex items-center justify-center mb-3">
+            <span class="material-symbols-outlined text-gris text-3xl">trending_up</span>
+          </div>
+          <div class="text-white text-xs font-medium uppercase tracking-wider">Mejora</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 bg-cream" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-px bg-rojo"></div>
+          <span class="text-rojo text-xs font-medium uppercase tracking-widest">Contacto</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif text-carbon mb-6">¿Cómo podemos ayudarle?</h2>
+        <p class="text-carbon-lt leading-relaxed mb-10">Nuestro enfoque personalizado nos permite entender su situación desde el primer contacto. Agende una consulta gratuita.</p>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-rojo-bg rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-rojo text-lg">location_on</span>
+            </div>
+            <div>
+              <div class="text-xs text-gris uppercase tracking-widest font-medium mb-1">Dirección</div>
+              <p class="text-sm text-carbon">Calle Halley No. 21, Col. Anzures<br/>Alcaldía Miguel Hidalgo, C.P. 11590<br/>Ciudad de México, México</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-rojo-bg rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-rojo text-lg">language</span>
+            </div>
+            <div>
+              <div class="text-xs text-gris uppercase tracking-widest font-medium mb-1">Sitio web</div>
+              <p class="text-sm text-carbon">www.riosabogados.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg border border-gris-light/50 p-8 md:p-10">
+        <h3 class="text-sm font-semibold text-carbon uppercase tracking-wider mb-6">Solicitar consulta</h3>
+        <form class="space-y-5" onsubmit="return false;">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs text-gris font-medium mb-2 uppercase tracking-wider">Nombre</label>
+              <input type="text" placeholder="Su nombre" class="w-full bg-cream border border-gris-light rounded px-4 py-3 text-sm text-carbon placeholder-gris focus:border-rojo focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-xs text-gris font-medium mb-2 uppercase tracking-wider">Teléfono</label>
+              <input type="tel" placeholder="55 0000 0000" class="w-full bg-cream border border-gris-light rounded px-4 py-3 text-sm text-carbon placeholder-gris focus:border-rojo focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-gris font-medium mb-2 uppercase tracking-wider">Email</label>
+            <input type="email" placeholder="correo@empresa.com" class="w-full bg-cream border border-gris-light rounded px-4 py-3 text-sm text-carbon placeholder-gris focus:border-rojo focus:outline-none transition-colors"/>
+          </div>
+          <div>
+            <label class="block text-xs text-gris font-medium mb-2 uppercase tracking-wider">Área de interés</label>
+            <select class="w-full bg-cream border border-gris-light rounded px-4 py-3 text-sm text-carbon focus:border-rojo focus:outline-none transition-colors appearance-none">
+              <option value="">Seleccionar área</option>
+              <option>Derecho Informático y Datos Personales</option>
+              <option>Propiedad Industrial</option>
+              <option>Derecho Civil y Mercantil</option>
+              <option>Juicio de Amparo</option>
+              <option>Mediación</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-gris font-medium mb-2 uppercase tracking-wider">Descripción del caso</label>
+            <textarea rows="3" placeholder="Cuéntenos brevemente su situación..." class="w-full bg-cream border border-gris-light rounded px-4 py-3 text-sm text-carbon placeholder-gris focus:border-rojo focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-rojo hover:bg-rojo-dark text-white font-bold py-4 rounded text-sm transition-colors uppercase tracking-wider">
+            Solicitar consulta gratuita
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-carbon">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 bg-rojo rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-xs">R</span>
+          </div>
+          <div class="leading-none">
+            <span class="text-sm font-bold text-white tracking-tight block">RIOS</span>
+            <span class="text-[9px] text-gris uppercase tracking-[0.15em]">Abogados</span>
+          </div>
+        </div>
+        <p class="text-gris text-sm leading-relaxed max-w-sm mt-3">Boutique legal con certificación ISO 9001:2008. Especialistas en Propiedad Intelectual, Derecho Informático y Litigio desde 1999.</p>
+      </div>
+      <div>
+        <div class="text-xs text-gris/60 uppercase tracking-widest font-medium mb-4">Servicios</div>
+        <ul class="space-y-2 text-sm text-gris">
+          <li><a href="#servicios" class="hover:text-white transition-colors">Derecho Informático</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Propiedad Industrial</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Civil y Mercantil</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Mediación</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs text-gris/60 uppercase tracking-widest font-medium mb-4">Contacto</div>
+        <ul class="space-y-2 text-sm text-gris">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-rojo text-sm">location_on</span>
+            <span>Col. Anzures, CDMX</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-rojo text-sm">language</span>
+            <span>riosabogados.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gris/50 text-[10px] uppercase tracking-widest">© 2025 Rios Abogados · Todos los derechos reservados</p>
+      <p class="text-gris/50 text-[10px] uppercase tracking-widest">Diseño web por <span class="text-rojo">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/5215552802789?text=Hola%2C%20me%20interesa%20agendar%20una%20consulta%20legal." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
