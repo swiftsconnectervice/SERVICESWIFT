@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayuda Legal · Bufete Jurídico en Cuernavaca</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "primary":               "#1a1a1a",
+      "primary-container":     "#2d2d2d",
+      "on-primary":            "#ffffff",
+      "on-primary-container":  "#b0b0b0",
+      "accent":                "#d4856a",
+      "accent-dark":           "#b86d55",
+      "accent-light":          "#f0c4b3",
+      "surface":               "#faf9f7",
+      "surface-container-low": "#f3f2f0",
+      "surface-container":     "#eceae8",
+      "surface-container-high":"#e5e3e0",
+      "surface-container-lowest":"#ffffff",
+      "on-surface":            "#1a1a1a",
+      "on-surface-variant":    "#555555",
+      "outline":               "#888888",
+      "outline-variant":       "#d0d0d0",
+    },
+    fontFamily: {
+      "headline": ["Newsreader","serif"],
+      "body":     ["Inter","sans-serif"],
+    },
+    borderRadius: { "DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem" },
+  }}
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-accent/30">
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 glass-nav shadow-[0_4px_40px_rgba(26,26,26,0.04)]">
+  <div class="flex items-center justify-between px-6 md:px-12 py-5 max-w-[1920px] mx-auto">
+    <a href="#" class="flex items-center gap-3">
+      <span class="text-accent text-3xl font-headline leading-none">&ldquo;</span>
+      <div class="leading-none">
+        <span class="text-sm font-bold tracking-[0.1em] uppercase text-primary block">Ayuda Legal</span>
+        <span class="text-[9px] font-body text-on-surface-variant uppercase tracking-widest">Bufete Jurídico</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center space-x-10">
+      <a href="#areas" class="text-primary opacity-70 hover:opacity-100 hover:text-accent transition-all duration-300 text-xs font-medium uppercase tracking-wider">Áreas</a>
+      <a href="#filosofia" class="text-primary opacity-70 hover:opacity-100 hover:text-accent transition-all duration-300 text-xs font-medium uppercase tracking-wider">Filosofía</a>
+      <a href="#experiencia" class="text-primary opacity-70 hover:opacity-100 hover:text-accent transition-all duration-300 text-xs font-medium uppercase tracking-wider">Experiencia</a>
+      <a href="#contacto" class="text-primary opacity-70 hover:opacity-100 hover:text-accent transition-all duration-300 text-xs font-medium uppercase tracking-wider">Contacto</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="tel:7771001009" class="hidden md:flex items-center gap-2 text-xs text-on-surface-variant">
+        <span class="material-symbols-outlined text-accent text-sm">call</span>777-100-1009
+      </a>
+      <a href="#contacto" class="bg-primary text-on-primary px-6 py-2.5 text-xs uppercase tracking-widest font-medium hover:bg-primary-container transition-all">
+        Contáctenos
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Bufete Ayuda Legal"/>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/70 to-primary/30"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full py-20">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="h-px w-16 bg-accent"></div>
+        <span class="text-accent font-medium tracking-[0.3em] uppercase text-xs">42+ años de experiencia</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-headline text-on-primary leading-[1.08] mb-6 tracking-tight">
+        ¿Necesita un abogado?
+      </h1>
+      <p class="text-2xl md:text-3xl font-headline text-accent italic mb-8">Ayuda, Previene, Protege, Resuelve.</p>
+      <p class="text-base md:text-lg text-on-primary/70 mb-10 leading-relaxed font-light max-w-xl">
+        Contamos con un equipo de especialistas en derecho que llevarán su caso con ética y profesionalismo. Cobertura nacional desde Cuernavaca, Morelos.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="bg-accent hover:bg-accent-dark text-white px-10 py-4 text-sm uppercase tracking-widest font-semibold text-center transition-colors">
+          Solicitar asesoría
+        </a>
+        <a href="#areas" class="border border-on-primary/30 text-on-primary px-10 py-4 text-sm uppercase tracking-widest font-semibold text-center hover:bg-on-primary hover:text-primary transition-all">
+          Áreas de ayuda
+        </a>
+      </div>
+      <div class="mt-12 flex items-center gap-3 text-on-primary/50 text-xs">
+        <span class="material-symbols-outlined text-accent text-sm">schedule</span>
+        Disponibilidad 24 horas · Lunes a Domingo
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lema bar -->
+<section class="bg-primary">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-2 md:grid-cols-4 py-0">
+    <div class="py-10 px-4 md:px-6 border-r border-white/10 text-center">
+      <span class="material-symbols-outlined text-accent text-2xl mb-2">support_agent</span>
+      <div class="text-on-primary font-headline text-lg">Ayuda</div>
+    </div>
+    <div class="py-10 px-4 md:px-6 md:border-r border-white/10 text-center">
+      <span class="material-symbols-outlined text-accent text-2xl mb-2">shield</span>
+      <div class="text-on-primary font-headline text-lg">Previene</div>
+    </div>
+    <div class="py-10 px-4 md:px-6 border-r border-white/10 text-center">
+      <span class="material-symbols-outlined text-accent text-2xl mb-2">verified_user</span>
+      <div class="text-on-primary font-headline text-lg">Protege</div>
+    </div>
+    <div class="py-10 px-4 md:px-6 text-center">
+      <span class="material-symbols-outlined text-accent text-2xl mb-2">gavel</span>
+      <div class="text-on-primary font-headline text-lg">Resuelve</div>
+    </div>
+  </div>
+</section>
+
+<!-- Áreas de Especialidad -->
+<section class="py-24 bg-surface" id="areas">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="text-center mb-20">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="h-px w-12 bg-accent"></div>
+        <span class="text-accent font-medium tracking-[0.3em] uppercase text-xs">Especialidades</span>
+        <div class="h-px w-12 bg-accent"></div>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-headline text-primary">Áreas de Ayuda Legal</h2>
+      <p class="text-on-surface-variant mt-4 max-w-2xl mx-auto">Dominamos diversas ramas del derecho en tribunales locales y federales de toda la República Mexicana.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/30">
+      <!-- Penal -->
+      <div class="bg-surface p-10 hover:bg-primary group transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-light transition-colors">local_police</span>
+        <h3 class="text-xl font-headline text-primary mb-3 group-hover:text-on-primary transition-colors">Derecho Penal</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed group-hover:text-on-primary/60 transition-colors">Delitos federales y locales, acusación indebida, detención, fraude, robo, homicidio y negligencia médica.</p>
+      </div>
+      <!-- Civil -->
+      <div class="bg-surface p-10 hover:bg-primary group transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-light transition-colors">description</span>
+        <h3 class="text-xl font-headline text-primary mb-3 group-hover:text-on-primary transition-colors">Derecho Civil</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed group-hover:text-on-primary/60 transition-colors">Contratos de arrendamiento, bienes raíces, compra-venta, donación, hipotecas y posesión.</p>
+      </div>
+      <!-- Familiar -->
+      <div class="bg-surface p-10 hover:bg-primary group transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-light transition-colors">family_restroom</span>
+        <h3 class="text-xl font-headline text-primary mb-3 group-hover:text-on-primary transition-colors">Derecho Familiar</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed group-hover:text-on-primary/60 transition-colors">Divorcios nacionales y extranjeros, pensión alimenticia, testamentos, intestados y concubinato.</p>
+      </div>
+      <!-- Amparos -->
+      <div class="bg-surface p-10 hover:bg-primary group transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-light transition-colors">balance</span>
+        <h3 class="text-xl font-headline text-primary mb-3 group-hover:text-on-primary transition-colors">Amparos</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed group-hover:text-on-primary/60 transition-colors">Juicios de amparo en materias administrativa, civil, penal y laboral ante tribunales federales.</p>
+      </div>
+      <!-- Laboral -->
+      <div class="bg-surface p-10 hover:bg-primary group transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-light transition-colors">work</span>
+        <h3 class="text-xl font-headline text-primary mb-3 group-hover:text-on-primary transition-colors">Derecho Laboral</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed group-hover:text-on-primary/60 transition-colors">Contratos individuales y colectivos, despidos injustificados y reinstalaciones.</p>
+      </div>
+      <!-- Administrativo -->
+      <div class="bg-surface p-10 hover:bg-primary group transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-light transition-colors">account_balance</span>
+        <h3 class="text-xl font-headline text-primary mb-3 group-hover:text-on-primary transition-colors">Derecho Administrativo</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed group-hover:text-on-primary/60 transition-colors">Defensa ante actos de autoridad, IMSS, AFORES, asuntos agrarios, licitaciones, multas y PROFECO.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experiencia -->
+<section class="bg-primary-container relative overflow-hidden" id="experiencia">
+  <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row">
+    <div class="w-full md:w-[45%] py-24 px-6 md:px-12 flex flex-col justify-center">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-px w-12 bg-accent"></div>
+        <span class="text-accent font-medium tracking-[0.3em] uppercase text-xs">Trayectoria</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-headline text-on-primary mb-8 leading-tight">Más de 42 años asesorando y resolviendo asuntos legales.</h2>
+      <p class="text-on-primary/60 leading-relaxed mb-10">Asesoramos a personas físicas, morales y dependencias de gobierno. Nuestro equipo de especialistas en derecho lleva cada caso con ética y profesionalismo.</p>
+      <div class="space-y-8">
+        <div class="border-l-2 border-accent pl-8">
+          <h4 class="text-on-primary text-xl font-headline mb-1">Cobertura nacional</h4>
+          <p class="text-on-primary/40 text-sm">Tribunales locales y federales en toda la República.</p>
+        </div>
+        <div class="border-l-2 border-accent pl-8">
+          <h4 class="text-on-primary text-xl font-headline mb-1">Disponibilidad 24/7</h4>
+          <p class="text-on-primary/40 text-sm">Atención de lunes a domingo, las 24 horas.</p>
+        </div>
+        <div class="border-l-2 border-accent pl-8">
+          <h4 class="text-on-primary text-xl font-headline mb-1">Asesoría desde el primer contacto</h4>
+          <p class="text-on-primary/40 text-sm">Orientación legal inmediata sin compromiso.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w-full md:w-[55%] relative min-h-[500px]">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Oficinas Ayuda Legal"/>
+      <div class="absolute inset-0 bg-primary/20"></div>
+      <div class="absolute bottom-12 left-0 md:-left-12 bg-surface p-10 max-w-md shadow-2xl">
+        <span class="text-accent text-5xl font-headline leading-none mb-4 block">&ldquo;</span>
+        <p class="text-primary italic text-lg leading-relaxed mb-6 font-headline">Profesionalismo y certeza en cada caso. Ayuda Legal nos dio la tranquilidad que necesitábamos en un momento difícil.</p>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-surface-container-high flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">person</span>
+          </div>
+          <div>
+            <p class="font-bold text-primary text-sm uppercase tracking-wide">Cliente satisfecho</p>
+            <p class="text-on-surface-variant text-xs uppercase tracking-tight">Caso de derecho familiar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filosofía -->
+<section class="py-24 bg-surface-container-low" id="filosofia">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="text-center mb-16">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="h-px w-12 bg-accent"></div>
+        <span class="text-accent font-medium tracking-[0.3em] uppercase text-xs">Filosofía institucional</span>
+        <div class="h-px w-12 bg-accent"></div>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-headline text-primary">Misión, Visión y Valores</h2>
+    </div>
+
+    <!-- Misión y Visión -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-surface-container-lowest p-10 md:p-12">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6">flag</span>
+        <h3 class="text-2xl font-headline text-primary mb-4">Misión</h3>
+        <p class="text-on-surface-variant leading-relaxed">Brindar soluciones legales idóneas conforme a criterios de justicia, con un equipo de especialistas comprometidos con la ética y el profesionalismo.</p>
+      </div>
+      <div class="bg-surface-container-lowest p-10 md:p-12">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6">visibility</span>
+        <h3 class="text-2xl font-headline text-primary mb-4">Visión</h3>
+        <p class="text-on-surface-variant leading-relaxed">Obtener el reconocimiento de quienes acuden a nosotros por nuestra eficacia, consolidándonos como referente en asesoría legal en Morelos y toda la República.</p>
+      </div>
+    </div>
+
+    <!-- Valores -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-accent/10 flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-accent text-2xl">workspace_premium</span>
+        </div>
+        <h4 class="text-lg font-headline text-primary uppercase tracking-wide mb-3">Profesionalismo</h4>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Calidad ética y cumplimiento de acuerdos en cada caso que atendemos.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-accent/10 flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-accent text-2xl">verified</span>
+        </div>
+        <h4 class="text-lg font-headline text-primary uppercase tracking-wide mb-3">Certeza</h4>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Servicios amparados bajo un contrato claro que define responsabilidades de ambas partes.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-accent/10 flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-accent text-2xl">bolt</span>
+        </div>
+        <h4 class="text-lg font-headline text-primary uppercase tracking-wide mb-3">Servicio</h4>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Dinámico y eficaz para superar las expectativas del cliente en cada proceso legal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 bg-surface" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-accent"></div>
+          <span class="text-accent font-medium tracking-[0.3em] uppercase text-xs">Contacto</span>
+        </div>
+        <h2 class="text-4xl font-headline text-primary mb-6">Solicite asesoría legal</h2>
+        <p class="text-on-surface-variant mb-12 leading-relaxed">Nuestro equipo de especialistas evaluará su caso desde el primer contacto. Disponibilidad las 24 horas, los 7 días de la semana.</p>
+
+        <div class="space-y-8">
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent">call</span>
+            <div>
+              <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Teléfonos</h5>
+              <a href="tel:7771001009" class="text-on-surface-variant text-sm hover:text-primary transition-colors block">777-100-1009</a>
+              <a href="tel:7773756604" class="text-on-surface-variant text-sm hover:text-primary transition-colors block">777-375-6604</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent">mail</span>
+            <div>
+              <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Email</h5>
+              <a href="mailto:ayudalegal_sc@yahoo.es" class="text-on-surface-variant text-sm hover:text-primary transition-colors">ayudalegal_sc@yahoo.es</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent">location_on</span>
+            <div>
+              <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Ubicación</h5>
+              <p class="text-on-surface-variant text-sm">Cuernavaca, Morelos<br/>Cobertura nacional</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent">schedule</span>
+            <div>
+              <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Disponibilidad</h5>
+              <p class="text-on-surface-variant text-sm">24 horas · Lunes a Domingo</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent">payments</span>
+            <div>
+              <h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Formas de pago</h5>
+              <p class="text-on-surface-variant text-sm">Efectivo y Cheque</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-low p-8 md:p-12">
+        <form class="space-y-6" onsubmit="return false;">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase tracking-widest font-bold text-primary">Nombre completo</label>
+              <input type="text" class="w-full bg-transparent border-b border-outline-variant focus:border-accent focus:ring-0 px-0 py-2 text-sm transition-colors"/>
+            </div>
+            <div class="space-y-2">
+              <label class="text-[10px] uppercase tracking-widest font-bold text-primary">Teléfono</label>
+              <input type="tel" class="w-full bg-transparent border-b border-outline-variant focus:border-accent focus:ring-0 px-0 py-2 text-sm transition-colors"/>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-[10px] uppercase tracking-widest font-bold text-primary">Correo electrónico</label>
+            <input type="email" class="w-full bg-transparent border-b border-outline-variant focus:border-accent focus:ring-0 px-0 py-2 text-sm transition-colors"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-[10px] uppercase tracking-widest font-bold text-primary">Área de interés</label>
+            <select class="w-full bg-transparent border-b border-outline-variant focus:border-accent focus:ring-0 px-0 py-2 text-sm transition-colors appearance-none">
+              <option value="">Seleccionar área</option>
+              <option>Derecho Penal</option>
+              <option>Derecho Civil</option>
+              <option>Derecho Familiar</option>
+              <option>Amparos</option>
+              <option>Derecho Laboral</option>
+              <option>Derecho Administrativo</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="text-[10px] uppercase tracking-widest font-bold text-primary">Descripción breve del asunto</label>
+            <textarea rows="4" class="w-full bg-transparent border-b border-outline-variant focus:border-accent focus:ring-0 px-0 py-2 text-sm transition-colors resize-none"></textarea>
+          </div>
+          <div class="pt-4">
+            <button type="submit" class="w-full bg-accent hover:bg-accent-dark text-white py-4 text-xs uppercase tracking-[0.2em] font-bold transition-colors">
+              Enviar solicitud
+            </button>
+            <p class="text-[10px] text-on-surface-variant/60 text-center mt-6 leading-relaxed italic">
+              Toda la información es tratada con absoluta confidencialidad. Asesoría legal desde el primer contacto.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary w-full pt-20 pb-10">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-6 md:px-12 max-w-7xl mx-auto border-b border-on-primary/10 pb-14 mb-10">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-accent text-3xl font-headline leading-none">&ldquo;</span>
+        <div class="leading-none">
+          <span class="text-sm font-bold tracking-[0.1em] uppercase text-surface block">Ayuda Legal</span>
+          <span class="text-[9px] text-on-primary-container uppercase tracking-widest">Bufete Jurídico</span>
+        </div>
+      </div>
+      <p class="text-on-primary-container text-sm leading-relaxed max-w-sm mt-4">Más de 42 años asesorando y resolviendo asuntos legales. Ayuda, Previene, Protege, Resuelve.</p>
+    </div>
+    <div class="space-y-5">
+      <h6 class="text-accent text-xs font-bold uppercase tracking-widest">Áreas</h6>
+      <ul class="space-y-3">
+        <li><a href="#areas" class="text-surface opacity-60 hover:opacity-100 transition-opacity text-sm">Derecho Penal</a></li>
+        <li><a href="#areas" class="text-surface opacity-60 hover:opacity-100 transition-opacity text-sm">Derecho Civil</a></li>
+        <li><a href="#areas" class="text-surface opacity-60 hover:opacity-100 transition-opacity text-sm">Derecho Familiar</a></li>
+        <li><a href="#areas" class="text-surface opacity-60 hover:opacity-100 transition-opacity text-sm">Amparos</a></li>
+      </ul>
+    </div>
+    <div class="space-y-5">
+      <h6 class="text-accent text-xs font-bold uppercase tracking-widest">Contacto</h6>
+      <ul class="space-y-3 text-sm text-on-primary-container">
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-sm">call</span>
+          <a href="tel:7771001009" class="hover:text-surface transition-colors">777-100-1009</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-sm">call</span>
+          <a href="tel:7773756604" class="hover:text-surface transition-colors">777-375-6604</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-sm">mail</span>
+          <a href="mailto:ayudalegal_sc@yahoo.es" class="hover:text-surface transition-colors">ayudalegal_sc@yahoo.es</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-sm">location_on</span>
+          Cuernavaca, Morelos
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-surface opacity-40 text-[10px] uppercase tracking-[0.2em]">© 2025 Ayuda Legal · Bufete Jurídico · Todos los derechos reservados</p>
+    <p class="text-surface opacity-40 text-[10px] uppercase tracking-[0.2em]">Diseño web por <span class="text-accent">Web Architects</span></p>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/527771001009?text=Hola%2C%20necesito%20asesor%C3%ADa%20legal." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
