@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SJM Abogados · San Juan Montañez & Asociados S.C.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "navy":       "#0c1b33",
+      "navy-mid":   "#162d50",
+      "navy-light": "#1e3f6e",
+      "bronze":     "#b08d57",
+      "bronze-dk":  "#8f7245",
+      "bronze-lt":  "#d4b98a",
+      "ivory":      "#f8f6f1",
+      "ivory-dk":   "#eeebe3",
+      "ivory-mid":  "#f3f0e9",
+      "slate":      "#4a5568",
+      "slate-lt":   "#718096",
+      "slate-dk":   "#2d3748",
+    },
+    fontFamily: {
+      "display": ["Playfair Display","serif"],
+      "body":    ["Inter","sans-serif"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Inter", sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  .glass { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+</style>
+</head>
+<body class="bg-ivory text-slate-dk">
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-ivory/85 glass border-b border-bronze/10">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-18 py-4">
+    <a href="#" class="flex items-center gap-3">
+      <div class="flex items-center justify-center w-10 h-10 border-2 border-bronze rounded-sm">
+        <span class="font-display text-bronze font-bold text-sm italic">SJM</span>
+      </div>
+      <div class="hidden sm:block leading-tight">
+        <span class="text-xs font-semibold text-navy tracking-wide block">SAN JUAN MONTAÑEZ</span>
+        <span class="text-[9px] text-slate-lt uppercase tracking-[0.2em]">& Asociados S.C.</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-10">
+      <a href="#firma" class="text-[11px] text-slate hover:text-bronze transition-colors font-medium uppercase tracking-[0.15em]">La Firma</a>
+      <a href="#filosofia" class="text-[11px] text-slate hover:text-bronze transition-colors font-medium uppercase tracking-[0.15em]">Filosofía</a>
+      <a href="#servicios" class="text-[11px] text-slate hover:text-bronze transition-colors font-medium uppercase tracking-[0.15em]">Servicios</a>
+      <a href="#probono" class="text-[11px] text-slate hover:text-bronze transition-colors font-medium uppercase tracking-[0.15em]">Pro Bono</a>
+      <a href="#contacto" class="text-[11px] text-slate hover:text-bronze transition-colors font-medium uppercase tracking-[0.15em]">Contacto</a>
+    </nav>
+    <a href="#contacto" class="bg-navy hover:bg-navy-mid text-white text-[11px] font-semibold px-6 py-2.5 rounded-sm transition-colors uppercase tracking-[0.15em]">
+      Contactar
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-end pt-20 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="SJM Abogados oficinas"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/20"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full pb-20 md:pb-28">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-3 mb-8">
+        <div class="w-12 h-px bg-bronze"></div>
+        <span class="text-bronze text-xs font-medium uppercase tracking-[0.3em]">Desde 2018 · Lomas de Chapultepec, CDMX</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-display text-white leading-[1.1] mb-6">
+        Ideas, soluciones y estructuras
+        <span class="text-bronze italic"> innovadoras</span>
+        basadas en el Derecho Convencional.
+      </h1>
+      <p class="text-white/60 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
+        Una asesoría preventiva, estratégica e integral nos define. La experiencia, el pragmatismo y el conocimiento doctrinal nos hacen ser la firma más completa.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="bg-bronze hover:bg-bronze-dk text-white font-semibold py-4 px-8 rounded-sm text-sm text-center transition-colors uppercase tracking-wider">
+          Agendar consulta
+        </a>
+        <a href="#firma" class="border border-white/20 hover:border-bronze/50 text-white font-semibold py-4 px-8 rounded-sm text-sm text-center transition-all uppercase tracking-wider">
+          Conocer la firma
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- La Firma -->
+<section class="py-24 bg-ivory" id="firma">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-bronze"></div>
+          <span class="text-bronze text-xs font-medium uppercase tracking-[0.3em]">La firma</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-display text-navy leading-tight mb-6">Siempre tendremos resultados favorables para nuestros clientes.</h2>
+        <p class="text-slate leading-relaxed mb-6">El proyecto SJM inició en 2018. Desde nuestra fundación, hemos acumulado experiencia basada en honestidad, respeto y ética profesional.</p>
+        <p class="text-slate leading-relaxed mb-8">El Derecho cambia constantemente, por lo que nuestros abogados priorizan la actualización académica para brindar un servicio legal óptimo. Destacamos por nuestra capacidad de coordinación entre áreas de práctica y nuestro conocimiento de la realidad social, tendencias de comercio e industria, y avances tecnológicos.</p>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="border-l-2 border-bronze pl-5">
+            <div class="font-display text-2xl text-navy">2018</div>
+            <div class="text-xs text-slate-lt uppercase tracking-wider mt-1">Año de fundación</div>
+          </div>
+          <div class="border-l-2 border-bronze pl-5">
+            <div class="font-display text-2xl text-navy">UNAM</div>
+            <div class="text-xs text-slate-lt uppercase tracking-wider mt-1">Formación académica</div>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[3/4] rounded-sm overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop" class="w-full h-full object-cover" alt="Equipo SJM Abogados"/>
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-navy p-6 rounded-sm hidden md:block">
+          <span class="text-bronze font-display text-lg italic block">Lomas de Chapultepec</span>
+          <span class="text-white/50 text-xs uppercase tracking-wider">Ciudad de México</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filosofía -->
+<section class="py-24 bg-ivory-mid" id="filosofia">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-20">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="w-10 h-px bg-bronze"></div>
+        <span class="text-bronze text-xs font-medium uppercase tracking-[0.3em]">Filosofía institucional</span>
+        <div class="w-10 h-px bg-bronze"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-display text-navy">Misión, Visión y Valores</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="bg-white p-10 rounded-sm">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">flag</span>
+        <h3 class="text-xl font-display text-navy mb-4">Misión</h3>
+        <p class="text-slate text-sm leading-relaxed">Formar parte del equipo de trabajo de nuestros clientes, superando sus expectativas mediante soluciones y estrategias integrales en todas las áreas del derecho.</p>
+      </div>
+      <div class="bg-white p-10 rounded-sm">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">public</span>
+        <h3 class="text-xl font-display text-navy mb-4">Visión</h3>
+        <p class="text-slate text-sm leading-relaxed">Posicionarnos a nivel global como una firma líder, con colaboradores capacitados principalmente en la UNAM y en nuestra propia academia jurídica.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center p-8">
+        <div class="w-14 h-14 border-2 border-bronze/30 rounded-full flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-bronze">workspace_premium</span>
+        </div>
+        <h4 class="font-display text-navy text-lg mb-3">Profesionalismo</h4>
+        <p class="text-slate text-sm leading-relaxed">Brindamos certeza al cliente sobre todos los escenarios posibles de su caso.</p>
+      </div>
+      <div class="text-center p-8">
+        <div class="w-14 h-14 border-2 border-bronze/30 rounded-full flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-bronze">lock</span>
+        </div>
+        <h4 class="font-display text-navy text-lg mb-3">Confidencialidad</h4>
+        <p class="text-slate text-sm leading-relaxed">Garantizamos que los negocios y actos jurídicos de nuestros clientes no sean divulgados.</p>
+      </div>
+      <div class="text-center p-8">
+        <div class="w-14 h-14 border-2 border-bronze/30 rounded-full flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-bronze">groups</span>
+        </div>
+        <h4 class="font-display text-navy text-lg mb-3">Trabajo en equipo</h4>
+        <p class="text-slate text-sm leading-relaxed">Nos involucramos en las situaciones de los clientes para ofrecer una visión compartida y resultados de calidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios -->
+<section class="py-24 bg-navy" id="servicios">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-10 h-px bg-bronze"></div>
+      <span class="text-bronze text-xs font-medium uppercase tracking-[0.3em]">Áreas de práctica</span>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+      <h2 class="text-3xl md:text-4xl font-display text-white leading-tight">Soluciones integrales<br/>en todas las áreas del derecho.</h2>
+      <p class="text-white/40 text-sm max-w-sm">Coordinación entre áreas de práctica con conocimiento de la realidad social, tendencias de comercio e industria.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-navy-mid p-8 rounded-sm border border-white/5 hover:border-bronze/30 transition-all group">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">gavel</span>
+        <h3 class="text-white font-semibold text-lg mb-3">Litigio</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Representación en tribunales locales y federales con estrategia y pragmatismo.</p>
+      </div>
+      <div class="bg-navy-mid p-8 rounded-sm border border-white/5 hover:border-bronze/30 transition-all group">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">handshake</span>
+        <h3 class="text-white font-semibold text-lg mb-3">Mediación</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Resolución alternativa de conflictos con enfoque en resultados favorables.</p>
+      </div>
+      <div class="bg-navy-mid p-8 rounded-sm border border-white/5 hover:border-bronze/30 transition-all group">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">apartment</span>
+        <h3 class="text-white font-semibold text-lg mb-3">Derecho Corporativo</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Estructuras societarias, contratos y asesoría empresarial integral.</p>
+      </div>
+      <div class="bg-navy-mid p-8 rounded-sm border border-white/5 hover:border-bronze/30 transition-all group">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">balance</span>
+        <h3 class="text-white font-semibold text-lg mb-3">Derecho Civil</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Contratos, bienes raíces, sucesiones y asuntos patrimoniales.</p>
+      </div>
+      <div class="bg-navy-mid p-8 rounded-sm border border-white/5 hover:border-bronze/30 transition-all group">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">work</span>
+        <h3 class="text-white font-semibold text-lg mb-3">Derecho Laboral</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Relaciones laborales, contratos colectivos y defensa patronal.</p>
+      </div>
+      <div class="bg-navy-mid p-8 rounded-sm border border-white/5 hover:border-bronze/30 transition-all group">
+        <span class="material-symbols-outlined text-bronze text-2xl mb-5">account_balance</span>
+        <h3 class="text-white font-semibold text-lg mb-3">Derecho Administrativo</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Licitaciones, contrataciones públicas y defensa ante autoridades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pro Bono -->
+<section class="py-16 bg-bronze" id="probono">
+  <div class="max-w-5xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-white/80">volunteer_activism</span>
+        <span class="text-white/80 text-xs font-medium uppercase tracking-[0.3em]">Compromiso social</span>
+      </div>
+      <h3 class="text-2xl md:text-3xl font-display text-white">Área Pro Bono</h3>
+      <p class="text-white/70 text-sm mt-2 max-w-md">Contamos con un área dedicada a servicios legales gratuitos para causas sociales que lo requieran.</p>
+    </div>
+    <a href="#contacto" class="bg-white text-bronze font-semibold py-3 px-8 rounded-sm text-sm hover:bg-ivory transition-colors uppercase tracking-wider flex-shrink-0">
+      Más información
+    </a>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 bg-ivory" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-bronze"></div>
+          <span class="text-bronze text-xs font-medium uppercase tracking-[0.3em]">Contacto</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-display text-navy mb-6 leading-tight">Platiquemos sobre su caso.</h2>
+        <p class="text-slate leading-relaxed mb-10">Nuestro equipo de abogados está listo para brindarle una asesoría preventiva, estratégica e integral desde el primer contacto.</p>
+
+        <div class="space-y-7">
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 bg-ivory-dk rounded-sm flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-bronze text-lg">location_on</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-lt uppercase tracking-[0.2em] font-medium mb-1">Dirección</div>
+              <p class="text-sm text-slate-dk">Calle Monte Elbruz 124, Piso 2<br/>Lomas de Chapultepec III Sección<br/>Miguel Hidalgo, C.P. 11530, CDMX</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 bg-ivory-dk rounded-sm flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-bronze text-lg">call</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-lt uppercase tracking-[0.2em] font-medium mb-1">Teléfonos</div>
+              <a href="tel:5535003271" class="text-sm text-slate-dk hover:text-bronze transition-colors block">55 3500 3271</a>
+              <a href="tel:5547482016" class="text-sm text-slate-dk hover:text-bronze transition-colors block">55 4748 2016</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 bg-ivory-dk rounded-sm flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-bronze text-lg">mail</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-lt uppercase tracking-[0.2em] font-medium mb-1">Email</div>
+              <a href="mailto:administracion@sjmabogados.com.mx" class="text-sm text-slate-dk hover:text-bronze transition-colors">administracion@sjmabogados.com.mx</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 md:p-10 rounded-sm shadow-[0_20px_40px_-12px_rgba(12,27,51,0.06)]">
+        <div class="text-[10px] text-slate-lt uppercase tracking-[0.2em] font-medium mb-6">Formulario de contacto</div>
+        <form class="space-y-5" onsubmit="return false;">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-[10px] text-slate-lt uppercase tracking-[0.15em] font-medium mb-2">Nombre</label>
+              <input type="text" placeholder="Su nombre completo" class="w-full bg-ivory border-0 border-b-2 border-ivory-dk rounded-sm px-4 py-3 text-sm text-slate-dk placeholder-slate-lt focus:border-bronze focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-[10px] text-slate-lt uppercase tracking-[0.15em] font-medium mb-2">Teléfono</label>
+              <input type="tel" placeholder="55 0000 0000" class="w-full bg-ivory border-0 border-b-2 border-ivory-dk rounded-sm px-4 py-3 text-sm text-slate-dk placeholder-slate-lt focus:border-bronze focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-[10px] text-slate-lt uppercase tracking-[0.15em] font-medium mb-2">Email</label>
+            <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-ivory border-0 border-b-2 border-ivory-dk rounded-sm px-4 py-3 text-sm text-slate-dk placeholder-slate-lt focus:border-bronze focus:outline-none transition-colors"/>
+          </div>
+          <div>
+            <label class="block text-[10px] text-slate-lt uppercase tracking-[0.15em] font-medium mb-2">Asunto</label>
+            <select class="w-full bg-ivory border-0 border-b-2 border-ivory-dk rounded-sm px-4 py-3 text-sm text-slate-dk focus:border-bronze focus:outline-none transition-colors appearance-none">
+              <option value="">Seleccionar área</option>
+              <option>Litigio</option>
+              <option>Mediación</option>
+              <option>Derecho Corporativo</option>
+              <option>Derecho Civil</option>
+              <option>Derecho Laboral</option>
+              <option>Derecho Administrativo</option>
+              <option>Pro Bono</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] text-slate-lt uppercase tracking-[0.15em] font-medium mb-2">Mensaje</label>
+            <textarea rows="4" placeholder="Describa brevemente su caso..." class="w-full bg-ivory border-0 border-b-2 border-ivory-dk rounded-sm px-4 py-3 text-sm text-slate-dk placeholder-slate-lt focus:border-bronze focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-navy hover:bg-navy-mid text-white font-semibold py-4 rounded-sm text-sm transition-colors uppercase tracking-wider">
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-navy">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center justify-center w-10 h-10 border border-bronze/40 rounded-sm">
+            <span class="font-display text-bronze font-bold text-sm italic">SJM</span>
+          </div>
+          <div class="leading-tight">
+            <span class="text-xs font-semibold text-white tracking-wide block">SAN JUAN MONTAÑEZ</span>
+            <span class="text-[9px] text-white/40 uppercase tracking-[0.2em]">& Asociados S.C.</span>
+          </div>
+        </div>
+        <p class="text-white/40 text-sm leading-relaxed max-w-sm mt-3">Firma de abogados con ideas, soluciones y estructuras innovadoras e incluyentes, basadas en el Derecho Convencional.</p>
+      </div>
+      <div>
+        <div class="text-bronze text-[10px] font-medium uppercase tracking-[0.2em] mb-4">Navegación</div>
+        <ul class="space-y-3 text-sm text-white/50">
+          <li><a href="#firma" class="hover:text-white transition-colors">La Firma</a></li>
+          <li><a href="#filosofia" class="hover:text-white transition-colors">Filosofía</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="#probono" class="hover:text-white transition-colors">Pro Bono</a></li>
+          <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-bronze text-[10px] font-medium uppercase tracking-[0.2em] mb-4">Contacto</div>
+        <ul class="space-y-3 text-sm text-white/50">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-bronze text-sm">call</span>
+            <a href="tel:5535003271" class="hover:text-white transition-colors">55 3500 3271</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-bronze text-sm">call</span>
+            <a href="tel:5547482016" class="hover:text-white transition-colors">55 4748 2016</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-bronze text-sm">mail</span>
+            <a href="mailto:administracion@sjmabogados.com.mx" class="hover:text-white transition-colors break-all">administracion@sjmabogados.com.mx</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-bronze text-sm">location_on</span>
+            Lomas de Chapultepec, CDMX
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/30 text-[10px] uppercase tracking-[0.2em]">© 2025 San Juan Montañez & Asociados S.C.</p>
+      <p class="text-white/30 text-[10px] uppercase tracking-[0.2em]">Diseño web por <span class="text-bronze">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/5215535003271?text=Hola%2C%20me%20interesa%20agendar%20una%20consulta%20legal." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-sm flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
