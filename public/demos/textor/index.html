@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Constructora Textor · 46 Años de Experiencia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "forest":      "#1a3a2a",
+      "forest-deep": "#0f2419",
+      "forest-mid":  "#2d5a42",
+      "sage":        "#7a9e8e",
+      "sand":        "#f5f0e8",
+      "sand-dark":   "#e8e0d0",
+      "sand-deep":   "#d4c9b5",
+      "cream":       "#faf8f4",
+      "warm":        "#c4956a",
+      "warm-dark":   "#a67a52",
+      "charcoal":    "#2c2c2c",
+      "charcoal-lt": "#555555",
+      "charcoal-xx": "#888888",
+    },
+    fontFamily: {
+      "sans":  ["DM Sans","sans-serif"],
+      "mono":  ["IBM Plex Mono","monospace"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "DM Sans", sans-serif; }
+  .fade-in { animation: fadeUp 0.6s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body class="bg-cream text-charcoal">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-cream/90 backdrop-blur-lg">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="flex justify-between items-center h-16 md:h-20">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-forest rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-sm">TX</span>
+        </div>
+        <div class="leading-none">
+          <span class="text-base font-bold text-forest tracking-tight block">TEXTOR</span>
+          <span class="text-[9px] font-mono text-charcoal-xx uppercase tracking-[0.15em]">Constructora S.A. de C.V.</span>
+        </div>
+      </div>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#historia" class="text-xs font-medium text-charcoal-lt hover:text-forest transition-colors tracking-wide uppercase">Historia</a>
+        <a href="#mision" class="text-xs font-medium text-charcoal-lt hover:text-forest transition-colors tracking-wide uppercase">Misión</a>
+        <a href="#valores" class="text-xs font-medium text-charcoal-lt hover:text-forest transition-colors tracking-wide uppercase">Valores</a>
+        <a href="#respaldo" class="text-xs font-medium text-charcoal-lt hover:text-forest transition-colors tracking-wide uppercase">Respaldo</a>
+        <a href="#contacto" class="text-xs font-medium text-charcoal-lt hover:text-forest transition-colors tracking-wide uppercase">Contacto</a>
+      </div>
+      <a href="#contacto" class="bg-forest hover:bg-forest-mid text-white text-xs font-semibold px-6 py-2.5 rounded-lg transition-all">
+        Contáctanos
+      </a>
+    </div>
+  </div>
+  <div class="h-px bg-sand-dark"></div>
+</nav>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-end overflow-hidden pt-20">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Constructora Textor"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/60 to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pb-16 md:pb-24">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 mb-6">
+        <div class="w-2 h-2 bg-warm rounded-full"></div>
+        <span class="font-mono text-[11px] text-sand uppercase tracking-widest">46 años construyendo confianza</span>
+      </div>
+      <h1 class="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] mb-6">
+        Construimos relaciones que perduran tanto como nuestras obras.
+      </h1>
+      <p class="text-sage text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+        Satisfacemos las necesidades de nuestros clientes antes, durante y después de finalizado el proyecto, cumpliendo con estándares de calidad y plazos fijados.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#contacto" class="bg-warm hover:bg-warm-dark text-white font-semibold py-4 px-8 rounded-lg transition-all text-sm text-center">
+          Solicitar información
+        </a>
+        <a href="#historia" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold py-4 px-8 rounded-lg transition-all text-sm text-center">
+          Conocer nuestra historia
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="bg-forest text-white">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 py-0">
+    <div class="py-10 md:py-14 px-4 md:px-6 border-r border-white/10 text-center">
+      <div class="font-mono text-3xl md:text-4xl font-semibold text-warm mb-1">46</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-sage">Años de experiencia</div>
+    </div>
+    <div class="py-10 md:py-14 px-4 md:px-6 md:border-r border-white/10 text-center">
+      <div class="font-mono text-3xl md:text-4xl font-semibold text-white mb-1">Edo. Méx.</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-sage">Sede principal</div>
+    </div>
+    <div class="py-10 md:py-14 px-4 md:px-6 border-r border-white/10 text-center">
+      <div class="font-mono text-3xl md:text-4xl font-semibold text-white mb-1">S.A. de C.V.</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-sage">Razón social</div>
+    </div>
+    <div class="py-10 md:py-14 px-4 md:px-6 text-center">
+      <div class="font-mono text-3xl md:text-4xl font-semibold text-warm mb-1">2</div>
+      <div class="text-[10px] font-medium uppercase tracking-widest text-sage">Socios garantes</div>
+    </div>
+  </div>
+</section>
+
+<!-- Historia -->
+<section class="py-20 md:py-28 bg-cream" id="historia">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="font-mono text-[11px] text-warm uppercase tracking-widest mb-3">Nuestra historia</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-forest leading-tight mb-6">46 años de evolución constante en la industria de la construcción.</h2>
+        <div class="space-y-4 text-charcoal-lt leading-relaxed">
+          <p>Constructora Textor cuenta con 46 años de experiencia en la industria de la construcción. A lo largo de nuestra trayectoria, nos hemos destacado por ser competitivos y mejorar constantemente nuestras propuestas y servicios, lo que nos ha llevado a sobresalir en el mercado.</p>
+          <p>Nuestros servicios están liderados por profesionales experimentados en diversas áreas de la ingeniería, lo que nos permite asesorar a nuestros clientes para lograr sus objetivos de manera óptima.</p>
+        </div>
+        <div class="mt-8 flex items-center gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-sand rounded-lg flex items-center justify-center">
+              <span class="material-symbols-outlined text-forest text-xl">engineering</span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-forest">Ingenieros expertos</div>
+              <div class="text-xs text-charcoal-xx">Múltiples especialidades</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-sand rounded-lg flex items-center justify-center">
+              <span class="material-symbols-outlined text-forest text-xl">trending_up</span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-forest">Mejora continua</div>
+              <div class="text-xs text-charcoal-xx">Propuestas competitivas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80&fit=crop" class="w-full h-full object-cover" alt="Proyecto Textor"/>
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-forest text-white rounded-xl p-5 shadow-xl">
+          <div class="font-mono text-3xl font-semibold text-warm">1979</div>
+          <div class="text-xs text-sage mt-1">Año de fundación</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Misión y Visión -->
+<section class="py-20 md:py-28 bg-sand" id="mision">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-16">
+      <div class="font-mono text-[11px] text-warm uppercase tracking-widest mb-3">Filosofía corporativa</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-forest">Nuestra misión y visión</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-cream rounded-2xl p-8 md:p-10">
+        <div class="w-14 h-14 bg-forest/10 rounded-xl flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-forest text-2xl">flag</span>
+        </div>
+        <h3 class="text-xl font-bold text-forest mb-4">Misión</h3>
+        <p class="text-charcoal-lt leading-relaxed">Satisfacer las necesidades de los clientes antes, durante y después de finalizado el proyecto, cumpliendo con estándares de calidad y plazos fijados para generar relaciones duraderas.</p>
+      </div>
+      <div class="bg-cream rounded-2xl p-8 md:p-10">
+        <div class="w-14 h-14 bg-forest/10 rounded-xl flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-forest text-2xl">visibility</span>
+        </div>
+        <h3 class="text-xl font-bold text-forest mb-4">Visión</h3>
+        <p class="text-charcoal-lt leading-relaxed">Formar un equipo fuerte y exitoso basado en valores corporativos para obtener los mejores resultados, con un enfoque preventivo en la preservación del medio ambiente para futuras generaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Valores -->
+<section class="py-20 md:py-28 bg-cream" id="valores">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-16">
+      <div class="font-mono text-[11px] text-warm uppercase tracking-widest mb-3">Lo que nos define</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-forest">Nuestros valores</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="bg-sand rounded-2xl p-6 text-center group hover:bg-forest transition-all duration-300">
+        <div class="w-12 h-12 bg-forest/10 group-hover:bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors">
+          <span class="material-symbols-outlined text-forest group-hover:text-warm text-xl transition-colors">handshake</span>
+        </div>
+        <h3 class="text-sm font-bold text-forest group-hover:text-white transition-colors">Respeto</h3>
+      </div>
+      <div class="bg-sand rounded-2xl p-6 text-center group hover:bg-forest transition-all duration-300">
+        <div class="w-12 h-12 bg-forest/10 group-hover:bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors">
+          <span class="material-symbols-outlined text-forest group-hover:text-warm text-xl transition-colors">verified_user</span>
+        </div>
+        <h3 class="text-sm font-bold text-forest group-hover:text-white transition-colors">Honestidad</h3>
+      </div>
+      <div class="bg-sand rounded-2xl p-6 text-center group hover:bg-forest transition-all duration-300">
+        <div class="w-12 h-12 bg-forest/10 group-hover:bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors">
+          <span class="material-symbols-outlined text-forest group-hover:text-warm text-xl transition-colors">task_alt</span>
+        </div>
+        <h3 class="text-sm font-bold text-forest group-hover:text-white transition-colors">Responsabilidad</h3>
+      </div>
+      <div class="bg-sand rounded-2xl p-6 text-center group hover:bg-forest transition-all duration-300">
+        <div class="w-12 h-12 bg-forest/10 group-hover:bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors">
+          <span class="material-symbols-outlined text-forest group-hover:text-warm text-xl transition-colors">shield</span>
+        </div>
+        <h3 class="text-sm font-bold text-forest group-hover:text-white transition-colors">Seguridad</h3>
+      </div>
+      <div class="bg-sand rounded-2xl p-6 text-center group hover:bg-forest transition-all duration-300">
+        <div class="w-12 h-12 bg-forest/10 group-hover:bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors">
+          <span class="material-symbols-outlined text-forest group-hover:text-warm text-xl transition-colors">favorite</span>
+        </div>
+        <h3 class="text-sm font-bold text-forest group-hover:text-white transition-colors">Pasión</h3>
+      </div>
+      <div class="bg-sand rounded-2xl p-6 text-center group hover:bg-forest transition-all duration-300">
+        <div class="w-12 h-12 bg-forest/10 group-hover:bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors">
+          <span class="material-symbols-outlined text-forest group-hover:text-warm text-xl transition-colors">loyalty</span>
+        </div>
+        <h3 class="text-sm font-bold text-forest group-hover:text-white transition-colors">Lealtad</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galería de proyectos -->
+<section class="py-20 md:py-28 bg-sand">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-16">
+      <div class="font-mono text-[11px] text-warm uppercase tracking-widest mb-3">Portafolio</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-forest">Proyectos representativos</h2>
+      <p class="text-charcoal-lt mt-4 max-w-xl mx-auto">Más de cuatro décadas ejecutando proyectos de construcción con los más altos estándares de calidad.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Nave industrial"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-warm uppercase tracking-widest mb-1">Industrial</div>
+          <h3 class="text-lg font-bold text-white">Naves industriales</h3>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Edificio corporativo"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-warm uppercase tracking-widest mb-1">Corporativo</div>
+          <h3 class="text-lg font-bold text-white">Edificios de oficinas</h3>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Infraestructura"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-warm uppercase tracking-widest mb-1">Infraestructura</div>
+          <h3 class="text-lg font-bold text-white">Obra pública</h3>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Residencial"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-warm uppercase tracking-widest mb-1">Residencial</div>
+          <h3 class="text-lg font-bold text-white">Desarrollos habitacionales</h3>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Comercial"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-warm uppercase tracking-widest mb-1">Comercial</div>
+          <h3 class="text-lg font-bold text-white">Centros comerciales</h3>
+        </div>
+      </div>
+      <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600&q=80&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Remodelación"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <div class="font-mono text-[10px] text-warm uppercase tracking-widest mb-1">Remodelación</div>
+          <h3 class="text-lg font-bold text-white">Rehabilitación de espacios</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Respaldo / Socios Comerciales -->
+<section class="py-20 md:py-28 bg-cream" id="respaldo">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-16">
+      <div class="font-mono text-[11px] text-warm uppercase tracking-widest mb-3">Garantías</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-forest">Respaldo y socios comerciales</h2>
+      <p class="text-charcoal-lt mt-4 max-w-xl mx-auto">Para dar certeza a nuestros clientes, contamos con el respaldo de instituciones financieras y aseguradoras de primer nivel.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+      <div class="bg-sand rounded-2xl p-8 text-center">
+        <div class="w-16 h-16 bg-forest/10 rounded-xl flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-forest text-3xl">assured_workload</span>
+        </div>
+        <h3 class="text-lg font-bold text-forest mb-2">Fianzas Monterrey Aetna S.A.</h3>
+        <p class="text-charcoal-lt text-sm leading-relaxed">Garantía de anticipos, calidad y cumplimiento en cada proyecto que ejecutamos.</p>
+        <div class="mt-4 flex flex-wrap justify-center gap-2">
+          <span class="text-[10px] font-mono bg-forest/5 text-forest px-3 py-1 rounded-full">Anticipos</span>
+          <span class="text-[10px] font-mono bg-forest/5 text-forest px-3 py-1 rounded-full">Calidad</span>
+          <span class="text-[10px] font-mono bg-forest/5 text-forest px-3 py-1 rounded-full">Cumplimiento</span>
+        </div>
+      </div>
+      <div class="bg-sand rounded-2xl p-8 text-center">
+        <div class="w-16 h-16 bg-forest/10 rounded-xl flex items-center justify-center mx-auto mb-5">
+          <span class="material-symbols-outlined text-forest text-3xl">security</span>
+        </div>
+        <h3 class="text-lg font-bold text-forest mb-2">Seguros Atlas S.A.</h3>
+        <p class="text-charcoal-lt text-sm leading-relaxed">Protección integral de nuestros proyectos y la seguridad de nuestros clientes.</p>
+        <div class="mt-4 flex flex-wrap justify-center gap-2">
+          <span class="text-[10px] font-mono bg-forest/5 text-forest px-3 py-1 rounded-full">Protección</span>
+          <span class="text-[10px] font-mono bg-forest/5 text-forest px-3 py-1 rounded-full">Seguridad</span>
+          <span class="text-[10px] font-mono bg-forest/5 text-forest px-3 py-1 rounded-full">Cobertura</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-20 md:py-28 bg-sand" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <!-- Info -->
+      <div>
+        <div class="font-mono text-[11px] text-warm uppercase tracking-widest mb-3">Contacto</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-forest leading-tight mb-6">Platiquemos sobre tu próximo proyecto.</h2>
+        <p class="text-charcoal-lt leading-relaxed mb-10">Nuestro equipo de ingenieros está listo para asesorarte y encontrar la mejor solución para tu proyecto de construcción.</p>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-cream rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-forest">location_on</span>
+            </div>
+            <div>
+              <div class="font-mono text-[10px] text-charcoal-xx uppercase tracking-widest mb-1">Dirección</div>
+              <p class="text-sm font-medium text-charcoal">Alexander Von Humboldt 43 A<br/>Lomas Verdes 3ra Sección<br/>Naucalpan de Juárez, Edo. Méx. C.P. 53125</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-cream rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-forest">call</span>
+            </div>
+            <div>
+              <div class="font-mono text-[10px] text-charcoal-xx uppercase tracking-widest mb-1">Teléfono</div>
+              <a href="tel:5553439119" class="text-sm font-medium text-charcoal hover:text-forest transition-colors">55 5343 9119</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-cream rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-forest">mail</span>
+            </div>
+            <div>
+              <div class="font-mono text-[10px] text-charcoal-xx uppercase tracking-widest mb-1">Email</div>
+              <a href="mailto:informes@constructoratextor.com" class="text-sm font-medium text-charcoal hover:text-forest transition-colors">informes@constructoratextor.com</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 bg-cream rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-forest">schedule</span>
+            </div>
+            <div>
+              <div class="font-mono text-[10px] text-charcoal-xx uppercase tracking-widest mb-1">Horarios</div>
+              <p class="text-sm font-medium text-charcoal">Lunes a Viernes: 9:00 am – 6:00 pm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="bg-cream rounded-2xl p-8 md:p-10">
+        <div class="font-mono text-[10px] text-charcoal-xx uppercase tracking-widest mb-6">Formulario de contacto</div>
+        <form class="space-y-5" onsubmit="return false;">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-medium text-charcoal-lt mb-2">Nombre</label>
+              <input type="text" placeholder="Tu nombre completo" class="w-full bg-sand border-0 border-b-2 border-sand-deep rounded-lg px-4 py-3 text-sm text-charcoal placeholder-charcoal-xx focus:border-forest focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-charcoal-lt mb-2">Empresa</label>
+              <input type="text" placeholder="Tu empresa" class="w-full bg-sand border-0 border-b-2 border-sand-deep rounded-lg px-4 py-3 text-sm text-charcoal placeholder-charcoal-xx focus:border-forest focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-medium text-charcoal-lt mb-2">Teléfono</label>
+              <input type="tel" placeholder="55 0000 0000" class="w-full bg-sand border-0 border-b-2 border-sand-deep rounded-lg px-4 py-3 text-sm text-charcoal placeholder-charcoal-xx focus:border-forest focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-charcoal-lt mb-2">Email</label>
+              <input type="email" placeholder="correo@empresa.com" class="w-full bg-sand border-0 border-b-2 border-sand-deep rounded-lg px-4 py-3 text-sm text-charcoal placeholder-charcoal-xx focus:border-forest focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-charcoal-lt mb-2">Tipo de proyecto</label>
+            <select class="w-full bg-sand border-0 border-b-2 border-sand-deep rounded-lg px-4 py-3 text-sm text-charcoal focus:border-forest focus:outline-none transition-colors appearance-none">
+              <option value="">Selecciona una categoría</option>
+              <option>Construcción industrial</option>
+              <option>Edificio corporativo</option>
+              <option>Obra pública / Infraestructura</option>
+              <option>Desarrollo residencial</option>
+              <option>Centro comercial</option>
+              <option>Remodelación / Rehabilitación</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-charcoal-lt mb-2">Descripción del proyecto</label>
+            <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto, ubicación, dimensiones..." class="w-full bg-sand border-0 border-b-2 border-sand-deep rounded-lg px-4 py-3 text-sm text-charcoal placeholder-charcoal-xx focus:border-forest focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-forest hover:bg-forest-mid text-white font-semibold py-4 rounded-lg text-sm transition-all active:scale-[0.98]">
+            Enviar solicitud
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-forest text-white">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+            <span class="text-warm font-bold text-sm">TX</span>
+          </div>
+          <div class="leading-none">
+            <span class="text-base font-bold tracking-tight block">TEXTOR</span>
+            <span class="text-[9px] font-mono text-sage uppercase tracking-[0.15em]">Constructora S.A. de C.V.</span>
+          </div>
+        </div>
+        <p class="text-sage text-sm leading-relaxed max-w-sm">46 años construyendo con calidad, responsabilidad y compromiso. Profesionales experimentados en diversas áreas de la ingeniería.</p>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] text-sage/60 uppercase tracking-widest mb-4">Navegación</div>
+        <ul class="space-y-2 text-sm text-sage">
+          <li><a href="#historia" class="hover:text-white transition-colors">Historia</a></li>
+          <li><a href="#mision" class="hover:text-white transition-colors">Misión y Visión</a></li>
+          <li><a href="#valores" class="hover:text-white transition-colors">Valores</a></li>
+          <li><a href="#respaldo" class="hover:text-white transition-colors">Respaldo</a></li>
+          <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] text-sage/60 uppercase tracking-widest mb-4">Contacto</div>
+        <ul class="space-y-2 text-sm text-sage">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-warm text-sm">call</span>
+            <a href="tel:5553439119" class="hover:text-white transition-colors">55 5343 9119</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-warm text-sm">mail</span>
+            <a href="mailto:informes@constructoratextor.com" class="hover:text-white transition-colors break-all">informes@constructoratextor.com</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-warm text-sm mt-0.5">location_on</span>
+            <span>Naucalpan de Juárez, Edo. Méx.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-mono text-[10px] text-sage/50 uppercase tracking-widest">© 2025 Constructora Textor S.A. de C.V. · Todos los derechos reservados</p>
+      <p class="font-mono text-[10px] text-sage/50 uppercase tracking-widest">Diseño web por <span class="text-warm">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/5215553439119?text=Hola%2C%20me%20interesa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20construcci%C3%B3n." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-xl flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
