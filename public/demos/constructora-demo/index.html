@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Constructora Demo · Edificamos tu Visión</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "brick":     "#b83232",
+      "brick-dk":  "#962828",
+      "brick-lt":  "#d44444",
+      "cement":    "#4a4a4a",
+      "cement-lt": "#6e6e6e",
+      "cement-xlt":"#9a9a9a",
+      "stone":     "#f4f2ef",
+      "stone-md":  "#ece9e4",
+      "stone-dk":  "#dedad3",
+      "white":     "#ffffff",
+      "ink":       "#1c1c1c",
+    },
+    fontFamily: {
+      "display": ["Syne","sans-serif"],
+      "body":    ["Manrope","sans-serif"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Manrope", sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+  .reveal-d4 { transition-delay: 0.4s; }
+
+  /* Line draw */
+  .line-draw { width: 0; height: 2px; background: #b83232; transition: width 1.1s cubic-bezier(0.16,1,0.3,1); }
+  .line-draw.visible { width: 100%; }
+
+  /* Parallax */
+  .parallax-bg { will-change: transform; }
+
+  /* Counter */
+  .counter { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body class="bg-white text-ink">
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-ink/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-8 h-8 bg-brick flex items-center justify-center">
+        <span class="font-display text-white font-bold text-xs">C</span>
+      </div>
+      <span class="font-display text-ink font-bold text-base tracking-tight">Constructora<span class="text-brick">.</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-9">
+      <a href="#servicios" class="text-[12px] text-cement-lt hover:text-ink transition-colors font-medium">Servicios</a>
+      <a href="#proyectos" class="text-[12px] text-cement-lt hover:text-ink transition-colors font-medium">Proyectos</a>
+      <a href="#nosotros" class="text-[12px] text-cement-lt hover:text-ink transition-colors font-medium">Nosotros</a>
+      <a href="#proceso" class="text-[12px] text-cement-lt hover:text-ink transition-colors font-medium">Proceso</a>
+      <a href="#contacto" class="text-[12px] text-cement-lt hover:text-ink transition-colors font-medium">Contacto</a>
+    </nav>
+    <a href="#contacto" class="bg-brick hover:bg-brick-dk text-white text-[12px] font-semibold px-5 py-2.5 transition-colors">
+      Cotizar proyecto
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="heroParallax">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800&q=80&fit=crop" class="w-full h-full object-cover" alt="Construcción"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/10"></div>
+  </div>
+
+  <!-- Número decorativo -->
+  <div class="absolute top-1/2 right-10 -translate-y-1/2 hidden xl:block select-none pointer-events-none">
+    <span class="font-display text-[200px] font-800 text-white/[0.04] leading-none">01</span>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pb-20 md:pb-28 pt-32">
+    <div class="max-w-3xl">
+      <div class="reveal flex items-center gap-4 mb-8">
+        <div class="line-draw w-12 h-0.5 bg-brick" style="width:48px;transition:none;opacity:1;"></div>
+        <span class="text-brick text-[10px] font-semibold uppercase tracking-[0.35em]">Construcción · Diseño · Ingeniería</span>
+      </div>
+      <h1 class="reveal reveal-d1 font-display text-5xl sm:text-6xl md:text-7xl text-white font-bold leading-[1.0] mb-6">
+        Edificamos<br/>
+        <span class="text-brick">tu visión.</span>
+      </h1>
+      <p class="reveal reveal-d2 text-white/50 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+        Más de 20 años construyendo proyectos residenciales, comerciales e industriales con calidad, puntualidad y transparencia en cada etapa.
+      </p>
+      <div class="reveal reveal-d3 flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="bg-brick hover:bg-brick-dk text-white font-semibold py-4 px-8 text-sm text-center transition-colors uppercase tracking-wider">
+          Solicitar cotización
+        </a>
+        <a href="#proyectos" class="border border-white/20 hover:border-white/40 text-white font-medium py-4 px-8 text-sm text-center transition-all uppercase tracking-wider">
+          Ver proyectos
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="absolute bottom-0 left-0 right-0 bg-white/5 backdrop-blur-md border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+        <div class="py-5 px-6 text-center">
+          <div class="font-display text-2xl font-bold text-white counter" data-target="20">0</div>
+          <div class="text-[9px] text-white/40 uppercase tracking-wider mt-0.5">Años de experiencia</div>
+        </div>
+        <div class="py-5 px-6 text-center">
+          <div class="font-display text-2xl font-bold text-white counter" data-target="350">0</div>
+          <div class="text-[9px] text-white/40 uppercase tracking-wider mt-0.5">Proyectos entregados</div>
+        </div>
+        <div class="py-5 px-6 text-center hidden md:block">
+          <div class="font-display text-2xl font-bold text-white counter" data-target="98">0</div>
+          <div class="text-[9px] text-white/40 uppercase tracking-wider mt-0.5">% clientes satisfechos</div>
+        </div>
+        <div class="py-5 px-6 text-center hidden md:block">
+          <div class="font-display text-2xl font-bold text-white">12</div>
+          <div class="text-[9px] text-white/40 uppercase tracking-wider mt-0.5">Estados de la República</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios -->
+<section class="py-24 bg-stone" id="servicios">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
+      <div>
+        <span class="reveal text-brick text-[11px] font-semibold uppercase tracking-[0.25em]">Lo que hacemos</span>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-ink font-bold mt-3 leading-tight">Soluciones integrales<br/>de construcción.</h2>
+      </div>
+      <p class="reveal reveal-d2 text-cement-lt text-sm max-w-xs leading-relaxed">Desde el diseño arquitectónico hasta la entrega de llaves, cubrimos cada etapa de tu proyecto.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="reveal bg-white p-8 group hover:-translate-y-1 transition-transform duration-300">
+        <div class="w-12 h-12 bg-brick/10 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-brick">home_work</span>
+        </div>
+        <h3 class="font-display text-ink font-bold text-lg mb-3">Construcción Residencial</h3>
+        <p class="text-cement-lt text-sm leading-relaxed">Casas, condominios y desarrollos habitacionales con acabados de primera calidad y entrega puntual.</p>
+      </div>
+      <div class="reveal reveal-d1 bg-white p-8 group hover:-translate-y-1 transition-transform duration-300">
+        <div class="w-12 h-12 bg-brick/10 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-brick">store</span>
+        </div>
+        <h3 class="font-display text-ink font-bold text-lg mb-3">Construcción Comercial</h3>
+        <p class="text-cement-lt text-sm leading-relaxed">Locales, oficinas, plazas y centros comerciales diseñados para maximizar la funcionalidad y el flujo.</p>
+      </div>
+      <div class="reveal reveal-d2 bg-white p-8 group hover:-translate-y-1 transition-transform duration-300">
+        <div class="w-12 h-12 bg-brick/10 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-brick">factory</span>
+        </div>
+        <h3 class="font-display text-ink font-bold text-lg mb-3">Construcción Industrial</h3>
+        <p class="text-cement-lt text-sm leading-relaxed">Naves industriales, bodegas y plantas de producción con estructuras robustas y normativas vigentes.</p>
+      </div>
+      <div class="reveal reveal-d1 bg-white p-8 group hover:-translate-y-1 transition-transform duration-300">
+        <div class="w-12 h-12 bg-brick/10 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-brick">architecture</span>
+        </div>
+        <h3 class="font-display text-ink font-bold text-lg mb-3">Diseño Arquitectónico</h3>
+        <p class="text-cement-lt text-sm leading-relaxed">Proyectos ejecutivos, renders 3D y gestión de permisos para que tu obra inicie sin contratiempos.</p>
+      </div>
+      <div class="reveal reveal-d2 bg-white p-8 group hover:-translate-y-1 transition-transform duration-300">
+        <div class="w-12 h-12 bg-brick/10 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-brick">construction</span>
+        </div>
+        <h3 class="font-display text-ink font-bold text-lg mb-3">Remodelación y Ampliación</h3>
+        <p class="text-cement-lt text-sm leading-relaxed">Transformamos espacios existentes con intervenciones precisas que respetan la estructura original.</p>
+      </div>
+      <div class="reveal reveal-d3 bg-brick p-8 group hover:-translate-y-1 transition-transform duration-300">
+        <div class="w-12 h-12 bg-white/10 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-white">engineering</span>
+        </div>
+        <h3 class="font-display text-white font-bold text-lg mb-3">Supervisión de Obra</h3>
+        <p class="text-white/60 text-sm leading-relaxed">Control de calidad, tiempos y presupuesto en cada fase. Reportes semanales y comunicación directa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proyectos -->
+<section class="py-24 bg-white" id="proyectos">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16">
+      <span class="reveal text-brick text-[11px] font-semibold uppercase tracking-[0.25em]">Portafolio</span>
+      <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-ink font-bold mt-3">Proyectos <span class="text-brick">destacados.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="reveal lg:col-span-2 relative overflow-hidden group aspect-[16/9]">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1000&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Proyecto residencial"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+          <div>
+            <span class="text-brick text-[10px] font-semibold uppercase tracking-wider">Residencial</span>
+            <h3 class="font-display text-white font-bold text-xl mt-1">Desarrollo Privada Las Palmas</h3>
+            <p class="text-white/60 text-xs mt-1">48 unidades · Guadalajara, Jalisco</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1 relative overflow-hidden group aspect-[4/5]">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Proyecto comercial"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+          <div>
+            <span class="text-brick text-[10px] font-semibold uppercase tracking-wider">Comercial</span>
+            <h3 class="font-display text-white font-bold text-lg mt-1">Torre Corporativa Norte</h3>
+            <p class="text-white/60 text-xs mt-1">12 pisos · CDMX</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1 relative overflow-hidden group aspect-[4/5]">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Proyecto industrial"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+          <div>
+            <span class="text-brick text-[10px] font-semibold uppercase tracking-wider">Industrial</span>
+            <h3 class="font-display text-white font-bold text-lg mt-1">Nave Logística Parque Industrial</h3>
+            <p class="text-white/60 text-xs mt-1">8,500 m² · Monterrey, NL</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-d2 lg:col-span-2 relative overflow-hidden group aspect-[16/9]">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Proyecto residencial premium"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+          <div>
+            <span class="text-brick text-[10px] font-semibold uppercase tracking-wider">Residencial Premium</span>
+            <h3 class="font-display text-white font-bold text-xl mt-1">Residencia Bosques del Valle</h3>
+            <p class="text-white/60 text-xs mt-1">Casa unifamiliar · Querétaro</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nosotros -->
+<section class="py-24 bg-ink" id="nosotros">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="reveal text-brick text-[11px] font-semibold uppercase tracking-[0.25em]">Quiénes somos</span>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-white font-bold mt-3 leading-tight mb-6">
+          Más de 20 años<br/><span class="text-brick">construyendo confianza.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-white/50 leading-relaxed mb-6">
+          Somos una empresa constructora con presencia nacional, especializada en proyectos residenciales, comerciales e industriales. Nuestro equipo de ingenieros, arquitectos y maestros de obra trabaja con un solo objetivo: entregar tu proyecto en tiempo, forma y con la calidad que mereces.
+        </p>
+        <p class="reveal reveal-d3 text-white/50 leading-relaxed mb-10">
+          Trabajamos con materiales certificados, procesos auditados y comunicación transparente en cada etapa. Tu inversión está protegida desde el primer día.
+        </p>
+        <div class="reveal reveal-d4 grid grid-cols-3 gap-6">
+          <div class="border-l-2 border-brick pl-4">
+            <div class="font-display text-2xl text-white font-bold">ISO</div>
+            <div class="text-[9px] text-white/30 uppercase tracking-wider mt-1">Certificados</div>
+          </div>
+          <div class="border-l-2 border-brick pl-4">
+            <div class="font-display text-2xl text-white font-bold">+200</div>
+            <div class="text-[9px] text-white/30 uppercase tracking-wider mt-1">Colaboradores</div>
+          </div>
+          <div class="border-l-2 border-brick pl-4">
+            <div class="font-display text-2xl text-white font-bold">5★</div>
+            <div class="text-[9px] text-white/30 uppercase tracking-wider mt-1">Calificación</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal grid grid-cols-2 gap-4">
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Equipo de construcción"/>
+        </div>
+        <div class="aspect-square overflow-hidden mt-8">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Obra en proceso"/>
+        </div>
+        <div class="aspect-square overflow-hidden -mt-8">
+          <img src="https://images.unsplash.com/photo-1590725140246-20acddc1ec6d?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Acabados de calidad"/>
+        </div>
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Proyecto terminado"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proceso -->
+<section class="py-24 bg-stone" id="proceso">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-20">
+      <span class="reveal text-brick text-[11px] font-semibold uppercase tracking-[0.25em]">Cómo trabajamos</span>
+      <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-ink font-bold mt-3">Proceso claro,<br/><span class="text-brick">resultados garantizados.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <!-- Connecting line -->
+      <div class="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-brick/15"></div>
+
+      <div class="reveal text-center">
+        <div class="w-20 h-20 bg-white border-2 border-stone-dk flex items-center justify-center mx-auto mb-6 relative z-10">
+          <span class="font-display text-brick font-bold text-2xl">01</span>
+        </div>
+        <h3 class="font-display text-ink font-bold mb-2">Consulta inicial</h3>
+        <p class="text-cement-lt text-xs leading-relaxed">Analizamos tu proyecto, necesidades y presupuesto sin costo ni compromiso.</p>
+      </div>
+      <div class="reveal reveal-d1 text-center">
+        <div class="w-20 h-20 bg-white border-2 border-stone-dk flex items-center justify-center mx-auto mb-6 relative z-10">
+          <span class="font-display text-brick font-bold text-2xl">02</span>
+        </div>
+        <h3 class="font-display text-ink font-bold mb-2">Propuesta y diseño</h3>
+        <p class="text-cement-lt text-xs leading-relaxed">Elaboramos planos, renders y cotización detallada con tiempos definidos.</p>
+      </div>
+      <div class="reveal reveal-d2 text-center">
+        <div class="w-20 h-20 bg-brick flex items-center justify-center mx-auto mb-6 relative z-10">
+          <span class="font-display text-white font-bold text-2xl">03</span>
+        </div>
+        <h3 class="font-display text-ink font-bold mb-2">Ejecución de obra</h3>
+        <p class="text-cement-lt text-xs leading-relaxed">Construcción con supervisión diaria, reportes semanales y control de calidad.</p>
+      </div>
+      <div class="reveal reveal-d3 text-center">
+        <div class="w-20 h-20 bg-white border-2 border-stone-dk flex items-center justify-center mx-auto mb-6 relative z-10">
+          <span class="font-display text-brick font-bold text-2xl">04</span>
+        </div>
+        <h3 class="font-display text-ink font-bold mb-2">Entrega y garantía</h3>
+        <p class="text-cement-lt text-xs leading-relaxed">Entrega formal con recorrido de inspección y garantía de obra por escrito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative py-28 overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="ctaParallax">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Construcción"/>
+    </div>
+    <div class="absolute inset-0 bg-ink/80"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
+    <h2 class="reveal font-display text-3xl md:text-4xl text-white font-bold mb-6">
+      ¿Tienes un proyecto en mente?
+    </h2>
+    <p class="reveal reveal-d1 text-white/50 text-sm leading-relaxed mb-10 max-w-lg mx-auto">
+      Cuéntanos tu idea. Nuestro equipo te contactará en menos de 24 horas con una propuesta inicial sin costo.
+    </p>
+    <a href="#contacto" class="reveal reveal-d2 inline-block bg-brick hover:bg-brick-dk text-white font-semibold py-4 px-10 text-sm transition-colors uppercase tracking-wider">
+      Solicitar cotización gratuita
+    </a>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-24 bg-white" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div>
+        <span class="reveal text-brick text-[11px] font-semibold uppercase tracking-[0.25em]">Contacto</span>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-ink font-bold mt-3 leading-tight mb-6">
+          Hablemos de<br/><span class="text-brick">tu proyecto.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-cement-lt leading-relaxed mb-10">
+          Solicita tu cotización sin compromiso. Respondemos en menos de 24 horas con una propuesta personalizada.
+        </p>
+        <div class="space-y-6">
+          <div class="reveal flex items-start gap-4">
+            <div class="w-11 h-11 bg-brick/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-brick">location_on</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-1">Oficinas</div>
+              <p class="text-sm text-ink">Ciudad de México · Guadalajara · Monterrey</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d1 flex items-start gap-4">
+            <div class="w-11 h-11 bg-brick/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-brick">call</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-1">Teléfono</div>
+              <a href="tel:5500000000" class="text-sm text-ink hover:text-brick transition-colors">55 0000 0000</a>
+            </div>
+          </div>
+          <div class="reveal reveal-d2 flex items-start gap-4">
+            <div class="w-11 h-11 bg-brick/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-brick">mail</span>
+            </div>
+            <div>
+              <div class="text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-1">Email</div>
+              <a href="mailto:contacto@constructora.com" class="text-sm text-ink hover:text-brick transition-colors">contacto@constructora.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal bg-stone p-8 md:p-10">
+        <div class="text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-6">Solicitar cotización</div>
+        <form class="space-y-5" onsubmit="return false;">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-2">Nombre</label>
+              <input type="text" placeholder="Tu nombre" class="w-full bg-white border border-stone-dk px-4 py-3 text-sm text-ink placeholder-cement-xlt/60 focus:border-brick focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-2">Teléfono</label>
+              <input type="tel" placeholder="55 0000 0000" class="w-full bg-white border border-stone-dk px-4 py-3 text-sm text-ink placeholder-cement-xlt/60 focus:border-brick focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-2">Email</label>
+            <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-white border border-stone-dk px-4 py-3 text-sm text-ink placeholder-cement-xlt/60 focus:border-brick focus:outline-none transition-colors"/>
+          </div>
+          <div>
+            <label class="block text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-2">Tipo de proyecto</label>
+            <select class="w-full bg-white border border-stone-dk px-4 py-3 text-sm text-ink focus:border-brick focus:outline-none transition-colors appearance-none">
+              <option value="">Seleccionar tipo</option>
+              <option>Residencial</option>
+              <option>Comercial</option>
+              <option>Industrial</option>
+              <option>Remodelación</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] text-cement-xlt uppercase tracking-wider font-medium mb-2">Descripción del proyecto</label>
+            <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full bg-white border border-stone-dk px-4 py-3 text-sm text-ink placeholder-cement-xlt/60 focus:border-brick focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-brick hover:bg-brick-dk text-white font-semibold py-4 text-sm transition-colors uppercase tracking-wider">
+            Enviar solicitud
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-ink">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 bg-brick flex items-center justify-center">
+            <span class="font-display text-white font-bold text-xs">C</span>
+          </div>
+          <span class="font-display text-white font-bold text-base tracking-tight">Constructora<span class="text-brick">.</span></span>
+        </div>
+        <p class="text-white/30 text-xs leading-relaxed max-w-xs mt-3">Más de 20 años edificando proyectos residenciales, comerciales e industriales con calidad y puntualidad.</p>
+      </div>
+      <div>
+        <div class="text-brick text-[10px] font-semibold uppercase tracking-wider mb-4">Servicios</div>
+        <ul class="space-y-3 text-xs text-white/40">
+          <li><a href="#servicios" class="hover:text-white transition-colors">Construcción Residencial</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Construcción Comercial</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Construcción Industrial</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Diseño Arquitectónico</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Supervisión de Obra</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-brick text-[10px] font-semibold uppercase tracking-wider mb-4">Contacto</div>
+        <ul class="space-y-3 text-xs text-white/40">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-brick text-sm">call</span>
+            <a href="tel:5500000000" class="hover:text-white transition-colors">55 0000 0000</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-brick text-sm">mail</span>
+            <a href="mailto:contacto@constructora.com" class="hover:text-white transition-colors">contacto@constructora.com</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-brick text-sm">location_on</span>
+            CDMX · GDL · MTY
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/20 text-[10px] uppercase tracking-wider">© 2025 Constructora · Todos los derechos reservados</p>
+      <p class="text-white/20 text-[10px] uppercase tracking-wider">Diseño web por <span class="text-brick">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/525500000000?text=Hola%2C%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// Reveal + line-draw
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal, .line-draw').forEach(el => observer.observe(el));
+
+// Parallax
+const heroP = document.getElementById('heroParallax');
+const ctaP  = document.getElementById('ctaParallax');
+function parallax() {
+  const y = window.scrollY;
+  if (heroP) heroP.style.transform = `translateY(${y * 0.15}px)`;
+  if (ctaP) {
+    const r = ctaP.parentElement.getBoundingClientRect();
+    ctaP.style.transform = `translateY(${r.top * 0.1}px)`;
+  }
+}
+window.addEventListener('scroll', parallax, { passive: true });
+parallax();
+
+// Counter animation
+const counters = document.querySelectorAll('.counter');
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.target);
+    const duration = 1800;
+    const step = 16;
+    const increment = target / (duration / step);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + increment, target);
+      el.textContent = Math.floor(current) + (el.dataset.suffix || '');
+      if (current >= target) clearInterval(timer);
+    }, step);
+    cObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(el => cObs.observe(el));
+</script>
+
+</body>
+</html>
