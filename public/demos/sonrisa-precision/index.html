@@ -272,7 +272,7 @@ tailwind.config = {
       <!-- Implantes -->
       <div class="reveal reveal-d1 bg-white rounded-2xl overflow-hidden shadow-lg shadow-ink/5 group hover:-translate-y-1 transition-transform duration-300">
         <div class="relative aspect-[4/3] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1588776814546-1ffbb172d936?w=600&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Implantes dentales"/>
+          <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Implantes dentales"/>
         </div>
         <div class="p-7">
           <h3 class="font-display text-ink font-bold text-lg mb-2">Implantes Estéticos</h3>
@@ -319,27 +319,33 @@ tailwind.config = {
 
     <!-- Before/After slider -->
     <div class="reveal max-w-3xl mx-auto">
-      <div class="ba-container rounded-2xl overflow-hidden shadow-2xl shadow-ink/15 aspect-[16/9]" id="baContainer">
-        <!-- Before -->
-        <div class="w-full h-full relative">
-          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=900&q=80&fit=crop&crop=face" class="w-full h-full object-cover" alt="Antes"/>
-          <div class="absolute bottom-6 left-6 bg-ink/70 backdrop-blur-sm text-white text-xs font-semibold px-4 py-2 rounded-full">Antes</div>
+      <div class="rounded-2xl overflow-hidden shadow-2xl shadow-ink/15 aspect-[16/9] grid grid-cols-2">
+        <!-- Antes -->
+        <div class="relative bg-warm-dk flex flex-col items-center justify-center p-10 border-r-2 border-white">
+          <div class="w-20 h-20 rounded-full bg-ink/10 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-ink-lt text-3xl">person</span>
+          </div>
+          <span class="font-display text-ink font-bold text-lg mb-2">Antes</span>
+          <p class="text-ink-lt text-xs text-center leading-relaxed">Foto del paciente<br/>antes del tratamiento</p>
+          <div class="absolute bottom-4 left-4 bg-ink/15 text-ink text-[10px] font-semibold px-3 py-1.5 rounded-full">Foto del cliente</div>
         </div>
-        <!-- After -->
-        <div class="ba-after" id="baAfter" style="width:50%">
-          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=80&fit=crop&crop=face" class="w-full h-full object-cover" style="width:calc(100% * 2); max-width:none;" alt="Después"/>
-          <div class="absolute bottom-6 right-6 bg-mint/90 backdrop-blur-sm text-white text-xs font-semibold px-4 py-2 rounded-full">Después</div>
+        <!-- Después -->
+        <div class="relative bg-gradient-to-br from-sky/10 to-mint/10 flex flex-col items-center justify-center p-10">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-sky/20 to-mint/20 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-mint text-3xl" style="font-variation-settings:'FILL' 1">sentiment_very_satisfied</span>
+          </div>
+          <span class="font-display text-ink font-bold text-lg mb-2">Después</span>
+          <p class="text-ink-lt text-xs text-center leading-relaxed">Foto del resultado<br/>del tratamiento</p>
+          <div class="absolute bottom-4 right-4 bg-mint/20 text-mint text-[10px] font-semibold px-3 py-1.5 rounded-full">Foto del cliente</div>
         </div>
-        <!-- Divider -->
-        <div class="ba-divider" id="baDivider" style="left:50%">
-          <div class="ba-handle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2.5">
-              <path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/>
-            </svg>
+        <!-- Divider label -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none col-span-2" style="grid-column: 1 / -1; position: absolute; left: 50%; transform: translateX(-50%); top: 0; bottom: 0; width: 0;">
+          <div class="bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2.5"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
           </div>
         </div>
       </div>
-      <p class="text-center text-ink-xlt text-xs mt-4">← Arrastra para comparar →</p>
+      <p class="text-center text-ink-xlt text-xs mt-4">Las fotos reales del cliente se integrarán aquí</p>
     </div>
 
     <!-- Más casos -->
@@ -656,28 +662,8 @@ const cObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
 
-// ── Before/After slider ──
-const container = document.getElementById('baContainer');
-const after     = document.getElementById('baAfter');
-const divider   = document.getElementById('baDivider');
-if (container && after && divider) {
-  let dragging = false;
-  function setPosition(x) {
-    const rect = container.getBoundingClientRect();
-    let pct = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
-    after.style.width = pct + '%';
-    divider.style.left = pct + '%';
-    // Fix after image width to always show full image
-    const img = after.querySelector('img');
-    if (img) img.style.width = (100 / (pct / 100)) + '%';
-  }
-  divider.addEventListener('mousedown', () => dragging = true);
-  divider.addEventListener('touchstart', () => dragging = true, { passive: true });
-  window.addEventListener('mouseup', () => dragging = false);
-  window.addEventListener('touchend', () => dragging = false);
-  window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-  window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
-}
+// ── Before/After slider ── (pendiente de fotos reales del cliente)
+
 </script>
 
 </body>
