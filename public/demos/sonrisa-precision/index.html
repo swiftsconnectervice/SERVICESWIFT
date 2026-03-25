@@ -319,33 +319,33 @@ tailwind.config = {
 
     <!-- Before/After slider -->
     <div class="reveal max-w-3xl mx-auto">
-      <div class="rounded-2xl overflow-hidden shadow-2xl shadow-ink/15 aspect-[16/9] grid grid-cols-2">
-        <!-- Antes -->
-        <div class="relative bg-warm-dk flex flex-col items-center justify-center p-10 border-r-2 border-white">
-          <div class="w-20 h-20 rounded-full bg-ink/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-ink-lt text-3xl">person</span>
-          </div>
-          <span class="font-display text-ink font-bold text-lg mb-2">Antes</span>
-          <p class="text-ink-lt text-xs text-center leading-relaxed">Foto del paciente<br/>antes del tratamiento</p>
-          <div class="absolute bottom-4 left-4 bg-ink/15 text-ink text-[10px] font-semibold px-3 py-1.5 rounded-full">Foto del cliente</div>
+      <div class="ba-container rounded-2xl overflow-hidden shadow-2xl shadow-ink/15 aspect-[16/9]" id="baContainer">
+        <!-- Before: placeholder gris -->
+        <div class="w-full h-full relative bg-stone-200 flex flex-col items-center justify-center select-none" style="background:#e8e4de;">
+          <span class="material-symbols-outlined text-6xl mb-3" style="color:#b0a898;">person</span>
+          <span class="font-display font-bold text-lg" style="color:#7a7060;">Antes</span>
+          <p class="text-xs mt-1" style="color:#a09880;">Foto del cliente</p>
+          <div class="absolute bottom-5 left-5 bg-black/20 text-white text-[10px] font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">Antes del tratamiento</div>
         </div>
-        <!-- Después -->
-        <div class="relative bg-gradient-to-br from-sky/10 to-mint/10 flex flex-col items-center justify-center p-10">
-          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-sky/20 to-mint/20 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-mint text-3xl" style="font-variation-settings:'FILL' 1">sentiment_very_satisfied</span>
+        <!-- After: placeholder iluminado -->
+        <div class="ba-after" id="baAfter" style="width:50%">
+          <div class="h-full flex flex-col items-center justify-center select-none" style="background: linear-gradient(135deg, #e0f2fe 0%, #d1fae5 100%); width: 200%;">
+            <span class="material-symbols-outlined text-6xl mb-3" style="color:#0EA5E9; font-variation-settings:'FILL' 1;">sentiment_very_satisfied</span>
+            <span class="font-display font-bold text-lg" style="color:#0c7a5e;">Después</span>
+            <p class="text-xs mt-1" style="color:#4a9a80;">Foto del cliente</p>
           </div>
-          <span class="font-display text-ink font-bold text-lg mb-2">Después</span>
-          <p class="text-ink-lt text-xs text-center leading-relaxed">Foto del resultado<br/>del tratamiento</p>
-          <div class="absolute bottom-4 right-4 bg-mint/20 text-mint text-[10px] font-semibold px-3 py-1.5 rounded-full">Foto del cliente</div>
+          <div class="absolute bottom-5 right-5 bg-mint/80 text-white text-[10px] font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">Resultado del tratamiento</div>
         </div>
-        <!-- Divider label -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none col-span-2" style="grid-column: 1 / -1; position: absolute; left: 50%; transform: translateX(-50%); top: 0; bottom: 0; width: 0;">
-          <div class="bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2.5"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
+        <!-- Divider -->
+        <div class="ba-divider" id="baDivider" style="left:50%">
+          <div class="ba-handle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2.5">
+              <path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/>
+            </svg>
           </div>
         </div>
       </div>
-      <p class="text-center text-ink-xlt text-xs mt-4">Las fotos reales del cliente se integrarán aquí</p>
+      <p class="text-center text-ink-xlt text-xs mt-4">← Arrastra para comparar · Las fotos reales del cliente se integrarán aquí →</p>
     </div>
 
     <!-- Más casos -->
@@ -662,8 +662,25 @@ const cObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
 
-// ── Before/After slider ── (pendiente de fotos reales del cliente)
-
+// ── Before/After slider ──
+const container = document.getElementById('baContainer');
+const after     = document.getElementById('baAfter');
+const divider   = document.getElementById('baDivider');
+if (container && after && divider) {
+  let dragging = false;
+  function setPosition(x) {
+    const rect = container.getBoundingClientRect();
+    let pct = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
+    after.style.width = pct + '%';
+    divider.style.left = pct + '%';
+  }
+  divider.addEventListener('mousedown', () => dragging = true);
+  divider.addEventListener('touchstart', () => dragging = true, { passive: true });
+  window.addEventListener('mouseup', () => dragging = false);
+  window.addEventListener('touchend', () => dragging = false);
+  window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+  window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+}
 </script>
 
 </body>
