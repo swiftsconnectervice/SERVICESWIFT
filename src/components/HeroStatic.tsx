@@ -21,24 +21,24 @@ export function HeroStatic() {
           {/* Badge */}
           <div className="mb-8 px-5 py-2 border border-white/10 bg-white/5 backdrop-blur-sm">
             <span className="text-[11px] font-mono text-white/40 tracking-[3px] uppercase">
-              Swift Service — Infraestructura de Conversión
+              Swift Service — Tu Equipo Digital
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.1] text-center max-w-4xl">
-            No necesitas otro sitio web.
+            No hacemos sitios web.
             <br />
-            Necesitas un sistema digital
+            Hacemos infraestructura
             <br />
-            <span className="italic">que venda por ti.</span>
+            <span className="italic">que vende.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="mt-6 text-base sm:text-lg lg:text-xl text-white/60 leading-relaxed max-w-2xl text-center">
-            Diseño estratégico + IA + Automatización con WhatsApp.
+            Tecnología de agencia premium a precio de PYME.
             <br />
-            Para negocios que quieren dejar de perder clientes.
+            Entrega en días, no meses.
           </p>
 
           {/* CTAs */}
@@ -47,7 +47,7 @@ export function HeroStatic() {
               onClick={() => setIsModalOpen(true)}
               className="bg-white/10 text-white font-semibold border border-white/30 backdrop-blur-md px-8 py-4 text-base tracking-wide transition-all hover:bg-white/20 hover:border-white/50 hover:scale-105"
             >
-              Agendar Consultoría Gratis
+              Agendar consultoría gratuita
             </button>
             <a
               href="#metodo"
@@ -59,11 +59,11 @@ export function HeroStatic() {
 
           {/* Social proof bar */}
           <div className="mt-16 flex items-center gap-6 text-[11px] font-mono text-white/30 tracking-wider">
-            <span>89% acceso móvil</span>
+            <span>Sin plantillas</span>
             <span className="text-white/15">·</span>
-            <span>Código a medida, no plantillas</span>
+            <span>Automatización incluida</span>
             <span className="text-white/15">·</span>
-            <span>Conectado a WhatsApp</span>
+            <span>Soporte continuo</span>
           </div>
         </div>
       </div>
