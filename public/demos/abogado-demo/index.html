@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herrera & Asociados · 35 Años de Precedentes a Tu Favor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "ivory":     "#F5F5DC",
+      "ivory-dk":  "#E8E4CC",
+      "ivory-md":  "#EEEBDA",
+      "navy":      "#1E3A5F",
+      "navy-dk":   "#152C48",
+      "navy-lt":   "#2A4F7A",
+      "oak":       "#8B4513",
+      "oak-lt":    "#A0622D",
+      "gold":      "#C9A227",
+      "gold-dk":   "#A88620",
+      "gold-lt":   "#D4B94A",
+      "carbon":    "#1A1A1A",
+      "carbon-md": "#222222",
+      "carbon-lt": "#2C2C2C",
+      "slate":     "#6B7280",
+      "slate-lt":  "#9CA3AF",
+    },
+    fontFamily: {
+      "display": ["Playfair Display","serif"],
+      "body":    ["Inter","sans-serif"],
+      "legal":   ["Courier Prime","monospace"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Inter", sans-serif; background: #F5F5DC; color: #1A1A1A; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.12s; }
+  .reveal-d2 { transition-delay: 0.24s; }
+  .reveal-d3 { transition-delay: 0.36s; }
+  .reveal-d4 { transition-delay: 0.48s; }
+  .reveal-d5 { transition-delay: 0.6s; }
+
+  /* Line draw */
+  .line-draw { width: 0; height: 1px; background: #C9A227; transition: width 1.2s cubic-bezier(0.16,1,0.3,1); }
+  .line-draw.visible { width: 100%; }
+
+  /* Parallax */
+  .parallax-bg { will-change: transform; }
+
+  /* Legal float */
+  @keyframes floatLegal { 0%,100%{transform:translateY(0) rotate(-1deg);opacity:0.12} 50%{transform:translateY(-8px) rotate(0.5deg);opacity:0.18} }
+  .legal-float { animation: floatLegal 6s ease-in-out infinite; }
+  .legal-float-2 { animation: floatLegal 7s ease-in-out infinite; animation-delay: 2s; }
+  .legal-float-3 { animation: floatLegal 8s ease-in-out infinite; animation-delay: 4s; }
+
+  /* Glow */
+  .glow-gold { box-shadow: 0 0 35px rgba(201,162,39,0.25); }
+
+  /* Brighten */
+  .brighten { transition: filter 1.2s ease; filter: brightness(0.82); }
+  .brighten.visible { filter: brightness(1); }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-ivory/90 backdrop-blur-xl border-b border-navy/8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-9 h-9 border-2 border-navy flex items-center justify-center">
+        <span class="font-display text-navy font-bold text-sm italic">H</span>
+      </div>
+      <div class="hidden sm:block leading-tight">
+        <span class="font-display text-navy text-sm font-semibold">Herrera & Asociados</span>
+        <span class="text-[8px] text-slate-lt block uppercase tracking-[0.25em]">Abogados · Desde 1989</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-9">
+      <a href="#firma" class="text-[11px] text-slate hover:text-navy transition-colors font-medium uppercase tracking-[0.12em]">La Firma</a>
+      <a href="#areas" class="text-[11px] text-slate hover:text-navy transition-colors font-medium uppercase tracking-[0.12em]">Áreas</a>
+      <a href="#precedentes" class="text-[11px] text-slate hover:text-navy transition-colors font-medium uppercase tracking-[0.12em]">Precedentes</a>
+      <a href="#equipo" class="text-[11px] text-slate hover:text-navy transition-colors font-medium uppercase tracking-[0.12em]">Equipo</a>
+      <a href="#contacto" class="text-[11px] text-slate hover:text-navy transition-colors font-medium uppercase tracking-[0.12em]">Contacto</a>
+    </nav>
+    <a href="#contacto" class="bg-navy hover:bg-navy-dk text-white text-[11px] font-semibold px-5 py-2.5 transition-colors uppercase tracking-[0.12em]">
+      Consulta estratégica
+    </a>
+  </div>
+</header>
+
+<!-- Hero: biblioteca jurídica multicapa -->
+<section class="relative min-h-screen flex items-end overflow-hidden">
+  <!-- Layer 0.2x: biblioteca -->
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-25%] w-[150%] h-[150%]" id="heroL1">
+      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1800&q=80&fit=crop" class="w-full h-full object-cover" alt="Biblioteca jurídica"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/70 to-carbon/20"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-carbon/50 to-transparent"></div>
+  </div>
+
+  <!-- Layer 0.5x: escritorio -->
+  <div class="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block overflow-hidden">
+    <div class="parallax-bg absolute inset-[-15%] w-[130%] h-[130%]" id="heroL2">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80&fit=crop" class="w-full h-full object-cover opacity-40" alt="Escritorio de socio"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-carbon to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Legal references flotantes -->
+  <div class="absolute inset-0 pointer-events-none hidden lg:block">
+    <div class="legal-float absolute top-1/4 right-[15%] font-legal text-white/10 text-[10px]">Art. 2188 Código Civil</div>
+    <div class="legal-float-2 absolute top-[40%] right-[25%] font-legal text-white/10 text-[10px]">Exp. 347/2018 · SCJN</div>
+    <div class="legal-float-3 absolute top-[55%] right-[10%] font-legal text-white/10 text-[10px]">Amparo en revisión 2021</div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pb-20 md:pb-28 pt-32">
+    <div class="max-w-3xl">
+      <div class="reveal flex items-center gap-4 mb-8">
+        <div class="w-16 h-px bg-gold"></div>
+        <span class="text-gold text-[10px] font-medium uppercase tracking-[0.35em]">Fundada en 1989 · Paseo de la Reforma, CDMX</span>
+      </div>
+      <h1 class="reveal reveal-d1 font-display text-5xl sm:text-6xl md:text-7xl text-white leading-[1.05] mb-6">
+        35 años de precedentes<br/>
+        <span class="text-gold italic">a tu favor.</span>
+      </h1>
+      <p class="reveal reveal-d2 text-white/50 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+        M&A, litigio complejo y derecho fiscal de alto nivel. De la institución al expediente específico, con la precisión que tu caso exige.
+      </p>
+      <div class="reveal reveal-d3 flex flex-col sm:flex-row gap-4">
+        <a href="#firma" class="bg-navy hover:bg-navy-dk text-white font-semibold py-4 px-8 text-sm text-center transition-colors uppercase tracking-wider">
+          Conocer nuestra firma
+        </a>
+        <a href="#contacto" class="border border-gold/40 hover:border-gold text-gold font-medium py-4 px-8 text-sm text-center transition-all uppercase tracking-wider">
+          Agendar consulta
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="absolute bottom-0 left-0 right-0 bg-navy/80 backdrop-blur-md border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+        <div class="py-5 px-6 text-center">
+          <div class="font-display text-2xl text-white counter" data-target="1989" data-raw="true">1989</div>
+          <div class="text-[9px] text-white/40 font-legal uppercase tracking-wider mt-0.5">Fundación</div>
+        </div>
+        <div class="py-5 px-6 text-center">
+          <div class="font-display text-2xl text-white counter" data-target="4200">0</div>
+          <div class="text-[9px] text-white/40 font-legal uppercase tracking-wider mt-0.5">Casos atendidos</div>
+        </div>
+        <div class="py-5 px-6 text-center hidden md:block">
+          <div class="font-display text-2xl text-white">$2.3B</div>
+          <div class="text-[9px] text-white/40 font-legal uppercase tracking-wider mt-0.5">En transacciones</div>
+        </div>
+        <div class="py-5 px-6 text-center hidden md:block">
+          <div class="font-display text-2xl text-gold">Chambers</div>
+          <div class="text-[9px] text-white/40 font-legal uppercase tracking-wider mt-0.5">Global 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- La Firma -->
+<section class="py-24 bg-ivory" id="firma">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="line-draw mb-16"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-gold"></div>
+          <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">La firma</span>
+        </div>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-navy leading-tight mb-6">
+          De la majestuosidad del derecho a la <span class="text-gold italic">precisión del caso.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-slate leading-relaxed mb-6">
+          Herrera & Asociados nació en 1989 con una visión clara: ofrecer asesoría legal de alto nivel con la profundidad de una firma institucional y la atención personalizada de un despacho boutique.
+        </p>
+        <p class="reveal reveal-d3 text-slate leading-relaxed mb-10">
+          Hoy, con 35 años de trayectoria, más de 4,200 casos atendidos y $2.3 mil millones en transacciones asesoradas, somos referencia en M&A, litigio complejo y derecho fiscal de alto nivel.
+        </p>
+        <div class="reveal reveal-d4 grid grid-cols-3 gap-6">
+          <div class="border-l-2 border-gold pl-4">
+            <div class="font-display text-2xl text-navy">35</div>
+            <div class="text-[9px] text-slate-lt uppercase tracking-wider mt-1">Años</div>
+          </div>
+          <div class="border-l-2 border-gold pl-4">
+            <div class="font-display text-2xl text-navy">4,200+</div>
+            <div class="text-[9px] text-slate-lt uppercase tracking-wider mt-1">Casos</div>
+          </div>
+          <div class="border-l-2 border-gold pl-4">
+            <div class="font-display text-2xl text-navy">$2.3B</div>
+            <div class="text-[9px] text-slate-lt uppercase tracking-wider mt-1">Transacciones</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal relative">
+        <div class="rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop" class="w-full h-full object-cover" alt="Oficinas Herrera & Asociados"/>
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-navy p-6 hidden md:block">
+          <span class="font-display text-gold text-lg italic block">Paseo de la Reforma</span>
+          <span class="text-white/40 text-xs uppercase tracking-wider">Ciudad de México</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Áreas de Práctica -->
+<section class="py-24 bg-navy" id="areas">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal flex items-center gap-3 mb-4">
+      <div class="w-10 h-px bg-gold"></div>
+      <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">Áreas de práctica</span>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+      <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-white leading-tight">Pilares del <span class="text-gold italic">derecho corporativo.</span></h2>
+      <p class="reveal reveal-d2 text-white/40 text-sm max-w-sm">Cada área respaldada por décadas de precedentes y un equipo de especialistas dedicados.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
+      <div class="reveal bg-navy-dk p-10 md:p-12 group hover:bg-navy-lt/20 transition-colors">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-gold text-xl">handshake</span>
+          <span class="font-legal text-gold/60 text-[10px] uppercase tracking-wider">M&A</span>
+        </div>
+        <h3 class="font-display text-white text-xl mb-4">Fusiones y Adquisiciones</h3>
+        <p class="text-white/40 text-sm leading-relaxed mb-6">Due diligence, estructuración de transacciones, negociación de contratos de compraventa, reestructuraciones corporativas y joint ventures.</p>
+        <div class="font-legal text-gold/40 text-[9px]">$2.3B en transacciones asesoradas</div>
+      </div>
+      <div class="reveal reveal-d1 bg-navy-dk p-10 md:p-12 group hover:bg-navy-lt/20 transition-colors">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-gold text-xl">gavel</span>
+          <span class="font-legal text-gold/60 text-[10px] uppercase tracking-wider">LITIGIO</span>
+        </div>
+        <h3 class="font-display text-white text-xl mb-4">Litigio Complejo</h3>
+        <p class="text-white/40 text-sm leading-relaxed mb-6">Litigio societario, arbitraje comercial nacional e internacional, amparos, controversias constitucionales y defensa en procedimientos regulatorios.</p>
+        <div class="font-legal text-gold/40 text-[9px]">847 litigios resueltos favorablemente</div>
+      </div>
+      <div class="reveal reveal-d2 bg-navy-dk p-10 md:p-12 group hover:bg-navy-lt/20 transition-colors">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-gold text-xl">account_balance</span>
+          <span class="font-legal text-gold/60 text-[10px] uppercase tracking-wider">FISCAL</span>
+        </div>
+        <h3 class="font-display text-white text-xl mb-4">Derecho Fiscal</h3>
+        <p class="text-white/40 text-sm leading-relaxed mb-6">Planeación fiscal, defensa ante auditorías SAT, precios de transferencia, tributación internacional, compliance fiscal y controversias administrativas.</p>
+        <div class="font-legal text-gold/40 text-[9px]">Defensa fiscal de alto nivel desde 1989</div>
+      </div>
+    </div>
+
+    <!-- Áreas secundarias -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 mt-px">
+      <div class="reveal bg-navy-dk p-6 text-center hover:bg-navy-lt/20 transition-colors">
+        <span class="material-symbols-outlined text-gold/60 text-lg mb-2">apartment</span>
+        <div class="text-white text-sm font-medium">Corporativo</div>
+      </div>
+      <div class="reveal reveal-d1 bg-navy-dk p-6 text-center hover:bg-navy-lt/20 transition-colors">
+        <span class="material-symbols-outlined text-gold/60 text-lg mb-2">verified_user</span>
+        <div class="text-white text-sm font-medium">Compliance</div>
+      </div>
+      <div class="reveal reveal-d2 bg-navy-dk p-6 text-center hover:bg-navy-lt/20 transition-colors">
+        <span class="material-symbols-outlined text-gold/60 text-lg mb-2">real_estate_agent</span>
+        <div class="text-white text-sm font-medium">Inmobiliario</div>
+      </div>
+      <div class="reveal reveal-d3 bg-navy-dk p-6 text-center hover:bg-navy-lt/20 transition-colors">
+        <span class="material-symbols-outlined text-gold/60 text-lg mb-2">work</span>
+        <div class="text-white text-sm font-medium">Laboral</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Precedentes: cámara de archivo -->
+<section class="py-24 bg-ivory-md" id="precedentes">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-20">
+      <div class="reveal flex items-center justify-center gap-3 mb-4">
+        <div class="w-10 h-px bg-gold"></div>
+        <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">Casos representativos</span>
+        <div class="w-10 h-px bg-gold"></div>
+      </div>
+      <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-navy">Precedentes que hablan<br/><span class="text-gold italic">por sí mismos.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="reveal bg-white p-8 border-l-4 border-gold hover:shadow-xl hover:shadow-navy/5 transition-all">
+        <div class="font-legal text-gold text-[10px] uppercase tracking-wider mb-4">M&A · 2023</div>
+        <h3 class="font-display text-navy text-lg mb-3">Empresa Manufacturera</h3>
+        <p class="text-slate text-sm leading-relaxed mb-4">Defensa fiscal integral por $45M MXN. Estrategia de litigio que resultó en resolución favorable ante el TFJA.</p>
+        <div class="flex items-center justify-between">
+          <span class="font-legal text-slate-lt text-[9px] uppercase">Socio: A.H.</span>
+          <span class="bg-navy/10 text-navy text-[9px] font-semibold px-3 py-1 rounded-full">$45M MXN</span>
+        </div>
+      </div>
+      <div class="reveal reveal-d1 bg-white p-8 border-l-4 border-navy hover:shadow-xl hover:shadow-navy/5 transition-all">
+        <div class="font-legal text-navy text-[10px] uppercase tracking-wider mb-4">Due Diligence · 2022</div>
+        <h3 class="font-display text-navy text-lg mb-3">Fondo de Inversión</h3>
+        <p class="text-slate text-sm leading-relaxed mb-4">Due diligence legal completo para adquisición de portafolio inmobiliario valorado en $200M USD.</p>
+        <div class="flex items-center justify-between">
+          <span class="font-legal text-slate-lt text-[9px] uppercase">Socio: M.R.</span>
+          <span class="bg-navy/10 text-navy text-[9px] font-semibold px-3 py-1 rounded-full">$200M USD</span>
+        </div>
+      </div>
+      <div class="reveal reveal-d2 bg-white p-8 border-l-4 border-oak hover:shadow-xl hover:shadow-navy/5 transition-all">
+        <div class="font-legal text-oak text-[10px] uppercase tracking-wider mb-4">Litigio Societario · 2021</div>
+        <h3 class="font-display text-navy text-lg mb-3">Familia Empresaria</h3>
+        <p class="text-slate text-sm leading-relaxed mb-4">Litigio societario de 8 años de duración. Victoria definitiva en todas las instancias judiciales.</p>
+        <div class="flex items-center justify-between">
+          <span class="font-legal text-slate-lt text-[9px] uppercase">Socio: C.L.</span>
+          <span class="bg-green-100 text-green-800 text-[9px] font-semibold px-3 py-1 rounded-full">Victoria</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Equipo: socios -->
+<section class="py-24 bg-ivory" id="equipo">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="line-draw mb-16"></div>
+    <div class="reveal flex items-center gap-3 mb-4">
+      <div class="w-10 h-px bg-gold"></div>
+      <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">El equipo</span>
+    </div>
+    <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-navy leading-tight mb-16">Los estrategas detrás de <span class="text-gold italic">cada precedente.</span></h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="reveal group">
+        <div class="aspect-[3/4] overflow-hidden mb-6 bg-ivory-dk">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Dr. Alejandro Herrera"/>
+        </div>
+        <h3 class="font-display text-navy text-xl mb-1">Dr. Alejandro Herrera</h3>
+        <div class="text-gold text-xs font-medium uppercase tracking-wider mb-3">Socio Director · M&A</div>
+        <p class="text-slate text-sm leading-relaxed mb-3">Harvard LLM. 35 años de experiencia. Especialista en fusiones, adquisiciones y reestructuraciones corporativas de alto nivel.</p>
+        <div class="font-legal text-slate-lt text-[9px]">aherrera@herreraasociados.mx</div>
+      </div>
+      <div class="reveal reveal-d1 group">
+        <div class="aspect-[3/4] overflow-hidden mb-6 bg-ivory-dk">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Mtra. Mariana Reyes"/>
+        </div>
+        <h3 class="font-display text-navy text-xl mb-1">Mtra. Mariana Reyes</h3>
+        <div class="text-gold text-xs font-medium uppercase tracking-wider mb-3">Socia · Litigio Complejo</div>
+        <p class="text-slate text-sm leading-relaxed mb-3">18 años en la firma. Especialista en arbitraje comercial internacional y litigio societario de alta complejidad.</p>
+        <div class="font-legal text-slate-lt text-[9px]">mreyes@herreraasociados.mx</div>
+      </div>
+      <div class="reveal reveal-d2 group">
+        <div class="aspect-[3/4] overflow-hidden mb-6 bg-ivory-dk">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&q=80&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Lic. Carlos López"/>
+        </div>
+        <h3 class="font-display text-navy text-xl mb-1">Lic. Carlos López</h3>
+        <div class="text-gold text-xs font-medium uppercase tracking-wider mb-3">Socio · Derecho Fiscal</div>
+        <p class="text-slate text-sm leading-relaxed mb-3">22 años de experiencia. Referente en planeación fiscal, precios de transferencia y defensa ante auditorías SAT.</p>
+        <div class="font-legal text-slate-lt text-[9px]">clopez@herreraasociados.mx</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Balanza digital: tecnología -->
+<section class="py-24 bg-carbon">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-20">
+      <div class="reveal font-legal text-gold/60 text-[10px] uppercase tracking-[0.4em] mb-3">// Tecnología legal</div>
+      <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-white">Precisión digital al servicio<br/><span class="text-gold italic">del derecho.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal bg-carbon-lt p-8 border border-white/5 text-center hover:border-gold/20 transition-colors">
+        <div class="font-display text-4xl text-white counter" data-target="12400">0</div>
+        <div class="w-8 h-px bg-gold mx-auto my-3"></div>
+        <div class="font-legal text-slate-lt text-[9px] uppercase tracking-wider">Horas ahorradas 2023</div>
+      </div>
+      <div class="reveal reveal-d1 bg-carbon-lt p-8 border border-white/5 text-center hover:border-gold/20 transition-colors">
+        <div class="font-display text-4xl text-white counter" data-target="847">0</div>
+        <div class="w-8 h-px bg-gold mx-auto my-3"></div>
+        <div class="font-legal text-slate-lt text-[9px] uppercase tracking-wider">Miles de págs. analizadas</div>
+      </div>
+      <div class="reveal reveal-d2 bg-carbon-lt p-8 border border-white/5 text-center hover:border-gold/20 transition-colors">
+        <div class="font-display text-4xl text-white counter" data-target="14200">0</div>
+        <div class="w-8 h-px bg-gold mx-auto my-3"></div>
+        <div class="font-legal text-slate-lt text-[9px] uppercase tracking-wider">Precedentes consultados</div>
+      </div>
+      <div class="reveal reveal-d3 bg-carbon-lt p-8 border border-white/5 text-center hover:border-gold/20 transition-colors">
+        <div class="font-display text-4xl text-gold">ISO</div>
+        <div class="w-8 h-px bg-gold mx-auto my-3"></div>
+        <div class="font-legal text-slate-lt text-[9px] uppercase tracking-wider">27001 Certificada</div>
+      </div>
+    </div>
+
+    <div class="reveal mt-10 flex flex-wrap justify-center gap-6">
+      <div class="bg-carbon-md border border-white/5 px-5 py-3 flex items-center gap-3">
+        <span class="material-symbols-outlined text-gold text-lg">storage</span>
+        <span class="text-white/60 text-sm">Westlaw</span>
+      </div>
+      <div class="bg-carbon-md border border-white/5 px-5 py-3 flex items-center gap-3">
+        <span class="material-symbols-outlined text-gold text-lg">smart_toy</span>
+        <span class="text-white/60 text-sm">Kira Systems</span>
+      </div>
+      <div class="bg-carbon-md border border-white/5 px-5 py-3 flex items-center gap-3">
+        <span class="material-symbols-outlined text-gold text-lg">lock</span>
+        <span class="text-white/60 text-sm">Dataroom Virtual</span>
+      </div>
+      <div class="bg-carbon-md border border-white/5 px-5 py-3 flex items-center gap-3">
+        <span class="material-symbols-outlined text-gold text-lg">verified_user</span>
+        <span class="text-white/60 text-sm">ISO 27001</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA: sala de conferencias con iluminación -->
+<section class="relative py-28 overflow-hidden brighten" id="ctaBanner">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="ctaParallax">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Sala de conferencias"/>
+    </div>
+    <div class="absolute inset-0 bg-navy/85"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 lg:px-10 text-center">
+    <h2 class="reveal font-display text-3xl md:text-4xl text-white mb-6">
+      La mesa está lista.<br/><span class="text-gold italic">¿Hablamos de su caso?</span>
+    </h2>
+    <p class="reveal reveal-d1 text-white/50 text-sm leading-relaxed mb-10 max-w-lg mx-auto">
+      Primera consulta estratégica sin compromiso. Nuestro equipo de socios evaluará personalmente su situación.
+    </p>
+    <a href="#contacto" class="reveal reveal-d2 inline-block bg-gold hover:bg-gold-dk text-carbon font-semibold py-4 px-10 text-sm transition-all glow-gold uppercase tracking-wider">
+      Agendar consulta estratégica
+    </a>
+  </div>
+</section>
+
+<!-- Contacto: formulario tipo expediente -->
+<section class="py-24 bg-ivory" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="line-draw mb-16"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-gold"></div>
+          <span class="text-gold text-[10px] font-medium uppercase tracking-[0.3em]">Contacto</span>
+        </div>
+        <h2 class="reveal reveal-d1 font-display text-3xl md:text-4xl text-navy leading-tight mb-6">
+          Cada caso merece<br/><span class="text-gold italic">atención de socio.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-slate leading-relaxed mb-12">
+          Complete el formulario y un socio de la firma se comunicará personalmente en las próximas 24 horas para evaluar su caso.
+        </p>
+
+        <div class="space-y-7">
+          <div class="reveal flex items-start gap-5">
+            <div class="w-10 h-10 bg-navy/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-navy text-lg">location_on</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-slate-lt uppercase tracking-wider font-medium mb-1">Oficinas</div>
+              <p class="text-sm text-carbon">Torre Diana, Paseo de la Reforma 412, Piso 18<br/>Col. Juárez, C.P. 06600, CDMX</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d1 flex items-start gap-5">
+            <div class="w-10 h-10 bg-navy/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-navy text-lg">call</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-slate-lt uppercase tracking-wider font-medium mb-1">Teléfono</div>
+              <a href="tel:5500000000" class="text-sm text-carbon hover:text-navy transition-colors">55 0000 0000</a>
+            </div>
+          </div>
+          <div class="reveal reveal-d2 flex items-start gap-5">
+            <div class="w-10 h-10 bg-navy/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-navy text-lg">mail</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-slate-lt uppercase tracking-wider font-medium mb-1">Email</div>
+              <a href="mailto:contacto@herreraasociados.mx" class="text-sm text-carbon hover:text-navy transition-colors">contacto@herreraasociados.mx</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario tipo expediente -->
+      <div class="reveal bg-white p-8 md:p-10 shadow-xl shadow-navy/5 border border-navy/5">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="material-symbols-outlined text-gold text-lg">folder_open</span>
+          <span class="font-legal text-navy text-[10px] uppercase tracking-wider">Nuevo expediente · Consulta estratégica</span>
+        </div>
+        <form class="space-y-5" onsubmit="return false;">
+          <div>
+            <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Empresa / Razón social</label>
+            <input type="text" placeholder="Nombre de la empresa" class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon placeholder-slate-lt/60 focus:border-gold focus:outline-none transition-colors"/>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Materia</label>
+              <select class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon focus:border-gold focus:outline-none transition-colors appearance-none">
+                <option value="">Seleccionar</option>
+                <option>M&A / Fusiones y Adquisiciones</option>
+                <option>Litigio Complejo</option>
+                <option>Derecho Fiscal</option>
+                <option>Compliance</option>
+                <option>Corporativo</option>
+                <option>Inmobiliario</option>
+                <option>Laboral</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Urgencia</label>
+              <select class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon focus:border-gold focus:outline-none transition-colors appearance-none">
+                <option value="">Seleccionar</option>
+                <option>Alta — Requiere atención inmediata</option>
+                <option>Media — Próximas 2 semanas</option>
+                <option>Baja — Consulta preventiva</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Descripción del caso</label>
+            <textarea rows="3" placeholder="Describa brevemente su situación legal..." class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon placeholder-slate-lt/60 focus:border-gold focus:outline-none transition-colors resize-none"></textarea>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Nombre del contacto</label>
+              <input type="text" placeholder="Nombre completo" class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon placeholder-slate-lt/60 focus:border-gold focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Cargo</label>
+              <input type="text" placeholder="Director General, CFO, etc." class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon placeholder-slate-lt/60 focus:border-gold focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Email directo</label>
+              <input type="email" placeholder="correo@empresa.com" class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon placeholder-slate-lt/60 focus:border-gold focus:outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block font-legal text-[9px] text-slate-lt uppercase tracking-wider mb-2">Teléfono</label>
+              <input type="tel" placeholder="55 0000 0000" class="w-full bg-ivory border border-ivory-dk px-4 py-3 text-sm text-carbon placeholder-slate-lt/60 focus:border-gold focus:outline-none transition-colors"/>
+            </div>
+          </div>
+          <button type="submit" class="w-full bg-navy hover:bg-navy-dk text-white font-semibold py-4 text-sm transition-colors uppercase tracking-wider">
+            Abrir expediente
+          </button>
+          <p class="font-legal text-slate-lt text-[9px] text-center uppercase tracking-wider">Confidencialidad garantizada · Respuesta de socio en 24h</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-carbon">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 border border-gold/40 flex items-center justify-center">
+            <span class="font-display text-gold font-bold text-sm italic">H</span>
+          </div>
+          <div class="leading-tight">
+            <span class="font-display text-white text-sm font-semibold">Herrera & Asociados</span>
+            <span class="text-[8px] text-white/30 block uppercase tracking-[0.25em]">Abogados · Desde 1989</span>
+          </div>
+        </div>
+        <p class="text-white/30 text-xs leading-relaxed max-w-sm mt-3">35 años de práctica especializada en M&A, litigio complejo y derecho fiscal de alto nivel. Paseo de la Reforma, Ciudad de México.</p>
+      </div>
+      <div>
+        <div class="text-gold text-[9px] font-medium uppercase tracking-wider mb-4">Áreas</div>
+        <ul class="space-y-3 text-xs text-white/40">
+          <li><a href="#areas" class="hover:text-white transition-colors">Fusiones y Adquisiciones</a></li>
+          <li><a href="#areas" class="hover:text-white transition-colors">Litigio Complejo</a></li>
+          <li><a href="#areas" class="hover:text-white transition-colors">Derecho Fiscal</a></li>
+          <li><a href="#areas" class="hover:text-white transition-colors">Compliance</a></li>
+          <li><a href="#areas" class="hover:text-white transition-colors">Corporativo</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-gold text-[9px] font-medium uppercase tracking-wider mb-4">Contacto</div>
+        <ul class="space-y-3 text-xs text-white/40">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-gold text-sm">call</span>
+            <a href="tel:5500000000" class="hover:text-white transition-colors">55 0000 0000</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-gold text-sm">mail</span>
+            <a href="mailto:contacto@herreraasociados.mx" class="hover:text-white transition-colors">contacto@herreraasociados.mx</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-gold text-sm">location_on</span>
+            Paseo de la Reforma, CDMX
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/20 text-[9px] font-legal uppercase tracking-wider">© 2025 Herrera & Asociados · Todos los derechos reservados</p>
+      <p class="text-white/20 text-[9px] font-legal uppercase tracking-wider">Diseño web por <span class="text-gold">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/525500000000?text=Hola%2C%20me%20interesa%20agendar%20una%20consulta%20estrat%C3%A9gica." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// ── Reveal + line-draw + brighten ──
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal, .line-draw, .brighten').forEach(el => revealObs.observe(el));
+
+// ── Parallax ──
+const heroL1 = document.getElementById('heroL1');
+const heroL2 = document.getElementById('heroL2');
+const ctaP   = document.getElementById('ctaParallax');
+function parallax() {
+  const y = window.scrollY;
+  if (heroL1) heroL1.style.transform = `translateY(${y * 0.1}px)`;
+  if (heroL2) heroL2.style.transform = `translateY(${y * 0.05}px)`;
+  if (ctaP) {
+    const r = ctaP.parentElement.getBoundingClientRect();
+    ctaP.style.transform = `translateY(${r.top * 0.1}px)`;
+  }
+}
+window.addEventListener('scroll', parallax, { passive: true });
+parallax();
+
+// ── Counters ──
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    if (el.dataset.raw) return; // skip static values like 1989
+    const target = parseInt(el.dataset.target);
+    const duration = 2000;
+    const step = 16;
+    const increment = target / (duration / step);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + increment, target);
+      el.textContent = Math.floor(current).toLocaleString('es-MX');
+      if (current >= target) clearInterval(timer);
+    }, step);
+    cObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
+</script>
+
+</body>
+</html>
