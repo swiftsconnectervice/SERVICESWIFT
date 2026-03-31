@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Garaje Central · Especialistas en Autos Alemanes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "carbon":    "#0F0F0F",
+      "carbon-md": "#161616",
+      "carbon-lt": "#1c1c1c",
+      "asphalt":   "#1F2937",
+      "asphalt-lt":"#374151",
+      "aluminum":  "#9CA3AF",
+      "aluminum-lt":"#D1D5DB",
+      "weld":      "#EA580C",
+      "weld-dk":   "#C2410C",
+      "weld-lt":   "#FB923C",
+      "diag":      "#3B82F6",
+      "diag-lt":   "#60A5FA",
+      "diag-dk":   "#2563EB",
+    },
+    fontFamily: {
+      "display": ["Bebas Neue","sans-serif"],
+      "body":    ["Inter","sans-serif"],
+      "mono":    ["Roboto Mono","monospace"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Inter", sans-serif; background: #0F0F0F; color: #D1D5DB; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+  .reveal-d4 { transition-delay: 0.4s; }
+  .reveal-d5 { transition-delay: 0.5s; }
+
+  /* Scan overlay */
+  @keyframes scanDown { 0%{top:-5%;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{top:105%;opacity:0} }
+  .scan-line { animation: scanDown 3s ease-in-out infinite; }
+
+  /* OBD grid */
+  .obd-grid {
+    background-image:
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Parallax */
+  .parallax-bg { will-change: transform; }
+
+  /* Glow */
+  .glow-weld { box-shadow: 0 0 40px rgba(234,88,12,0.35); }
+
+  /* Spark particles */
+  @keyframes spark { 0%{opacity:1;transform:translateY(0) scale(1)} 100%{opacity:0;transform:translateY(-40px) scale(0)} }
+  .spark { position:absolute; width:3px; height:3px; background:#FB923C; border-radius:50%; animation: spark 1.2s ease-out infinite; }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-carbon/90 backdrop-blur-xl border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-9 h-9 bg-weld flex items-center justify-center">
+        <span class="font-display text-white text-lg tracking-wider">GC</span>
+      </div>
+      <div class="leading-tight">
+        <span class="font-display text-white text-lg tracking-wider">GARAJE CENTRAL</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="#servicios" class="text-[11px] text-aluminum hover:text-weld transition-colors font-medium uppercase tracking-wider">Servicios</a>
+      <a href="#especialidad" class="text-[11px] text-aluminum hover:text-weld transition-colors font-medium uppercase tracking-wider">Especialidad</a>
+      <a href="#taller" class="text-[11px] text-aluminum hover:text-weld transition-colors font-medium uppercase tracking-wider">El Taller</a>
+      <a href="#resultados" class="text-[11px] text-aluminum hover:text-weld transition-colors font-medium uppercase tracking-wider">Resultados</a>
+      <a href="#diagnostico" class="text-[11px] text-aluminum hover:text-weld transition-colors font-medium uppercase tracking-wider">Diagnóstico</a>
+    </nav>
+    <a href="#diagnostico" class="bg-weld hover:bg-weld-dk text-white text-[11px] font-semibold px-5 py-2.5 transition-colors uppercase tracking-wider">
+      Reservar cita
+    </a>
+  </div>
+</header>
+
+<!-- Hero: 3 capas parallax -->
+<section class="relative min-h-screen flex items-end overflow-hidden">
+  <!-- Layer 0.2x: taller desenfocado -->
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-30%] w-[160%] h-[160%]" id="heroL1">
+      <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1800&q=80&fit=crop" class="w-full h-full object-cover opacity-40 blur-[2px]" alt="Taller mecánico"/>
+    </div>
+  </div>
+  <!-- Layer 0.6x: bahía diagnóstico -->
+  <div class="absolute inset-0 hidden lg:block">
+    <div class="parallax-bg absolute right-0 top-0 bottom-0 w-3/5" id="heroL2">
+      <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1200&q=80&fit=crop" class="w-full h-full object-cover opacity-30" alt="Diagnóstico computarizado"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-carbon to-transparent"></div>
+    </div>
+  </div>
+  <!-- Overlays -->
+  <div class="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/70 to-carbon/30"></div>
+  <div class="absolute inset-0 obd-grid opacity-30"></div>
+
+  <!-- Sparks decorativos -->
+  <div class="absolute top-1/3 right-1/4 hidden lg:block pointer-events-none">
+    <div class="spark" style="animation-delay:0s;left:0;top:0"></div>
+    <div class="spark" style="animation-delay:0.3s;left:12px;top:5px"></div>
+    <div class="spark" style="animation-delay:0.6s;left:6px;top:-3px"></div>
+    <div class="spark" style="animation-delay:0.9s;left:18px;top:8px"></div>
+  </div>
+
+  <!-- Número decorativo -->
+  <div class="absolute top-1/2 right-10 -translate-y-1/2 hidden xl:block select-none pointer-events-none">
+    <span class="font-display text-[220px] text-white/[0.03] leading-none">15</span>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full pb-20 md:pb-28 pt-32">
+    <div class="max-w-3xl">
+      <div class="reveal flex items-center gap-4 mb-8">
+        <div class="w-12 h-0.5 bg-weld flex-shrink-0"></div>
+        <span class="text-weld font-mono text-[10px] font-medium uppercase tracking-[0.35em]">BMW · Mercedes · Audi · Volkswagen</span>
+      </div>
+      <h1 class="reveal reveal-d1 font-display text-6xl sm:text-7xl md:text-8xl text-white leading-[0.95] mb-6 tracking-wide">
+        15 AÑOS EN EL<br/>CORAZÓN DE LOS<br/><span class="text-weld">ALEMANES.</span>
+      </h1>
+      <p class="reveal reveal-d2 text-aluminum text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+        Del diagnóstico exterior hasta el corazón del motor. Especialistas en mecánica alemana con tecnología de agencia.
+      </p>
+      <div class="reveal reveal-d3 flex flex-col sm:flex-row gap-4">
+        <a href="#diagnostico" class="bg-weld hover:bg-weld-dk text-white font-semibold py-4 px-8 text-sm text-center transition-all glow-weld uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-base">build</span>
+          Abrir el capó
+        </a>
+        <a href="#servicios" class="border border-white/15 hover:border-weld/40 text-white font-medium py-4 px-8 text-sm text-center transition-all uppercase tracking-wider">
+          Ver servicios
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="absolute bottom-0 left-0 right-0 bg-white/[0.03] backdrop-blur-md border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
+        <div class="py-5 px-6 text-center">
+          <div class="font-display text-3xl text-white counter" data-target="15">0</div>
+          <div class="text-[9px] text-aluminum/60 font-mono uppercase tracking-wider mt-0.5">Años exp.</div>
+        </div>
+        <div class="py-5 px-6 text-center">
+          <div class="font-display text-3xl text-white counter" data-target="2847">0</div>
+          <div class="text-[9px] text-aluminum/60 font-mono uppercase tracking-wider mt-0.5">Diagnosticados</div>
+        </div>
+        <div class="py-5 px-6 text-center hidden md:block">
+          <div class="font-display text-3xl text-white counter" data-target="847">0</div>
+          <div class="text-[9px] text-aluminum/60 font-mono uppercase tracking-wider mt-0.5">Transmisiones</div>
+        </div>
+        <div class="py-5 px-6 text-center hidden md:block">
+          <div class="font-display text-3xl text-white"><span class="counter" data-target="98">0</span><span class="font-mono text-lg">.7%</span></div>
+          <div class="text-[9px] text-aluminum/60 font-mono uppercase tracking-wider mt-0.5">Satisfacción</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios: capas de servicio -->
+<section class="py-24 bg-carbon-md obd-grid" id="servicios">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-3">
+          <div class="w-10 h-0.5 bg-weld"></div>
+          <span class="text-weld font-mono text-[10px] uppercase tracking-[0.3em]">Servicios especializados</span>
+        </div>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-white tracking-wider leading-none">DIAGNÓSTICO<br/>COMPUTARIZADO<br/><span class="text-weld">BMW / AUDI.</span></h2>
+      </div>
+      <p class="reveal reveal-d2 text-aluminum text-sm max-w-xs leading-relaxed">Tecnología de agencia en cada bahía. Escáner OBD2 profesional, osciloscopio y banco de pruebas.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
+      <div class="reveal bg-carbon-md p-8 md:p-10 group hover:bg-carbon-lt transition-colors">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="material-symbols-outlined text-weld text-xl">computer</span>
+          <span class="font-mono text-diag text-[10px] uppercase tracking-wider">OBD-II</span>
+        </div>
+        <h3 class="font-display text-white text-2xl tracking-wider mb-3">DIAGNÓSTICO COMPUTARIZADO</h3>
+        <p class="text-aluminum text-sm leading-relaxed">Lectura y borrado de códigos, programación de módulos, actualización de software de fábrica.</p>
+      </div>
+      <div class="reveal reveal-d1 bg-carbon-md p-8 md:p-10 group hover:bg-carbon-lt transition-colors">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="material-symbols-outlined text-weld text-xl">settings</span>
+          <span class="font-mono text-diag text-[10px] uppercase tracking-wider">MOTOR</span>
+        </div>
+        <h3 class="font-display text-white text-2xl tracking-wider mb-3">MECÁNICA DE MOTOR</h3>
+        <p class="text-aluminum text-sm leading-relaxed">Reparación de culatas, distribución, inyección directa, turbo, intercooler y sistemas de enfriamiento.</p>
+      </div>
+      <div class="reveal reveal-d2 bg-carbon-md p-8 md:p-10 group hover:bg-carbon-lt transition-colors">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="material-symbols-outlined text-weld text-xl">sync</span>
+          <span class="font-mono text-diag text-[10px] uppercase tracking-wider">DSG/ZF</span>
+        </div>
+        <h3 class="font-display text-white text-2xl tracking-wider mb-3">TRANSMISIONES</h3>
+        <p class="text-aluminum text-sm leading-relaxed">Reparación y servicio de transmisiones automáticas, DSG, Tiptronic y cajas ZF de 8 velocidades.</p>
+      </div>
+      <div class="reveal bg-carbon-md p-8 md:p-10 group hover:bg-carbon-lt transition-colors">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="material-symbols-outlined text-weld text-xl">electric_bolt</span>
+          <span class="font-mono text-diag text-[10px] uppercase tracking-wider">CAN-BUS</span>
+        </div>
+        <h3 class="font-display text-white text-2xl tracking-wider mb-3">SISTEMA ELÉCTRICO</h3>
+        <p class="text-aluminum text-sm leading-relaxed">Diagnóstico de redes CAN-BUS, módulos de confort, iluminación LED/Xenón y sistemas de carga.</p>
+      </div>
+      <div class="reveal reveal-d1 bg-carbon-md p-8 md:p-10 group hover:bg-carbon-lt transition-colors">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="material-symbols-outlined text-weld text-xl">air</span>
+          <span class="font-mono text-diag text-[10px] uppercase tracking-wider">AIRMATIC</span>
+        </div>
+        <h3 class="font-display text-white text-2xl tracking-wider mb-3">SUSPENSIÓN</h3>
+        <p class="text-aluminum text-sm leading-relaxed">Suspensión neumática Airmatic, amortiguadores adaptativos, alineación computarizada 3D.</p>
+      </div>
+      <div class="reveal reveal-d2 bg-weld p-8 md:p-10 group">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="material-symbols-outlined text-white text-xl">speed</span>
+          <span class="font-mono text-white/60 text-[10px] uppercase tracking-wider">DYNO</span>
+        </div>
+        <h3 class="font-display text-white text-2xl tracking-wider mb-3">BANCO DE PRUEBAS</h3>
+        <p class="text-white/70 text-sm leading-relaxed">Dinamómetro para verificación de potencia, torque y rendimiento post-reparación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- El Pozo: perspectiva desde abajo -->
+<section class="relative py-32 overflow-hidden" id="especialidad">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="pozoParallax">
+      <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-30" alt="Perspectiva bajo el auto"/>
+    </div>
+    <div class="absolute inset-0 bg-carbon/80"></div>
+    <div class="absolute inset-0 obd-grid opacity-20"></div>
+    <!-- Scan line -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="scan-line absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-diag to-transparent opacity-60" style="top:0"></div>
+    </div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <div class="reveal font-mono text-diag text-[10px] uppercase tracking-[0.4em] mb-6">// Lo que no se ve</div>
+    <h2 class="reveal reveal-d1 font-display text-5xl md:text-7xl text-white tracking-wider leading-none mb-6">
+      LO QUE NO SE VE,<br/>ES LO QUE MÁS<br/><span class="text-weld">IMPORTA.</span>
+    </h2>
+    <p class="reveal reveal-d2 text-aluminum text-sm leading-relaxed max-w-lg mx-auto mb-10">
+      Eje cardán, diferencial, escape, tren delantero. Revisamos cada componente que otros talleres ignoran. Diagnóstico integral desde el foso hasta el techo.
+    </p>
+    <div class="reveal reveal-d3 flex flex-wrap justify-center gap-4">
+      <div class="bg-white/5 border border-white/10 px-5 py-3 flex items-center gap-3">
+        <span class="font-mono text-weld text-xs">01</span>
+        <span class="text-white text-sm">Tren motriz</span>
+      </div>
+      <div class="bg-white/5 border border-white/10 px-5 py-3 flex items-center gap-3">
+        <span class="font-mono text-weld text-xs">02</span>
+        <span class="text-white text-sm">Diferencial</span>
+      </div>
+      <div class="bg-white/5 border border-white/10 px-5 py-3 flex items-center gap-3">
+        <span class="font-mono text-weld text-xs">03</span>
+        <span class="text-white text-sm">Escape</span>
+      </div>
+      <div class="bg-white/5 border border-white/10 px-5 py-3 flex items-center gap-3">
+        <span class="font-mono text-weld text-xs">04</span>
+        <span class="text-white text-sm">Suspensión</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- El Taller: galería + marcas -->
+<section class="py-24 bg-carbon" id="taller">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-3">
+          <div class="w-10 h-0.5 bg-weld"></div>
+          <span class="text-weld font-mono text-[10px] uppercase tracking-[0.3em]">El taller</span>
+        </div>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-white tracking-wider leading-none mb-6">
+          TECNOLOGÍA<br/>DE AGENCIA.<br/><span class="text-weld">TRATO DE TALLER.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-aluminum leading-relaxed mb-6">
+          15 años nos respaldan. Nuestro equipo de técnicos certificados trabaja con herramienta especializada y software original de fábrica para BMW, Mercedes-Benz, Audi y Volkswagen.
+        </p>
+        <p class="reveal reveal-d3 text-aluminum leading-relaxed mb-10">
+          Cada vehículo recibe un diagnóstico integral antes de cualquier intervención. Sin sorpresas, sin costos ocultos, con garantía por escrito.
+        </p>
+
+        <!-- Marcas -->
+        <div class="reveal reveal-d4 grid grid-cols-4 gap-4">
+          <div class="bg-white/5 border border-white/10 p-4 text-center hover:border-weld/30 transition-colors">
+            <span class="font-display text-white text-xl tracking-wider">BMW</span>
+          </div>
+          <div class="bg-white/5 border border-white/10 p-4 text-center hover:border-weld/30 transition-colors">
+            <span class="font-display text-white text-xl tracking-wider">AUDI</span>
+          </div>
+          <div class="bg-white/5 border border-white/10 p-4 text-center hover:border-weld/30 transition-colors">
+            <span class="font-display text-white text-xl tracking-wider">MB</span>
+            <div class="text-[8px] text-aluminum/50 font-mono mt-0.5">MERCEDES</div>
+          </div>
+          <div class="bg-white/5 border border-white/10 p-4 text-center hover:border-weld/30 transition-colors">
+            <span class="font-display text-white text-xl tracking-wider">VW</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Galería taller -->
+      <div class="reveal grid grid-cols-2 gap-3">
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Bahía de trabajo"/>
+        </div>
+        <div class="aspect-square overflow-hidden mt-6">
+          <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Diagnóstico"/>
+        </div>
+        <div class="aspect-square overflow-hidden -mt-6">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Motor"/>
+        </div>
+        <div class="aspect-square overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&q=80&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Herramienta"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resultados / Banco de pruebas -->
+<section class="py-24 bg-asphalt" id="resultados">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-20">
+      <div class="reveal font-mono text-diag text-[10px] uppercase tracking-[0.4em] mb-3">// Banco de pruebas</div>
+      <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-white tracking-wider leading-none">NÚMEROS QUE<br/><span class="text-weld">HABLAN.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal bg-carbon p-8 border border-white/5 text-center hover:border-weld/20 transition-colors">
+        <div class="font-display text-5xl text-white counter" data-target="2847">0</div>
+        <div class="w-8 h-0.5 bg-weld mx-auto my-3"></div>
+        <div class="font-mono text-aluminum text-[10px] uppercase tracking-wider">Vehículos diagnosticados</div>
+      </div>
+      <div class="reveal reveal-d1 bg-carbon p-8 border border-white/5 text-center hover:border-weld/20 transition-colors">
+        <div class="font-display text-5xl text-white counter" data-target="847">0</div>
+        <div class="w-8 h-0.5 bg-weld mx-auto my-3"></div>
+        <div class="font-mono text-aluminum text-[10px] uppercase tracking-wider">Transmisiones reparadas</div>
+      </div>
+      <div class="reveal reveal-d2 bg-carbon p-8 border border-white/5 text-center hover:border-weld/20 transition-colors">
+        <div class="font-display text-5xl text-white">15</div>
+        <div class="w-8 h-0.5 bg-weld mx-auto my-3"></div>
+        <div class="font-mono text-aluminum text-[10px] uppercase tracking-wider">Años de experiencia</div>
+      </div>
+      <div class="reveal reveal-d3 bg-carbon p-8 border border-white/5 text-center hover:border-weld/20 transition-colors">
+        <div class="font-display text-5xl text-white"><span class="counter" data-target="98">0</span><span class="font-mono text-2xl">.7%</span></div>
+        <div class="w-8 h-0.5 bg-weld mx-auto my-3"></div>
+        <div class="font-mono text-aluminum text-[10px] uppercase tracking-wider">Satisfacción</div>
+      </div>
+    </div>
+
+    <!-- Gráfico visual tipo dyno -->
+    <div class="reveal mt-16 bg-carbon border border-white/5 p-8 md:p-10 relative overflow-hidden">
+      <div class="absolute inset-0 obd-grid opacity-10"></div>
+      <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div>
+          <div class="font-mono text-diag text-[10px] uppercase tracking-wider mb-2">// Dinamómetro · Lectura en vivo</div>
+          <h3 class="font-display text-3xl text-white tracking-wider">VERIFICACIÓN POST-REPARACIÓN</h3>
+          <p class="text-aluminum text-sm mt-3 max-w-md">Cada reparación mayor pasa por nuestro banco de pruebas. Verificamos potencia, torque y rendimiento antes de devolver tu vehículo.</p>
+        </div>
+        <div class="flex gap-6 flex-shrink-0">
+          <div class="text-center">
+            <div class="font-mono text-weld text-3xl font-bold">340</div>
+            <div class="font-mono text-aluminum/50 text-[9px] uppercase tracking-wider mt-1">HP</div>
+          </div>
+          <div class="text-center">
+            <div class="font-mono text-diag text-3xl font-bold">450</div>
+            <div class="font-mono text-aluminum/50 text-[9px] uppercase tracking-wider mt-1">Nm</div>
+          </div>
+          <div class="text-center">
+            <div class="font-mono text-green-500 text-3xl font-bold">OK</div>
+            <div class="font-mono text-aluminum/50 text-[9px] uppercase tracking-wider mt-1">Status</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA: Mercedes terminado -->
+<section class="relative py-28 overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="ctaParallax">
+      <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-40" alt="Mercedes terminado"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-carbon/95 to-carbon/70"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-10">
+    <div>
+      <div class="reveal font-mono text-weld text-[10px] uppercase tracking-[0.3em] mb-3">// Listo para entrega</div>
+      <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-white tracking-wider leading-none">TU ALEMÁN,<br/>COMO NUEVO.</h2>
+      <p class="reveal reveal-d2 text-aluminum text-sm mt-4 max-w-md">Diagnóstico, reparación, prueba en banco y lavado de cortesía. Garantía por escrito en cada servicio.</p>
+    </div>
+    <a href="#diagnostico" class="reveal reveal-d3 bg-weld hover:bg-weld-dk text-white font-semibold py-5 px-10 text-sm transition-all glow-weld uppercase tracking-wider flex-shrink-0 inline-flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">power_settings_new</span>
+      Reservar diagnóstico
+    </a>
+  </div>
+</section>
+
+<!-- Diagnóstico: formulario tipo panel -->
+<section class="py-24 bg-carbon" id="diagnostico">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-3">
+          <div class="w-10 h-0.5 bg-weld"></div>
+          <span class="text-weld font-mono text-[10px] uppercase tracking-[0.3em]">Reservar diagnóstico</span>
+        </div>
+        <h2 class="reveal reveal-d1 font-display text-4xl md:text-5xl text-white tracking-wider leading-none mb-6">
+          ABRE EL CAPÓ.<br/><span class="text-weld">NOSOTROS HACEMOS EL RESTO.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-aluminum leading-relaxed mb-10">
+          Diagnóstico computarizado completo con escáner OBD2 profesional. Te entregamos un reporte detallado con fotos y video del estado de tu vehículo.
+        </p>
+
+        <div class="space-y-6">
+          <div class="reveal flex items-start gap-4">
+            <div class="w-10 h-10 bg-weld/10 border border-weld/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-weld text-lg">location_on</span>
+            </div>
+            <div>
+              <div class="font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-1">Ubicación</div>
+              <p class="text-sm text-aluminum-lt">Av. Industria Automotriz 456<br/>Zona Industrial, CDMX</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d1 flex items-start gap-4">
+            <div class="w-10 h-10 bg-weld/10 border border-weld/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-weld text-lg">call</span>
+            </div>
+            <div>
+              <div class="font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-1">Teléfono / WhatsApp</div>
+              <a href="tel:5500000000" class="text-sm text-aluminum-lt hover:text-weld transition-colors">55 0000 0000</a>
+            </div>
+          </div>
+          <div class="reveal reveal-d2 flex items-start gap-4">
+            <div class="w-10 h-10 bg-weld/10 border border-weld/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-weld text-lg">schedule</span>
+            </div>
+            <div>
+              <div class="font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-1">Horario</div>
+              <p class="text-sm text-aluminum-lt">Lun–Vie 8:00–18:00 · Sáb 9:00–14:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario panel diagnóstico -->
+      <div class="reveal bg-carbon-lt border border-white/5 p-8 md:p-10 relative overflow-hidden">
+        <div class="absolute inset-0 obd-grid opacity-5"></div>
+        <div class="relative z-10">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span class="font-mono text-diag text-[10px] uppercase tracking-wider">Panel de diagnóstico · Online</span>
+          </div>
+          <form class="space-y-5" onsubmit="return false;">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-2">Marca</label>
+                <select class="w-full bg-carbon border border-white/10 px-4 py-3 text-sm text-aluminum-lt focus:border-weld/50 focus:outline-none transition-colors appearance-none">
+                  <option value="">Seleccionar</option>
+                  <option>BMW</option>
+                  <option>Mercedes-Benz</option>
+                  <option>Audi</option>
+                  <option>Volkswagen</option>
+                  <option>MINI</option>
+                  <option>Porsche</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-2">Modelo</label>
+                <input type="text" placeholder="Ej: Serie 3, A4, Clase C" class="w-full bg-carbon border border-white/10 px-4 py-3 text-sm text-aluminum-lt placeholder-aluminum/30 focus:border-weld/50 focus:outline-none transition-colors"/>
+              </div>
+              <div>
+                <label class="block font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-2">Año</label>
+                <input type="text" placeholder="2020" class="w-full bg-carbon border border-white/10 px-4 py-3 text-sm text-aluminum-lt placeholder-aluminum/30 focus:border-weld/50 focus:outline-none transition-colors"/>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-2">Nombre</label>
+                <input type="text" placeholder="Tu nombre" class="w-full bg-carbon border border-white/10 px-4 py-3 text-sm text-aluminum-lt placeholder-aluminum/30 focus:border-weld/50 focus:outline-none transition-colors"/>
+              </div>
+              <div>
+                <label class="block font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-2">Teléfono</label>
+                <input type="tel" placeholder="55 0000 0000" class="w-full bg-carbon border border-white/10 px-4 py-3 text-sm text-aluminum-lt placeholder-aluminum/30 focus:border-weld/50 focus:outline-none transition-colors"/>
+              </div>
+            </div>
+            <div>
+              <label class="block font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-2">Síntoma principal</label>
+              <select class="w-full bg-carbon border border-white/10 px-4 py-3 text-sm text-aluminum-lt focus:border-weld/50 focus:outline-none transition-colors appearance-none">
+                <option value="">Seleccionar síntoma</option>
+                <option>Ruido en motor</option>
+                <option>Luz de check engine</option>
+                <option>Vibración al frenar</option>
+                <option>Pérdida de potencia</option>
+                <option>Fuga de aceite</option>
+                <option>Problema de transmisión</option>
+                <option>Falla eléctrica</option>
+                <option>Servicio preventivo</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-mono text-[9px] text-aluminum/60 uppercase tracking-wider mb-2">Descripción adicional</label>
+              <textarea rows="3" placeholder="Describe el problema con más detalle..." class="w-full bg-carbon border border-white/10 px-4 py-3 text-sm text-aluminum-lt placeholder-aluminum/30 focus:border-weld/50 focus:outline-none transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-weld hover:bg-weld-dk text-white font-semibold py-4 text-sm transition-all glow-weld uppercase tracking-wider">
+              Enviar diagnóstico
+            </button>
+            <p class="font-mono text-aluminum/40 text-[9px] text-center uppercase tracking-wider">Respuesta en menos de 2 horas · Sin compromiso</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-carbon border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 bg-weld flex items-center justify-center">
+            <span class="font-display text-white text-lg tracking-wider">GC</span>
+          </div>
+          <span class="font-display text-white text-lg tracking-wider">GARAJE CENTRAL</span>
+        </div>
+        <p class="text-aluminum/50 text-xs leading-relaxed max-w-xs mt-3">15 años especializados en mecánica alemana. BMW, Mercedes-Benz, Audi y Volkswagen.</p>
+      </div>
+      <div>
+        <div class="font-mono text-weld text-[9px] uppercase tracking-wider mb-4">Servicios</div>
+        <ul class="space-y-3 text-xs text-aluminum/50">
+          <li><a href="#servicios" class="hover:text-white transition-colors">Diagnóstico Computarizado</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Mecánica de Motor</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Transmisiones</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Sistema Eléctrico</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Suspensión</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-mono text-weld text-[9px] uppercase tracking-wider mb-4">Contacto</div>
+        <ul class="space-y-3 text-xs text-aluminum/50">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-weld text-sm">call</span>
+            <a href="tel:5500000000" class="hover:text-white transition-colors">55 0000 0000</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-weld text-sm">location_on</span>
+            Zona Industrial, CDMX
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-weld text-sm">schedule</span>
+            Lun–Sáb · 8:00–18:00
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-aluminum/30 text-[9px] font-mono uppercase tracking-wider">© 2025 Garaje Central · Especialistas en Autos Alemanes</p>
+      <p class="text-aluminum/30 text-[9px] font-mono uppercase tracking-wider">Diseño web por <span class="text-weld">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/525500000000?text=Hola%2C%20necesito%20un%20diagn%C3%B3stico%20para%20mi%20auto." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// ── Reveal ──
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── Parallax ──
+const heroL1 = document.getElementById('heroL1');
+const heroL2 = document.getElementById('heroL2');
+const pozoP  = document.getElementById('pozoParallax');
+const ctaP   = document.getElementById('ctaParallax');
+function parallax() {
+  const y = window.scrollY;
+  if (heroL1) heroL1.style.transform = `translateY(${y * 0.1}px)`;
+  if (heroL2) heroL2.style.transform = `translateY(${y * 0.05}px)`;
+  if (pozoP) {
+    const r = pozoP.parentElement.getBoundingClientRect();
+    pozoP.style.transform = `translateY(${r.top * 0.08}px)`;
+  }
+  if (ctaP) {
+    const r = ctaP.parentElement.getBoundingClientRect();
+    ctaP.style.transform = `translateY(${r.top * 0.1}px)`;
+  }
+}
+window.addEventListener('scroll', parallax, { passive: true });
+parallax();
+
+// ── Counters ──
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.target);
+    const duration = 2000;
+    const step = 16;
+    const increment = target / (duration / step);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + increment, target);
+      el.textContent = Math.floor(current).toLocaleString('es-MX');
+      if (current >= target) clearInterval(timer);
+    }, step);
+    cObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
+</script>
+
+</body>
+</html>
