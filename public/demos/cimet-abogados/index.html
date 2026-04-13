@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cimet Abogados · Soluciones Legales Estratégicas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      "navy":          "#0d1b3e",
+      "navy-md":       "#142550",
+      "navy-lt":       "#1a3068",
+      "accent":        "#e8722a",
+      "accent-dk":     "#c95f1f",
+      "accent-lt":     "#f09a5e",
+      "surface":       "#fafafa",
+      "surface-warm":  "#f5f3f0",
+      "surface-card":  "#ffffff",
+      "on-surface":    "#1a1a1a",
+      "on-surface-md": "#4a4a4a",
+      "on-surface-lt": "#777777",
+      "outline":       "#d4d4d4",
+      "outline-lt":    "#e8e8e8",
+    },
+    fontFamily: {
+      "headline": ["Newsreader","serif"],
+      "body":     ["Inter","sans-serif"],
+    },
+  }}
+}
+</script>
+<style>
+  body { font-family: "Inter", sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+
+  /* Reveal animations (Cárdenas Thomae style) */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.12s; }
+  .reveal-d2 { transition-delay: 0.24s; }
+  .reveal-d3 { transition-delay: 0.36s; }
+  .reveal-d4 { transition-delay: 0.48s; }
+  .reveal-d5 { transition-delay: 0.60s; }
+
+  /* Line draw */
+  .line-draw { width: 0; transition: width 1.2s cubic-bezier(0.16,1,0.3,1); }
+  .line-draw.visible { width: 100%; }
+
+  /* Image reveal mask */
+  .img-reveal { position: relative; overflow: hidden; }
+  .img-reveal::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: #e8722a;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 1s cubic-bezier(0.77,0,0.175,1);
+    transition-delay: 0.2s;
+  }
+  .img-reveal.visible::after { transform: scaleX(0); }
+
+  /* Counter animation */
+  .counter { display: inline-block; }
+
+  /* Parallax helper */
+  .parallax-bg { will-change: transform; }
+
+  /* Glass nav */
+  .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+  /* Step connector */
+  .step-connector { position: relative; }
+  .step-connector::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    width: 4rem;
+    height: 2px;
+    background: linear-gradient(90deg, #e8722a, transparent);
+  }
+  @media (max-width: 768px) {
+    .step-connector::after { display: none; }
+  }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-accent/20">
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-white/85 glass-nav shadow-[0_1px_30px_rgba(13,27,62,0.06)] border-b border-outline-lt/50">
+  <div class="flex items-center justify-between px-6 md:px-12 py-4 max-w-[1440px] mx-auto">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-9 h-9 bg-navy flex items-center justify-center">
+        <span class="text-white font-headline font-bold text-sm">C</span>
+      </div>
+      <div class="leading-tight">
+        <span class="text-lg font-semibold tracking-[0.08em] uppercase text-navy font-headline">Cimet</span>
+        <span class="hidden sm:inline text-[10px] font-body text-on-surface-lt uppercase tracking-widest ml-2">Abogados</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center space-x-10">
+      <a href="#firma" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">La Firma</a>
+      <a href="#servicios" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Servicios</a>
+      <a href="#metodo" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Método</a>
+      <a href="#fortalezas" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Fortalezas</a>
+      <a href="#contacto" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Contacto</a>
+    </nav>
+    <a href="#contacto" class="bg-accent text-white px-6 py-2.5 text-xs uppercase tracking-[0.15em] font-semibold hover:bg-accent-dk transition-all">
+      Consulta gratuita
+    </a>
+  </div>
+</header>
+
+<!-- Hero with parallax -->
+<section class="relative min-h-screen flex items-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="heroParallax">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Oficina legal moderna"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-navy/92 via-navy/70 to-navy/30"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full py-32 md:py-40">
+    <div class="max-w-2xl">
+      <div class="reveal flex items-center gap-4 mb-8">
+        <div class="w-12 h-px bg-accent"></div>
+        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.35em]">Civil · Mercantil · Financiero · Inmobiliario</span>
+      </div>
+      <h1 class="reveal reveal-d1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-headline text-white leading-[1.08] mb-8 tracking-tight">
+        Protegemos tu patrimonio con <span class="text-accent italic">estrategia legal.</span>
+      </h1>
+      <p class="reveal reveal-d2 text-white/65 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
+        Firma legal estratégica con atención directa y personalizada. Soluciones eficaces para cada caso, con compromiso ético y profesional.
+      </p>
+      <div class="reveal reveal-d3 flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="bg-accent hover:bg-accent-dk text-white font-semibold py-4 px-10 text-sm text-center transition-colors uppercase tracking-[0.12em]">
+          Agendar consulta
+        </a>
+        <a href="#servicios" class="border border-white/20 hover:border-accent/50 text-white font-medium py-4 px-10 text-sm text-center transition-all uppercase tracking-[0.12em]">
+          Nuestros servicios
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating stats bar -->
+  <div class="absolute bottom-0 left-0 right-0 z-20">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="reveal bg-white shadow-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-outline-lt">
+        <div class="p-6 md:p-8 text-center">
+          <div class="font-headline text-3xl md:text-4xl text-navy font-light">+15</div>
+          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">Años de trayectoria</div>
+        </div>
+        <div class="p-6 md:p-8 text-center">
+          <div class="font-headline text-3xl md:text-4xl text-navy font-light">+500</div>
+          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">Casos exitosos</div>
+        </div>
+        <div class="p-6 md:p-8 text-center">
+          <div class="font-headline text-3xl md:text-4xl text-navy font-light">24h</div>
+          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">Tiempo de respuesta</div>
+        </div>
+        <div class="p-6 md:p-8 text-center">
+          <div class="font-headline text-3xl md:text-4xl text-navy font-light">12</div>
+          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">Áreas de práctica</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-12 pt-20">
+  <div class="line-draw h-px bg-accent/20 mx-auto"></div>
+</div>
+
+<!-- Acerca de la Firma -->
+<section class="py-24 bg-surface" id="firma">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-accent"></div>
+          <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Acerca de la firma</span>
+        </div>
+        <h2 class="reveal reveal-d1 text-3xl md:text-4xl lg:text-5xl font-headline text-navy leading-tight mb-6">
+          Estrategia legal con <span class="text-accent italic">resultados reales.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-on-surface-md leading-relaxed mb-6">
+          CIMET ABOGADOS es una firma legal estratégica, especializada en derecho civil, mercantil, financiero, inmobiliario, así como de seguros y fianzas. Brindamos atención directa y personalizada con compromiso ético y profesional.
+        </p>
+        <p class="reveal reveal-d3 text-on-surface-md leading-relaxed mb-10">
+          Ubicados en la Roma Norte, Ciudad de México, nuestro equipo se enfoca en lograr resultados satisfactorios y soluciones eficaces de acuerdo a las necesidades específicas de cada caso.
+        </p>
+        <div class="reveal reveal-d4 flex items-center gap-6">
+          <a href="#contacto" class="bg-accent text-white font-semibold py-3 px-8 text-sm transition-colors hover:bg-accent-dk uppercase tracking-[0.1em]">
+            Conozca más
+          </a>
+          <a href="tel:5521209268" class="flex items-center gap-2 text-navy hover:text-accent transition-colors text-sm font-medium">
+            <span class="material-symbols-outlined text-accent text-lg">call</span>
+            55 2120 9268
+          </a>
+        </div>
+      </div>
+      <div class="reveal img-reveal">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&fit=crop" class="w-full aspect-[4/5] object-cover" alt="Equipo Cimet Abogados"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+  <div class="line-draw h-px bg-accent/20 mx-auto"></div>
+</div>
+
+<!-- Servicios — 3 Grandes Áreas -->
+<section class="py-24 bg-surface-warm" id="servicios">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="reveal flex items-center gap-3 mb-4">
+      <div class="w-10 h-px bg-accent"></div>
+      <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Áreas de práctica</span>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+      <h2 class="reveal reveal-d1 text-3xl md:text-4xl lg:text-5xl font-headline text-navy leading-tight max-w-xl">
+        Soluciones integrales para <span class="text-accent italic">cada necesidad.</span>
+      </h2>
+      <p class="reveal reveal-d2 text-on-surface-lt text-sm max-w-xs">12 áreas de especialidad organizadas en tres pilares estratégicos para facilitar su elección.</p>
+    </div>
+
+    <!-- 3 Pilares -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-lt overflow-hidden border border-outline-lt">
+      <!-- Pilar 1: Empresas -->
+      <div class="reveal bg-surface-card p-10 md:p-12 group hover:bg-navy transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-lt transition-colors">apartment</span>
+        <h3 class="text-2xl font-headline text-navy mb-4 group-hover:text-white transition-colors">Empresas y Comercio</h3>
+        <p class="text-on-surface-md group-hover:text-white/70 transition-colors mb-6 text-sm leading-relaxed">Protección integral para su negocio, desde la constitución hasta operaciones complejas.</p>
+        <ul class="space-y-3 text-sm text-on-surface-lt group-hover:text-white/60 transition-colors">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Mercantil</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Corporativo</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Concursos Mercantiles y Quiebras</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Due Diligence Legal</li>
+        </ul>
+      </div>
+
+      <!-- Pilar 2: Patrimonio -->
+      <div class="reveal reveal-d1 bg-surface-card p-10 md:p-12 group hover:bg-navy transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-lt transition-colors">shield</span>
+        <h3 class="text-2xl font-headline text-navy mb-4 group-hover:text-white transition-colors">Patrimonio y Bienes</h3>
+        <p class="text-on-surface-md group-hover:text-white/70 transition-colors mb-6 text-sm leading-relaxed">Resguardamos lo que más importa: su patrimonio, su familia y sus bienes inmuebles.</p>
+        <ul class="space-y-3 text-sm text-on-surface-lt group-hover:text-white/60 transition-colors">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Civil</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Inmobiliario</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Familiar</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Seguros y Fianzas</li>
+        </ul>
+      </div>
+
+      <!-- Pilar 3: Resolución -->
+      <div class="reveal reveal-d2 bg-surface-card p-10 md:p-12 group hover:bg-navy transition-all duration-500">
+        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-lt transition-colors">gavel</span>
+        <h3 class="text-2xl font-headline text-navy mb-4 group-hover:text-white transition-colors">Resolución de Conflictos</h3>
+        <p class="text-on-surface-md group-hover:text-white/70 transition-colors mb-6 text-sm leading-relaxed">Métodos estratégicos para resolver disputas de forma eficiente y favorable.</p>
+        <ul class="space-y-3 text-sm text-on-surface-lt group-hover:text-white/60 transition-colors">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Mediación y Arbitraje</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Administrativo</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Asesoría y Estrategia Jurídica</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Financiamiento de Litigios</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+  <div class="line-draw h-px bg-accent/20 mx-auto"></div>
+</div>
+
+<!-- Método Cimet — 3 Pasos -->
+<section class="py-24 bg-surface" id="metodo">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="text-center mb-20">
+      <div class="reveal flex items-center justify-center gap-3 mb-4">
+        <div class="w-10 h-px bg-accent"></div>
+        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Nuestro método</span>
+        <div class="w-10 h-px bg-accent"></div>
+      </div>
+      <h2 class="reveal reveal-d1 text-3xl md:text-4xl lg:text-5xl font-headline text-navy">El Método <span class="text-accent italic">Cimet.</span></h2>
+      <p class="reveal reveal-d2 text-on-surface-lt text-sm mt-4 max-w-lg mx-auto">Un sistema ordenado y bajo control que garantiza resultados. No vendemos horas de servicio, vendemos tranquilidad.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <!-- Paso 1 -->
+      <div class="reveal text-center relative">
+        <div class="step-connector">
+          <div class="w-20 h-20 bg-navy mx-auto mb-8 flex items-center justify-center">
+            <span class="text-accent font-headline text-3xl font-light">01</span>
+          </div>
+        </div>
+        <h4 class="text-xl font-headline text-navy mb-3">Diagnóstico</h4>
+        <p class="text-on-surface-md text-sm leading-relaxed">Analizamos su caso a profundidad, identificamos riesgos y oportunidades. Escuchamos antes de actuar.</p>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="reveal reveal-d1 text-center relative">
+        <div class="step-connector">
+          <div class="w-20 h-20 bg-navy mx-auto mb-8 flex items-center justify-center">
+            <span class="text-accent font-headline text-3xl font-light">02</span>
+          </div>
+        </div>
+        <h4 class="text-xl font-headline text-navy mb-3">Estrategia</h4>
+        <p class="text-on-surface-md text-sm leading-relaxed">Diseñamos un plan de acción personalizado con las alternativas más acertadas para su situación específica.</p>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="reveal reveal-d2 text-center">
+        <div class="w-20 h-20 bg-accent mx-auto mb-8 flex items-center justify-center">
+          <span class="text-white font-headline text-3xl font-light">03</span>
+        </div>
+        <h4 class="text-xl font-headline text-navy mb-3">Resolución</h4>
+        <p class="text-on-surface-md text-sm leading-relaxed">Ejecutamos la estrategia con precisión, manteniéndole informado en cada paso hasta lograr el resultado deseado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner with parallax -->
+<section class="relative py-28 overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="ctaParallax">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-30" alt="Ciudad de México"/>
+    </div>
+    <div class="absolute inset-0 bg-navy/85"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 md:px-12 text-center">
+    <h2 class="reveal text-3xl md:text-4xl lg:text-5xl font-headline text-white font-light mb-6">
+      Su firma legal de confianza en la <span class="text-accent italic">Ciudad de México.</span>
+    </h2>
+    <p class="reveal reveal-d1 text-white/50 text-sm leading-relaxed mb-10 max-w-lg mx-auto">
+      Desde la colonia Roma Norte, brindamos asesoría especializada con más de 15 años de experiencia en soluciones legales estratégicas para particulares y empresas.
+    </p>
+    <a href="#contacto" class="reveal reveal-d2 inline-block bg-accent hover:bg-accent-dk text-white font-semibold py-4 px-10 text-sm transition-colors uppercase tracking-[0.15em]">
+      Agendar consulta gratuita
+    </a>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+  <div class="line-draw h-px bg-accent/20 mx-auto"></div>
+</div>
+
+<!-- Fortalezas -->
+<section class="py-24 bg-surface" id="fortalezas">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="text-center mb-20">
+      <div class="reveal flex items-center justify-center gap-3 mb-4">
+        <div class="w-10 h-px bg-accent"></div>
+        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Por qué elegirnos</span>
+        <div class="w-10 h-px bg-accent"></div>
+      </div>
+      <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-headline text-navy">Principales <span class="text-accent italic">fortalezas.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="reveal text-center">
+        <div class="w-16 h-16 border border-accent/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-accent text-xl">workspace_premium</span>
+        </div>
+        <h4 class="text-navy font-headline text-lg mb-2">Experiencia</h4>
+        <p class="text-on-surface-lt text-xs leading-relaxed">+15 años resolviendo casos complejos con resultados comprobables.</p>
+      </div>
+      <div class="reveal reveal-d1 text-center">
+        <div class="w-16 h-16 border border-accent/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-accent text-xl">verified</span>
+        </div>
+        <h4 class="text-navy font-headline text-lg mb-2">Efectividad</h4>
+        <p class="text-on-surface-lt text-xs leading-relaxed">+500 casos exitosos con soluciones eficaces y satisfactorias.</p>
+      </div>
+      <div class="reveal reveal-d2 text-center">
+        <div class="w-16 h-16 border border-accent/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-accent text-xl">lock</span>
+        </div>
+        <h4 class="text-navy font-headline text-lg mb-2">Confidencialidad</h4>
+        <p class="text-on-surface-lt text-xs leading-relaxed">Manejo discreto y seguro de toda la información de nuestros clientes.</p>
+      </div>
+      <div class="reveal reveal-d3 text-center">
+        <div class="w-16 h-16 border border-accent/25 flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-accent text-xl">handshake</span>
+        </div>
+        <h4 class="text-navy font-headline text-lg mb-2">Compromiso</h4>
+        <p class="text-on-surface-lt text-xs leading-relaxed">Atención directa y personalizada con lealtad y asertividad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+  <div class="line-draw h-px bg-accent/20 mx-auto"></div>
+</div>
+
+<!-- Diferenciación: Servicios destacados -->
+<section class="py-24 bg-surface-warm">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-accent"></div>
+          <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Servicios destacados</span>
+        </div>
+        <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-headline text-navy mb-8 leading-tight">Líderes en <span class="text-accent italic">financiamiento de litigios</span> en México</h2>
+        <div class="space-y-8">
+          <div class="reveal reveal-d2 flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent text-2xl mt-1">payments</span>
+            <div>
+              <h4 class="font-headline text-navy text-lg mb-2">Financiamiento de Litigios</h4>
+              <p class="text-on-surface-md text-sm leading-relaxed">Somos firma líder en México en el financiamiento de litigios nacionales e internacionales.</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d3 flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent text-2xl mt-1">search</span>
+            <div>
+              <h4 class="font-headline text-navy text-lg mb-2">Due Diligence Legal</h4>
+              <p class="text-on-surface-md text-sm leading-relaxed">Proceso de investigación durante la potencial compra de una sociedad para determinar riesgos.</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d4 flex items-start gap-6">
+            <span class="material-symbols-outlined text-accent text-2xl mt-1">security</span>
+            <div>
+              <h4 class="font-headline text-navy text-lg mb-2">Seguros y Fianzas</h4>
+              <p class="text-on-surface-md text-sm leading-relaxed">Regulamos todo lo relativo a las pólizas de seguros y fianzas, protegiendo sus intereses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal img-reveal">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop" class="w-full aspect-[4/5] object-cover" alt="Servicios legales Cimet"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+  <div class="line-draw h-px bg-accent/20 mx-auto"></div>
+</div>
+
+<!-- Contacto -->
+<section class="py-24 bg-surface" id="contacto">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div>
+        <div class="reveal flex items-center gap-3 mb-4">
+          <div class="w-10 h-px bg-accent"></div>
+          <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Contacto</span>
+        </div>
+        <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-headline text-navy leading-tight mb-6">
+          Permítanos <span class="text-accent italic">asesorarle.</span>
+        </h2>
+        <p class="reveal reveal-d2 text-on-surface-md leading-relaxed mb-12">
+          Puede llamarnos o completar el formulario. Nos pondremos en contacto a la brevedad. Lo importante es iniciar la conversación.
+        </p>
+
+        <div class="space-y-8">
+          <div class="reveal flex items-start gap-5">
+            <div class="w-10 h-10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent text-lg">location_on</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Ubicación</div>
+              <p class="text-sm text-on-surface-md">Plaza Villa Madrid 1, PH<br/>Roma Norte, Cuauhtémoc, C.P. 06700<br/>Ciudad de México, México</p>
+            </div>
+          </div>
+          <div class="reveal reveal-d1 flex items-start gap-5">
+            <div class="w-10 h-10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent text-lg">call</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Teléfono</div>
+              <a href="tel:5521209268" class="text-sm text-on-surface-md hover:text-accent transition-colors">55 2120 9268</a>
+            </div>
+          </div>
+          <div class="reveal reveal-d2 flex items-start gap-5">
+            <div class="w-10 h-10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent text-lg">mail</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Email</div>
+              <a href="mailto:contacto@cabogados.com.mx" class="text-sm text-on-surface-md hover:text-accent transition-colors">contacto@cabogados.com.mx</a>
+            </div>
+          </div>
+          <div class="reveal reveal-d3 flex items-start gap-5">
+            <div class="w-10 h-10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent text-lg">schedule</span>
+            </div>
+            <div>
+              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Respuesta</div>
+              <p class="text-sm text-on-surface-md">Respuesta garantizada en menos de 24 horas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario simplificado (solo 3 campos como sugiere SIMEC.MD) -->
+      <div class="reveal bg-surface-warm p-8 md:p-12 border border-outline-lt">
+        <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-8">Formulario de consulta</div>
+        <form class="space-y-6" onsubmit="return false;">
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest font-semibold text-navy mb-2">Nombre</label>
+            <input type="text" placeholder="Su nombre completo" class="w-full bg-white border border-outline focus:border-accent focus:ring-0 px-4 py-3 text-sm text-on-surface placeholder-on-surface-lt/50 transition-colors"/>
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest font-semibold text-navy mb-2">Teléfono o Email</label>
+            <input type="text" placeholder="Su teléfono o correo electrónico" class="w-full bg-white border border-outline focus:border-accent focus:ring-0 px-4 py-3 text-sm text-on-surface placeholder-on-surface-lt/50 transition-colors"/>
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest font-semibold text-navy mb-2">¿Qué tipo de problema tiene?</label>
+            <select class="w-full bg-white border border-outline focus:border-accent focus:ring-0 px-4 py-3 text-sm text-on-surface transition-colors appearance-none">
+              <option value="">Seleccione un área</option>
+              <option>Empresas y Comercio (Mercantil, Corporativo, Quiebras)</option>
+              <option>Patrimonio y Bienes (Civil, Inmobiliario, Familiar)</option>
+              <option>Resolución de Conflictos (Mediación, Administrativo)</option>
+              <option>Seguros y Fianzas</option>
+              <option>Financiamiento de Litigios</option>
+              <option>Otro / No estoy seguro</option>
+            </select>
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="w-full bg-accent hover:bg-accent-dk text-white font-semibold py-4 text-sm transition-colors uppercase tracking-[0.15em]">
+              Solicitar consulta gratuita
+            </button>
+            <p class="text-[10px] text-on-surface-lt/60 text-center mt-4 leading-relaxed italic">
+              Toda la información es tratada con absoluta confidencialidad. Los detalles sensibles se tratarán personalmente.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-navy w-full pt-24 pb-12">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-6 md:px-12 max-w-7xl mx-auto border-b border-white/10 pb-16 mb-12">
+    <div>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-9 h-9 border border-accent/40 flex items-center justify-center">
+          <span class="text-accent font-headline font-bold text-sm">C</span>
+        </div>
+        <span class="text-lg font-semibold tracking-[0.08em] uppercase text-white font-headline">Cimet</span>
+      </div>
+      <p class="text-white/40 text-xs leading-loose">Firma legal estratégica. Especialistas en derecho civil, mercantil, financiero, inmobiliario, seguros y fianzas.</p>
+    </div>
+    <div class="space-y-6">
+      <h6 class="text-accent text-[9px] font-bold uppercase tracking-widest">Empresas</h6>
+      <ul class="space-y-3">
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Derecho Mercantil</a></li>
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Derecho Corporativo</a></li>
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Concursos Mercantiles</a></li>
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Due Diligence Legal</a></li>
+      </ul>
+    </div>
+    <div class="space-y-6">
+      <h6 class="text-accent text-[9px] font-bold uppercase tracking-widest">Patrimonio</h6>
+      <ul class="space-y-3">
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Derecho Civil</a></li>
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Derecho Inmobiliario</a></li>
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Derecho Familiar</a></li>
+        <li><a href="#servicios" class="text-white/50 hover:text-white transition-opacity text-xs">Seguros y Fianzas</a></li>
+      </ul>
+    </div>
+    <div class="space-y-6">
+      <h6 class="text-accent text-[9px] font-bold uppercase tracking-widest">Contacto</h6>
+      <ul class="space-y-3">
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-sm">call</span>
+          <a href="tel:5521209268" class="text-white/50 hover:text-white transition-opacity text-xs">55 2120 9268</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-sm">mail</span>
+          <a href="mailto:contacto@cabogados.com.mx" class="text-white/50 hover:text-white transition-opacity text-xs">contacto@cabogados.com.mx</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-sm">location_on</span>
+          <span class="text-white/50 text-xs">Roma Norte, CDMX</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <p class="text-white/30 text-[9px] uppercase tracking-[0.2em]">© 2025 Cimet Abogados. Todos los derechos reservados.</p>
+    <div class="flex items-center gap-6">
+      <a href="https://cabogados.com.mx/aviso-de-privacidad.html" class="text-white/30 hover:text-white/60 text-[9px] uppercase tracking-[0.2em] transition-colors">Aviso de privacidad</a>
+      <p class="text-white/30 text-[9px] uppercase tracking-[0.2em]">Diseño web por <span class="text-accent">Web Architects</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://api.whatsapp.com/send?phone=525521209268&text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios%20legales" target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95 rounded-full"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- Scripts: IntersectionObserver + Parallax -->
+<script>
+// Reveal animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .line-draw, .img-reveal').forEach(el => observer.observe(el));
+
+// Parallax on scroll
+const heroP = document.getElementById('heroParallax');
+const ctaP = document.getElementById('ctaParallax');
+
+function parallax() {
+  const scrollY = window.scrollY;
+  if (heroP) heroP.style.transform = `translateY(${scrollY * 0.15}px)`;
+  if (ctaP) {
+    const rect = ctaP.parentElement.getBoundingClientRect();
+    const offset = rect.top * 0.12;
+    ctaP.style.transform = `translateY(${offset}px)`;
+  }
+}
+window.addEventListener('scroll', parallax, { passive: true });
+parallax();
+</script>
+
+</body>
+</html>
