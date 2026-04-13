@@ -72,6 +72,16 @@ tailwind.config = {
   /* Glass nav */
   .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 
+  /* Details/summary smooth open */
+  details summary { list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] summary { border-bottom-color: transparent; }
+  details .px-5 { animation: slideDown 0.3s ease-out; }
+  @keyframes slideDown {
+    from { opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0; }
+    to { opacity: 1; max-height: 200px; }
+  }
+
   /* Step connector */
   .step-connector { position: relative; }
   .step-connector::after {
@@ -231,46 +241,186 @@ tailwind.config = {
       <p class="reveal reveal-d2 text-on-surface-lt text-sm max-w-xs">12 áreas de especialidad organizadas en tres pilares estratégicos para facilitar su elección.</p>
     </div>
 
-    <!-- 3 Pilares -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-lt overflow-hidden border border-outline-lt">
-      <!-- Pilar 1: Empresas -->
-      <div class="reveal bg-surface-card p-10 md:p-12 group hover:bg-navy transition-all duration-500">
-        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-lt transition-colors">apartment</span>
-        <h3 class="text-2xl font-headline text-navy mb-4 group-hover:text-white transition-colors">Empresas y Comercio</h3>
-        <p class="text-on-surface-md group-hover:text-white/70 transition-colors mb-6 text-sm leading-relaxed">Protección integral para su negocio, desde la constitución hasta operaciones complejas.</p>
-        <ul class="space-y-3 text-sm text-on-surface-lt group-hover:text-white/60 transition-colors">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Mercantil</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Corporativo</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Concursos Mercantiles y Quiebras</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Due Diligence Legal</li>
-        </ul>
+    <!-- 3 Pilares con servicios expandibles -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- Pilar 1: Empresas y Comercio -->
+      <div class="reveal">
+        <div class="bg-navy p-8 mb-1">
+          <span class="material-symbols-outlined text-accent text-3xl mb-4">apartment</span>
+          <h3 class="text-xl font-headline text-white mb-2">Empresas y Comercio</h3>
+          <p class="text-white/50 text-xs leading-relaxed">Protección integral para su negocio, desde la constitución hasta operaciones complejas.</p>
+        </div>
+        <div class="space-y-px">
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">storefront</span>
+                <span class="text-sm font-medium text-navy">Derecho Mercantil</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Regula las relaciones comerciales o actos de comercio celebrados entre personas morales y/o físicas. Incluye derecho bancario, cambiario, contractual, concursal, propiedad industrial, societario y títulos de crédito.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">domain</span>
+                <span class="text-sm font-medium text-navy">Derecho Corporativo</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Relacionado con el aspecto interno y regulatorio de todas las sociedades: constitución, acciones, asambleas, derecho de voto, distribución de utilidades y contratos para lograr su objeto social.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">trending_down</span>
+                <span class="text-sm font-medium text-navy">Concursos Mercantiles y Quiebras</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Regula los procedimientos cuando un comerciante enfrenta complicaciones financieras. Buscamos la conciliación entre acreedores y deudor para que la actividad económica subsista.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">search_insights</span>
+                <span class="text-sm font-medium text-navy">Due Diligence Legal</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Investigación exhaustiva sobre un negocio o empresa para conocer a fondo su situación, identificar riesgos reales y planificar una estrategia adecuada para el objetivo del cliente.
+            </div>
+          </details>
+        </div>
       </div>
 
-      <!-- Pilar 2: Patrimonio -->
-      <div class="reveal reveal-d1 bg-surface-card p-10 md:p-12 group hover:bg-navy transition-all duration-500">
-        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-lt transition-colors">shield</span>
-        <h3 class="text-2xl font-headline text-navy mb-4 group-hover:text-white transition-colors">Patrimonio y Bienes</h3>
-        <p class="text-on-surface-md group-hover:text-white/70 transition-colors mb-6 text-sm leading-relaxed">Resguardamos lo que más importa: su patrimonio, su familia y sus bienes inmuebles.</p>
-        <ul class="space-y-3 text-sm text-on-surface-lt group-hover:text-white/60 transition-colors">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Civil</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Inmobiliario</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Familiar</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Seguros y Fianzas</li>
-        </ul>
+      <!-- Pilar 2: Patrimonio y Bienes -->
+      <div class="reveal reveal-d1">
+        <div class="bg-navy p-8 mb-1">
+          <span class="material-symbols-outlined text-accent text-3xl mb-4">shield</span>
+          <h3 class="text-xl font-headline text-white mb-2">Patrimonio y Bienes</h3>
+          <p class="text-white/50 text-xs leading-relaxed">Resguardamos lo que más importa: su patrimonio, su familia y sus bienes inmuebles.</p>
+        </div>
+        <div class="space-y-px">
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">balance</span>
+                <span class="text-sm font-medium text-navy">Derecho Civil</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Regula las relaciones entre particulares: compra-venta, arrendamiento, comodato, usufructo, préstamo, hipoteca, servidumbres, mandato, donación y demás contratos de naturaleza civil.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">real_estate_agent</span>
+                <span class="text-sm font-medium text-navy">Derecho Inmobiliario</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Regula todo lo relativo a bienes inmuebles: urbanismo, regularización de tierra, contratos, financiamiento, inversión extranjera, registro público y resolución de controversias inmobiliarias.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">family_restroom</span>
+                <span class="text-sm font-medium text-navy">Derecho Familiar</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Protege todo lo inherente a la familia: matrimonio, filiación, pensión alimenticia, patria potestad, adopción, concubinato, divorcio y sucesiones (herencias).
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">security</span>
+                <span class="text-sm font-medium text-navy">Seguros y Fianzas</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Regula la contratación, emisión y ejecución de pólizas de seguros o fianzas, incluyendo obligaciones, derechos y excepciones en caso de siniestro.
+            </div>
+          </details>
+        </div>
       </div>
 
-      <!-- Pilar 3: Resolución -->
-      <div class="reveal reveal-d2 bg-surface-card p-10 md:p-12 group hover:bg-navy transition-all duration-500">
-        <span class="material-symbols-outlined text-accent text-3xl mb-6 group-hover:text-accent-lt transition-colors">gavel</span>
-        <h3 class="text-2xl font-headline text-navy mb-4 group-hover:text-white transition-colors">Resolución de Conflictos</h3>
-        <p class="text-on-surface-md group-hover:text-white/70 transition-colors mb-6 text-sm leading-relaxed">Métodos estratégicos para resolver disputas de forma eficiente y favorable.</p>
-        <ul class="space-y-3 text-sm text-on-surface-lt group-hover:text-white/60 transition-colors">
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Mediación y Arbitraje</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Derecho Administrativo</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Asesoría y Estrategia Jurídica</li>
-          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-xs group-hover:text-accent-lt">chevron_right</span>Financiamiento de Litigios</li>
-        </ul>
+      <!-- Pilar 3: Resolución de Conflictos -->
+      <div class="reveal reveal-d2">
+        <div class="bg-navy p-8 mb-1">
+          <span class="material-symbols-outlined text-accent text-3xl mb-4">gavel</span>
+          <h3 class="text-xl font-headline text-white mb-2">Resolución de Conflictos</h3>
+          <p class="text-white/50 text-xs leading-relaxed">Métodos estratégicos para resolver disputas de forma eficiente y favorable.</p>
+        </div>
+        <div class="space-y-px">
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">handshake</span>
+                <span class="text-sm font-medium text-navy">Mediación y Arbitraje</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Métodos alternativos de solución de conflictos. Un tercero imparcial interviene para lograr un laudo o convenio dentro de un procedimiento ágil, sin recurrir a un juicio largo.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">account_balance</span>
+                <span class="text-sm font-medium text-navy">Derecho Administrativo</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Regula la organización y actividades de la administración pública, así como los actos jurídicos celebrados entre servidores públicos y el sector privado.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">psychology</span>
+                <span class="text-sm font-medium text-navy">Asesoría y Estrategia Jurídica</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Proyectamos acciones y defensas para una correcta planeación estratégica, incluyendo posibles escenarios ante tribunales judiciales, buscando el óptimo resultado.
+            </div>
+          </details>
+          <details class="group bg-surface-card border border-outline-lt">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-accent text-lg">payments</span>
+                <span class="text-sm font-medium text-navy">Financiamiento de Litigios</span>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
+              Firma líder en México en financiamiento de litigios nacionales e internacionales, en áreas civil, mercantil, financiero, inmobiliario, seguros, fianzas y arbitraje.
+            </div>
+          </details>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
