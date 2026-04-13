@@ -72,6 +72,25 @@ tailwind.config = {
   /* Glass nav */
   .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 
+  /* Nav link underline draw effect */
+  .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e8722a;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
   /* Details/summary smooth open */
   details summary { list-style: none; }
   details summary::-webkit-details-marker { display: none; }
@@ -113,11 +132,11 @@ tailwind.config = {
       </div>
     </a>
     <nav class="hidden lg:flex items-center space-x-10">
-      <a href="#firma" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">La Firma</a>
-      <a href="#servicios" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Servicios</a>
-      <a href="#metodo" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Método</a>
-      <a href="#fortalezas" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Fortalezas</a>
-      <a href="#contacto" class="text-on-surface-md hover:text-navy transition-all duration-300 font-headline text-[15px] tracking-tight">Contacto</a>
+      <a href="#firma" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">La Firma</a>
+      <a href="#servicios" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Servicios</a>
+      <a href="#metodo" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Método</a>
+      <a href="#fortalezas" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Fortalezas</a>
+      <a href="#contacto" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Contacto</a>
     </nav>
     <a href="#contacto" class="bg-accent text-white px-6 py-2.5 text-xs uppercase tracking-[0.15em] font-semibold hover:bg-accent-dk transition-all">
       Consulta gratuita
