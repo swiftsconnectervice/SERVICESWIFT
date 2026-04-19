@@ -30,9 +30,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const BATZ_URL = "https://preulivulvhsyycdyvqf.supabase.co/functions/v1/webhook-receiver";
 
     try {
-      console.log("[ContactForm] Enviando a n8n y Batz...");
-
-      const [n8nRes, batzRes] = await Promise.all([
+      await Promise.all([
         fetch("https://n8n.swfitservice.online/webhook/audit-lead-capture", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -54,13 +52,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         }),
       ]);
 
-      console.log("[ContactForm] n8n status:", n8nRes.status, await n8nRes.clone().text());
-      console.log("[ContactForm] Batz status:", batzRes.status, await batzRes.clone().text());
-
       setIsSuccess(true);
       setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      console.error("[ContactForm] Error:", err);
+    } catch {
       setError("Hubo un error. Intenta de nuevo.");
     } finally {
       setIsSubmitting(false);
