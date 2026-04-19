@@ -26,10 +26,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setIsSubmitting(true);
     setError("");
 
+    const BATZ_KEY = "batz_998f66d9-7c59-4518-b232-bc40bc52";
+    const BATZ_URL = "https://preulivulvhsyycdyvqf.supabase.co/functions/v1/webhook-receiver";
+
     try {
-      const response = await fetch(
-        "https://n8n.swfitservice.online/webhook/audit-lead-capture",
-        {
+      await Promise.all([
+        fetch("https://n8n.swfitservice.online/webhook/audit-lead-capture", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -37,10 +39,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             timestamp: new Date().toISOString(),
             source: "contact-form",
           }),
-        }
-      );
-
-      if (!response.ok) throw new Error("Error al enviar");
+        }),
+        fetch(BATZ_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-api-key": BATZ_KEY },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: "",
+            message: formData.message,
+          }),
+        }),
+      ]);
 
       setIsSuccess(true);
       setFormData({ name: "", email: "", message: "" });
