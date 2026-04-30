@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>El Trazo · Café de Barrio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "paper": "#F7F5F0",
+        "ink": "#2C2C2C",
+        "stone": "#6B6560",
+        "terra": "#C17767",
+        "moss": "#5E6B5A",
+        "chalk": "#E8E4DD",
+      },
+      fontFamily: {
+        "serif": ["Newsreader", "Georgia", "serif"],
+        "sans": ["Jost", "sans-serif"],
+        "mono": ["IBM Plex Mono", "monospace"],
+      },
+    }
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Jost", sans-serif; background: #F7F5F0; color: #2C2C2C; overflow-x: hidden; cursor: none; }
+  @media (pointer: coarse) { body { cursor: auto; } }
+
+  /* Paper texture overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Custom cursor */
+  .cursor-dot {
+    width: 8px; height: 8px;
+    background: #C17767;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border 0.25s ease;
+  }
+  .cursor-dot.ring {
+    width: 32px; height: 32px;
+    background: transparent;
+    border: 2px solid #C17767;
+  }
+
+  /* Hand-drawn underline SVG animation */
+  .underline-draw { stroke-dasharray: 300; stroke-dashoffset: 300; transition: stroke-dashoffset 0.4s ease; }
+  .draw-active .underline-draw, a:hover .underline-draw { stroke-dashoffset: 0; }
+
+  /* Organic border-radius (like rubber stamps) */
+  .organic { border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; }
+  .organic-alt { border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px; }
+  .organic-sm { border-radius: 30px 4px 28px 4px / 4px 28px 4px 30px; }
+
+  /* Washi tape corners */
+  .washi { position: relative; }
+  .washi::before, .washi::after {
+    content: "";
+    position: absolute;
+    width: 48px; height: 16px;
+    background: #C1776740;
+    transform: rotate(-4deg);
+    z-index: 2;
+  }
+  .washi::before { top: -6px; left: 12px; transform: rotate(-3deg); }
+  .washi::after { bottom: -6px; right: 12px; transform: rotate(2deg); }
+
+  /* Coffee stain */
+  .coffee-stain {
+    position: absolute;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #C1776718 0%, #C1776708 40%, transparent 70%);
+    pointer-events: none;
+    animation: stainGrow 2s ease-out forwards;
+    opacity: 0;
+  }
+  @keyframes stainGrow {
+    0% { transform: scale(0.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Fade-in stagger */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px) rotate(1deg);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+
+  /* Menu item photo popup */
+  .menu-photo {
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-3deg) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .menu-item:hover .menu-photo {
+    opacity: 1;
+    transform: translateY(-50%) rotate(-3deg) scale(1);
+  }
+
+  /* Nav dot separator */
+  .nav-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #C17767;
+    display: inline-block;
+  }
+
+  /* Dashed line (hand-drawn) */
+  .hand-dash {
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2 Q10 0 20 2 Q30 4 40 2 Q50 0 60 2 Q70 4 80 2 Q90 0 100 2 Q110 4 120 2 Q130 0 140 2 Q150 4 160 2 Q170 0 180 2 Q190 4 200 2' stroke='%236B656040' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: 200px 4px;
+  }
+
+  /* Wavy footer line */
+  .wavy-line {
+    background-image: url("data:image/svg+xml,%3Csvg width='400' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 Q25 0 50 6 Q75 12 100 6 Q125 0 150 6 Q175 12 200 6 Q225 0 250 6 Q275 12 300 6 Q325 0 350 6 Q375 12 400 6' stroke='%236B656030' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 400px 12px;
+    height: 12px;
+  }
+
+  /* Pencil smudge separator */
+  .smudge {
+    width: 120px; height: 8px;
+    background: radial-gradient(ellipse, #6B656015 0%, transparent 70%);
+    margin: 0 auto;
+  }
+
+  /* Form field hand-drawn bottom line */
+  .field-line {
+    border: none;
+    border-bottom: 2.5px solid #6B656040;
+    border-image: url("data:image/svg+xml,%3Csvg width='200' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 3 Q8 1 16 3 Q24 5 32 3 Q40 1 48 3 Q56 5 64 3 Q72 1 80 3 Q88 5 96 3 Q104 1 112 3 Q120 5 128 3 Q136 1 144 3 Q152 5 160 3 Q168 1 176 3 Q184 5 192 3 Q200 1 200 3' stroke='%236B6560' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") 0 0 2 0 / 0 0 3px 0 stretch;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  .field-line:focus { border-bottom-color: #C17767; }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+  ::selection { background: #C1776740; color: #2C2C2C; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in { opacity: 1; transform: none; transition: none; }
+    .coffee-stain { animation: none; opacity: 1; transform: scale(1); }
+    .underline-draw { stroke-dashoffset: 0; transition: none; }
+    .cursor-dot { display: none; }
+    body { cursor: auto; }
+    .menu-photo { transition: none; }
+  }
+</style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+<!-- Custom Cursor -->
+<div class="cursor-dot hidden md:block" id="cursor"></div>
+
+<!-- ============================================ -->
+<!-- NAVBAR -->
+<!-- ============================================ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
+  <div class="flex items-center justify-between px-6 md:px-16 lg:px-24 py-5">
+    <!-- Logo -->
+    <a href="#" class="font-serif text-xl md:text-2xl font-medium text-ink tracking-tight italic">El Trazo</a>
+    <!-- Nav -->
+    <nav class="hidden md:flex items-center gap-2">
+      <a href="#menu" class="group relative font-sans text-sm text-stone hover:text-ink transition-colors px-3 py-1">
+        <span class="relative z-10" style="transform: translateY(0); transition: transform 0.2s ease;">Menú</span>
+        <svg class="absolute bottom-0 left-0 w-full h-[6px] overflow-visible" viewBox="0 0 100 6" preserveAspectRatio="none"><path class="underline-draw" d="M2 4 Q15 1 30 3.5 Q50 6 70 3 Q85 1 98 4" stroke="#C17767" stroke-width="2" fill="none" stroke-linecap="round" stroke-opacity="0.8"/></svg>
+      </a>
+      <span class="nav-dot"></span>
+      <a href="#tostador" class="group relative font-sans text-sm text-stone hover:text-ink transition-colors px-3 py-1">
+        <span>Tostador</span>
+        <svg class="absolute bottom-0 left-0 w-full h-[6px] overflow-visible" viewBox="0 0 100 6" preserveAspectRatio="none"><path class="underline-draw" d="M2 3 Q20 6 40 3 Q60 0 80 4 Q90 5 98 3" stroke="#C17767" stroke-width="2" fill="none" stroke-linecap="round" stroke-opacity="0.8"/></svg>
+      </a>
+      <span class="nav-dot"></span>
+      <a href="#historia" class="group relative font-sans text-sm text-stone hover:text-ink transition-colors px-3 py-1">
+        <span>Historia</span>
+        <svg class="absolute bottom-0 left-0 w-full h-[6px] overflow-visible" viewBox="0 0 100 6" preserveAspectRatio="none"><path class="underline-draw" d="M2 4 Q25 1 50 4 Q75 6 98 3" stroke="#C17767" stroke-width="2" fill="none" stroke-linecap="round" stroke-opacity="0.8"/></svg>
+      </a>
+      <span class="nav-dot"></span>
+      <a href="#visitanos" class="group relative font-sans text-sm text-stone hover:text-ink transition-colors px-3 py-1">
+        <span>Visítanos</span>
+        <svg class="absolute bottom-0 left-0 w-full h-[6px] overflow-visible" viewBox="0 0 100 6" preserveAspectRatio="none"><path class="underline-draw" d="M2 3.5 Q30 6 50 3 Q70 1 98 4" stroke="#C17767" stroke-width="2" fill="none" stroke-linecap="round" stroke-opacity="0.8"/></svg>
+      </a>
+    </nav>
+    <!-- CTA -->
+    <a href="#visitanos" class="hidden md:inline-flex items-center justify-center organic-sm px-5 py-2.5 border-2 border-terra text-terra font-mono text-xs tracking-wider hover:bg-terra hover:text-paper transition-all duration-300">
+      RESERVAR MESA
+    </a>
+    <!-- Mobile -->
+    <button class="md:hidden text-ink" id="mobileBtn" aria-label="Menú">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="fixed inset-0 bg-paper/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300">
+  <a href="#menu" class="font-serif text-3xl text-ink mobile-link">Menú</a>
+  <a href="#tostador" class="font-serif text-3xl text-ink mobile-link">Tostador</a>
+  <a href="#historia" class="font-serif text-3xl text-ink mobile-link">Historia</a>
+  <a href="#visitanos" class="font-serif text-3xl text-ink mobile-link">Visítanos</a>
+  <button id="mobileClose" class="absolute top-6 right-6 text-ink" aria-label="Cerrar">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6l12 12"/></svg>
+  </button>
+</div>
+
+
+<!-- ============================================ -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<section class="relative min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-24 pt-24 pb-16 overflow-hidden">
+  <!-- Coffee stain behind logo area -->
+  <div class="coffee-stain" style="top: 15%; left: 50%; transform: translateX(-50%) scale(0.3);"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+    <!-- Left: Text -->
+    <div class="flex-1 text-center lg:text-left" style="margin-left: -8px;">
+      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-normal text-ink leading-[1.1] tracking-tight mb-6" id="heroTitle">
+        Café de aquí,<br/>
+        <span class="relative inline-block">
+          para aquí.
+          <svg class="absolute -bottom-2 left-0 w-full h-[8px] overflow-visible" viewBox="0 0 200 8" preserveAspectRatio="none">
+            <path class="underline-draw draw-active" d="M4 5 Q30 2 60 5 Q90 8 120 4 Q150 1 180 5 Q190 6 196 4" stroke="#C17767" stroke-width="3" fill="none" stroke-linecap="round" stroke-opacity="0.8"/>
+          </svg>
+        </span>
+      </h1>
+      <p class="font-sans text-lg md:text-xl text-stone font-light leading-relaxed max-w-md mx-auto lg:mx-0 mb-10" style="line-height: 1.7;">
+        Tostamos cada martes. Servimos cada día.<br/>
+        Granos de origen, preparados con calma.
+      </p>
+      <!-- CTA: organic seal button -->
+      <div class="inline-block">
+        <a href="#menu" class="group relative inline-flex items-center justify-center w-40 h-40 md:w-44 md:h-44 rounded-full border-2 border-terra text-terra hover:bg-terra hover:text-paper transition-all duration-500" style="border-radius: 50% 48% 52% 49% / 49% 51% 48% 52%;" id="heroSeal">
+          <span class="font-mono text-xs tracking-[0.15em] text-center leading-relaxed">[ VER<br/>MENÚ ]</span>
+          <svg class="absolute inset-0 w-full h-full overflow-visible" viewBox="0 0 100 100">
+            <circle class="underline-draw" cx="50" cy="50" r="46" stroke="#C17767" stroke-width="1" fill="none" stroke-linecap="round" stroke-opacity="0.4" stroke-dasharray="300" stroke-dashoffset="300"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Photo with washi tape -->
+    <div class="flex-1 flex justify-center">
+      <div class="washi relative" style="transform: rotate(-1.5deg);">
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80&fit=crop&sat=-80&bri=5"
+          alt="Manos sirviendo café de goteo"
+          class="w-72 md:w-80 lg:w-96 h-auto object-cover shadow-lg"
+          style="border-radius: 4px; filter: sepia(0.15) contrast(0.95) brightness(1.02);"
+          loading="lazy"
+        />
+        <!-- Handwritten caption -->
+        <p class="absolute -bottom-10 right-4 font-serif italic text-sm text-stone" style="transform: rotate(2deg);">
+          — martes de tueste, 7am
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pencil smudge separator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+    <div class="smudge"></div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- MENÚ SECTION -->
+<!-- ============================================ -->
+<section id="menu" class="relative py-20 md:py-28 px-6 md:px-16 lg:px-24">
+  <div class="max-w-4xl mx-auto">
+    <!-- Section title -->
+    <div class="mb-16 fade-in" style="margin-left: 4px;">
+      <span class="font-mono text-[11px] text-stone tracking-[0.2em] uppercase">La carta</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-normal text-ink mt-2 tracking-tight">
+        Lo que hay
+        <span class="relative inline-block">
+          hoy.
+          <svg class="absolute -bottom-1 left-0 w-full h-[6px] overflow-visible" viewBox="0 0 80 6" preserveAspectRatio="none">
+            <path d="M2 4 Q20 1 40 3.5 Q60 6 78 3" stroke="#C17767" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+          </svg>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Café -->
+    <div class="mb-14">
+      <div class="flex items-center gap-3 mb-8 fade-in">
+        <span class="inline-flex items-center px-3 py-1 bg-moss/10 text-moss font-mono text-[10px] tracking-wider organic-sm">CAFÉ</span>
+        <div class="flex-1 h-px bg-stone/10"></div>
+      </div>
+
+      <!-- Menu items -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
+        <!-- Item 1 -->
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0s;">
+          <div class="menu-photo w-20 h-20 rounded-lg overflow-hidden shadow-md hidden md:block" style="border-radius: 8px 4px 12px 4px;">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=160&q=70&fit=crop" alt="Americano" class="w-full h-full object-cover" style="filter: sepia(0.1);" loading="lazy"/>
+          </div>
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">Americano de la casa</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Grano de Oaxaca, tueste medio. Notas de chocolate y nuez.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$55</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0.1s;">
+          <div class="menu-photo w-20 h-20 rounded-lg overflow-hidden shadow-md hidden md:block" style="border-radius: 12px 4px 8px 4px;">
+            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=160&q=70&fit=crop" alt="Latte" class="w-full h-full object-cover" style="filter: sepia(0.1);" loading="lazy"/>
+          </div>
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">Latte con leche de avena</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Espresso doble, espuma sedosa. Opción de vainilla artesanal.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$72</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0.2s;">
+          <div class="menu-photo w-20 h-20 rounded-lg overflow-hidden shadow-md hidden md:block" style="border-radius: 6px 10px 4px 12px;">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=160&q=70&fit=crop" alt="V60" class="w-full h-full object-cover" style="filter: sepia(0.1);" loading="lazy"/>
+          </div>
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">V60 del día</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Método de goteo. El grano rota cada semana. Pregunta cuál hay.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$68</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0.3s;">
+          <div class="menu-photo w-20 h-20 rounded-lg overflow-hidden shadow-md hidden md:block" style="border-radius: 10px 6px 8px 4px;">
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=160&q=70&fit=crop" alt="Cold brew" class="w-full h-full object-cover" style="filter: sepia(0.1);" loading="lazy"/>
+          </div>
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">Cold brew 12 horas</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Extracción en frío. Suave, dulce natural. Con hielo de café.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$78</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panadería -->
+    <div class="mb-14">
+      <div class="flex items-center gap-3 mb-8 fade-in">
+        <span class="inline-flex items-center px-3 py-1 bg-terra/10 text-terra font-mono text-[10px] tracking-wider organic-sm">PANADERÍA</span>
+        <div class="flex-1 h-px bg-stone/10"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0s;">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">Croissant de almendra</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Hojaldrado, relleno de crema de almendra. Horneado a las 7am.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$65</span>
+          </div>
+        </div>
+
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0.1s;">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">Pan de plátano y nuez</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Receta de la abuela. Húmedo, con trocitos de nuez de Castilla.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$48</span>
+          </div>
+        </div>
+
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0.2s;">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">Galleta de avena y pasas</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Crujiente por fuera, suave por dentro. Sin azúcar refinada.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$35</span>
+          </div>
+        </div>
+
+        <div class="menu-item relative hand-dash py-5 fade-in" style="transition-delay: 0.3s;">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-serif text-xl md:text-2xl text-ink">Focaccia de romero</h3>
+              <p class="font-sans text-sm text-stone mt-1" style="line-height: 1.7;">Con aceite de oliva, sal de mar y romero del huerto.</p>
+            </div>
+            <span class="font-mono text-base text-ink whitespace-nowrap" style="margin-top: -4px;">$58</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pasteles del día -->
+    <div class="fade-in">
+      <div class="organic bg-chalk/50 border border-stone/10 p-8 md:p-10" style="padding-left: 36px; padding-right: 28px;">
+        <span class="font-mono text-[10px] text-terra tracking-[0.2em] uppercase">✦ Pasteles del día</span>
+        <p class="font-serif text-xl text-ink mt-3 leading-relaxed">
+          Hoy: <span class="font-serif italic">Tarta de manzana con canela</span> y <span class="font-serif italic">Cheesecake de maracuyá</span>.
+        </p>
+        <p class="font-sans text-sm text-stone mt-2">Pregunta en barra. Se acaban rápido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- EL TOSTADOR (Dark section) -->
+<!-- ============================================ -->
+<section id="tostador" class="relative py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-ink overflow-hidden">
+  <!-- Chalkboard texture -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.7%27 numOctaves=%273%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E');"></div>
+
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="mb-16 fade-in">
+      <span class="font-mono text-[11px] text-moss tracking-[0.2em] uppercase">El tostador</span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-paper mt-3 tracking-tight leading-[1.1]">
+        De la tierra<br/>
+        <span class="relative inline-block">
+          a tu taza.
+          <svg class="absolute -bottom-2 left-0 w-full h-[8px] overflow-visible" viewBox="0 0 160 8" preserveAspectRatio="none">
+            <path d="M4 5 Q30 2 60 5 Q90 7 120 4 Q140 2 156 5" stroke="#5E6B5A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+          </svg>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Origin cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+      <!-- Oaxaca -->
+      <div class="fade-in rounded-lg border border-paper/10 p-6 md:p-8 hover:border-moss/30 transition-colors" style="transition-delay: 0s; border-radius: 12px 4px 16px 4px;">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-moss/20 flex items-center justify-center" style="border-radius: 50% 45% 55% 48%;">
+            <span class="font-serif text-lg text-moss">O</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl text-paper">Oaxaca</h3>
+            <span class="font-mono text-[10px] text-paper/40">Sierra Sur · 1,600 msnm</span>
+          </div>
+        </div>
+        <p class="font-sans text-sm text-paper/60 leading-relaxed" style="line-height: 1.7;">
+          Grano planchuela lavado. Notas de chocolate oscuro, nuez y un final cítrico suave. Tueste medio.
+        </p>
+        <div class="mt-4 flex items-center gap-2">
+          <span class="inline-block px-2 py-0.5 bg-moss/10 text-moss font-mono text-[9px] tracking-wider organic-sm">ORGÁNICO</span>
+          <span class="inline-block px-2 py-0.5 bg-paper/5 text-paper/40 font-mono text-[9px] tracking-wider organic-sm">LAVADO</span>
+        </div>
+      </div>
+
+      <!-- Chiapas -->
+      <div class="fade-in rounded-lg border border-paper/10 p-6 md:p-8 hover:border-moss/30 transition-colors" style="transition-delay: 0.1s; border-radius: 4px 14px 4px 12px; margin-top: 12px;">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-terra/20 flex items-center justify-center" style="border-radius: 48% 52% 46% 54%;">
+            <span class="font-serif text-lg text-terra">C</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl text-paper">Chiapas</h3>
+            <span class="font-mono text-[10px] text-paper/40">Soconusco · 1,200 msnm</span>
+          </div>
+        </div>
+        <p class="font-sans text-sm text-paper/60 leading-relaxed" style="line-height: 1.7;">
+          Bourbon natural. Dulce, con cuerpo medio. Notas de caramelo, cereza madura y miel de abeja.
+        </p>
+        <div class="mt-4 flex items-center gap-2">
+          <span class="inline-block px-2 py-0.5 bg-terra/10 text-terra font-mono text-[9px] tracking-wider organic-sm">NATURAL</span>
+          <span class="inline-block px-2 py-0.5 bg-paper/5 text-paper/40 font-mono text-[9px] tracking-wider organic-sm">BOURBON</span>
+        </div>
+      </div>
+
+      <!-- Veracruz -->
+      <div class="fade-in rounded-lg border border-paper/10 p-6 md:p-8 hover:border-moss/30 transition-colors" style="transition-delay: 0.2s; border-radius: 14px 6px 10px 4px;">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-paper/10 flex items-center justify-center" style="border-radius: 52% 48% 50% 46%;">
+            <span class="font-serif text-lg text-paper/70">V</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl text-paper">Veracruz</h3>
+            <span class="font-mono text-[10px] text-paper/40">Coatepec · 1,400 msnm</span>
+          </div>
+        </div>
+        <p class="font-sans text-sm text-paper/60 leading-relaxed" style="line-height: 1.7;">
+          Typica lavado. Clásico mexicano. Cuerpo ligero, acidez brillante. Notas de piloncillo y almendra.
+        </p>
+        <div class="mt-4 flex items-center gap-2">
+          <span class="inline-block px-2 py-0.5 bg-moss/10 text-moss font-mono text-[9px] tracking-wider organic-sm">ORGÁNICO</span>
+          <span class="inline-block px-2 py-0.5 bg-paper/5 text-paper/40 font-mono text-[9px] tracking-wider organic-sm">TYPICA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hand-drawn map placeholder -->
+    <div class="fade-in text-center">
+      <div class="inline-block border border-paper/10 rounded-lg p-8 md:p-12" style="border-radius: 20px 8px 24px 8px;">
+        <!-- Simplified SVG map of Mexico with trembling lines -->
+        <svg viewBox="0 0 400 220" class="w-full max-w-md mx-auto" fill="none" stroke="#F7F5F060" stroke-width="1.5" stroke-linecap="round">
+          <!-- Simplified Mexico outline with wobbly lines -->
+          <path d="M80 40 Q85 38 95 42 Q110 35 130 38 Q150 32 170 36 Q190 30 210 35 Q230 32 250 38 Q260 36 270 42 Q280 45 285 55 Q290 65 285 80 Q280 95 270 105 Q260 110 250 108 Q240 115 230 120 Q220 130 210 140 Q200 150 190 155 Q180 158 170 152 Q160 148 150 155 Q140 162 130 158 Q120 155 115 148 Q108 140 100 135 Q90 130 85 120 Q78 110 75 95 Q72 80 75 65 Q78 50 80 40Z" stroke-dasharray="4 3"/>
+          <!-- Origin dots -->
+          <circle cx="175" cy="130" r="6" fill="#5E6B5A" stroke="none" opacity="0.8"/>
+          <text x="175" y="148" text-anchor="middle" fill="#5E6B5A" font-family="IBM Plex Mono" font-size="8" opacity="0.7">Oaxaca</text>
+          <circle cx="195" cy="140" r="6" fill="#C17767" stroke="none" opacity="0.8"/>
+          <text x="195" y="158" text-anchor="middle" fill="#C17767" font-family="IBM Plex Mono" font-size="8" opacity="0.7">Chiapas</text>
+          <circle cx="210" cy="95" r="6" fill="#F7F5F0" stroke="none" opacity="0.5"/>
+          <text x="210" y="88" text-anchor="middle" fill="#F7F5F080" font-family="IBM Plex Mono" font-size="8">Veracruz</text>
+          <!-- Trembling connection lines -->
+          <path d="M175 130 Q185 120 195 140" stroke="#C1776740" stroke-width="1" stroke-dasharray="3 2"/>
+          <path d="M195 140 Q200 115 210 95" stroke="#F7F5F020" stroke-width="1" stroke-dasharray="3 2"/>
+        </svg>
+        <p class="font-mono text-[10px] text-paper/30 mt-4 tracking-wider">ORIGEN DIRECTO · SIN INTERMEDIARIOS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- HISTORIA SECTION -->
+<!-- ============================================ -->
+<section id="historia" class="relative py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-paper">
+  <div class="max-w-4xl mx-auto">
+    <div class="mb-12 fade-in">
+      <span class="font-mono text-[11px] text-stone tracking-[0.2em] uppercase">Nuestra historia</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Photo -->
+      <div class="fade-in">
+        <div class="relative" style="transform: rotate(1deg);">
+          <img
+            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80&fit=crop"
+            alt="Interior de la cafetería"
+            class="w-full h-auto shadow-md"
+            style="border-radius: 8px 4px 12px 6px; filter: sepia(0.1) contrast(0.95);"
+            loading="lazy"
+          />
+          <!-- Washi tape top-right -->
+          <div class="absolute -top-2 right-8 w-12 h-4 bg-moss/20" style="transform: rotate(3deg);"></div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="fade-in" style="transition-delay: 0.15s;">
+        <h2 class="font-serif text-3xl md:text-4xl text-ink leading-[1.2] mb-6">
+          Empezamos con una mesa,<br/>
+          <span class="relative inline-block">
+            dos sillas
+            <svg class="absolute -bottom-1 left-0 w-full h-[6px] overflow-visible" viewBox="0 0 120 6" preserveAspectRatio="none">
+              <path d="M2 4 Q30 1 60 3.5 Q90 6 118 3" stroke="#C17767" stroke-width="2" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+            </svg>
+          </span>
+          y un molino.
+        </h2>
+        <div class="space-y-4">
+          <p class="font-sans text-base text-stone leading-relaxed" style="line-height: 1.7;">
+            En 2019, Ana y Miguel dejaron sus trabajos de oficina con una idea simple: hacer café como se hacía antes. Sin prisas, sin fórmulas, sin pantallas entre la persona y la taza.
+          </p>
+          <p class="font-sans text-base text-stone leading-relaxed" style="line-height: 1.7;">
+            Encontraron un local pequeño en la colonia Centro. Pintaron las paredes, lijaron las mesas y compraron un tostador de segunda mano. El primer martes tostaron 5 kilos. Hoy tuestan 80, pero siguen haciéndolo cada martes.
+          </p>
+          <p class="font-sans text-base text-stone leading-relaxed" style="line-height: 1.7;">
+            El Trazo no es una franquicia ni una marca. Es un lugar donde las tazas tienen marcas de uso y las sillas suenan al sentarte. Y eso está bien.
+          </p>
+        </div>
+        <div class="mt-8 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full overflow-hidden" style="border-radius: 50% 48% 52% 49%;">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&q=70&fit=crop&facepad=2" alt="Ana" class="w-full h-full object-cover" style="filter: sepia(0.1);" loading="lazy"/>
+          </div>
+          <div>
+            <span class="font-serif text-sm text-ink italic">Ana & Miguel</span>
+            <span class="font-mono text-[10px] text-stone block">Fundadores, desde 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- VISÍTANOS / RESERVA -->
+<!-- ============================================ -->
+<section id="visitanos" class="relative py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-chalk/30">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+      <!-- Left: Info -->
+      <div class="fade-in">
+        <span class="font-mono text-[11px] text-stone tracking-[0.2em] uppercase">Visítanos</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-ink mt-3 mb-8 leading-[1.2]">
+          Te guardamos
+          <span class="relative inline-block">
+            una mesa.
+            <svg class="absolute -bottom-1 left-0 w-full h-[6px] overflow-visible" viewBox="0 0 140 6" preserveAspectRatio="none">
+              <path d="M2 4 Q35 1 70 4 Q105 7 138 3" stroke="#C17767" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+            </svg>
+          </span>
+        </h2>
+
+        <div class="space-y-6">
+          <div>
+            <span class="font-mono text-[10px] text-terra tracking-wider uppercase">Dirección</span>
+            <p class="font-mono text-sm text-ink mt-1">Calle 5 de Mayo #42, Col. Centro<br/>Tehuacán, Puebla, México</p>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] text-terra tracking-wider uppercase">Horario</span>
+            <p class="font-mono text-sm text-ink mt-1">Lunes a Viernes · 7:00 — 20:00<br/>Sábado · 8:00 — 21:00<br/>Domingo · 8:00 — 15:00</p>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] text-terra tracking-wider uppercase">Contacto</span>
+            <p class="font-mono text-sm text-ink mt-1">hola@eltrazo.cafe<br/>+52 238 123 4567</p>
+          </div>
+        </div>
+
+        <!-- Small photo -->
+        <div class="mt-8" style="transform: rotate(-1deg);">
+          <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&q=75&fit=crop"
+            alt="Fachada de El Trazo"
+            class="w-full max-w-xs h-auto shadow-md"
+            style="border-radius: 6px 4px 10px 4px; filter: sepia(0.12) contrast(0.95);"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right: Reservation form -->
+      <div class="fade-in" style="transition-delay: 0.1s;">
+        <div class="organic bg-paper border border-stone/10 p-8 md:p-10 shadow-sm">
+          <h3 class="font-serif text-2xl text-ink mb-2">Reserva tu mesa</h3>
+          <p class="font-sans text-sm text-stone mb-8" style="line-height: 1.7;">Solo necesitamos tres cosas. Lo demás lo platicamos cuando llegues.</p>
+
+          <form id="reservaForm" class="space-y-8" onsubmit="return false;">
+            <div>
+              <label for="nombre" class="font-mono text-[10px] text-stone tracking-wider uppercase block mb-2">Tu nombre</label>
+              <input type="text" id="nombre" class="field-line w-full py-2 font-sans text-ink text-base" placeholder="Ana García" required/>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <label for="personas" class="font-mono text-[10px] text-stone tracking-wider uppercase block mb-2">Personas</label>
+                <input type="number" id="personas" min="1" max="12" value="2" class="field-line w-full py-2 font-sans text-ink text-base"/>
+              </div>
+              <div>
+                <label for="hora" class="font-mono text-[10px] text-stone tracking-wider uppercase block mb-2">Hora</label>
+                <input type="time" id="hora" value="10:00" class="field-line w-full py-2 font-sans text-ink text-base"/>
+              </div>
+            </div>
+            <div>
+              <label for="fecha" class="font-mono text-[10px] text-stone tracking-wider uppercase block mb-2">Fecha</label>
+              <input type="date" id="fecha" class="field-line w-full py-2 font-sans text-ink text-base"/>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="submitBtn" class="w-full py-4 border-2 border-terra text-terra font-mono text-sm tracking-wider hover:bg-terra hover:text-paper transition-all duration-300 organic-sm relative overflow-hidden">
+              <span id="btnText">GUARDAR MI MESA</span>
+              <span id="btnSuccess" class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 bg-moss text-paper font-mono text-sm tracking-wider">¡LISTO, TE ESPERAMOS!</span>
+            </button>
+
+            <!-- Error message -->
+            <p id="formError" class="font-sans text-sm text-terra opacity-0 transition-opacity duration-300 flex items-center gap-2">
+              <svg class="w-4 h-4 inline" viewBox="0 0 100 6" preserveAspectRatio="none"><path d="M2 3 Q10 1 20 4 Q30 2 40 5 Q50 1 60 4 Q70 2 80 5 Q90 1 98 3" stroke="#C17767" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              Ups, parece que falta tu nombre.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="py-16 px-6 md:px-16 lg:px-24 bg-paper">
+  <div class="max-w-4xl mx-auto">
+    <!-- Wavy torn-page line -->
+    <div class="wavy-line mb-12"></div>
+
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div>
+        <span class="font-serif text-2xl italic text-ink">El Trazo</span>
+        <p class="font-mono text-[11px] text-stone mt-2">Calle 5 de Mayo #42, Col. Centro<br/>Tehuacán, Puebla</p>
+      </div>
+      <div class="text-right">
+        <p class="font-mono text-[11px] text-stone">L-V 7:00–20:00 · S 8:00–21:00 · D 8:00–15:00</p>
+        <p class="font-mono text-[11px] text-stone mt-1">hola@eltrazo.cafe</p>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="font-mono text-[9px] text-stone/40 tracking-wider">© 2026 EL TRAZO CAFÉ. TODOS LOS DERECHOS RESERVADOS.</span>
+      <span class="font-mono text-[9px] text-stone/40 tracking-wider">HECHO CON CALMA POR SWIFT SERVICE</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- DEMO BANNER -->
+<!-- ============================================ -->
+<div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-paper/90 backdrop-blur-md border border-stone/15 shadow-lg flex items-center gap-3" style="border-radius: 30px 8px 28px 8px;">
+  <span class="w-2 h-2 bg-terra rounded-full animate-pulse"></span>
+  <span class="font-mono text-[11px] text-stone">Esto es una demo.</span>
+  <a href="#" class="font-mono text-[11px] text-terra font-medium hover:underline">¿Quieres algo así? →</a>
+</div>
+
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+(function() {
+  'use strict';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- CUSTOM CURSOR ----
+  const cursor = document.getElementById('cursor');
+  if (cursor && window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    const interactives = document.querySelectorAll('a, button, input, textarea, select, .menu-item');
+    interactives.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('ring'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('ring'));
+    });
+  }
+
+  // ---- NAVBAR SCROLL ----
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.style.background = 'rgba(247,245,240,0.92)';
+      navbar.style.backdropFilter = 'blur(8px)';
+      navbar.style.webkitBackdropFilter = 'blur(8px)';
+      navbar.style.boxShadow = '0 1px 0 rgba(107,101,96,0.08)';
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // ---- MOBILE MENU ----
+  const mobileBtn = document.getElementById('mobileBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.style.opacity = '1';
+      mobileMenu.style.pointerEvents = 'auto';
+    });
+    const close = () => { mobileMenu.style.opacity = '0'; mobileMenu.style.pointerEvents = 'none'; };
+    mobileClose.addEventListener('click', close);
+    mobileMenu.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', close));
+  }
+
+  // ---- HERO SEAL ROTATION ON HOVER ----
+  const seal = document.getElementById('heroSeal');
+  if (seal && !prefersReduced) {
+    seal.addEventListener('mouseenter', () => { seal.style.transform = 'rotate(5deg)'; });
+    seal.addEventListener('mouseleave', () => { seal.style.transform = 'rotate(0deg)'; });
+  }
+
+  // ---- COFFEE STAIN GROW ----
+  // Already handled by CSS animation on load
+
+  // ---- SCROLL REVEAL (fade-in with stagger) ----
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Respect the transition-delay already set in style attribute
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => revealObserver.observe(el));
+
+  // ---- MENU ITEM HOVER: nav link lift ----
+  document.querySelectorAll('nav a span').forEach(span => {
+    if (prefersReduced) return;
+    const parent = span.closest('a');
+    parent.addEventListener('mouseenter', () => { span.style.transform = 'translateY(-2px)'; });
+    parent.addEventListener('mouseleave', () => { span.style.transform = 'translateY(0)'; });
+  });
+
+  // ---- PHOTO TILT ON HOVER ----
+  document.querySelectorAll('.washi img, #historia img').forEach(img => {
+    if (prefersReduced) return;
+    img.addEventListener('mouseenter', () => {
+      const deg = (Math.random() * 4 - 2).toFixed(1);
+      img.style.transform = `rotate(${deg}deg) scale(1.02)`;
+      img.style.transition = 'transform 0.4s ease';
+    });
+    img.addEventListener('mouseleave', () => {
+      img.style.transform = '';
+    });
+  });
+
+  // ---- RESERVATION FORM ----
+  const form = document.getElementById('reservaForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const btnSuccess = document.getElementById('btnSuccess');
+  const formError = document.getElementById('formError');
+  const nombreInput = document.getElementById('nombre');
+
+  if (form) {
+    submitBtn.addEventListener('click', () => {
+      if (!nombreInput.value.trim()) {
+        formError.style.opacity = '1';
+        nombreInput.focus();
+        setTimeout(() => { formError.style.opacity = '0'; }, 3000);
+        return;
+      }
+      formError.style.opacity = '0';
+      // Success animation: strikethrough text + show success
+      btnText.style.textDecoration = 'line-through';
+      btnText.style.opacity = '0.3';
+      setTimeout(() => {
+        btnSuccess.style.opacity = '1';
+      }, 300);
+      // Reset after 3s
+      setTimeout(() => {
+        btnText.style.textDecoration = 'none';
+        btnText.style.opacity = '1';
+        btnSuccess.style.opacity = '0';
+      }, 3500);
+    });
+  }
+
+  // ---- SET DEFAULT DATE TO TODAY ----
+  const fechaInput = document.getElementById('fecha');
+  if (fechaInput) {
+    const today = new Date().toISOString().split('T')[0];
+    fechaInput.value = today;
+  }
+
+  // ---- HERO TITLE SUBTLE ENTRANCE ----
+  if (!prefersReduced) {
+    const heroTitle = document.getElementById('heroTitle');
+    if (heroTitle) {
+      heroTitle.style.opacity = '0';
+      heroTitle.style.transform = 'translateY(12px)';
+      heroTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      setTimeout(() => {
+        heroTitle.style.opacity = '1';
+        heroTitle.style.transform = 'translateY(0)';
+      }, 200);
+    }
+  }
+
+  // ---- UNDERLINE DRAW ON HERO (auto-trigger) ----
+  const heroUnderlines = document.querySelectorAll('#heroTitle .underline-draw');
+  heroUnderlines.forEach(path => {
+    if (prefersReduced) {
+      path.style.strokeDashoffset = '0';
+      return;
+    }
+    setTimeout(() => {
+      path.style.strokeDashoffset = '0';
+    }, 1000);
+  });
+
+})();
+</script>
+
+</body>
+</html>

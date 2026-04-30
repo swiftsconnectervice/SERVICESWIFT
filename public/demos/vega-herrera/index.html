@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vega, Herrera & Asociados · Derecho Corporativo & Litigios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "base": "#0A0C10",
+        "base-alt": "#14171E",
+        "border-s": "#1A1D23",
+        "bone": "#E2E2DF",
+        "steel": "#6B7280",
+        "bronze": "#B8956A",
+        "slate-d": "#4A5568",
+      },
+      fontFamily: {
+        "serif": ["Playfair Display", "Georgia", "serif"],
+        "sans": ["Inter", "sans-serif"],
+        "mono": ["JetBrains Mono", "monospace"],
+      },
+    }
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Inter", sans-serif; background: #0A0C10; color: #E2E2DF; overflow-x: hidden; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: #B8956A40; color: #E2E2DF; }
+
+  /* Loading bar */
+  .load-bar {
+    position: fixed; top: 0; left: 0; height: 1px; background: #B8956A;
+    z-index: 9999; animation: loadProgress 0.8s linear forwards;
+  }
+  @keyframes loadProgress { 0% { width: 0; } 100% { width: 100%; opacity: 0; } }
+
+  /* Staggered fade (opacity only, no movement) */
+  .fade-s { opacity: 0; transition: opacity 0.2s linear; }
+  .fade-s.visible { opacity: 1; }
+
+  /* Section divider line draw */
+  .divider-line {
+    height: 1px; background: #1A1D23; position: relative; overflow: hidden;
+  }
+  .divider-line::after {
+    content: ""; position: absolute; top: 0; left: 0; height: 1px; width: 0;
+    background: #4A5568; transition: width 0.4s linear;
+  }
+  .divider-line.drawn::after { width: 100%; }
+
+  /* CTA underline extend */
+  .cta-line {
+    display: inline-block; position: relative; cursor: pointer;
+  }
+  .cta-line::after {
+    content: ""; position: absolute; bottom: -4px; left: 0;
+    width: 100%; height: 1px; background: #B8956A;
+    transition: width 0.3s linear;
+  }
+  .cta-line:hover::after { width: calc(100% + 20px); }
+
+  /* Practice area left border */
+  .practice-col {
+    position: relative; transition: background-color 0.15s linear;
+  }
+  .practice-col::before {
+    content: ""; position: absolute; top: 0; left: 0; bottom: 0;
+    width: 0; background: #B8956A; transition: width 0.1s linear;
+  }
+  .practice-col:hover { background: #1A1D23; }
+  .practice-col:hover::before { width: 2px; }
+
+  /* Case row */
+  .case-row { transition: color 0.15s linear; }
+  .case-row .case-arrow { opacity: 0; transform: translateX(-4px); transition: opacity 0.15s linear, transform 0.15s linear; }
+  .case-row:hover .case-client { color: #B8956A; }
+  .case-row:hover .case-arrow { opacity: 1; transform: translateX(0); }
+
+  /* Team portrait */
+  .portrait-wrap img { transition: filter 0.15s linear; }
+  .portrait-wrap:hover img { filter: brightness(0.9); }
+  .portrait-line { width: 0; height: 1px; background: #B8956A; transition: width 0.15s linear; }
+  .portrait-wrap:hover .portrait-line { width: 100%; }
+
+  /* Form field */
+  .field-legal {
+    border: none; border-bottom: 1px solid #4A5568; background: transparent;
+    outline: none; color: #E2E2DF; font-family: "Inter", sans-serif;
+    font-size: 15px; width: 100%; padding: 12px 0 8px 0;
+    transition: border-color 0.15s linear;
+  }
+  .field-legal:focus { border-bottom-color: #B8956A; }
+  .field-legal::placeholder { color: transparent; }
+
+  /* Floating label */
+  .field-group { position: relative; }
+  .field-label {
+    position: absolute; left: 0; top: 12px;
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: #6B7280; pointer-events: none;
+    transition: top 0.1s linear, font-size 0.1s linear;
+  }
+  .field-legal:focus ~ .field-label,
+  .field-legal:not(:placeholder-shown) ~ .field-label {
+    top: -10px; font-size: 9px;
+  }
+
+  /* Submit button */
+  .btn-submit {
+    position: relative; display: inline-flex; align-items: center;
+    font-family: "JetBrains Mono", monospace; font-size: 12px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #B8956A; background: transparent; border: none;
+    padding: 12px 0; cursor: pointer;
+    transition: color 0.15s linear, background 0.15s linear;
+  }
+  .btn-submit::before, .btn-submit::after {
+    content: ""; position: absolute; left: 0; right: 0;
+    height: 1px; background: #B8956A;
+  }
+  .btn-submit::before { top: 0; }
+  .btn-submit::after { bottom: 0; }
+  .btn-submit:hover {
+    background: #B8956A; color: #0A0C10;
+    padding: 12px 24px;
+  }
+  .btn-submit.disabled {
+    color: #4A5568; cursor: default;
+  }
+  .btn-submit.disabled::before, .btn-submit.disabled::after { background: #4A5568; }
+  .btn-submit.disabled:hover { background: transparent; color: #4A5568; padding: 12px 0; }
+
+  /* Field error */
+  .field-error {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    color: #6B7280; margin-top: 4px; opacity: 0;
+    transition: opacity 0.15s linear;
+  }
+  .field-error.show { opacity: 1; }
+
+  /* Hamburger */
+  .ham-line {
+    display: block; width: 24px; height: 1px; background: #6B7280;
+    transition: transform 0.2s linear, opacity 0.2s linear;
+  }
+  .ham-open .ham-line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .ham-open .ham-line:nth-child(2) { opacity: 0; }
+  .ham-open .ham-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Keyboard focus */
+  :focus-visible { outline: 1px solid #B8956A; outline-offset: 2px; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-s { opacity: 1; transition: none; }
+    .divider-line::after { width: 100%; transition: none; }
+    .load-bar { animation: none; width: 100%; opacity: 0; }
+  }
+</style>
+</head>
+<body class="bg-base text-bone antialiased">
+
+<!-- Loading bar -->
+<div class="load-bar" aria-hidden="true"></div>
+
+<!-- ============================================ -->
+<!-- NAVBAR -->
+<!-- ============================================ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-200" style="background: transparent;">
+  <div class="flex items-center justify-between px-6 md:px-12 lg:px-20 py-5">
+    <a href="#" class="font-serif text-lg text-bone tracking-tight">Vega, Herrera <span class="text-steel">&</span> Asociados</a>
+
+    <!-- Desktop nav (hidden by default, shown on scroll) -->
+    <nav id="desktopNav" class="hidden md:flex items-center gap-8 opacity-0 transition-opacity duration-200">
+      <a href="#firma" class="font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">LA FIRMA</a>
+      <a href="#areas" class="font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">ÁREAS</a>
+      <a href="#equipo" class="font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">EQUIPO</a>
+      <a href="#casos" class="font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">RESULTADOS</a>
+      <a href="#contacto" class="font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">CONTACTO</a>
+    </nav>
+
+    <!-- Hamburger -->
+    <button id="hamBtn" class="flex flex-col gap-[5px] p-2" aria-label="Menú de navegación">
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile / Full menu overlay -->
+<div id="menuOverlay" class="fixed inset-0 bg-base/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-opacity duration-200">
+  <a href="#firma" class="font-serif text-3xl text-bone menu-link">La Firma</a>
+  <a href="#areas" class="font-serif text-3xl text-bone menu-link">Áreas de Práctica</a>
+  <a href="#equipo" class="font-serif text-3xl text-bone menu-link">Equipo</a>
+  <a href="#casos" class="font-serif text-3xl text-bone menu-link">Resultados</a>
+  <a href="#contacto" class="font-serif text-3xl text-bone menu-link">Contacto</a>
+</div>
+
+
+<!-- ============================================ -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<section class="relative min-h-screen flex items-center px-6 md:px-12 lg:px-20 pt-20 pb-16 overflow-hidden">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center">
+    <!-- Left: Text -->
+    <div class="relative z-10 lg:pr-16">
+      <span class="fade-s font-mono text-[11px] text-steel tracking-[0.08em] uppercase block mb-6" style="transition-delay: 0.1s;">EST. 1987 — DERECHO CORPORATIVO & LITIGIOS</span>
+
+      <h1 class="fade-s font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-bone leading-[1.1] tracking-tight mb-8" style="transition-delay: 0.2s;">
+        La ley no admite interpretaciones vagas.<br/>
+        <em class="not-italic text-bone/90">Nosotros tampoco.</em>
+      </h1>
+
+      <p class="fade-s font-sans text-base md:text-lg text-steel font-light leading-relaxed max-w-lg mb-12" style="transition-delay: 0.3s; line-height: 1.65;">
+        Asesoría jurídica de alto nivel para empresas que operan en jurisdicciones complejas.
+      </p>
+
+      <div class="fade-s" style="transition-delay: 0.4s;">
+        <a href="#contacto" class="cta-line font-mono text-[12px] text-bone tracking-[0.08em] uppercase">[ CONSULTA CONFIDENCIAL ]</a>
+      </div>
+    </div>
+
+    <!-- Right: Architectural photo -->
+    <div class="fade-s relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[45%]" style="transition-delay: 0.3s;">
+      <img
+        src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&fit=crop"
+        alt="Detalle arquitectónico de edificio institucional con columnas de mármol"
+        class="w-full h-full object-cover"
+        style="filter: grayscale(1) contrast(1.3) brightness(0.7); min-height: 400px;"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-base via-base/60 to-transparent lg:block hidden"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent lg:hidden"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="divider-line w-full"></div>
+
+<!-- ============================================ -->
+<!-- LA FIRMA -->
+<!-- ============================================ -->
+<section id="firma" class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-base">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+      <div class="lg:col-span-1 fade-s">
+        <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">La Firma</span>
+      </div>
+      <div class="lg:col-span-2 space-y-6 fade-s" style="transition-delay: 0.08s;">
+        <h2 class="font-serif text-3xl md:text-4xl text-bone font-normal leading-[1.2] tracking-tight">
+          Más de tres décadas defendiendo los intereses de quienes construyen.
+        </h2>
+        <p class="font-sans text-base text-steel leading-relaxed" style="line-height: 1.65;">
+          Vega, Herrera & Asociados fue fundada en 1987 con una premisa que no ha cambiado: la excelencia jurídica no se negocia. Desde entonces, hemos representado a corporaciones nacionales e internacionales en las materias más complejas del derecho mercantil, fiscal y penal económico.
+        </p>
+        <p class="font-sans text-base text-steel leading-relaxed" style="line-height: 1.65;">
+          Operamos desde Ciudad de México con alcance en Nueva York, Madrid y São Paulo. Nuestro equipo combina rigor académico con experiencia práctica en tribunales, mesas de negociación y procesos regulatorios de alta sensibilidad.
+        </p>
+        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-border-s">
+          <div>
+            <span class="font-serif text-3xl md:text-4xl text-bronze">37</span>
+            <p class="font-mono text-[10px] text-steel tracking-wider mt-1 uppercase">Años de práctica</p>
+          </div>
+          <div>
+            <span class="font-serif text-3xl md:text-4xl text-bronze">4</span>
+            <p class="font-mono text-[10px] text-steel tracking-wider mt-1 uppercase">Jurisdicciones</p>
+          </div>
+          <div>
+            <span class="font-serif text-3xl md:text-4xl text-bronze">120+</span>
+            <p class="font-mono text-[10px] text-steel tracking-wider mt-1 uppercase">Casos corporativos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="divider-line w-full"></div>
+
+
+<!-- ============================================ -->
+<!-- ÁREAS DE PRÁCTICA -->
+<!-- ============================================ -->
+<section id="areas" class="py-20 md:py-28 bg-base-alt">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <div class="mb-16 fade-s">
+      <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">Áreas de Práctica</span>
+    </div>
+
+    <!-- 3-column grid with vertical dividers -->
+    <div class="grid grid-cols-1 md:grid-cols-3 divide-x-0 md:divide-x divide-border-s">
+      <!-- Col 1 -->
+      <div class="practice-col p-8 md:p-10 fade-s" style="transition-delay: 0s;">
+        <span class="font-serif text-4xl md:text-5xl text-bronze/80 block mb-6">01</span>
+        <h3 class="font-sans text-xl text-bone font-medium mb-4">Derecho Corporativo</h3>
+        <p class="font-sans text-[15px] text-steel leading-relaxed mb-8" style="line-height: 1.65;">
+          Fusiones, adquisiciones y reestructuraciones societarias de alta complejidad. Gobierno corporativo, joint ventures y due diligence para operaciones transfronterizas.
+        </p>
+        <a href="#contacto" class="inline-flex items-center gap-2 font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150 group" style="transition-timing-function: linear;">
+          VER MÁS <span class="inline-block transition-transform duration-150 group-hover:translate-x-1" style="transition-timing-function: linear;">→</span>
+        </a>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="practice-col p-8 md:p-10 fade-s" style="transition-delay: 0.08s;">
+        <span class="font-serif text-4xl md:text-5xl text-bronze/80 block mb-6">02</span>
+        <h3 class="font-sans text-xl text-bone font-medium mb-4">Litigio Estratégico</h3>
+        <p class="font-sans text-[15px] text-steel leading-relaxed mb-8" style="line-height: 1.65;">
+          Defensa y representación en litigios comerciales, arbitrajes internacionales y procedimientos ante tribunales federales. Estrategia procesal para disputas de alto valor.
+        </p>
+        <a href="#contacto" class="inline-flex items-center gap-2 font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150 group" style="transition-timing-function: linear;">
+          VER MÁS <span class="inline-block transition-transform duration-150 group-hover:translate-x-1" style="transition-timing-function: linear;">→</span>
+        </a>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="practice-col p-8 md:p-10 fade-s" style="transition-delay: 0.16s;">
+        <span class="font-serif text-4xl md:text-5xl text-bronze/80 block mb-6">03</span>
+        <h3 class="font-sans text-xl text-bone font-medium mb-4">Derecho Fiscal & Penal Económico</h3>
+        <p class="font-sans text-[15px] text-steel leading-relaxed mb-8" style="line-height: 1.65;">
+          Planeación fiscal internacional, defensa en auditorías y controversias tributarias. Representación en investigaciones por delitos financieros y lavado de activos.
+        </p>
+        <a href="#contacto" class="inline-flex items-center gap-2 font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150 group" style="transition-timing-function: linear;">
+          VER MÁS <span class="inline-block transition-transform duration-150 group-hover:translate-x-1" style="transition-timing-function: linear;">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Additional areas row -->
+    <div class="grid grid-cols-1 md:grid-cols-3 divide-x-0 md:divide-x divide-border-s border-t border-border-s">
+      <div class="practice-col p-8 md:p-10 fade-s" style="transition-delay: 0s;">
+        <span class="font-serif text-4xl md:text-5xl text-bronze/80 block mb-6">04</span>
+        <h3 class="font-sans text-xl text-bone font-medium mb-4">Regulación Financiera</h3>
+        <p class="font-sans text-[15px] text-steel leading-relaxed mb-8" style="line-height: 1.65;">
+          Cumplimiento normativo ante CNBV, Banxico y reguladores internacionales. Estructuración de instrumentos financieros y fondos de inversión.
+        </p>
+        <a href="#contacto" class="inline-flex items-center gap-2 font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150 group" style="transition-timing-function: linear;">
+          VER MÁS <span class="inline-block transition-transform duration-150 group-hover:translate-x-1" style="transition-timing-function: linear;">→</span>
+        </a>
+      </div>
+
+      <div class="practice-col p-8 md:p-10 fade-s" style="transition-delay: 0.08s;">
+        <span class="font-serif text-4xl md:text-5xl text-bronze/80 block mb-6">05</span>
+        <h3 class="font-sans text-xl text-bone font-medium mb-4">Propiedad Intelectual</h3>
+        <p class="font-sans text-[15px] text-steel leading-relaxed mb-8" style="line-height: 1.65;">
+          Registro, protección y litigio de marcas, patentes y derechos de autor. Estrategias de PI para empresas tecnológicas y farmacéuticas.
+        </p>
+        <a href="#contacto" class="inline-flex items-center gap-2 font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150 group" style="transition-timing-function: linear;">
+          VER MÁS <span class="inline-block transition-transform duration-150 group-hover:translate-x-1" style="transition-timing-function: linear;">→</span>
+        </a>
+      </div>
+
+      <div class="practice-col p-8 md:p-10 fade-s" style="transition-delay: 0.16s;">
+        <span class="font-serif text-4xl md:text-5xl text-bronze/80 block mb-6">06</span>
+        <h3 class="font-sans text-xl text-bone font-medium mb-4">Arbitraje Internacional</h3>
+        <p class="font-sans text-[15px] text-steel leading-relaxed mb-8" style="line-height: 1.65;">
+          Representación ante ICC, CIADI y centros de arbitraje nacionales. Ejecución de laudos y medidas cautelares en múltiples jurisdicciones.
+        </p>
+        <a href="#contacto" class="inline-flex items-center gap-2 font-mono text-[11px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150 group" style="transition-timing-function: linear;">
+          VER MÁS <span class="inline-block transition-transform duration-150 group-hover:translate-x-1" style="transition-timing-function: linear;">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="divider-line w-full"></div>
+
+
+<!-- ============================================ -->
+<!-- RESULTADOS RECIENTES -->
+<!-- ============================================ -->
+<section id="casos" class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-base">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 fade-s">
+      <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">Resultados Recientes</span>
+    </div>
+
+    <!-- Case list -->
+    <div class="border-t border-border-s">
+      <!-- Case 1 -->
+      <a href="#contacto" class="case-row grid grid-cols-12 items-center gap-4 py-8 md:py-10 border-b border-border-s fade-s group" style="transition-delay: 0s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">2025</span>
+        <span class="case-client col-span-5 md:col-span-4 font-sans text-[15px] text-bone transition-colors duration-150" style="transition-timing-function: linear;">Confidencial — Sector Financiero</span>
+        <span class="col-span-4 md:col-span-5 font-sans text-[15px] text-steel hidden md:block">Defensa exitosa en litigio por $120M USD</span>
+        <span class="col-span-3 md:col-span-1 font-mono text-[11px] text-steel tracking-wider text-right hidden md:block">CDMX</span>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right">→</span>
+      </a>
+
+      <!-- Case 2 -->
+      <a href="#contacto" class="case-row grid grid-cols-12 items-center gap-4 py-8 md:py-10 border-b border-border-s fade-s group" style="transition-delay: 0.06s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">2025</span>
+        <span class="case-client col-span-5 md:col-span-4 font-sans text-[15px] text-bone transition-colors duration-150" style="transition-timing-function: linear;">Grupo Industrial Norteño S.A.</span>
+        <span class="col-span-4 md:col-span-5 font-sans text-[15px] text-steel hidden md:block">Reestructuración societaria y fusión transfronteriza</span>
+        <span class="col-span-3 md:col-span-1 font-mono text-[11px] text-steel tracking-wider text-right hidden md:block">NY</span>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right">→</span>
+      </a>
+
+      <!-- Case 3 -->
+      <a href="#contacto" class="case-row grid grid-cols-12 items-center gap-4 py-8 md:py-10 border-b border-border-s fade-s group" style="transition-delay: 0.12s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">2024</span>
+        <span class="case-client col-span-5 md:col-span-4 font-sans text-[15px] text-bone transition-colors duration-150" style="transition-timing-function: linear;">Confidencial — Sector Energético</span>
+        <span class="col-span-4 md:col-span-5 font-sans text-[15px] text-steel hidden md:block">Arbitraje ICC — Resolución favorable por $85M USD</span>
+        <span class="col-span-3 md:col-span-1 font-mono text-[11px] text-steel tracking-wider text-right hidden md:block">MADRID</span>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right">→</span>
+      </a>
+
+      <!-- Case 4 -->
+      <a href="#contacto" class="case-row grid grid-cols-12 items-center gap-4 py-8 md:py-10 border-b border-border-s fade-s group" style="transition-delay: 0.18s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">2024</span>
+        <span class="case-client col-span-5 md:col-span-4 font-sans text-[15px] text-bone transition-colors duration-150" style="transition-timing-function: linear;">Farmacéutica del Pacífico</span>
+        <span class="col-span-4 md:col-span-5 font-sans text-[15px] text-steel hidden md:block">Defensa de patente y acuerdo de licenciamiento</span>
+        <span class="col-span-3 md:col-span-1 font-mono text-[11px] text-steel tracking-wider text-right hidden md:block">CDMX</span>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right">→</span>
+      </a>
+
+      <!-- Case 5 -->
+      <a href="#contacto" class="case-row grid grid-cols-12 items-center gap-4 py-8 md:py-10 border-b border-border-s fade-s group" style="transition-delay: 0.24s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">2024</span>
+        <span class="case-client col-span-5 md:col-span-4 font-sans text-[15px] text-bone transition-colors duration-150" style="transition-timing-function: linear;">Confidencial — Sector Inmobiliario</span>
+        <span class="col-span-4 md:col-span-5 font-sans text-[15px] text-steel hidden md:block">Due diligence y cierre de adquisición por $200M USD</span>
+        <span class="col-span-3 md:col-span-1 font-mono text-[11px] text-steel tracking-wider text-right hidden md:block">NY</span>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right">→</span>
+      </a>
+
+      <!-- Case 6 -->
+      <a href="#contacto" class="case-row grid grid-cols-12 items-center gap-4 py-8 md:py-10 fade-s group" style="transition-delay: 0.3s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">2023</span>
+        <span class="case-client col-span-5 md:col-span-4 font-sans text-[15px] text-bone transition-colors duration-150" style="transition-timing-function: linear;">Banco Continental del Sur</span>
+        <span class="col-span-4 md:col-span-5 font-sans text-[15px] text-steel hidden md:block">Cumplimiento regulatorio CNBV y reestructura de fondos</span>
+        <span class="col-span-3 md:col-span-1 font-mono text-[11px] text-steel tracking-wider text-right hidden md:block">CDMX</span>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="divider-line w-full"></div>
+
+
+<!-- ============================================ -->
+<!-- EL EQUIPO -->
+<!-- ============================================ -->
+<section id="equipo" class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-base-alt">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 fade-s">
+      <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">El Equipo</span>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+      <!-- Partner 1 -->
+      <div class="portrait-wrap fade-s cursor-pointer" style="transition-delay: 0s;">
+        <div class="aspect-[3/4] bg-base-alt overflow-hidden mb-4">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=75&fit=crop&facepad=2" alt="Lic. Ricardo Vega Montiel" class="w-full h-full object-cover" style="filter: grayscale(1) contrast(1.2) brightness(0.85);" loading="lazy"/>
+        </div>
+        <h3 class="font-serif text-lg md:text-xl text-bone mb-1">Ricardo Vega Montiel</h3>
+        <div class="portrait-line mb-2"></div>
+        <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">SOCIO FUNDADOR / CORPORATIVO</span>
+      </div>
+
+      <!-- Partner 2 -->
+      <div class="portrait-wrap fade-s cursor-pointer" style="transition-delay: 0.08s;">
+        <div class="aspect-[3/4] bg-base-alt overflow-hidden mb-4">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=75&fit=crop&facepad=2" alt="Lic. Mariana Herrera Solís" class="w-full h-full object-cover" style="filter: grayscale(1) contrast(1.2) brightness(0.85);" loading="lazy"/>
+        </div>
+        <h3 class="font-serif text-lg md:text-xl text-bone mb-1">Mariana Herrera Solís</h3>
+        <div class="portrait-line mb-2"></div>
+        <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">SOCIA / LITIGIO ESTRATÉGICO</span>
+      </div>
+
+      <!-- Partner 3 -->
+      <div class="portrait-wrap fade-s cursor-pointer" style="transition-delay: 0.16s;">
+        <div class="aspect-[3/4] bg-base-alt overflow-hidden mb-4">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75&fit=crop&facepad=2" alt="Lic. Andrés Castellanos" class="w-full h-full object-cover" style="filter: grayscale(1) contrast(1.2) brightness(0.85);" loading="lazy"/>
+        </div>
+        <h3 class="font-serif text-lg md:text-xl text-bone mb-1">Andrés Castellanos</h3>
+        <div class="portrait-line mb-2"></div>
+        <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">SOCIO / DERECHO FISCAL</span>
+      </div>
+
+      <!-- Partner 4 -->
+      <div class="portrait-wrap fade-s cursor-pointer" style="transition-delay: 0.24s;">
+        <div class="aspect-[3/4] bg-base-alt overflow-hidden mb-4">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=75&fit=crop&facepad=2" alt="Lic. Valentina Rojas" class="w-full h-full object-cover" style="filter: grayscale(1) contrast(1.2) brightness(0.85);" loading="lazy"/>
+        </div>
+        <h3 class="font-serif text-lg md:text-xl text-bone mb-1">Valentina Rojas</h3>
+        <div class="portrait-line mb-2"></div>
+        <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">SOCIA / ARBITRAJE INTERNACIONAL</span>
+      </div>
+    </div>
+
+    <!-- Associates row -->
+    <div class="mt-16 pt-12 border-t border-border-s fade-s">
+      <div class="flex flex-wrap gap-x-12 gap-y-6">
+        <div>
+          <span class="font-sans text-[15px] text-bone">Diego Fuentes</span>
+          <span class="font-mono text-[10px] text-steel block tracking-wider mt-0.5">ASOCIADO SENIOR / CORPORATIVO</span>
+        </div>
+        <div>
+          <span class="font-sans text-[15px] text-bone">Camila Estrada</span>
+          <span class="font-mono text-[10px] text-steel block tracking-wider mt-0.5">ASOCIADA / REGULACIÓN FINANCIERA</span>
+        </div>
+        <div>
+          <span class="font-sans text-[15px] text-bone">Sebastián Mora</span>
+          <span class="font-mono text-[10px] text-steel block tracking-wider mt-0.5">ASOCIADO / LITIGIO PENAL</span>
+        </div>
+        <div>
+          <span class="font-sans text-[15px] text-bone">Lucía Paredes</span>
+          <span class="font-mono text-[10px] text-steel block tracking-wider mt-0.5">ASOCIADA / PROPIEDAD INTELECTUAL</span>
+        </div>
+        <div>
+          <span class="font-sans text-[15px] text-bone">Emilio Contreras</span>
+          <span class="font-mono text-[10px] text-steel block tracking-wider mt-0.5">ASOCIADO / ARBITRAJE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="divider-line w-full"></div>
+
+
+<!-- ============================================ -->
+<!-- PUBLICACIONES -->
+<!-- ============================================ -->
+<section class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-base">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 fade-s">
+      <span class="font-mono text-[11px] text-steel tracking-[0.08em] uppercase">Publicaciones</span>
+    </div>
+
+    <div class="space-y-0 border-t border-border-s">
+      <a href="#" class="case-row grid grid-cols-12 items-start gap-4 py-8 border-b border-border-s fade-s group">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">ABR 2026</span>
+        <div class="col-span-9 md:col-span-10">
+          <h3 class="font-serif text-xl text-bone mb-1 case-client transition-colors duration-150" style="transition-timing-function: linear;">Implicaciones de la reforma fiscal 2026 para holdings internacionales</h3>
+          <p class="font-sans text-[15px] text-steel" style="line-height: 1.65;">Análisis de los cambios en el régimen de consolidación fiscal y su impacto en estructuras corporativas transfronterizas.</p>
+        </div>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right self-center">→</span>
+      </a>
+
+      <a href="#" class="case-row grid grid-cols-12 items-start gap-4 py-8 border-b border-border-s fade-s group" style="transition-delay: 0.06s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">FEB 2026</span>
+        <div class="col-span-9 md:col-span-10">
+          <h3 class="font-serif text-xl text-bone mb-1 case-client transition-colors duration-150" style="transition-timing-function: linear;">Arbitraje de inversión en Latinoamérica: tendencias 2025-2026</h3>
+          <p class="font-sans text-[15px] text-steel" style="line-height: 1.65;">Revisión de los laudos más relevantes del último año y su impacto en la protección de inversiones extranjeras.</p>
+        </div>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right self-center">→</span>
+      </a>
+
+      <a href="#" class="case-row grid grid-cols-12 items-start gap-4 py-8 fade-s group" style="transition-delay: 0.12s;">
+        <span class="col-span-2 md:col-span-1 font-mono text-[11px] text-steel tracking-wider">NOV 2025</span>
+        <div class="col-span-9 md:col-span-10">
+          <h3 class="font-serif text-xl text-bone mb-1 case-client transition-colors duration-150" style="transition-timing-function: linear;">Compliance penal corporativo: guía práctica para directivos</h3>
+          <p class="font-sans text-[15px] text-steel" style="line-height: 1.65;">Marco de referencia para la implementación de programas de cumplimiento penal en empresas mexicanas.</p>
+        </div>
+        <span class="case-arrow col-span-1 font-sans text-bronze text-right self-center">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="divider-line w-full"></div>
+
+<!-- ============================================ -->
+<!-- CONTACTO -->
+<!-- ============================================ -->
+<section id="contacto" class="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-base">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+      <!-- Left: Text -->
+      <div class="fade-s">
+        <h2 class="font-serif text-4xl md:text-5xl text-bone font-normal leading-[1.15] tracking-tight mb-6">
+          Inicie una<br/>conversación.
+        </h2>
+        <p class="font-sans text-base text-steel leading-relaxed mb-12" style="line-height: 1.65;">
+          Los primeros 30 minutos son confidenciales y sin compromiso. Nuestro equipo evaluará su caso y le indicará los pasos a seguir.
+        </p>
+
+        <div class="space-y-6">
+          <div>
+            <span class="font-mono text-[10px] text-steel tracking-[0.08em] uppercase block mb-1">Oficina principal</span>
+            <p class="font-mono text-[13px] text-bone/80">Paseo de la Reforma 505, Piso 32<br/>Col. Cuauhtémoc, 06500 CDMX</p>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] text-steel tracking-[0.08em] uppercase block mb-1">Teléfono</span>
+            <p class="font-mono text-[13px] text-bone/80">+52 (55) 5000 1987</p>
+          </div>
+          <div>
+            <span class="font-mono text-[10px] text-steel tracking-[0.08em] uppercase block mb-1">Correo</span>
+            <p class="font-mono text-[13px] text-bone/80">contacto@vegaherrera.mx</p>
+          </div>
+          <div class="pt-4 border-t border-border-s">
+            <div class="flex flex-wrap gap-6">
+              <div>
+                <span class="font-mono text-[10px] text-steel tracking-wider">CDMX</span>
+              </div>
+              <div>
+                <span class="font-mono text-[10px] text-steel tracking-wider">NUEVA YORK</span>
+              </div>
+              <div>
+                <span class="font-mono text-[10px] text-steel tracking-wider">MADRID</span>
+              </div>
+              <div>
+                <span class="font-mono text-[10px] text-steel tracking-wider">SÃO PAULO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="fade-s" style="transition-delay: 0.08s;">
+        <form id="contactForm" onsubmit="return false;" class="space-y-10">
+          <div class="field-group">
+            <input type="text" id="fNombre" class="field-legal" placeholder=" " required/>
+            <label for="fNombre" class="field-label">Nombre completo</label>
+            <p class="field-error">Este campo es requerido.</p>
+          </div>
+          <div class="field-group">
+            <input type="text" id="fEmpresa" class="field-legal" placeholder=" "/>
+            <label for="fEmpresa" class="field-label">Empresa</label>
+          </div>
+          <div class="field-group">
+            <input type="text" id="fMateria" class="field-legal" placeholder=" " required/>
+            <label for="fMateria" class="field-label">Materia</label>
+            <p class="field-error">Este campo es requerido.</p>
+          </div>
+          <div class="field-group">
+            <textarea id="fMensaje" rows="3" class="field-legal resize-none" placeholder=" " required></textarea>
+            <label for="fMensaje" class="field-label">Mensaje</label>
+            <p class="field-error">Este campo es requerido.</p>
+          </div>
+
+          <div class="flex justify-end">
+            <button type="submit" id="submitBtn" class="btn-submit disabled">ENVIAR CONSULTA</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="border-t border-border-s py-8 px-6 md:px-12 lg:px-20 bg-base">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <span class="font-serif text-sm text-bone/60">Vega, Herrera & Asociados</span>
+    <div class="flex items-center gap-6">
+      <a href="#" class="font-mono text-[10px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">AVISO LEGAL</a>
+      <a href="#" class="font-mono text-[10px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">PRIVACIDAD</a>
+      <a href="#" class="font-mono text-[10px] text-steel hover:text-bone tracking-[0.08em] uppercase transition-colors duration-150" style="transition-timing-function: linear;">COOKIES</a>
+    </div>
+    <span class="font-mono text-[10px] text-steel tracking-wider">© 2026</span>
+  </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- DEMO BANNER -->
+<!-- ============================================ -->
+<div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-base/90 backdrop-blur-md border border-border-s flex items-center gap-3 shadow-2xl">
+  <span class="w-1.5 h-1.5 bg-bronze rounded-full"></span>
+  <span class="font-mono text-[11px] text-steel">Esto es una demo.</span>
+  <a href="#" class="font-mono text-[11px] text-bronze hover:text-bone transition-colors duration-150">¿Quieres algo así? →</a>
+</div>
+
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+(function() {
+  'use strict';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- NAVBAR: show on scroll ----
+  const navbar = document.getElementById('navbar');
+  const desktopNav = document.getElementById('desktopNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 120) {
+      navbar.style.background = 'rgba(10,12,16,0.92)';
+      navbar.style.backdropFilter = 'blur(12px)';
+      navbar.style.webkitBackdropFilter = 'blur(12px)';
+      navbar.style.borderBottom = '1px solid #1A1D23';
+      if (desktopNav) desktopNav.style.opacity = '1';
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.borderBottom = 'none';
+      if (desktopNav) desktopNav.style.opacity = '0';
+    }
+  });
+
+  // ---- HAMBURGER MENU ----
+  const hamBtn = document.getElementById('hamBtn');
+  const menuOverlay = document.getElementById('menuOverlay');
+  let menuOpen = false;
+  if (hamBtn && menuOverlay) {
+    hamBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        hamBtn.classList.add('ham-open');
+        menuOverlay.style.opacity = '1';
+        menuOverlay.style.pointerEvents = 'auto';
+      } else {
+        hamBtn.classList.remove('ham-open');
+        menuOverlay.style.opacity = '0';
+        menuOverlay.style.pointerEvents = 'none';
+      }
+    });
+    menuOverlay.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        hamBtn.classList.remove('ham-open');
+        menuOverlay.style.opacity = '0';
+        menuOverlay.style.pointerEvents = 'none';
+      });
+    });
+  }
+
+  // ---- STAGGERED FADE IN ----
+  const fadeEls = document.querySelectorAll('.fade-s');
+  if (prefersReduced) {
+    fadeEls.forEach(el => el.classList.add('visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseFloat(entry.target.style.transitionDelay) || 0;
+          setTimeout(() => entry.target.classList.add('visible'), delay * 1000);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  }
+
+  // ---- DIVIDER LINE DRAW ----
+  const dividers = document.querySelectorAll('.divider-line');
+  if (prefersReduced) {
+    dividers.forEach(d => d.classList.add('drawn'));
+  } else {
+    const divObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('drawn');
+          divObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    dividers.forEach(d => divObserver.observe(d));
+  }
+
+  // ---- CONTACT FORM: validation + submit button state ----
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const requiredFields = form ? form.querySelectorAll('[required]') : [];
+
+  function checkFormValidity() {
+    let allValid = true;
+    requiredFields.forEach(f => {
+      if (!f.value.trim()) allValid = false;
+    });
+    if (allValid) {
+      submitBtn.classList.remove('disabled');
+    } else {
+      submitBtn.classList.add('disabled');
+    }
+  }
+
+  if (form) {
+    requiredFields.forEach(f => {
+      f.addEventListener('input', checkFormValidity);
+      // Show error on blur if empty
+      f.addEventListener('blur', () => {
+        const error = f.parentElement.querySelector('.field-error');
+        if (error) {
+          if (!f.value.trim() && f.hasAttribute('required')) {
+            error.classList.add('show');
+            f.style.borderBottomColor = '#4A5568';
+          } else {
+            error.classList.remove('show');
+          }
+        }
+      });
+      f.addEventListener('focus', () => {
+        const error = f.parentElement.querySelector('.field-error');
+        if (error) error.classList.remove('show');
+      });
+    });
+
+    submitBtn.addEventListener('click', () => {
+      if (submitBtn.classList.contains('disabled')) return;
+      // Simulate send
+      submitBtn.textContent = 'ENVIADO';
+      submitBtn.style.background = '#B8956A';
+      submitBtn.style.color = '#0A0C10';
+      submitBtn.style.padding = '12px 24px';
+      setTimeout(() => {
+        submitBtn.textContent = 'ENVIAR CONSULTA';
+        submitBtn.style.background = '';
+        submitBtn.style.color = '';
+        submitBtn.style.padding = '';
+        form.reset();
+        submitBtn.classList.add('disabled');
+      }, 2500);
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

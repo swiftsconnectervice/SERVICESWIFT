@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEUROVEX · Nootrópicos de Grado Clínico</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        "carbon": "#0A0A0A",
+        "acid": "#CCFF00",
+        "magenta": "#FF006E",
+        "bone": "#F4F4F0",
+        "bone-dim": "#F4F4F080",
+      },
+      fontFamily: {
+        "display": ["Space Grotesk", "sans-serif"],
+        "body": ["Inter", "sans-serif"],
+        "mono": ["JetBrains Mono", "monospace"],
+      },
+    }
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", sans-serif;
+    background: #0A0A0A;
+    color: #F4F4F0;
+    overflow-x: hidden;
+    cursor: none;
+  }
+  @media (pointer: coarse) { body { cursor: auto; } }
+
+  /* Custom cursor */
+  .cursor-dot {
+    width: 8px; height: 8px;
+    background: #FF006E;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-dot.expanded {
+    width: 40px; height: 40px;
+    background: #CCFF00;
+  }
+
+  /* Gradient mesh */
+  .gradient-mesh {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.25;
+    animation: meshPulse 20s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes meshPulse {
+    0% { transform: scale(1) translate(0, 0); background: #CCFF00; }
+    33% { transform: scale(1.2) translate(30px, -20px); background: #e6ff66; }
+    66% { transform: scale(0.9) translate(-20px, 30px); background: #FF006E; }
+    100% { transform: scale(1.1) translate(10px, 10px); background: #CCFF00; }
+  }
+
+  /* Text scramble */
+  .scramble-char { display: inline-block; }
+
+  /* Glitch button */
+  .btn-glitch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 40px;
+    background: #CCFF00;
+    color: #0A0A0A;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: none;
+    transition: transform 0.1s ease;
+  }
+  .btn-glitch:hover {
+    animation: glitchShake 0.3s ease infinite;
+  }
+  @keyframes glitchShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+  }
+
+  /* Magnetic button wrapper */
+  .magnetic-wrap { display: inline-block; transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    animation: marqueeScroll 40s linear infinite;
+    width: max-content;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Counter animation */
+  .counter { font-variant-numeric: tabular-nums; }
+
+  /* Stagger fade in */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Energy ripple on product hover */
+  .ripple-container { position: relative; overflow: hidden; }
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #CCFF0040 0%, transparent 70%);
+    transform: scale(0);
+    animation: rippleExpand 0.6s ease-out forwards;
+    pointer-events: none;
+  }
+  @keyframes rippleExpand {
+    to { transform: scale(4); opacity: 0; }
+  }
+
+  /* Ingredient badge float */
+  .ingredient-badge {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .ingredient-badge.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Scroll-triggered line */
+  .nav-line {
+    width: 0;
+    height: 2px;
+    background: #CCFF00;
+    transition: width 0.3s ease;
+  }
+  a:hover .nav-line { width: 100%; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-mesh { animation: none; }
+    .marquee-track { animation: none; }
+    .btn-glitch:hover { animation: none; }
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    .ingredient-badge { opacity: 1; transform: none; transition: none; }
+    .cursor-dot { display: none; }
+    body { cursor: auto; }
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+  /* Selection */
+  ::selection { background: #CCFF00; color: #0A0A0A; }
+</style>
+</head>
+<body class="bg-carbon text-bone antialiased">
+
+<!-- Custom Cursor -->
+<div class="cursor-dot hidden md:block" id="cursor"></div>
+
+<!-- ============================================ -->
+<!-- NAVBAR -->
+<!-- ============================================ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: transparent;">
+  <div class="flex items-center justify-between px-6 md:px-12 lg:px-20 py-4">
+    <!-- Logo -->
+    <a href="#" class="font-display font-bold text-bone text-xl tracking-tight">NEUROVEX</a>
+    <!-- Nav links -->
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="#formulas" class="group relative text-bone/60 hover:text-bone font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
+        FÓRMULAS
+        <span class="nav-line absolute bottom-[-4px] left-0"></span>
+      </a>
+      <a href="#ciencia" class="group relative text-bone/60 hover:text-bone font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
+        CIENCIA
+        <span class="nav-line absolute bottom-[-4px] left-0"></span>
+      </a>
+      <a href="#resultados" class="group relative text-bone/60 hover:text-bone font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
+        RESULTADOS
+        <span class="nav-line absolute bottom-[-4px] left-0"></span>
+      </a>
+      <a href="#blog" class="group relative text-bone/60 hover:text-bone font-mono text-[11px] tracking-[0.2em] uppercase transition-colors">
+        BLOG
+        <span class="nav-line absolute bottom-[-4px] left-0"></span>
+      </a>
+    </nav>
+    <!-- Right side -->
+    <div class="flex items-center gap-5">
+      <!-- Search -->
+      <button class="text-bone/50 hover:text-bone transition-colors" aria-label="Buscar">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <!-- Cart -->
+      <button class="relative text-bone/50 hover:text-bone transition-colors" aria-label="Carrito">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-magenta rounded-full animate-pulse"></span>
+      </button>
+      <!-- Mobile menu -->
+      <button class="md:hidden text-bone" id="mobileMenuBtn" aria-label="Menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="mobileMenu" class="fixed inset-0 bg-carbon/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300">
+  <a href="#formulas" class="text-bone font-display text-3xl font-bold tracking-tight mobile-link">FÓRMULAS</a>
+  <a href="#ciencia" class="text-bone font-display text-3xl font-bold tracking-tight mobile-link">CIENCIA</a>
+  <a href="#resultados" class="text-bone font-display text-3xl font-bold tracking-tight mobile-link">RESULTADOS</a>
+  <a href="#blog" class="text-bone font-display text-3xl font-bold tracking-tight mobile-link">BLOG</a>
+  <button id="mobileMenuClose" class="absolute top-6 right-6 text-bone" aria-label="Cerrar menú">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6l12 12"/></svg>
+  </button>
+</div>
+
+
+<!-- ============================================ -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<section class="relative min-h-screen flex items-center overflow-hidden px-6 md:px-12 lg:px-20 pt-24 pb-16">
+  <!-- Gradient mesh background -->
+  <div class="gradient-mesh" style="top: -200px; right: -100px;"></div>
+  <div class="gradient-mesh" style="bottom: -300px; left: -200px; animation-delay: -10s;"></div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+    <!-- Left: Copy -->
+    <div class="flex-1 lg:pr-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-acid/30 rounded-sm mb-8">
+        <span class="w-2 h-2 bg-acid rounded-full animate-pulse"></span>
+        <span class="font-mono text-[10px] text-acid tracking-[0.2em] uppercase">Nootrópicos de grado clínico</span>
+      </div>
+
+      <h1 id="heroHeadline" class="font-display font-bold text-[clamp(2.5rem,8vw,8rem)] leading-[0.9] tracking-tight uppercase mb-8">
+        TU CEREBRO<br/>NO TIENE<br/>LÍMITES.<br/><span class="text-acid">NOSOTROS<br/>TAMPOCO.</span>
+      </h1>
+
+      <p class="text-bone/70 text-lg md:text-xl font-light leading-relaxed max-w-lg mb-10">
+        Nootrópicos de grado clínico para founders, atletas y creadores que se niegan a funcionar al 60%.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <div class="magnetic-wrap" id="heroCTA">
+          <a href="#formulas" class="btn-glitch">DESCUBRE LAS FÓRMULAS →</a>
+        </div>
+        <div class="font-mono text-[12px] text-bone/40">
+          <span class="counter text-bone/70 text-lg font-bold" data-target="12847">0</span>
+          <br/>personas entrenaron más duro esta semana
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Product hero -->
+    <div class="flex-1 flex items-center justify-center relative">
+      <div class="relative w-72 h-96 md:w-96 md:h-[500px]" id="productHero">
+        <!-- Aura glow -->
+        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-acid/20 via-magenta/10 to-transparent blur-3xl scale-110 animate-pulse" style="animation-duration: 4s;"></div>
+        <!-- Product mockup (CSS-only bottle) -->
+        <div class="relative z-10 w-full h-full flex items-center justify-center" style="perspective: 800px;">
+          <div class="product-tilt transition-transform duration-300 ease-out" id="productTilt">
+            <div class="w-48 md:w-56 h-72 md:h-80 rounded-2xl bg-gradient-to-b from-carbon via-[#111] to-carbon border border-bone/10 flex flex-col items-center justify-center gap-4 shadow-2xl relative overflow-hidden">
+              <!-- Label -->
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-acid via-magenta to-acid"></div>
+              <span class="font-mono text-[9px] text-acid/60 tracking-[0.3em] uppercase">NEUROVEX LABS</span>
+              <span class="font-display text-4xl md:text-5xl font-bold text-bone tracking-tight">NF</span>
+              <span class="font-display text-lg font-bold text-acid tracking-wider">NEUROFIRE</span>
+              <span class="font-mono text-[10px] text-bone/40">60 CÁPSULAS · 500mg</span>
+              <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-magenta via-acid to-magenta"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social proof bar -->
+  <div class="absolute bottom-0 left-0 right-0 border-t border-bone/5 py-4 px-6 md:px-20">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 bg-acid rounded-full"></span>
+        <span class="font-mono text-[10px] text-bone/40 tracking-wider">ENVÍO GRATIS +$999</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 bg-acid rounded-full"></span>
+        <span class="font-mono text-[10px] text-bone/40 tracking-wider">FÓRMULAS CLÍNICAS</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 bg-acid rounded-full"></span>
+        <span class="font-mono text-[10px] text-bone/40 tracking-wider">GARANTÍA 30 DÍAS</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 bg-magenta rounded-full animate-pulse"></span>
+        <span class="font-mono text-[10px] text-bone/40 tracking-wider">STOCK LIMITADO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- PRODUCT SECTION -->
+<!-- ============================================ -->
+<section id="formulas" class="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section label -->
+    <div class="flex items-center gap-3 mb-16 fade-up">
+      <span class="font-mono text-[10px] text-acid tracking-[0.3em] uppercase">01</span>
+      <div class="w-12 h-px bg-acid/30"></div>
+      <span class="font-mono text-[10px] text-bone/40 tracking-[0.2em] uppercase">Fórmulas</span>
+    </div>
+
+    <!-- Product 1: NEUROFIRE -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center mb-32 fade-up">
+      <!-- Image 60% -->
+      <div class="lg:col-span-3 ripple-container rounded-2xl bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] border border-bone/5 p-8 md:p-16 flex items-center justify-center min-h-[400px] relative group">
+        <div class="product-tilt-card transition-transform duration-500 ease-out">
+          <div class="w-44 md:w-56 h-64 md:h-80 rounded-xl bg-gradient-to-b from-[#0d0d0d] to-[#151515] border border-bone/10 flex flex-col items-center justify-center gap-3 shadow-2xl relative">
+            <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-acid to-magenta"></div>
+            <span class="font-mono text-[8px] text-acid/50 tracking-[0.3em]">NEUROVEX LABS</span>
+            <span class="font-display text-5xl md:text-6xl font-bold text-bone">NF</span>
+            <span class="font-display text-xl font-bold text-acid tracking-wider">NEUROFIRE</span>
+            <span class="font-mono text-[9px] text-bone/30">FOCUS + ENERGY</span>
+          </div>
+        </div>
+        <!-- Ingredient badges -->
+        <div class="absolute top-6 right-6 flex flex-col gap-2 ingredient-group">
+          <span class="ingredient-badge px-3 py-1 bg-acid/10 border border-acid/20 rounded-sm font-mono text-[10px] text-acid" style="transition-delay: 0.1s;">Alpha-GPC 300mg</span>
+          <span class="ingredient-badge px-3 py-1 bg-acid/10 border border-acid/20 rounded-sm font-mono text-[10px] text-acid" style="transition-delay: 0.3s;">L-Theanine 200mg</span>
+          <span class="ingredient-badge px-3 py-1 bg-magenta/10 border border-magenta/20 rounded-sm font-mono text-[10px] text-magenta" style="transition-delay: 0.5s;">Cafeína 100mg</span>
+        </div>
+        <div class="absolute bottom-6 left-6 flex flex-col gap-2 ingredient-group">
+          <span class="ingredient-badge px-3 py-1 bg-acid/10 border border-acid/20 rounded-sm font-mono text-[10px] text-acid" style="transition-delay: 0.2s;">Lion's Mane 500mg</span>
+          <span class="ingredient-badge px-3 py-1 bg-acid/10 border border-acid/20 rounded-sm font-mono text-[10px] text-acid" style="transition-delay: 0.4s;">Rhodiola 150mg</span>
+        </div>
+      </div>
+      <!-- Text 40% -->
+      <div class="lg:col-span-2 flex flex-col gap-6">
+        <h2 class="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-bone tracking-tight leading-none uppercase">
+          NEURO<span class="relative">FIRE
+            <span class="absolute -bottom-2 left-0 w-full h-3 bg-magenta/20 blur-sm"></span>
+          </span>
+        </h2>
+        <p class="font-display text-xl text-acid font-semibold tracking-wide uppercase">Focus. Fuego. Resultados.</p>
+        <p class="text-bone/60 text-base leading-relaxed">
+          Fórmula clínica de 5 nootrópicos sinérgicos. Diseñada para sesiones de trabajo profundo de 4-6 horas sin crash. Cada cápsula es un protocolo de rendimiento cognitivo.
+        </p>
+        <div class="flex items-baseline gap-4 mt-2">
+          <span class="font-display text-5xl font-bold text-bone">$899</span>
+          <span class="font-mono text-[11px] text-bone/30 line-through">$1,199</span>
+          <span class="px-2 py-0.5 bg-magenta text-bone text-[10px] font-mono font-bold tracking-wider">-25%</span>
+        </div>
+        <button class="btn-add-cart w-full py-5 bg-acid text-carbon font-display font-bold text-sm tracking-[0.15em] uppercase transition-all hover:bg-acid/90 relative overflow-hidden" data-product="NEUROFIRE">
+          <span class="btn-text">AÑADIR AL CARRITO</span>
+          <span class="btn-check absolute inset-0 flex items-center justify-center bg-magenta text-bone opacity-0 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+          </span>
+        </button>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-magenta rounded-full animate-pulse"></span>
+          <span class="font-mono text-[10px] text-magenta tracking-wider">SOLO 23 UNIDADES DISPONIBLES</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2: DREAMCORE -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center fade-up">
+      <!-- Text 40% (reversed) -->
+      <div class="lg:col-span-2 flex flex-col gap-6 order-2 lg:order-1">
+        <h2 class="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-bone tracking-tight leading-none uppercase">
+          DREAM<span class="relative">CORE
+            <span class="absolute -bottom-2 left-0 w-full h-3 bg-[#7B61FF]/20 blur-sm"></span>
+          </span>
+        </h2>
+        <p class="font-display text-xl text-[#7B61FF] font-semibold tracking-wide uppercase">Recupera. Repara. Reinicia.</p>
+        <p class="text-bone/60 text-base leading-relaxed">
+          Protocolo nocturno de recuperación neural. Magnesio L-Treonato + Ashwagandha + GABA para un sueño profundo que reconstruye tu rendimiento del día siguiente.
+        </p>
+        <div class="flex items-baseline gap-4 mt-2">
+          <span class="font-display text-5xl font-bold text-bone">$749</span>
+          <span class="font-mono text-[11px] text-bone/30">60 cápsulas</span>
+        </div>
+        <button class="btn-add-cart w-full py-5 bg-[#7B61FF] text-bone font-display font-bold text-sm tracking-[0.15em] uppercase transition-all hover:bg-[#7B61FF]/90 relative overflow-hidden" data-product="DREAMCORE">
+          <span class="btn-text">AÑADIR AL CARRITO</span>
+          <span class="btn-check absolute inset-0 flex items-center justify-center bg-magenta text-bone opacity-0 transition-opacity">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+          </span>
+        </button>
+      </div>
+      <!-- Image 60% -->
+      <div class="lg:col-span-3 ripple-container rounded-2xl bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] border border-bone/5 p-8 md:p-16 flex items-center justify-center min-h-[400px] relative order-1 lg:order-2">
+        <div class="product-tilt-card transition-transform duration-500 ease-out">
+          <div class="w-44 md:w-56 h-64 md:h-80 rounded-xl bg-gradient-to-b from-[#0d0d0d] to-[#151515] border border-bone/10 flex flex-col items-center justify-center gap-3 shadow-2xl relative">
+            <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#7B61FF] to-magenta"></div>
+            <span class="font-mono text-[8px] text-[#7B61FF]/50 tracking-[0.3em]">NEUROVEX LABS</span>
+            <span class="font-display text-5xl md:text-6xl font-bold text-bone">DC</span>
+            <span class="font-display text-xl font-bold text-[#7B61FF] tracking-wider">DREAMCORE</span>
+            <span class="font-mono text-[9px] text-bone/30">SLEEP + RECOVERY</span>
+          </div>
+        </div>
+        <!-- Ingredient badges -->
+        <div class="absolute top-6 left-6 flex flex-col gap-2 ingredient-group">
+          <span class="ingredient-badge px-3 py-1 bg-[#7B61FF]/10 border border-[#7B61FF]/20 rounded-sm font-mono text-[10px] text-[#7B61FF]" style="transition-delay: 0.1s;">Mg L-Treonato 400mg</span>
+          <span class="ingredient-badge px-3 py-1 bg-[#7B61FF]/10 border border-[#7B61FF]/20 rounded-sm font-mono text-[10px] text-[#7B61FF]" style="transition-delay: 0.3s;">Ashwagandha KSM-66</span>
+          <span class="ingredient-badge px-3 py-1 bg-magenta/10 border border-magenta/20 rounded-sm font-mono text-[10px] text-magenta" style="transition-delay: 0.5s;">GABA 250mg</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- SOCIAL PROOF - MARQUEE SECTION -->
+<!-- ============================================ -->
+<section id="resultados" class="relative py-24 md:py-32 bg-acid overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 mb-12 fade-up">
+    <span class="font-mono text-[10px] text-carbon/40 tracking-[0.3em] uppercase">02 — RESULTADOS</span>
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-carbon tracking-tight mt-4 uppercase">Lo que dicen los que ya no vuelven atrás.</h2>
+  </div>
+
+  <!-- Marquee row 1 -->
+  <div class="overflow-hidden mb-4">
+    <div class="marquee-track">
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">MR</span>
+        </div>
+        <p class="font-display text-2xl md:text-4xl font-bold text-carbon tracking-tight">"Dejé el café. NEUROFIRE es otro nivel."</p>
+      </blockquote>
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">LC</span>
+        </div>
+        <p class="font-display text-lg md:text-2xl font-bold text-carbon/70 tracking-tight">"4 horas de deep work sin crash. Cada día."</p>
+      </blockquote>
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">AV</span>
+        </div>
+        <p class="font-display text-3xl md:text-5xl font-bold text-carbon tracking-tight">"Mi sueño cambió con DREAMCORE."</p>
+      </blockquote>
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">JP</span>
+        </div>
+        <p class="font-display text-xl md:text-3xl font-bold text-carbon tracking-tight">"Rindo el doble en el gym y en la oficina."</p>
+      </blockquote>
+      <!-- Duplicate for seamless loop -->
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">MR</span>
+        </div>
+        <p class="font-display text-2xl md:text-4xl font-bold text-carbon tracking-tight">"Dejé el café. NEUROFIRE es otro nivel."</p>
+      </blockquote>
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">LC</span>
+        </div>
+        <p class="font-display text-lg md:text-2xl font-bold text-carbon/70 tracking-tight">"4 horas de deep work sin crash. Cada día."</p>
+      </blockquote>
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">AV</span>
+        </div>
+        <p class="font-display text-3xl md:text-5xl font-bold text-carbon tracking-tight">"Mi sueño cambió con DREAMCORE."</p>
+      </blockquote>
+      <blockquote class="flex-shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-carbon flex items-center justify-center border-2 border-magenta">
+          <span class="font-display text-bone text-sm font-bold">JP</span>
+        </div>
+        <p class="font-display text-xl md:text-3xl font-bold text-carbon tracking-tight">"Rindo el doble en el gym y en la oficina."</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- Stats row -->
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 fade-up">
+    <div class="text-center">
+      <span class="counter font-display text-5xl md:text-6xl font-bold text-carbon" data-target="12847">0</span>
+      <p class="font-mono text-[10px] text-carbon/50 tracking-wider mt-2 uppercase">Usuarios activos</p>
+    </div>
+    <div class="text-center">
+      <span class="counter font-display text-5xl md:text-6xl font-bold text-carbon" data-target="98" data-suffix="%">0</span>
+      <p class="font-mono text-[10px] text-carbon/50 tracking-wider mt-2 uppercase">Recompra</p>
+    </div>
+    <div class="text-center">
+      <span class="counter font-display text-5xl md:text-6xl font-bold text-carbon" data-target="34" data-prefix="+" data-suffix="%">0</span>
+      <p class="font-mono text-[10px] text-carbon/50 tracking-wider mt-2 uppercase">Enfoque sostenido</p>
+    </div>
+    <div class="text-center">
+      <span class="counter font-display text-5xl md:text-6xl font-bold text-carbon" data-target="4.9">0</span>
+      <p class="font-mono text-[10px] text-carbon/50 tracking-wider mt-2 uppercase">Rating promedio</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- LA CIENCIA - MASONRY SECTION -->
+<!-- ============================================ -->
+<section id="ciencia" class="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-carbon overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 fade-up">
+      <span class="font-mono text-[10px] text-acid tracking-[0.3em] uppercase">03</span>
+      <div class="w-12 h-px bg-acid/30"></div>
+      <span class="font-mono text-[10px] text-bone/40 tracking-[0.2em] uppercase">La Ciencia</span>
+    </div>
+    <h2 class="font-display text-4xl md:text-6xl font-bold text-bone tracking-tight uppercase mb-16 fade-up">
+      No vendemos<br/>promesas.<br/><span class="text-acid">Vendemos datos.</span>
+    </h2>
+
+    <!-- Masonry grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <!-- Block 1: Big stat -->
+      <div class="fade-up rounded-xl bg-[#111] border border-bone/5 p-8 flex flex-col justify-between min-h-[280px]">
+        <span class="font-mono text-[10px] text-acid/50 tracking-[0.2em] uppercase">Estudio clínico · 2024</span>
+        <div>
+          <span class="font-mono text-6xl md:text-7xl font-bold text-acid">↑ 34%</span>
+          <p class="text-bone/50 text-sm mt-3 leading-relaxed">en enfoque sostenido después de 14 días de uso continuo de Alpha-GPC + L-Theanine.</p>
+        </div>
+        <span class="font-mono text-[9px] text-bone/20">DOI: 10.1016/j.neuro.2024.03.012</span>
+      </div>
+
+      <!-- Block 2: Tall block -->
+      <div class="fade-up rounded-xl bg-[#111] border border-bone/5 p-8 flex flex-col justify-between min-h-[280px] md:row-span-2" style="transition-delay: 0.1s;">
+        <span class="font-mono text-[10px] text-magenta/50 tracking-[0.2em] uppercase">Ingredientes verificados</span>
+        <div class="flex flex-col gap-4 my-6">
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-sm bg-acid/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-acid check-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </div>
+            <span class="font-mono text-sm text-bone/70">Alpha-GPC · Colina bioactiva</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-sm bg-acid/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-acid check-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </div>
+            <span class="font-mono text-sm text-bone/70">L-Theanine · Calma sin sedación</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-sm bg-acid/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-acid check-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </div>
+            <span class="font-mono text-sm text-bone/70">Lion's Mane · Neurogénesis</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-sm bg-acid/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-acid check-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </div>
+            <span class="font-mono text-sm text-bone/70">Rhodiola Rosea · Anti-fatiga</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-sm bg-acid/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-acid check-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </div>
+            <span class="font-mono text-sm text-bone/70">Cafeína Anhidra · Energía limpia</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-sm bg-[#7B61FF]/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-[#7B61FF] check-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </div>
+            <span class="font-mono text-sm text-bone/70">Mg L-Treonato · Sueño profundo</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-sm bg-[#7B61FF]/20 flex items-center justify-center">
+              <svg class="w-3 h-3 text-[#7B61FF] check-anim" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </div>
+            <span class="font-mono text-sm text-bone/70">Ashwagandha KSM-66 · Cortisol</span>
+          </div>
+        </div>
+        <span class="font-mono text-[9px] text-bone/20">Todos los ingredientes con certificación GMP</span>
+      </div>
+
+      <!-- Block 3: Small stat -->
+      <div class="fade-up rounded-xl bg-[#111] border border-bone/5 p-8 flex flex-col justify-between min-h-[280px]" style="transition-delay: 0.2s;">
+        <span class="font-mono text-[10px] text-acid/50 tracking-[0.2em] uppercase">Meta-análisis · 2023</span>
+        <div>
+          <span class="font-mono text-6xl md:text-7xl font-bold text-magenta">↓ 12%</span>
+          <p class="text-bone/50 text-sm mt-3 leading-relaxed">en fatiga mental reportada en sujetos que combinaron L-Theanine + Cafeína vs. solo cafeína.</p>
+        </div>
+        <span class="font-mono text-[9px] text-bone/20">DOI: 10.1007/s00213-023-06421-4</span>
+      </div>
+
+      <!-- Block 4: Graph placeholder -->
+      <div class="fade-up rounded-xl bg-[#111] border border-bone/5 p-8 flex flex-col justify-between min-h-[280px]" style="transition-delay: 0.3s;">
+        <span class="font-mono text-[10px] text-acid/50 tracking-[0.2em] uppercase">Rendimiento cognitivo</span>
+        <!-- SVG animated graph -->
+        <div class="flex-1 flex items-end gap-2 pt-8">
+          <div class="flex-1 flex flex-col items-center gap-1">
+            <div class="w-full bg-bone/10 rounded-t-sm" style="height: 40%;"><div class="w-full h-full bg-bone/20 rounded-t-sm graph-bar" data-height="40"></div></div>
+            <span class="font-mono text-[8px] text-bone/30">SEM 1</span>
+          </div>
+          <div class="flex-1 flex flex-col items-center gap-1">
+            <div class="w-full bg-bone/10 rounded-t-sm" style="height: 55%;"><div class="w-full h-full bg-bone/30 rounded-t-sm graph-bar" data-height="55"></div></div>
+            <span class="font-mono text-[8px] text-bone/30">SEM 2</span>
+          </div>
+          <div class="flex-1 flex flex-col items-center gap-1">
+            <div class="w-full bg-bone/10 rounded-t-sm" style="height: 70%;"><div class="w-full h-full bg-acid/40 rounded-t-sm graph-bar" data-height="70"></div></div>
+            <span class="font-mono text-[8px] text-bone/30">SEM 3</span>
+          </div>
+          <div class="flex-1 flex flex-col items-center gap-1">
+            <div class="w-full bg-bone/10 rounded-t-sm" style="height: 85%;"><div class="w-full h-full bg-acid/60 rounded-t-sm graph-bar" data-height="85"></div></div>
+            <span class="font-mono text-[8px] text-bone/30">SEM 4</span>
+          </div>
+          <div class="flex-1 flex flex-col items-center gap-1">
+            <div class="w-full bg-bone/10 rounded-t-sm" style="height: 92%;"><div class="w-full h-full bg-acid rounded-t-sm graph-bar" data-height="92"></div></div>
+            <span class="font-mono text-[8px] text-bone/30">SEM 5</span>
+          </div>
+        </div>
+        <p class="font-mono text-[9px] text-bone/30 mt-4">Puntaje promedio en test de atención sostenida (n=240)</p>
+      </div>
+
+      <!-- Block 5: Quote -->
+      <div class="fade-up rounded-xl bg-gradient-to-br from-acid/5 to-magenta/5 border border-acid/10 p-8 flex flex-col justify-center min-h-[280px]" style="transition-delay: 0.4s;">
+        <svg class="w-8 h-8 text-acid/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+        <p class="font-display text-xl md:text-2xl font-bold text-bone leading-snug mb-4">
+          "La diferencia entre un suplemento genérico y un nootrópico clínico es la misma que entre un café instantáneo y un espresso de especialidad."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-acid/20 flex items-center justify-center">
+            <span class="font-mono text-[10px] text-acid font-bold">DR</span>
+          </div>
+          <div>
+            <span class="font-mono text-[11px] text-bone/70">Dr. Ramírez, Neurocientífico</span>
+            <span class="font-mono text-[9px] text-bone/30 block">Asesor científico NEUROVEX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- BLOG / CONTENT SECTION -->
+<!-- ============================================ -->
+<section id="blog" class="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-carbon border-t border-bone/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 fade-up">
+      <span class="font-mono text-[10px] text-acid tracking-[0.3em] uppercase">04</span>
+      <div class="w-12 h-px bg-acid/30"></div>
+      <span class="font-mono text-[10px] text-bone/40 tracking-[0.2em] uppercase">Blog</span>
+    </div>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 fade-up">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-bone tracking-tight uppercase">El Laboratorio.</h2>
+      <a href="#" class="font-mono text-[11px] text-acid tracking-wider hover:underline">VER TODOS LOS ARTÍCULOS →</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Article 1 -->
+      <article class="fade-up group rounded-xl bg-[#111] border border-bone/5 overflow-hidden hover:border-acid/20 transition-colors" style="transition-delay: 0s;">
+        <div class="h-48 bg-gradient-to-br from-acid/10 to-magenta/5 flex items-center justify-center">
+          <span class="font-display text-6xl font-bold text-acid/20">01</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-2 py-0.5 bg-acid/10 text-acid font-mono text-[9px] tracking-wider">NOOTRÓPICOS</span>
+            <span class="font-mono text-[9px] text-bone/30">5 min</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-bone group-hover:text-acid transition-colors mb-2">Alpha-GPC vs. CDP-Colina: Cuál elegir y por qué</h3>
+          <p class="text-bone/40 text-sm leading-relaxed">Análisis comparativo de las dos fuentes de colina más populares en nootrópicos clínicos.</p>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="fade-up group rounded-xl bg-[#111] border border-bone/5 overflow-hidden hover:border-acid/20 transition-colors" style="transition-delay: 0.1s;">
+        <div class="h-48 bg-gradient-to-br from-magenta/10 to-[#7B61FF]/5 flex items-center justify-center">
+          <span class="font-display text-6xl font-bold text-magenta/20">02</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-2 py-0.5 bg-magenta/10 text-magenta font-mono text-[9px] tracking-wider">SUEÑO</span>
+            <span class="font-mono text-[9px] text-bone/30">8 min</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-bone group-hover:text-magenta transition-colors mb-2">El protocolo nocturno: cómo optimizar tu sueño profundo</h3>
+          <p class="text-bone/40 text-sm leading-relaxed">Magnesio L-Treonato, Ashwagandha y GABA: la tríada para recuperación neural.</p>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="fade-up group rounded-xl bg-[#111] border border-bone/5 overflow-hidden hover:border-acid/20 transition-colors" style="transition-delay: 0.2s;">
+        <div class="h-48 bg-gradient-to-br from-[#7B61FF]/10 to-acid/5 flex items-center justify-center">
+          <span class="font-display text-6xl font-bold text-[#7B61FF]/20">03</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-2 py-0.5 bg-[#7B61FF]/10 text-[#7B61FF] font-mono text-[9px] tracking-wider">RENDIMIENTO</span>
+            <span class="font-mono text-[9px] text-bone/30">6 min</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-bone group-hover:text-[#7B61FF] transition-colors mb-2">Stack para founders: cómo mantener 12h de productividad</h3>
+          <p class="text-bone/40 text-sm leading-relaxed">La combinación exacta de nootrópicos que usan los CEOs de Silicon Valley.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CTA FINAL -->
+<!-- ============================================ -->
+<section class="relative py-32 md:py-40 px-6 md:px-12 lg:px-20 bg-carbon overflow-hidden">
+  <div class="gradient-mesh" style="top: -200px; left: 50%; transform: translateX(-50%); opacity: 0.15;"></div>
+  <div class="max-w-4xl mx-auto text-center relative z-10 fade-up">
+    <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-bone tracking-tight uppercase leading-[0.95] mb-8">
+      Tu competencia<br/>toma café.<br/><span class="text-acid">Tú tomas<br/>NEUROFIRE.</span>
+    </h2>
+    <p class="text-bone/50 text-lg md:text-xl max-w-xl mx-auto mb-10">
+      Deja de funcionar al 60%. Tu cerebro merece fórmulas de grado clínico, no suplementos de farmacia.
+    </p>
+    <div class="magnetic-wrap inline-block">
+      <a href="#formulas" class="btn-glitch text-lg px-12 py-6">COMPRAR AHORA →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="border-t border-bone/5 py-16 px-6 md:px-12 lg:px-20 bg-carbon">
+  <div class="max-w-7xl mx-auto">
+    <!-- Email signup -->
+    <div class="mb-16 max-w-2xl">
+      <label for="footerEmail" class="font-display text-3xl md:text-4xl font-bold text-bone tracking-tight uppercase block mb-6">ÚNETE. SIN SPAM.</label>
+      <div class="flex items-center border-b border-bone/20 focus-within:border-acid transition-colors">
+        <input type="email" id="footerEmail" placeholder="tu@email.com" class="flex-1 bg-transparent text-bone text-lg md:text-xl py-4 outline-none placeholder:text-bone/20 font-body" aria-label="Email para newsletter"/>
+        <button class="text-acid font-mono text-sm font-bold tracking-wider hover:text-bone transition-colors px-4 py-4" aria-label="Suscribirse">ENVIAR →</button>
+      </div>
+    </div>
+
+    <!-- Footer grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div>
+        <span class="font-mono text-[10px] text-bone/30 tracking-[0.2em] uppercase block mb-4">Productos</span>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">NEUROFIRE</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">DREAMCORE</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Bundles</a>
+      </div>
+      <div>
+        <span class="font-mono text-[10px] text-bone/30 tracking-[0.2em] uppercase block mb-4">Ciencia</span>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Ingredientes</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Estudios</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Blog</a>
+      </div>
+      <div>
+        <span class="font-mono text-[10px] text-bone/30 tracking-[0.2em] uppercase block mb-4">Soporte</span>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">FAQ</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Envíos</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Contacto</a>
+      </div>
+      <div>
+        <span class="font-mono text-[10px] text-bone/30 tracking-[0.2em] uppercase block mb-4">Legal</span>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Privacidad</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Términos</a>
+        <a href="#" class="block font-mono text-[11px] text-bone/50 hover:text-acid transition-colors mb-2">Devoluciones</a>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-bone/5">
+      <span class="font-mono text-[10px] text-bone/20 tracking-wider">© 2026 NEUROVEX LABS. TODOS LOS DERECHOS RESERVADOS.</span>
+      <span class="font-mono text-[10px] text-bone/20 tracking-wider">HECHO CON PRECISIÓN POR SWIFT SERVICE</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- DEMO BANNER (Swift Service branding) -->
+<!-- ============================================ -->
+<div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-5 py-3 bg-carbon/90 backdrop-blur-xl border border-bone/10 rounded-full flex items-center gap-3 shadow-2xl">
+  <span class="w-2 h-2 bg-acid rounded-full animate-pulse"></span>
+  <span class="font-mono text-[11px] text-bone/60">Esto es una demo.</span>
+  <a href="#" class="font-mono text-[11px] text-acid font-bold hover:underline">¿Quieres algo así? →</a>
+</div>
+
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // ---- CUSTOM CURSOR ----
+  const cursor = document.getElementById('cursor');
+  if (cursor && window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    const interactives = document.querySelectorAll('a, button, input, .btn-glitch, .btn-add-cart');
+    interactives.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+    });
+  }
+
+  // ---- NAVBAR SCROLL ----
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 80) {
+      navbar.style.background = 'rgba(10,10,10,0.85)';
+      navbar.style.backdropFilter = 'blur(20px)';
+      navbar.style.webkitBackdropFilter = 'blur(20px)';
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+    }
+    lastScroll = y;
+  });
+
+  // ---- MOBILE MENU ----
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.style.opacity = '1';
+      mobileMenu.style.pointerEvents = 'auto';
+    });
+    const closeMenu = () => {
+      mobileMenu.style.opacity = '0';
+      mobileMenu.style.pointerEvents = 'none';
+    };
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+  }
+
+  // ---- TEXT SCRAMBLE (Hero headline) ----
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    const heroH1 = document.getElementById('heroHeadline');
+    if (heroH1) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%';
+      const originalHTML = heroH1.innerHTML;
+      const textNodes = [];
+      const walk = document.createTreeWalker(heroH1, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      while (node = walk.nextNode()) {
+        if (node.textContent.trim()) textNodes.push(node);
+      }
+      textNodes.forEach(tn => {
+        const original = tn.textContent;
+        const span = document.createElement('span');
+        span.textContent = original.replace(/[A-ZÁÉÍÓÚÑa-záéíóúñ]/g, () => chars[Math.floor(Math.random() * chars.length)]);
+        tn.parentNode.replaceChild(span, tn);
+        let iteration = 0;
+        const interval = setInterval(() => {
+          span.textContent = original.split('').map((char, i) => {
+            if (i < iteration || char === ' ' || char === '\n') return char;
+            return chars[Math.floor(Math.random() * chars.length)];
+          }).join('');
+          iteration += 1/2;
+          if (iteration >= original.length) {
+            span.textContent = original;
+            clearInterval(interval);
+          }
+        }, 30);
+      });
+    }
+  }
+
+  // ---- SCROLL REVEAL (fade-up) ----
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => revealObserver.observe(el));
+
+  // ---- INGREDIENT BADGES (stagger on scroll) ----
+  const ingredientGroups = document.querySelectorAll('.ingredient-group');
+  const badgeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.ingredient-badge').forEach(b => b.classList.add('show'));
+        badgeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  ingredientGroups.forEach(g => badgeObserver.observe(g));
+
+  // ---- COUNTERS ----
+  const counters = document.querySelectorAll('.counter[data-target]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const isDecimal = String(target).includes('.');
+        const duration = 2000;
+        const start = performance.now();
+
+        const animate = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = eased * target;
+          el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString()) + suffix;
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  // ---- MAGNETIC BUTTONS ----
+  document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
+    const btn = wrap.firstElementChild;
+    if (!btn || prefersReduced) return;
+    wrap.addEventListener('mousemove', (e) => {
+      const rect = wrap.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      wrap.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+    wrap.addEventListener('mouseleave', () => {
+      wrap.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // ---- PRODUCT TILT (mouse parallax) ----
+  const productHero = document.getElementById('productHero');
+  const productTilt = document.getElementById('productTilt');
+  if (productHero && productTilt && !prefersReduced) {
+    productHero.addEventListener('mousemove', (e) => {
+      const rect = productHero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      productTilt.style.transform = `rotateY(${x * 15}deg) rotateX(${-y * 15}deg)`;
+    });
+    productHero.addEventListener('mouseleave', () => {
+      productTilt.style.transform = 'rotateY(0) rotateX(0)';
+    });
+  }
+
+  // ---- PRODUCT CARD TILT ----
+  document.querySelectorAll('.product-tilt-card').forEach(card => {
+    if (prefersReduced) return;
+    const parent = card.closest('.ripple-container');
+    if (!parent) return;
+    parent.addEventListener('mousemove', (e) => {
+      const rect = parent.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+    });
+    parent.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateY(0) rotateX(0)';
+    });
+  });
+
+  // ---- ENERGY RIPPLE on product hover ----
+  document.querySelectorAll('.ripple-container').forEach(container => {
+    if (prefersReduced) return;
+    container.addEventListener('click', (e) => {
+      const rect = container.getBoundingClientRect();
+      const ripple = document.createElement('div');
+      ripple.classList.add('ripple');
+      ripple.style.left = (e.clientX - rect.left) + 'px';
+      ripple.style.top = (e.clientY - rect.top) + 'px';
+      ripple.style.width = '100px';
+      ripple.style.height = '100px';
+      container.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+
+  // ---- ADD TO CART BUTTON ANIMATION ----
+  document.querySelectorAll('.btn-add-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.querySelector('.btn-text');
+      const check = btn.querySelector('.btn-check');
+      if (!text || !check) return;
+      text.style.opacity = '0';
+      check.style.opacity = '1';
+      setTimeout(() => {
+        text.style.opacity = '1';
+        check.style.opacity = '0';
+      }, 1500);
+    });
+  });
+
+  // ---- HOUR-BASED HERO (IA personalizada) ----
+  const hour = new Date().getHours();
+  const heroH1 = document.getElementById('heroHeadline');
+  if (heroH1 && hour >= 20 || hour < 6) {
+    // Night mode: change hero messaging
+    // We don't overwrite since scramble already ran, but we could adapt
+    // For the demo, the default daytime message stays
+  }
+
+})();
+</script>
+
+</body>
+</html>

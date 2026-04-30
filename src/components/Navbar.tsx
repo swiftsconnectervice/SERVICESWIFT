@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Proceso", href: "#proceso" },
   { label: "Servicios", href: "#servicios" },
   { label: "Inversión", href: "#inversion" },
+  { label: "Portafolio", href: "/showroom" },
 ];
 
 export function Navbar() {
@@ -15,6 +16,10 @@ export function Navbar() {
 
   const handleNavClick = (href: string) => {
     setIsMobileOpen(false);
+    if (href.startsWith("/")) {
+      window.location.href = href;
+      return;
+    }
     const el = document.querySelector(href);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
