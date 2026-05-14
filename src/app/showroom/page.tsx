@@ -17,7 +17,7 @@ interface Demo {
 
 const DEMOS: Demo[] = [
   // Legal
-  { name: "Firma Legal Estratégica", slug: "cimet-abogados", sector: "legal", label: "Legal · CDMX", description: "Firma legal estratégica. Civil, mercantil, financiero, inmobiliario." },
+  { name: "Firma Legal Estratégica", slug: "firma-legal-estrategica", sector: "legal", label: "Legal · Estratégica", description: "Firma legal estratégica. Civil, mercantil, financiero, inmobiliario." },
   { name: "Despacho Corporativo", slug: "adlex", sector: "legal", label: "Legal · Corporativo", description: "Firma corporativa. Fiscal, corporativo y licitaciones." },
   { name: "Bufete Premium", slug: "abogado-demo", sector: "legal", label: "Legal · Premium", description: "Firma premium. M&A, litigio complejo y derecho fiscal." },
   { name: "Abogados Asociados", slug: "torre-legal", sector: "legal", label: "Legal · Toluca", description: "Abogados en Toluca. Estilo profesional." },
