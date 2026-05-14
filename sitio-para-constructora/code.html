@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ESTRUCTURA NOVA | Excelencia en Construcción Industrial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#121c2a",
+                        "surface-dim": "#d0daef",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#d9e3f7",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#783200",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "primary": "#022448",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#adc8f5",
+                        "on-tertiary-fixed": "#341100",
+                        "on-tertiary-container": "#ff8031",
+                        "on-error": "#ffffff",
+                        "on-surface": "#121c2a",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed": "#ffdbca",
+                        "on-surface-variant": "#43474e",
+                        "surface-tint": "#455f87",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e6eeff",
+                        "outline": "#74777f",
+                        "on-primary-container": "#8aa4cf",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary": "#411800",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-container-low": "#eff3ff",
+                        "primary-fixed": "#d5e3ff",
+                        "outline-variant": "#c4c6cf",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "secondary-fixed": "#d9e3f7",
+                        "on-secondary-container": "#596374",
+                        "secondary-fixed-dim": "#bdc7db",
+                        "inverse-primary": "#adc8f5",
+                        "inverse-surface": "#273140",
+                        "primary-container": "#1e3a5f",
+                        "surface-container-high": "#dee9fd",
+                        "on-primary-fixed": "#001c3b",
+                        "tertiary-container": "#632800",
+                        "on-background": "#121c2a",
+                        "surface-variant": "#d9e3f7",
+                        "secondary": "#555f70",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#d6e0f4",
+                        "on-secondary-fixed-variant": "#3d4757"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .blueprint-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(2, 36, 72, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-slate-950/80 backdrop-blur-md">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
+<div class="text-xl font-black tracking-tighter text-primary dark:text-slate-100">
+                ESTRUCTURA NOVA
+            </div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-inter tracking-tight font-semibold uppercase text-xs text-primary dark:text-blue-400 border-b-2 border-primary dark:border-blue-400 pb-1" href="#">Home</a>
+<a class="font-inter tracking-tight font-semibold uppercase text-xs text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Projects</a>
+<a class="font-inter tracking-tight font-semibold uppercase text-xs text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Process</a>
+<a class="font-inter tracking-tight font-semibold uppercase text-xs text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Certifications</a>
+<a class="font-inter tracking-tight font-semibold uppercase text-xs text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Team</a>
+<a class="font-inter tracking-tight font-semibold uppercase text-xs text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary font-inter tracking-tight font-semibold uppercase text-xs px-6 py-2.5 rounded-sm active:scale-95 duration-150 ease-in-out">
+                Download Brochure
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Estructura Nova Construction" class="w-full h-full object-cover grayscale-[0.2] brightness-[0.7]" data-alt="High-resolution photo of a 12-story residential building under construction with steel and concrete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKIDtRsSwFpqdZzCyU7_ehvwxKpHOajQGeUeTEWb7e8kjTwroFB2Pq8HyHWFWVAw4DMlpI7SxWTaLSCu1ffeOyapE51RXKxCJ-LN_Fys-qIHdiXFyMoyX7QDpj9hlmHf2K0aSqVzIW2rrkNpkIct6YvtKZ7UHgVZrS6rtVHVGVsDWX_rvmdF02vS4F6uy5T-uAyAfyLQGX7IjWx7cFQdyadLqDigbKRiHnPo4HzPKtWml2XCCCSQ4VrVi-65-m4hOCTbvQiDAaB74"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="inline-block py-1 px-3 bg-on-tertiary-container text-tertiary-fixed text-[10px] font-bold tracking-[0.2em] uppercase mb-6 rounded-sm">
+                        INDUSTRIAL PRECISION SINCE 2006
+                    </span>
+<h1 class="text-white text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight mb-6">
+                        18 años entregando proyectos terminados
+                    </h1>
+<p class="text-surface-container-highest text-xl md:text-2xl mb-10 font-light leading-relaxed">
+                        Constructora especializada en desarrollo vertical. Licenciada, asegurada, ISO 9001.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary-container hover:bg-primary text-white font-bold py-4 px-8 rounded-sm transition-all duration-300 text-sm tracking-wider uppercase">
+                            Solicitar cotización de proyecto
+                        </button>
+<button class="border border-white/30 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-sm transition-all duration-300 text-sm tracking-wider uppercase backdrop-blur-sm">
+                            Explorar Portafolio
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="bg-surface_container_low dark:bg-slate-900">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30 py-12">
+<div class="py-8 md:py-0 md:px-8 first:pl-0">
+<div class="font-mono text-4xl font-bold text-primary mb-2">18</div>
+<div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Años de experiencia</div>
+</div>
+<div class="py-8 md:py-0 md:px-8">
+<div class="font-mono text-4xl font-bold text-primary mb-2">245,000 m²</div>
+<div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Construidos</div>
+</div>
+<div class="py-8 md:py-0 md:px-8">
+<div class="font-mono text-4xl font-bold text-primary mb-2">34</div>
+<div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Proyectos entregados</div>
+</div>
+<div class="py-8 md:py-0 md:px-8 last:pr-0">
+<div class="font-mono text-4xl font-bold text-primary mb-2">96%</div>
+<div class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">En tiempo y presupuesto</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Grid -->
+<section class="py-24 bg-surface blueprint-bg">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tighter text-primary uppercase">Portafolio Seleccionado</h2>
+<div class="h-1 w-24 bg-on-tertiary-container mt-4"></div>
+</div>
+<p class="hidden md:block text-on-surface-variant max-w-sm text-sm">Ejecución de infraestructura de alto impacto con rigor técnico y normativo.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project Card 1 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300 hover:translate-y-[-4px]">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img alt="Torre Residencial del Valle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern glass residential tower under clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSxrmKIDVunTiASq7R-0YQGUC-7wIa2RZQZygTTYA1oo4f4M-KMfOVYLHnHjp-AHD7gXMvPE6hn-tVkhwjWj4nZ7AfxLXii6Bljb_lg6d4Xsw1QXdr1-bbyUEWrk8jGEcIDHex8QAAeHJpdCv2YiFRFmUwgZNC_NFe08kcmGOIcs8svlF16KElwWQBZ9Dg7CHbFVnQfBZK-SzPjVlMhskLbrbGIAXwJ3WvuD86u3iHTGqZ33nGu-7QJxjekJDyVu9B-HmeJwnloyY"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Residencial</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-xl text-primary mb-2">Torre Residencial del Valle</h3>
+<div class="grid grid-cols-2 gap-4 mb-6 text-xs font-mono text-on-surface-variant uppercase">
+<div><span class="block text-[10px] text-outline opacity-70">Área</span> 8,500m²</div>
+<div><span class="block text-[10px] text-outline opacity-70">Año</span> 2022</div>
+</div>
+<button class="w-full text-center border border-primary/10 py-3 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary hover:text-white transition-all">Ver ficha técnica</button>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300 hover:translate-y-[-4px]">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img alt="Centro Comercial Norte" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Wide angle shot of a modern white shopping center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBibOufbM3wCm2_n-uGBEItLs8juKqgyWPe50XHK2UihIVXo9-c16Mf-6AWO4IjvyrOZ53GI1hGiMqh9agJFTasWO4Od5UlNJQa9d9H61U5M_Kd0dOcYem16k7jmY_OZ1-OXASgXt2hlvSKtPHvvEp1ZZ0D_ikDSNGuRYn4r2EeYedtSl7tX8FNinGUoZ6XqkATUEQ5jTzh1d-4r9YbXDNatTG2gONZkghYFVILFrFY8ABQ0A5JktDU2aqNfhZDFR9y9hQ_iEq2yXI"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Comercial</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-xl text-primary mb-2">Centro Comercial Norte</h3>
+<div class="grid grid-cols-2 gap-4 mb-6 text-xs font-mono text-on-surface-variant uppercase">
+<div><span class="block text-[10px] text-outline opacity-70">Área</span> 12,000m²</div>
+<div><span class="block text-[10px] text-outline opacity-70">Año</span> 2021</div>
+</div>
+<button class="w-full text-center border border-primary/10 py-3 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary hover:text-white transition-all">Ver ficha técnica</button>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300 hover:translate-y-[-4px]">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img alt="Condominio Las Palmas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxury horizontal housing development with palm trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA77p98mWum3v50o7HobCIpXu7mcsvkZ4dBO0b8vInw89Zxq8ibs1VlEQs652fw3oIN0UY2jXeXQGQEFgtk8l_SUgXDCSzRzvyL8PmsZEqIQxqNDjp0YQc4nc_lvBEbQsGEgwWW_ItyxoGwOEfvuBTpjAW36tN92Zq0xUg61JmNAFu0nN-KSROgE4G8zLiXaDitFqEAoIu6AgnlG5DWuqBxA5FHmMcuOrVYUB8KoBMll1dG0t4fakZBe4ks_Ktf0i5a9euyPR5-ySk"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Urbano</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-xl text-primary mb-2">Condominio Horizontal Las Palmas</h3>
+<div class="grid grid-cols-2 gap-4 mb-6 text-xs font-mono text-on-surface-variant uppercase">
+<div><span class="block text-[10px] text-outline opacity-70">Área</span> 15,200m²</div>
+<div><span class="block text-[10px] text-outline opacity-70">Año</span> 2023</div>
+</div>
+<button class="w-full text-center border border-primary/10 py-3 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary hover:text-white transition-all">Ver ficha técnica</button>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300 hover:translate-y-[-4px]">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img alt="Oficinas Sky" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Corporate office building interior with glass walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJtutP32JoirdBhnwH5Ii22AN_SBZsCitfPQ2mQ34vSqEnt8HuvkblWDoNdZL-tZlrhT9l5FSVYmZ3pHVbptrUdUjGzru208IA_DHCw_DQSZ_0gQeGXpOyFwFTqmfmb10VBNZURow-RpieSzXg8Nb6ZmlwePW5Y9be8L2nysgcvyHtQVWI51rW1gWtRjLoteQAEQ9tTusx4g9kFypWJTEZjex37sOp3YJkBSPeboGtD1w0QkMoy2VpoQSw35cXp33CFCvDDKPdlyw"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Corporativo</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-xl text-primary mb-2">Oficinas Corporativas Sky</h3>
+<div class="grid grid-cols-2 gap-4 mb-6 text-xs font-mono text-on-surface-variant uppercase">
+<div><span class="block text-[10px] text-outline opacity-70">Área</span> 10,000m²</div>
+<div><span class="block text-[10px] text-outline opacity-70">Año</span> 2022</div>
+</div>
+<button class="w-full text-center border border-primary/10 py-3 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary hover:text-white transition-all">Ver ficha técnica</button>
+</div>
+</div>
+<!-- Project Card 5 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300 hover:translate-y-[-4px]">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img alt="Parque Lince" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Large industrial warehouse facility with grey panels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv-Nfzioe_9W62gUZIvd8WQ2SySZ0SO5FftpG00cGLVjJmXhIzUapkP4dCYcc3v5PxojrOYf0gq6t14tN6At5F_qRsqrGSEQbCNF8PocNSqBQvGnkBQu6UMzXyMMbgSAJybGl-eU3NGDsHtTw5evoRksvoRstqdlbRLeAKUPvXK3EwxsoL_E3msqILmpqo87TTkH9bhu6yANbxqNuaF208cgoxSUQvqxoJGhYPf9FObwKq3HkwjLBDMpUQwjkMH7KMgNmesxRYM0U"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Industrial</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-xl text-primary mb-2">Parque Industrial Lince</h3>
+<div class="grid grid-cols-2 gap-4 mb-6 text-xs font-mono text-on-surface-variant uppercase">
+<div><span class="block text-[10px] text-outline opacity-70">Área</span> 22,000m²</div>
+<div><span class="block text-[10px] text-outline opacity-70">Año</span> 2021</div>
+</div>
+<button class="w-full text-center border border-primary/10 py-3 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary hover:text-white transition-all">Ver ficha técnica</button>
+</div>
+</div>
+<!-- Project Card 6 -->
+<div class="group bg-surface-container-lowest overflow-hidden transition-all duration-300 hover:translate-y-[-4px]">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img alt="Departamentos Paseo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Contemporary apartment building with balconies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB0oGjTWleZDyU5-crDEkLxzowMcW_K1CO7sIHdBnJ2uQduSJfTIMPPBvKmIUsR6cLxrEgI-EoYQ5ioe-ywq9tQ-KcgWlyLpj5tAaZQnu480KoFgD5mqIo5Z88Jh4FPgdT4KW_OlQBFxxETYoXNkn_XINfs3dA1hvfzgQTe2OwgX8WvxBVpML_Tv2MoNOTMQUgkiB41t3ecnnc1R5fFw2kXj9dzOM0UKhhIosgxaWq_og66csLyQTUUQ3LAbIXAehz5TbNOhUA71E"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Residencial</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-xl text-primary mb-2">Edificio Departamentos Paseo</h3>
+<div class="grid grid-cols-2 gap-4 mb-6 text-xs font-mono text-on-surface-variant uppercase">
+<div><span class="block text-[10px] text-outline opacity-70">Área</span> 7,200m²</div>
+<div><span class="block text-[10px] text-outline opacity-70">Año</span> 2023</div>
+</div>
+<button class="w-full text-center border border-primary/10 py-3 text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary hover:text-white transition-all">Ver ficha técnica</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-24 bg-primary text-white">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="text-4xl font-extrabold tracking-tighter uppercase mb-4">Nuestro Proceso</h2>
+<p class="text-on-primary-container max-w-xl">Metodología de trabajo optimizada para garantizar la viabilidad técnica y financiera de cada proyecto.</p>
+</div>
+<div class="relative grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Progress Line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-[2px] bg-white/10 z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10">
+<div class="w-16 h-16 bg-on-tertiary-container rounded-sm flex items-center justify-center mb-6 shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl">analytics</span>
+</div>
+<div class="font-mono text-xs text-on-primary-container mb-2">Fase 01</div>
+<h3 class="text-xl font-bold mb-3">Diagnóstico y viabilidad</h3>
+<p class="text-sm text-on-primary-container/80 leading-relaxed">Evaluación técnica preliminar y análisis de factibilidad normativa.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10">
+<div class="w-16 h-16 bg-on-tertiary-container rounded-sm flex items-center justify-center mb-6 shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl">architecture</span>
+</div>
+<div class="font-mono text-xs text-on-primary-container mb-2">Fase 02</div>
+<h3 class="text-xl font-bold mb-3">Proyecto ejecutivo y permisos</h3>
+<p class="text-sm text-on-primary-container/80 leading-relaxed">Diseño estructural detallado y gestión integral de licencias.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10">
+<div class="w-16 h-16 bg-on-tertiary-container rounded-sm flex items-center justify-center mb-6 shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl">construction</span>
+</div>
+<div class="font-mono text-xs text-on-primary-container mb-2">Fase 03</div>
+<h3 class="text-xl font-bold mb-3">Ejecución con supervisión</h3>
+<p class="text-sm text-on-primary-container/80 leading-relaxed">Construcción bajo estándares ISO con auditoría en sitio 24/7.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10">
+<div class="w-16 h-16 bg-on-tertiary-container rounded-sm flex items-center justify-center mb-6 shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl">verified</span>
+</div>
+<div class="font-mono text-xs text-on-primary-container mb-2">Fase 04</div>
+<h3 class="text-xl font-bold mb-3">Entrega y garantías</h3>
+<p class="text-sm text-on-primary-container/80 leading-relaxed">Liquidación de obra y pólizas de garantía por vicios ocultos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Certifications -->
+<section class="py-16 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-md">
+<div class="inline-flex items-center gap-2 text-tertiary font-bold mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="uppercase tracking-widest text-xs">Cumplimiento Riguroso</span>
+</div>
+<p class="text-2xl font-extrabold text-primary uppercase">Cumplimos norma, no negociamos con seguridad</p>
+</div>
+<div class="flex flex-wrap justify-center gap-12 grayscale opacity-60">
+<div class="flex flex-col items-center">
+<div class="font-black text-2xl">ISO 9001</div>
+<div class="text-[10px] font-bold uppercase tracking-tighter">Calidad</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="font-black text-2xl">ISO 14001</div>
+<div class="text-[10px] font-bold uppercase tracking-tighter">Ambiental</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="font-black text-2xl">ISO 45001</div>
+<div class="text-[10px] font-bold uppercase tracking-tighter">Seguridad</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="font-black text-2xl">CMIC</div>
+<div class="text-[10px] font-bold uppercase tracking-tighter">Afiliado</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="font-black text-2xl">LIABILITY</div>
+<div class="text-[10px] font-bold uppercase tracking-tighter">Insurance</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold tracking-tighter text-primary uppercase mb-4">Liderazgo Técnico</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Nuestro equipo directivo suma décadas de experiencia en el sector de la construcción vertical.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Team Member 1 -->
+<div>
+<div class="aspect-[3/4] mb-6 bg-surface-container-high overflow-hidden rounded-sm">
+<img alt="Ing. David Arriaga" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of male civil engineer in suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCads6PziIkham_LDYTOILZv9fBl1ExTBYKxFVuCGvTHSic7sEEGCH4Tf0GljClNSLXq3AfD7lXJZ7kOzqDT7jR4PQeok4ygYC774sn1aK9SbxzLoofzB5MVuX-YSDMZKWCvC-XFh3uaPMyEiuH4DNZbcZkbZTLEV0lBnc_ab7QB6HFxjttVWPhubOvQxNq3qqKhkre0qRDPPnwWZzxPfBM0Q_xRyk_jEmEAR6_VBiRm-pTaLlxLhqbm0K_PPseos7i-A4f_-lZktc"/>
+</div>
+<h3 class="font-bold text-lg text-primary">Ing. David Arriaga</h3>
+<p class="text-sm text-on-surface-variant mb-2">Director General</p>
+<div class="text-xs font-mono text-on-tertiary-container font-bold uppercase">18 Años de experiencia</div>
+</div>
+<!-- Team Member 2 -->
+<div>
+<div class="aspect-[3/4] mb-6 bg-surface-container-high overflow-hidden rounded-sm">
+<img alt="Arq. Elena Ruiz" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of female architect in office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBST3nRA-FahcLQM420lE2F3JpnU94ujCwwS1Z7mKvfqiTmV0IlxCVKfQHHZqGqYNclguBeF2iMrZ1a3mkATSViTtsRgU6BA0QOKJdQz6WMdEpvoXaHk2X_sDaw2tZoh6eppCwW0j52vEKxuYKhdNFTAMKldCnS56Po-soEeqH_Mn2M7hhiK1X8welGOjvR_oRgq7ejy-o81QzX_Tx7ZQGhJ_ftLEjKKUUzCfBT24ULI4keYhTXxGpqf2YMCCx2AYWX80ut6jshCh4"/>
+</div>
+<h3 class="font-bold text-lg text-primary">Arq. Elena Ruiz</h3>
+<p class="text-sm text-on-surface-variant mb-2">Gerente de Proyectos</p>
+<div class="text-xs font-mono text-on-tertiary-container font-bold uppercase">12 Años de experiencia</div>
+</div>
+<!-- Team Member 3 -->
+<div>
+<div class="aspect-[3/4] mb-6 bg-surface-container-high overflow-hidden rounded-sm">
+<img alt="Ing. Carlos Mendez" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of male construction site manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW9Wti8fmB_7t46yLReX_p8_Q3paKhZ8Yw_VACGrLuLHLw2-qO298oi7Ivsom9JyGXRk_jnDGkh58ab_K3siGY944oE6XnMkYSWyK5hkv0wAEy0zeDRs-FNFQbFgeJzu6EWtTVtTXgaRyw3VvTLFl5eQtOE9k2GS9kdNGsYaHEUc_HjKz4L2BVqUArwgmyegL7ZKoZ8_a9-s-JTMW2CER07Sm1HoSav_-QuBwXvCp_jh3WIjBHE-zjxsyA6EwzXhcfaAapQbcJbsg"/>
+</div>
+<h3 class="font-bold text-lg text-primary">Ing. Carlos Mendez</h3>
+<p class="text-sm text-on-surface-variant mb-2">Jefe de Obra</p>
+<div class="text-xs font-mono text-on-tertiary-container font-bold uppercase">15 Años de experiencia</div>
+</div>
+<!-- Team Member 4 -->
+<div>
+<div class="aspect-[3/4] mb-6 bg-surface-container-high overflow-hidden rounded-sm">
+<img alt="Ing. Sofía Valdés" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of female resident engineer with hard hat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcQkEp8Tt5CinBbawyRMWgGmxxNBD3cDbjY2muhvBmgiZiRYRgFYnfXMAgXkupqjEuzZGHeLMFMIIjSPzPmU5UWyx_D_26zPQPAef6vahR9G4QabMGMdAnMhl6vYJ4Nozhtok9nNNA9g4G5suL6bWMKk-4qReZuaz-wr5zQgh3-r8K2np-eR1KVTkD_GWHoDN5YGNrXsycfRJNAySzaNQVNJuLkKi5KNJdATCPfmHYVFijpXJrQIMilRDEqMRDe7eZshd7fm2Sg"/>
+</div>
+<h3 class="font-bold text-lg text-primary">Ing. Sofía Valdés</h3>
+<p class="text-sm text-on-surface-variant mb-2">Ingeniero Residente</p>
+<div class="text-xs font-mono text-on-tertiary-container font-bold uppercase">10 Años de experiencia</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form & Info -->
+<section class="bg-surface-container-high py-24">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
+<!-- Contact Info -->
+<div>
+<h2 class="text-4xl font-extrabold tracking-tighter text-primary uppercase mb-8">Iniciemos su proyecto</h2>
+<p class="text-on-surface-variant mb-12 max-w-md">Contamos con la infraestructura y solvencia necesaria para licitar obras de gran escala. Solicite una cotización técnica hoy mismo.</p>
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white flex items-center justify-center text-primary rounded-sm">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-bold text-primary uppercase text-xs tracking-widest mb-1">Oficinas Centrales</h4>
+<p class="text-sm text-on-surface-variant">Paseo de la Reforma 450, Piso 12<br/>Ciudad de México, CP 06600</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white flex items-center justify-center text-primary rounded-sm">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<h4 class="font-bold text-primary uppercase text-xs tracking-widest mb-1">Teléfono Directo</h4>
+<p class="text-sm text-on-surface-variant">+52 (55) 4123 5678</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white flex items-center justify-center text-primary rounded-sm">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h4 class="font-bold text-primary uppercase text-xs tracking-widest mb-1">Horario de Atención</h4>
+<p class="text-sm text-on-surface-variant">Lunes a Viernes: 9:00 - 18:00</p>
+</div>
+</div>
+</div>
+<div class="mt-12 h-64 bg-surface-container-highest rounded-sm overflow-hidden relative grayscale">
+<img alt="Map Location" class="w-full h-full object-cover opacity-50" data-alt="Map of Mexico City downtown area" data-location="Mexico City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVISqUCN4sZmFbv474S8BfYeIfmWdsJRxAuaKxm9ZGuukDLc8YZ-9tJMK0-NTrij2FogGqGeH9UcPZjdnx2KVSzUD9MN1eAclFiPZ_aEXk6rWQPwJpEg0c8KYm6vPeA1b2XvKoyKHWMjzZUweIg2n8i_ru5DmrW4UxKeOZL5iFImfru7IYwsCEix5oOK47crh2RGlCMAgKnZAVpMMDZZRVP59aQvwHQaYFjzHfGHeYpe905Dy6rwJiawNw5IpaEK_h4olI4CyEqEM"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary text-white p-3 rounded-sm shadow-xl">
+<span class="material-symbols-outlined">pin_drop</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Form -->
+<div class="bg-surface-container-lowest p-8 md:p-12 shadow-2xl">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Tipo de Proyecto</label>
+<select class="w-full bg-surface-container-high border-none rounded-sm py-3 px-4 focus:ring-2 focus:ring-primary focus:outline-none appearance-none">
+<option>Residencial Vertical</option>
+<option>Nave Industrial</option>
+<option>Corporativo</option>
+<option>Infraestructura Pública</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">M2 Estimados</label>
+<input class="w-full bg-surface-container-high border-none rounded-sm py-3 px-4 focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Ej: 5000" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Ubicación</label>
+<input class="w-full bg-surface-container-high border-none rounded-sm py-3 px-4 focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Ciudad / Estado" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Inicio deseado</label>
+<input class="w-full bg-surface-container-high border-none rounded-sm py-3 px-4 focus:ring-2 focus:ring-primary focus:outline-none" type="date"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Nombre Completo</label>
+<input class="w-full bg-surface-container-high border-none rounded-sm py-3 px-4 focus:ring-2 focus:ring-primary focus:outline-none" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Email Corporativo</label>
+<input class="w-full bg-surface-container-high border-none rounded-sm py-3 px-4 focus:ring-2 focus:ring-primary focus:outline-none" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Teléfono</label>
+<input class="w-full bg-surface-container-high border-none rounded-sm py-3 px-4 focus:ring-2 focus:ring-primary focus:outline-none" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-4 pt-4">
+<button class="w-full bg-[#F97316] hover:bg-tertiary-container text-white font-black py-4 rounded-sm transition-all duration-300 uppercase tracking-widest text-sm shadow-lg shadow-tertiary-container/20" type="submit">
+                                Enviar solicitud
+                            </button>
+<button class="w-full border border-primary text-primary font-bold py-4 rounded-sm hover:bg-primary hover:text-white transition-all duration-300 uppercase tracking-widest text-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm">download</span>
+                                Descargar brochure PDF
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface_container_low dark:bg-slate-900 w-full pt-16 pb-8 border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-2">
+<div class="text-2xl font-black text-primary dark:text-slate-100 mb-4">ESTRUCTURA NOVA</div>
+<p class="text-slate-500 dark:text-slate-400 max-w-sm mb-6 font-inter text-sm leading-relaxed">
+                    Líderes en ingeniería y construcción vertical con más de 245,000 m² entregados bajo los más altos estándares de calidad internacional.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-lg">public</span></a>
+<a class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-lg">share</span></a>
+<a class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-lg">mail</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-black text-primary uppercase text-xs tracking-[0.2em] mb-6">Navegación</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors font-inter text-sm hover:translate-x-1 duration-200 inline-block" href="#">Home</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors font-inter text-sm hover:translate-x-1 duration-200 inline-block" href="#">Proyectos</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors font-inter text-sm hover:translate-x-1 duration-200 inline-block" href="#">Procesos</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors font-inter text-sm hover:translate-x-1 duration-200 inline-block" href="#">Certificaciones</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-black text-primary uppercase text-xs tracking-[0.2em] mb-6">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors font-inter text-sm hover:translate-x-1 duration-200 inline-block" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors font-inter text-sm hover:translate-x-1 duration-200 inline-block" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-300 transition-colors font-inter text-sm hover:translate-x-1 duration-200 inline-block" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-slate-500 dark:text-slate-400 font-inter text-sm leading-relaxed uppercase tracking-widest">© 2024 Estructura Nova. 18 Years of Industrial Excellence.</p>
+</div>
+</footer>
+</body></html>

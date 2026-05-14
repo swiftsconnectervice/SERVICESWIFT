@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vega &amp; Asociados | Excelencia Jurídica Global</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#e3e2df",
+              "on-secondary-container": "#735a00",
+              "on-primary-fixed": "#001c3b",
+              "on-secondary-fixed": "#241a00",
+              "error": "#ba1a1a",
+              "on-secondary-fixed-variant": "#584400",
+              "surface-bright": "#faf9f6",
+              "inverse-surface": "#2f312f",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed": "#1c1b1b",
+              "surface-container-low": "#f4f3f0",
+              "on-primary-fixed-variant": "#2d486d",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c4c6cf",
+              "on-surface": "#1a1c1a",
+              "primary-container": "#1e3a5f",
+              "on-background": "#1a1c1a",
+              "on-tertiary-container": "#a4a3a2",
+              "surface-container-highest": "#e3e2df",
+              "surface-container-high": "#e9e8e5",
+              "tertiary-container": "#3a3939",
+              "surface-dim": "#dbdad7",
+              "on-primary": "#ffffff",
+              "outline": "#74777f",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#455f87",
+              "on-error": "#ffffff",
+              "tertiary": "#242424",
+              "on-error-container": "#93000a",
+              "background": "#faf9f6",
+              "on-primary-container": "#8aa4cf",
+              "on-surface-variant": "#43474e",
+              "tertiary-fixed": "#e5e2e1",
+              "surface-container": "#efeeeb",
+              "surface": "#faf9f6",
+              "primary-fixed-dim": "#adc8f5",
+              "secondary-container": "#fed255",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#d5e3ff",
+              "secondary": "#755b00",
+              "primary": "#022448",
+              "inverse-primary": "#adc8f5",
+              "inverse-on-surface": "#f2f1ee",
+              "secondary-fixed": "#ffe08e",
+              "secondary-fixed-dim": "#ecc246",
+              "on-tertiary-fixed-variant": "#474746",
+              "tertiary-fixed-dim": "#c8c6c5"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#faf9f6]/80 dark:bg-[#022448]/80 glass-nav shadow-[0_4px_40px_rgba(2,36,72,0.04)]">
+<div class="flex items-center justify-between px-6 md:px-12 py-6 max-w-[1920px] mx-auto">
+<a class="text-2xl font-semibold tracking-[0.2em] uppercase text-[#022448] dark:text-[#faf9f6] font-headline" href="#">
+                Vega &amp; Asociados
+            </a>
+<nav class="hidden md:flex items-center space-x-10">
+<a class="text-[#022448] dark:text-[#faf9f6] opacity-80 hover:text-[#755b00] dark:hover:text-[#755b00] transition-all duration-500 font-serif tracking-tight font-headline" href="#firma">Firma</a>
+<a class="text-[#022448] dark:text-[#faf9f6] opacity-80 hover:text-[#755b00] dark:hover:text-[#755b00] transition-all duration-500 font-serif tracking-tight font-headline" href="#areas">Áreas de Práctica</a>
+<a class="text-[#022448] dark:text-[#faf9f6] opacity-80 hover:text-[#755b00] dark:hover:text-[#755b00] transition-all duration-500 font-serif tracking-tight font-headline" href="#socio">El Socio</a>
+<a class="text-[#022448] dark:text-[#faf9f6] opacity-80 hover:text-[#755b00] dark:hover:text-[#755b00] transition-all duration-500 font-serif tracking-tight font-headline" href="#recursos">Recursos</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="bg-primary text-on-primary px-6 py-2.5 text-sm uppercase tracking-widest font-medium hover:opacity-90 transition-all scale-[0.99] active:opacity-80">
+                    Agendar Consulta
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Elegant law library with dark wood shelves and natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTShB8jWCPPbAEBbBRx7-ddhowuInnEIo2i0TjJEj6SjRmm2WzYFFtyHQvF4yXEhfA2Ts0EvKmAco7--FUQDbTsVQCX6w7zAc0owHqGC0_IXBG8osowfZWV0PFkSHp1T6Jc-IYn7J4aEw_ZfjLmSbUO8E3WEKRrI64mGxwXmUNgmcDKCMKvFx8JjRuSSyqDdKCmwLoaSchsOaSMvV8TLhM76kOPNvsP1FtJWtxDrqriKau1dI1QJCTSKuRmVIUvQrEsEkGkO1IIMI"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full py-24">
+<div class="max-w-2xl">
+<span class="inline-block text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-6">Excelencia en Derecho Corporativo</span>
+<h1 class="text-5xl md:text-7xl font-headline text-on-primary leading-[1.1] mb-8 tracking-tight">
+                        Estrategia legal para proteger lo que has construido
+                    </h1>
+<p class="text-lg md:text-xl text-on-primary/80 mb-10 leading-relaxed font-light">
+                        22 años de práctica en derecho corporativo, fiscal y litigio complejo. <br/>
+<span class="text-secondary italic">Confidencialidad. Ética. Resultados.</span>
+</p>
+<div class="flex flex-col sm:flex-row gap-6">
+<a class="bg-primary-container text-on-primary px-10 py-4 text-sm uppercase tracking-widest font-semibold text-center hover:bg-primary transition-colors border border-outline-variant/20" href="#contacto">
+                            Agendar consulta inicial
+                        </a>
+<a class="border border-on-primary/30 text-on-primary px-10 py-4 text-sm uppercase tracking-widest font-semibold text-center hover:bg-on-primary hover:text-primary transition-all" href="#areas">
+                            Nuestras Áreas
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- El Socio -->
+<section class="py-24 md:py-32 bg-surface" id="socio">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] bg-surface-container-high overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Professional portrait of Dr. Alejandro Vega in navy suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCKoVnOWzBVEOVFvTp9M4R0PBXIhEQfWIs_gEIVPMVzYqNtPyH3gXx85IqP-780BLepGQH-A9rEQKe8z5LQY2JZi2PmKcUuAzOadQjs7azRDM3y-BlhSLEqinI5fnPpBAN-1Um57C3DWVUUTHKVXniArdrWQGU-q2PRSrLa4fPBwZ-rq9e8PFFimnEfjRqEkYGVzpyI1XVAHO5MnVtsfUz5qFJBeWLb2MJ6NRL32sOCMfEC3AMX2DwXoWNDcQxxxI1dT4evLnJ2WY"/>
+</div>
+<div class="absolute -bottom-8 -right-8 bg-primary p-10 hidden md:block">
+<span class="text-secondary text-5xl font-headline">22</span>
+<p class="text-on-primary text-xs uppercase tracking-widest mt-2">Años de Trayectoria</p>
+</div>
+</div>
+<div class="md:col-span-7">
+<span class="text-secondary font-medium tracking-widest uppercase text-xs mb-4 block">Fundador</span>
+<h2 class="text-4xl md:text-5xl font-headline text-primary mb-8 leading-tight">Dr. Alejandro Vega</h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed">
+<p class="text-xl font-headline italic text-primary">"La ley es compleja. Mi trabajo es hacerla simple para proteger tus intereses."</p>
+<p>Especialista en Derecho Fiscal con mención honorífica y miembro activo del Ilustre Colegio de Abogados. A lo largo de dos décadas, ha liderado las reestructuraciones corporativas más significativas de la región.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+<span class="text-sm uppercase tracking-wide">Maestría en Derecho Fiscal</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+<span class="text-sm uppercase tracking-wide">Consejero de Cámaras de Comercio</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Áreas de Práctica (Asymmetric Layout) -->
+<section class="py-24 bg-surface-container-low" id="areas">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-xl">
+<h2 class="text-4xl md:text-5xl font-headline text-primary mb-6">Especialización de Alto Nivel</h2>
+<p class="text-on-surface-variant">Ofrecemos soluciones integrales bajo una visión estratégica que anticipa el conflicto antes de que este surja.</p>
+</div>
+<div class="h-px bg-outline-variant/30 flex-grow mx-12 hidden md:block"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20 overflow-hidden border border-outline-variant/20">
+<!-- Corporativo -->
+<div class="bg-surface p-12 md:p-16 hover:bg-primary group transition-all duration-500">
+<span class="material-symbols-outlined text-secondary text-4xl mb-8 group-hover:text-on-primary transition-colors">view_column</span>
+<h3 class="text-2xl font-headline text-primary mb-4 group-hover:text-on-primary transition-colors">Derecho Corporativo</h3>
+<p class="text-on-surface-variant group-hover:text-on-primary/70 transition-colors mb-8">Gobierno corporativo, fusiones, adquisiciones y estructuras societarias complejas para empresas en expansión.</p>
+<a class="inline-flex items-center text-secondary font-medium text-sm tracking-widest uppercase group-hover:text-on-primary" href="#">
+                            Saber más <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Fiscal -->
+<div class="bg-surface p-12 md:p-16 hover:bg-primary group transition-all duration-500">
+<span class="material-symbols-outlined text-secondary text-4xl mb-8 group-hover:text-on-primary transition-colors">balance</span>
+<h3 class="text-2xl font-headline text-primary mb-4 group-hover:text-on-primary transition-colors">Derecho Fiscal</h3>
+<p class="text-on-surface-variant group-hover:text-on-primary/70 transition-colors mb-8">Estrategia impositiva nacional e internacional, defensa ante autoridades y optimización de cargas tributarias.</p>
+<a class="inline-flex items-center text-secondary font-medium text-sm tracking-widest uppercase group-hover:text-on-primary" href="#">
+                            Saber más <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Litigio -->
+<div class="bg-surface p-12 md:p-16 hover:bg-primary group transition-all duration-500">
+<span class="material-symbols-outlined text-secondary text-4xl mb-8 group-hover:text-on-primary transition-colors">menu_book</span>
+<h3 class="text-2xl font-headline text-primary mb-4 group-hover:text-on-primary transition-colors">Litigio y Arbitraje</h3>
+<p class="text-on-surface-variant group-hover:text-on-primary/70 transition-colors mb-8">Resolución de controversias comerciales de alto impacto con enfoque en la preservación de activos y reputación.</p>
+<a class="inline-flex items-center text-secondary font-medium text-sm tracking-widest uppercase group-hover:text-on-primary" href="#">
+                            Saber más <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</a>
+</div>
+<!-- Inmobiliario -->
+<div class="bg-surface p-12 md:p-16 hover:bg-primary group transition-all duration-500">
+<span class="material-symbols-outlined text-secondary text-4xl mb-8 group-hover:text-on-primary transition-colors">account_balance</span>
+<h3 class="text-2xl font-headline text-primary mb-4 group-hover:text-on-primary transition-colors">Derecho Inmobiliario</h3>
+<p class="text-on-surface-variant group-hover:text-on-primary/70 transition-colors mb-8">Gestión de activos inmobiliarios, desarrollos comerciales y transacciones de propiedad de alto valor.</p>
+<a class="inline-flex items-center text-secondary font-medium text-sm tracking-widest uppercase group-hover:text-on-primary" href="#">
+                            Saber más <span class="material-symbols-outlined ml-2 text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Study Ledger (Signature Component) -->
+<section class="bg-primary-container relative overflow-hidden">
+<div class="max-w-[1920px] mx-auto flex flex-col md:flex-row">
+<div class="w-full md:w-[45%] py-24 px-6 md:px-12 flex flex-col justify-center">
+<span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-8">Resultados Medibles</span>
+<h2 class="text-4xl md:text-5xl font-headline text-on-primary mb-12 leading-tight">Casos de Éxito &amp; Reconocimientos</h2>
+<div class="space-y-12">
+<div class="border-l border-secondary pl-8">
+<p class="text-on-primary/60 text-xs uppercase tracking-widest mb-2">Empresa Manufacturera</p>
+<h4 class="text-on-primary text-xl font-headline mb-1">Contingencia fiscal reducida en un 80%</h4>
+<p class="text-on-primary/40 text-sm">Estrategia de defensa ante auditoría federal.</p>
+</div>
+<div class="border-l border-secondary pl-8">
+<p class="text-on-primary/60 text-xs uppercase tracking-widest mb-2">Familia Empresaria</p>
+<h4 class="text-on-primary text-xl font-headline mb-1">Protección de activos por $50M USD</h4>
+<p class="text-on-primary/40 text-sm">Protocolo sucesorio y blindaje corporativo.</p>
+</div>
+</div>
+<div class="mt-20 flex flex-wrap gap-12 opacity-50 grayscale invert brightness-0">
+<div class="h-8 w-24 bg-current" data-alt="Chambers Latin America Logo Placeholder"></div>
+<div class="h-8 w-24 bg-current" data-alt="Best Lawyers Logo Placeholder"></div>
+<div class="h-8 w-24 bg-current" data-alt="Legal 500 Logo Placeholder"></div>
+</div>
+</div>
+<div class="w-full md:w-[55%] relative min-h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Modern law firm meeting room with natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw90hBLuzo52Uv108ML6niJnuwZoEsQYLil1vmtVNFb2XGnG-CiMjxQ9W4vgfP5VCUFjXwur_eTdcDdY5DjonxF88E4_jhu79KxnSajTHUkMn1009sU-GU6xf7kUkx8PhYSQ0aX01RIi7nFelnnvIPOC6LOa5tz7DsHofKDJrEyakb9tnAfxyIxlx0VFpM353FQVb7aNtucDID8_JJfxLeNBoBeIz1sY_Z1NzMVsAVmTXCbRfAmTeqlrgv2zCj9PlTF5Ar-u7kGGE"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="absolute bottom-12 left-0 md:-left-12 bg-surface p-10 max-w-md shadow-2xl">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">format_quote</span>
+<p class="text-primary italic text-lg leading-relaxed mb-6 font-headline">"La visión del Dr. Vega fue fundamental para nuestra expansión. Su equipo no solo entiende la ley, entiende el negocio."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
+<div class="w-full h-full bg-primary-container/20"></div>
+</div>
+<div>
+<p class="font-bold text-primary text-sm uppercase tracking-wide">J.G.</p>
+<p class="text-on-surface-variant text-xs uppercase tracking-tight">CEO, Grupo Industrial Norte</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- La Diferencia (Pillars) -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-3xl">history_edu</span>
+<h4 class="text-lg font-headline text-primary uppercase tracking-wide">Experiencia</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">22 años de práctica ininterrumpida asesorando a más de 500 empresas nacionales.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-3xl">person_pin</span>
+<h4 class="text-lg font-headline text-primary uppercase tracking-wide">Personalización</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Sin delegar a pasantes. Cada caso es atendido directamente por socios senior.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-3xl">shield_with_heart</span>
+<h4 class="text-lg font-headline text-primary uppercase tracking-wide">Prevención</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Diseñamos estructuras legales que evitan el conflicto futuro, no solo reaccionan a él.</p>
+</div>
+<div class="space-y-4">
+<span class="material-symbols-outlined text-primary text-3xl">lock</span>
+<h4 class="text-lg font-headline text-primary uppercase tracking-wide">Confidencialidad</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Protocolos estrictos de manejo de información bajo estándares globales de ética.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recursos -->
+<section class="py-24 bg-surface-container-low" id="recursos">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline text-primary mb-4">Perspectivas Legales</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Análisis profundo sobre los cambios regulatorios que afectan el ecosistema empresarial.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface border border-outline-variant/10 p-8 hover:shadow-xl transition-all group">
+<p class="text-xs text-secondary font-bold uppercase tracking-widest mb-4">Derecho Fiscal</p>
+<h3 class="text-xl font-headline text-primary mb-4 group-hover:text-secondary transition-colors">Implicaciones de la Nueva Reforma Fiscal 2024</h3>
+<p class="text-sm text-on-surface-variant mb-6">Puntos clave para la planeación anual de grupos empresariales.</p>
+<a class="text-sm font-medium uppercase tracking-widest border-b border-secondary pb-1" href="#">Leer artículo</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-outline-variant/10 p-8 hover:shadow-xl transition-all group">
+<p class="text-xs text-secondary font-bold uppercase tracking-widest mb-4">Corporativo</p>
+<h3 class="text-xl font-headline text-primary mb-4 group-hover:text-secondary transition-colors">Contratos Preventivos: El Blindaje de tu Patrimonio</h3>
+<p class="text-sm text-on-surface-variant mb-6">Cómo estructurar acuerdos comerciales que minimicen riesgos operativos.</p>
+<a class="text-sm font-medium uppercase tracking-widest border-b border-secondary pb-1" href="#">Leer artículo</a>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface border border-outline-variant/10 p-8 hover:shadow-xl transition-all group">
+<p class="text-xs text-secondary font-bold uppercase tracking-widest mb-4">Sucesiones</p>
+<h3 class="text-xl font-headline text-primary mb-4 group-hover:text-secondary transition-colors">Sucesión Familiar en la Empresa Moderna</h3>
+<p class="text-sm text-on-surface-variant mb-6">Garantizando la continuidad del legado a través de protocolos claros.</p>
+<a class="text-sm font-medium uppercase tracking-widest border-b border-secondary pb-1" href="#">Leer artículo</a>
+</div>
+</div>
+<div class="mt-16 bg-primary p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="text-on-primary">
+<h4 class="text-2xl font-headline mb-2">Newsletter para Empresarios</h4>
+<p class="text-on-primary/60 text-sm">Reciba actualizaciones legales críticas directamente en su correo.</p>
+</div>
+<form class="flex w-full md:w-auto gap-4">
+<input class="bg-primary-container border-none text-on-primary text-sm px-6 py-3 w-full md:w-80 focus:ring-1 focus:ring-secondary" placeholder="Tu email corporativo" type="email"/>
+<button class="bg-secondary text-on-secondary px-8 py-3 text-xs uppercase tracking-widest font-bold">Unirse</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Contacto -->
+<section class="py-24 bg-surface" id="contacto">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<div>
+<h2 class="text-4xl font-headline text-primary mb-8">Inicie una Consulta Confidencial</h2>
+<p class="text-on-surface-variant mb-12">Nuestros especialistas evaluarán su caso con absoluta discreción y profesionalismo.</p>
+<div class="space-y-8">
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<div>
+<h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Ubicación</h5>
+<p class="text-on-surface-variant text-sm">Torre Corporativa, Piso XX, Paseo de la Reforma<br/>Ciudad de México, CP 06600</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-secondary">mail</span>
+<div>
+<h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-1">Contacto Directo</h5>
+<p class="text-on-surface-variant text-sm">contacto@vegayasociados.law<br/>+52 (55) 4123 9000</p>
+</div>
+</div>
+</div>
+<!-- Mini Map Placeholder -->
+<div class="mt-12 aspect-video bg-surface-container overflow-hidden grayscale opacity-80 border border-outline-variant/20">
+<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-surface-variant to-surface-dim" data-location="Ciudad de México" style=""></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 md:p-12">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-primary">Nombre Completo</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-sm transition-colors" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-primary">Correo Electrónico</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-sm transition-colors" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-primary">Teléfono</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-sm transition-colors" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-primary">Área de Interés</label>
+<select class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-sm transition-colors appearance-none">
+<option>Derecho Corporativo</option>
+<option>Derecho Fiscal</option>
+<option>Litigio y Arbitraje</option>
+<option>Derecho Inmobiliario</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-primary">Descripción breve del asunto</label>
+<textarea class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 px-0 py-2 text-sm transition-colors resize-none" rows="4"></textarea>
+</div>
+<div class="pt-6">
+<button class="w-full bg-primary text-on-primary py-4 text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-colors" type="submit">
+                                    Enviar solicitud segura
+                                </button>
+<p class="text-[10px] text-on-surface-variant/60 text-center mt-6 leading-relaxed italic">
+                                    Nota: Toda la información proporcionada es tratada bajo los más estrictos estándares de confidencialidad profesional. Al enviar, acepta nuestra política de privacidad.
+                                </p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#022448] dark:bg-[#01162d] w-full pt-24 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-6 md:px-12 max-w-7xl mx-auto border-b border-on-primary/10 pb-16 mb-12">
+<div class="col-span-1 md:col-span-1">
+<span class="text-xl font-serif tracking-widest text-[#faf9f6] mb-8 block font-headline">VEGA &amp; ASOCIADOS</span>
+<p class="text-[#faf9f6] opacity-60 text-xs leading-loose font-label uppercase tracking-wider">Excelencia Jurídica Global. 22 años protegiendo el legado empresarial.</p>
+</div>
+<div class="space-y-6">
+<h6 class="text-[#755b00] text-xs font-bold uppercase tracking-widest">Navegación</h6>
+<ul class="space-y-4">
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">Firma</a></li>
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">Áreas</a></li>
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">El Socio</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h6 class="text-[#755b00] text-xs font-bold uppercase tracking-widest">Legal</h6>
+<ul class="space-y-4">
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">Aviso Legal</a></li>
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">Privacidad</a></li>
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">Cookies</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h6 class="text-[#755b00] text-xs font-bold uppercase tracking-widest">Conectar</h6>
+<ul class="space-y-4">
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">LinkedIn</a></li>
+<li><a class="text-[#faf9f6] opacity-60 hover:opacity-100 hover:text-[#755b00] transition-opacity text-sm font-label uppercase tracking-wide" href="#">Contacto</a></li>
+</ul>
+</div>
+</div>
+<div class="px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[#faf9f6] opacity-40 text-[10px] font-label uppercase tracking-[0.2em]">
+                © 2024 Vega &amp; Asociados. Excelencia Jurídica Global.
+            </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#faf9f6] opacity-40 text-sm">gavel</span>
+<span class="material-symbols-outlined text-[#faf9f6] opacity-40 text-sm">verified_user</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#ffb599",
+              "inverse-primary": "#a73a00",
+              "primary": "#ffb599",
+              "surface-bright": "#31394d",
+              "outline-variant": "#45464d",
+              "on-secondary-container": "#88c796",
+              "on-tertiary-fixed": "#191c1e",
+              "on-primary": "#5a1c00",
+              "inverse-surface": "#dae2fd",
+              "on-error": "#690005",
+              "on-secondary-fixed-variant": "#12512c",
+              "error": "#ffb4ab",
+              "primary-fixed-dim": "#ffb599",
+              "surface-dim": "#0b1326",
+              "secondary-fixed-dim": "#96d5a3",
+              "inverse-on-surface": "#283044",
+              "surface-variant": "#2d3449",
+              "on-tertiary-container": "#7e8183",
+              "on-primary-container": "#e05101",
+              "on-secondary-fixed": "#00210d",
+              "tertiary-fixed-dim": "#c4c7c9",
+              "on-tertiary-fixed-variant": "#444749",
+              "on-primary-fixed-variant": "#7f2b00",
+              "tertiary": "#c4c7c9",
+              "secondary-fixed": "#b1f2be",
+              "background": "#0b1326",
+              "surface-container-high": "#222a3d",
+              "surface-container-highest": "#2d3449",
+              "error-container": "#93000a",
+              "outline": "#909097",
+              "surface-container": "#171f33",
+              "on-secondary": "#00391a",
+              "tertiary-container": "#15181a",
+              "secondary": "#96d5a3",
+              "on-surface-variant": "#c6c6cd",
+              "primary-fixed": "#ffdbce",
+              "primary-container": "#310b00",
+              "tertiary-fixed": "#e0e3e5",
+              "on-primary-fixed": "#370e00",
+              "on-background": "#dae2fd",
+              "surface-container-low": "#131b2e",
+              "on-tertiary": "#2d3133",
+              "on-error-container": "#ffdad6",
+              "secondary-container": "#15542e",
+              "surface": "#0b1326",
+              "on-surface": "#dae2fd",
+              "surface-container-lowest": "#060e20"
+            },
+            fontFamily: {
+              "oswald": ["Oswald", "sans-serif"],
+              "inter": ["Inter", "sans-serif"],
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #0b1326;
+      }
+      /* The parallax wrapper IS the scroll container */
+      .parallax-wrapper {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        perspective: 8px;
+        perspective-origin: center center;
+        scroll-behavior: smooth;
+      }
+</style>
+<style>
+      /* Hero parallax group: preserve-3d so children can live in 3D space */
+      .parallax-group {
+        position: relative;
+        height: 100vh;
+        transform-style: preserve-3d;
+      }
+      /* Each parallax layer is absolute within its group */
+      .parallax-layer {
+        position: absolute;
+        inset: 0;
+      }
+      /* Deep background — moves slowest */
+      .parallax-back-deep {
+        transform: translateZ(-6px) scale(1.75);
+        z-index: 1;
+      }
+      /* Mid background — moves slow */
+      .parallax-back {
+        transform: translateZ(-3px) scale(1.375);
+        z-index: 2;
+      }
+      /* Base layer — moves with scroll (no transform) */
+      .parallax-base {
+        transform: translateZ(0);
+        z-index: 3;
+      }
+      /* Foreground — moves faster than scroll */
+      .parallax-fore {
+        transform: translateZ(2px) scale(0.75);
+        z-index: 4;
+        pointer-events: none;
+      }
+
+      /* Static sections after the parallax hero */
+      .static-section {
+        position: relative;
+        z-index: 5;
+        /* This kills the 3D context for children, keeping them flat */
+        transform: translateZ(0);
+      }
+
+      .glass-nav {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .corner-snipe {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+      }
+      .text-long-shadow {
+        text-shadow: 4px 4px 0px rgba(6, 14, 32, 1);
+      }
+    </style>
+</head>
+<body class="font-inter text-on-surface selection:bg-primary selection:text-on-primary">
+
+<!-- Top Navigation Shell — fixed, outside the wrapper -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl rounded-full border border-white/10 bg-slate-900/40 backdrop-blur-xl shadow-2xl shadow-slate-950/50 flex justify-between items-center px-8 py-3 z-50">
+  <div class="text-2xl font-black font-oswald text-white tracking-widest">CUMBRE</div>
+  <div class="hidden md:flex items-center gap-8">
+    <a class="text-orange-400 font-bold border-b-2 border-orange-400 pb-1 font-oswald uppercase tracking-wider" href="#">Expeditions</a>
+    <a class="text-white/80 font-medium hover:text-white transition-colors font-oswald uppercase tracking-wider" href="#">Gear</a>
+    <a class="text-white/80 font-medium hover:text-white transition-colors font-oswald uppercase tracking-wider" href="#">Heritage</a>
+    <a class="text-white/80 font-medium hover:text-white transition-colors font-oswald uppercase tracking-wider" href="#">Sustainability</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="p-2 hover:bg-white/10 rounded-full transition-all duration-300 text-white">
+      <span class="material-symbols-outlined">shopping_bag</span>
+    </button>
+    <button class="p-2 hover:bg-white/10 rounded-full transition-all duration-300 text-white">
+      <span class="material-symbols-outlined">person</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Side Navigation Shell -->
+<aside class="fixed right-8 top-1/2 -translate-y-1/2 w-12 flex flex-col items-center gap-8 z-40">
+  <div class="flex flex-col items-center gap-2">
+    <span class="font-inter text-[10px] uppercase tracking-[0.2em] font-bold text-orange-500 rotate-90 mb-8 whitespace-nowrap">EXPEDITION</span>
+    <div class="flex items-center justify-center w-3 h-3 bg-orange-500 rounded-full ring-4 ring-orange-500/20 hover:scale-125 transition-transform cursor-pointer"></div>
+    <div class="w-[1px] h-12 bg-white/10"></div>
+    <div class="flex items-center justify-center w-2 h-2 bg-white/30 rounded-full hover:bg-white/60 hover:scale-125 transition-transform cursor-pointer"></div>
+    <div class="w-[1px] h-12 bg-white/10"></div>
+    <div class="flex items-center justify-center w-2 h-2 bg-white/30 rounded-full hover:bg-white/60 hover:scale-125 transition-transform cursor-pointer"></div>
+    <div class="w-[1px] h-12 bg-white/10"></div>
+    <div class="flex items-center justify-center w-2 h-2 bg-white/30 rounded-full hover:bg-white/60 hover:scale-125 transition-transform cursor-pointer"></div>
+    <p class="font-inter text-[8px] uppercase tracking-widest text-white/40 mt-4 text-center">Elevation<br/>4,810m</p>
+  </div>
+</aside>
+
+<!-- ============ PARALLAX SCROLL CONTAINER ============ -->
+<main class="parallax-wrapper" id="scroll-root">
+
+  <!-- ====== HERO: Parallax Group ====== -->
+  <div class="parallax-group">
+
+    <!-- Deep back layer: Clouds (slowest) -->
+    <div class="parallax-layer parallax-back-deep">
+      <img class="w-full h-full object-cover opacity-60"
+           alt="Soft moving alpine clouds at sunrise"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-u7WTW5y1ECpzTi3VTTzGbeZ-vod655Hp1p04mByL0MM0e39eNG5uawvE-CGYFHWOak0mEmaskjsVGbxUdPFE6_6uSeLlc_G6rrgdIdErX0aGlU74Jdqphs1qk809JNqM3BREl-CvuTRWQDnCTg0FoVxt8i8fZmFroJNhcrXX5kT_V5YUHlOSWpv3XtFmZ22bVzcO4lLmkGJfRAuJu40iLCs1Ifonkhj8-p_yKaLfoLLqnpg9abNzcZ0fC-3oOrzRlkqCrpoXgNU"/>
+    </div>
+
+    <!-- Back layer: Snowy peaks (slow) -->
+    <div class="parallax-layer parallax-back">
+      <img class="w-full h-full object-cover"
+           alt="Majestic sharp snowy mountain peak ridges"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD1M3Xs6ImPNAX5EHm4QCJlLdUeokg2JyRp8zqxTMAruBV24d8S9SbLoNR3sHKWNK-s8Dp4sQT4x5HYoX4JcBkYaV9jf3POwkXWFVCn5R1w6N-hxsnjLcV4B4gMOOX0SS3Sis3aMPie9EgH8rdBwxJBMVesoLDqeHPv7k1PSOjoQrqYhrDpetmHQhKq0KBmVg9PE8U5NF4xCcqw_5oQB2Matn9Ouaz3Wn9JED-YD9wr7IGduFiTpifqzIHNyLG0BqpWEvLDu3knnw"/>
+    </div>
+
+    <!-- Base layer: Title text (normal speed) -->
+    <div class="parallax-layer parallax-base flex flex-col items-center justify-center text-center px-4">
+      <h1 class="font-oswald text-6xl md:text-9xl font-black text-white uppercase tracking-tighter leading-none text-long-shadow">
+        Nacidos para<br/><span class="text-primary">la altura</span>
+      </h1>
+      <div class="mt-12 group cursor-pointer">
+        <a class="flex flex-col items-center gap-4 text-white/60 hover:text-white transition-all" href="#forest">
+          <span class="font-oswald uppercase tracking-widest text-sm">Descender</span>
+          <span class="material-symbols-outlined animate-bounce">south</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Foreground layer: Mountaineer (fastest) -->
+    <div class="parallax-layer parallax-fore" style="inset: auto; bottom: 0; right: 0; left: auto; top: auto; width: 50%; height: 70%; display: flex; align-items: flex-end; justify-content: flex-end;">
+      <img class="w-full h-full object-contain object-bottom"
+           alt="Close-up silhouette of mountaineer looking at horizon"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT0FTUrvwPZSUTcvbWhMluCn5Nq__g7PrPvOwfqXJ-lXaVQV_M3N15P0iBMzhsnIo-wVGEDj6zIzmj-nwPOSx4cIosGwPc5L9lsxk_Me9O560YiQvpaI2qnsWPbdVo-xOiZibfFYRJOrs3HEHMlsNat8lVBL6KQ13UoUGqnlzkYB0LWEneGu_e5my8-yMQiGpyxQ2H1D06zZhwRrwWNyK9aVDL6tDYCWRmaNujE7tzYIxYcwft__FfhjpunNVbvBCeNe5MeGt01PE"/>
+    </div>
+
+  </div>
+  <!-- END Hero Parallax Group -->
+
+  <!-- ====== FOREST SECTION: Technology Layers ====== -->
+  <section class="static-section relative min-h-screen py-24 flex items-center bg-surface-container-lowest overflow-hidden" id="forest">
+    <!-- Blurred Forest Background -->
+    <div class="absolute inset-0 z-0">
+      <img class="w-full h-full object-cover opacity-30 blur-md"
+           alt="Dense blurred pine forest background"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeM5IZiV8ZKXq5f3sU2aNWdVsmjGLvnhzH6F7WEFIgQ_70UYMUrcNYQximVFZ7P2qzlcQyjR-4Eh3KssFx7KyBseiI-8lg9udeuv3iQOXJV2Oh8xae-RKCdM5Pln8e5CbOVOT8c9EOclIONlJNWi_xWRpHTlVpTOa3lLObtd6olkcsi9jgZ3eIa-3p9j77bU6_t-Z8yG6oVJFw3Xnq708ovlRL6S11SQJBUi18Yu6RhnLHXOZya8jFuQC1CKF6RPdxMHamsRxTG7Q"/>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 w-full z-10 grid md:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container font-inter text-xs font-bold uppercase tracking-[0.3em] rounded">Performance Tier</span>
+        <h2 class="font-oswald text-5xl md:text-7xl font-bold text-white uppercase leading-none">Tecnología para<br/>cada capa</h2>
+        <p class="font-inter text-on-surface-variant text-lg max-w-md">Nuestra ingeniería de materiales permite una transición fluida entre climas extremos. Del núcleo térmico a la coraza impermeable.</p>
+        <button class="group flex items-center gap-4 text-primary font-oswald uppercase tracking-widest border-b-2 border-primary/20 pb-2 hover:border-primary transition-all">
+          Ver Colección Técnica
+          <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+        </button>
+      </div>
+      <!-- Floating Products -->
+      <div class="relative h-[600px] flex items-center justify-center">
+        <div class="absolute -top-12 -right-12 w-64 h-80 bg-surface-container-high corner-snipe p-4 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+          <img class="w-full h-full object-cover" alt="Technical orange hardshell jacket"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxRA4CAgXXrtLaIiKQz64igKHKJx9_8vZ09rffsWlOzzIrvku8ZuXW_EOwid7KKOs2hejvhH_a26xu8OcXP6sOs2DlbXjudQUdNewZNr3e444u2UPOGNXHLffVOMrijsSlISAXTrCCVOacbnHP0YMlUSnSDbUOB19ZYDEek8YY_aIhrfAdP9_Sa6QXDKhQYmYSe_qhc-lilL-p5pGCI2RhEZZmf_bCSzb6xx_TrhOojk0z_cgSfsJ_5SM4V9nj8jD78DncNGMBX9c"/>
+          <div class="absolute bottom-4 left-4 font-oswald text-white text-sm">VERTEX PRO GEN-4</div>
+        </div>
+        <div class="absolute -bottom-8 -left-8 w-56 h-72 bg-surface-container-highest corner-snipe p-4 shadow-2xl -rotate-6 hover:rotate-0 transition-transform duration-500">
+          <img class="w-full h-full object-cover" alt="Professional mountain climbing boots"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_KzJRfrYV9yWOGhZ5wj6vHpKq-UAMGais9sFNrvUJkFL3hF0vSCsNRXU04x7_bXceaniOB4EIcGyT1gC4cmsybC-jFa54oGYZp6w31XHx-HD-r77sq5-3VRR8bzMCQbEuMVyEVnPBMPGC-NoycmGZyOg7rlzP3okUfqoDJ81S1q8EbT_5XabcwfFSLXHP6wbFycO6yPlaM7rZojtrOpJelgz7Li9XFe49MbLmd2fkIaUTv9HeN7nXprM2YuBW1LGvA2L82pyxqy4"/>
+          <div class="absolute bottom-4 left-4 font-oswald text-white text-sm">ALPINE STRIDE X</div>
+        </div>
+      </div>
+    </div>
+    <!-- Foreground Pine Branches -->
+    <div class="absolute inset-x-0 -bottom-24 z-20 pointer-events-none opacity-80">
+      <img class="w-full h-auto scale-125" alt="Detailed dark pine forest branches in foreground"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGfBjB7yzN1T9rvro4qFAfI_lqv7xxi6gMfNCtD3rWZ3rYME3iiS5mgaD3EcelJRni8g84PxVhfU_Ox-6DxMz2K5V3obtiTjqFwyjHvdo6vkpoZBzyMpiuPkq6aarfC1vQ94Yhi32te9PY-GmrgfbpD5kZATS7rxBmcZfxZcwVBzOW3yH-pe3mWPua5S1lCBPCxK2Ww00EexvtpLEaJID9aOtutubp_2gxr9Z-ngl4vAJRf3gBxJznBtYt3c3xN0GmaMKnGZjeATQ"/>
+    </div>
+  </section>
+
+  <!-- ====== PRODUCT TUNNEL: The Descent ====== -->
+  <section class="static-section relative min-h-[200vh] bg-surface flex flex-col items-center justify-start pt-32">
+    <div class="sticky top-1/4 text-center z-10 px-4">
+      <h3 class="font-oswald text-4xl md:text-6xl font-bold text-white uppercase mb-4">Equipamiento probado<br/>en la vertical</h3>
+      <p class="font-inter text-primary uppercase tracking-[0.4em] text-sm">Resistencia extrema certificada</p>
+    </div>
+    <div class="w-full max-w-4xl mx-auto flex flex-col gap-96 pb-96">
+      <div class="w-full flex justify-start">
+        <div class="w-72 h-96 bg-surface-container-high corner-snipe overflow-hidden shadow-2xl">
+          <img class="w-full h-full object-cover" alt="High-capacity climbing backpack"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEwpCLWvY8-JeVCWKLnmauGdfOhB0CXF2UlmiU0KNyzwWaOcRPaRpkF-xWo1gjLtA2UazsDijUz_yy1Ey1RwYCwCnqFIRwW6K4FCUzYGf2vmuDF_Skn4IGXHZpIDVCJbhzzR4bMpog3Upw-T9nYx7fE0YU3J1BzDWCzMnPDypfgbokEvQ4Yb-VFUaPPnL0RqXezFTiPNxIY8H9sxb1eCbuUpwbUcZl92Qc1XKlWOzJ95P2vPDo9joD0vQr7lm0_CIKrx7c-XCTGsI"/>
+        </div>
+      </div>
+      <div class="w-full flex justify-end">
+        <div class="w-72 h-96 bg-surface-container-high corner-snipe overflow-hidden shadow-2xl opacity-90">
+          <img class="w-full h-full object-cover" alt="Climbing carabiners and ropes"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_7zduKcUNgsBxXAlJ9SphHinIhlzrnRaf17FaG7vS4XHJTNo5zdMEAwQAMAx3Cqp6bXVAEdl_bv4ZKj6ITl_znssyCAdswJ_wffFyag0050LR2k1eaCNF-cIajBaGbNGTZKqD3UurXt-cJsXwkZEqanMR1pY-fnygGQfyKjwS8jCjghgTg3V7X5RZFcp5XqSEbjvf812k3jQdUy7ZQA1AVfRkH62AA8RKga7e2NVpHGlXMmtFqFDkHh2mPdUlWUijl_qCVYiV5OM"/>
+        </div>
+      </div>
+      <div class="w-full flex justify-center">
+        <div class="w-72 h-96 bg-surface-container-high corner-snipe overflow-hidden shadow-2xl opacity-80">
+          <img class="w-full h-full object-cover" alt="Polar technical base layer"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlgLXolrtdf3g0Z5PL69d_vRDmn3LEnYUzfFCgNa-CR3OqHFVXG8miYSfj5DkCyDMfMEhcGRWv88A3sC6NeIed-oSSDYfR0Yv6qDugirJONli-vzHfYIWiCvmcVs4HxUBP7ZZBGmiE6yh29nYvS93YpSfvuR5Ln5LYSbydwMHzfYVk9s8CnjBoHdTikJlINNmSOLzuJQWnrN-ci6Ms0oi3IsgFCAxcXYOaSNs11gMckHnzLKG0OVp6rObqNsnXPJGA8KEmqwinmUQ"/>
+        </div>
+      </div>
+      <div class="w-full flex justify-start">
+        <div class="w-72 h-96 bg-surface-container-high corner-snipe overflow-hidden shadow-2xl opacity-70">
+          <img class="w-full h-full object-cover" alt="Expedition tactical tent"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBKHfVXGndc12UA8SPd7TAtEvySOIZ96wW3_UlooKTuoDrubR-bv3iITXNGMSos5UUXM94A7jTPKib5TFiJBHrLyQ-nqBk7i5odBMiD9YshmfZ-4rabDOleYUE1d1vv-PRCJsIiNMzqoPKMrXn5emZlJmdWDJseCnaZ1mmMrdYPQzhGtF4SLSmmD7tbCr-G1N70gswNdN1G9kHaW42G3CiCIoH6ty0p6by-cB7UL-GhXgVfSm9v3LcB3iQ-IBlYvKb6riU59UdxQ0"/>
+        </div>
+      </div>
+      <div class="w-full flex justify-end">
+        <div class="w-72 h-96 bg-surface-container-high corner-snipe overflow-hidden shadow-2xl opacity-60">
+          <img class="w-full h-full object-cover" alt="Insulated thermal gloves"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHarYIp7oEczjus973qE80tjW5zeZfQv5_K2TUO0oW6XdB0KJX7B2l2QW7uD3tVO08bJk7KWb4mTAwg3DWnd2XMs4Pw92zw2mk8hcQx477TlN6MkgJsTk4mLV2NAvSDLsUi0sg6yxpzEHcbeJcZGr7EgGECyg-4RGwcr9g-CS0f7gVbMrFpFr8c-85N9mS1UiJj07gOnu2VkblxAKbaV--17wl5QxqQ6S9UtElSYBB7mnztawGTIMdUYs1Fnr173fO0HuoprcYZwE"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== REVELATION SECTION: Full-bleed Action ====== -->
+  <section class="static-section relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <div class="absolute inset-0 z-0">
+      <img class="w-full h-full object-cover scale-110" alt="Full bleed image of a climber on a vertical rock wall"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiBG8SdxKMmTp3bbcaeAvunwNdK1CduC5167U6kPMOQwRxutHaHL-soseKFvce-R1zAJGwibJAYBDIw3-DqoxrmplEZe4me5udw_Yg4Fdq3BSTvK6n6tv5QPXEOOAmBBJqjrXAxVVY4atbQjfcG8UpAdCSYlJ4TTqyGqvF5YIYjmavwQJGFeH-N4R8jRy8ysk8MF1gLnk5fDuYCRAvdqa3hoZ3F2v2zrKUuuzn519o3uBB0Z3IAiyavZh7G6ip2C3tFszqPPOUkrs"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+    </div>
+    <div class="relative z-10 text-center space-y-8">
+      <h2 class="font-oswald text-6xl md:text-8xl font-black text-white uppercase tracking-tighter">Tu próxima cumbre<br/>empieza aquí</h2>
+      <div class="flex justify-center">
+        <button class="bg-primary text-on-primary px-12 py-4 font-oswald text-xl uppercase tracking-widest hover:bg-surface-tint transition-all shadow-xl shadow-primary/20">
+          Equípate Ahora
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER: Infinity ====== -->
+  <footer class="static-section relative min-h-[80vh] bg-slate-950 flex flex-col justify-between overflow-hidden">
+    <!-- Starry Background -->
+    <div class="absolute inset-0 z-0 opacity-40">
+      <img class="w-full h-full object-cover" alt="Vast starry night sky over mountain silhouette"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLbcIUYqi8g2ML7pxXgav4uXlqeh5jNIsQQf-w6DZxflH42jFKqMkro__PEzlk6_wNPYIEi2Fj4xV2SdLWrdp2uGYXlcU93_LRQMGzFl0AYtT6yotY57r06upPhjx8842jih2_xMfZt8J_KnaoQ-L3GtUw_0SUnaJQ8YS4ymjGBwtPuZepO578HVyotBysdw7vLPR51eQqtTaARhy63oAXr3Mi5nRyjNqrSLkGWhSN52xb0X1kCQKPjPjzZA5wqgiP-LxtR3DaOHU"/>
+    </div>
+    <div class="relative z-10 flex-grow flex items-center justify-center px-8">
+      <div class="text-center group">
+        <a class="inline-block relative" href="#">
+          <span class="font-oswald text-5xl md:text-8xl text-white uppercase font-black transition-colors group-hover:text-primary">Encontrar tu equipo</span>
+          <div class="absolute inset-0 bg-primary/10 blur-[100px] -z-10 group-hover:bg-primary/20 transition-all"></div>
+          <div class="mt-4 flex justify-center text-primary">
+            <span class="material-symbols-outlined text-6xl">north_east</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="relative z-10 w-full bg-slate-950/80 backdrop-blur-md border-t border-white/5 py-12 px-8">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex flex-col items-center md:items-start">
+          <span class="font-oswald text-2xl text-white tracking-[0.3em]">CUMBRE</span>
+          <span class="font-inter text-xs tracking-widest text-slate-500 mt-2">© 2024 CUMBRE VERTICAL EXPEDITIONS</span>
+        </div>
+        <div class="flex gap-12">
+          <div class="flex flex-col gap-2">
+            <a class="font-inter text-xs tracking-widest text-slate-500 hover:text-orange-400 transition-colors uppercase" href="#">Privacy Policy</a>
+            <a class="font-inter text-xs tracking-widest text-slate-500 hover:text-orange-400 transition-colors uppercase" href="#">Technical Specs</a>
+          </div>
+          <div class="flex flex-col gap-2">
+            <a class="font-inter text-xs tracking-widest text-slate-500 hover:text-orange-400 transition-colors uppercase" href="#">Store Locator</a>
+            <a class="font-inter text-xs tracking-widest text-slate-500 hover:text-orange-400 transition-colors uppercase" href="#">Impact Report</a>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-all">
+            <span class="material-symbols-outlined text-sm">public</span>
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-all">
+            <span class="material-symbols-outlined text-sm">share</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</main>
+<!-- END Parallax Scroll Container -->
+
+<!-- Floating Action Button (mobile) -->
+<button class="fixed bottom-8 left-8 md:hidden z-50 bg-primary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-2xl shadow-primary/40">
+  <span class="material-symbols-outlined">shopping_cart</span>
+</button>
+
+</body></html>
