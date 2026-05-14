@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Swift Service · Showroom de Soluciones</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        "sans": ["Inter", "system-ui", "sans-serif"],
+        "display": ["Space Grotesk", "system-ui", "sans-serif"],
+        "mono": ["JetBrains Mono", "monospace"],
+      },
+    }
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Inter", sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: rgba(255,255,255,0.2); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.15) transparent; }
+
+  /* Fade in */
+  .fade-up {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* Card hover */
+  .demo-card {
+    position: relative; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .demo-card:hover {
+    border-color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.03);
+    box-shadow: 0 8px 32px rgba(255,255,255,0.05);
+  }
+
+  /* Corner brackets */
+  .brackets .tl, .brackets .br { position: absolute; width: 20px; height: 20px; opacity: 0; transition: opacity 0.3s ease; }
+  .brackets .tl { top: 10px; left: 10px; }
+  .brackets .br { bottom: 10px; right: 10px; }
+  .brackets .tl::before { content: ""; position: absolute; top: 0; left: 0; width: 14px; height: 2px; background: rgba(255,255,255,0.6); }
+  .brackets .tl::after { content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 14px; background: rgba(255,255,255,0.6); }
+  .brackets .br::before { content: ""; position: absolute; bottom: 0; right: 0; width: 14px; height: 2px; background: rgba(255,255,255,0.6); }
+  .brackets .br::after { content: ""; position: absolute; bottom: 0; right: 0; width: 2px; height: 14px; background: rgba(255,255,255,0.6); }
+  .demo-card:hover .brackets .tl,
+  .demo-card:hover .brackets .br { opacity: 1; }
+
+  /* Screenshot placeholder shimmer */
+  .screenshot-placeholder {
+    background: linear-gradient(110deg, #111 30%, #1a1a1a 50%, #111 70%);
+    background-size: 200% 100%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+  /* Filter pills */
+  .filter-pill {
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .filter-pill:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+  .filter-pill.active { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    .screenshot-placeholder { animation: none; }
+  }
+</style>
+</head>
+<body class="bg-[#0a0a0a] text-white antialiased">
+
+<!-- ============================================ -->
+<!-- NAVBAR -->
+<!-- ============================================ -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-xl border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href="#" class="text-xl font-semibold tracking-tight text-white font-display">Swift Service</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#sectores" class="text-sm text-white/60 hover:text-white transition-colors">Sectores</a>
+      <a href="#conceptos" class="text-sm text-white/60 hover:text-white transition-colors">Conceptos</a>
+      <a href="#" class="group relative text-sm font-medium text-white/80 hover:text-white px-3 py-2 transition-all">
+        <span class="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity">[</span>
+        <span class="px-2">Contacto</span>
+        <span class="absolute right-0 opacity-0 group-hover:opacity-100 transition-opacity">]</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================ -->
+<!-- HERO -->
+<!-- ============================================ -->
+<section class="relative pt-32 pb-20 px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="mb-8 inline-flex px-5 py-2 border border-white/10 bg-white/5 backdrop-blur-sm">
+      <span class="text-[11px] font-mono text-white/40 tracking-[3px] uppercase">Showroom de Soluciones</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] font-display">
+      Esto es lo que<br/>construimos.
+    </h1>
+    <p class="mt-6 text-base sm:text-lg text-white/50 leading-relaxed max-w-2xl mx-auto">
+      Cada demo es un sistema digital funcional. Sin plantillas. Sin WordPress.<br/>
+      Elige tu sector y explora lo que podemos hacer para tu negocio.
+    </p>
+    <div class="mt-8 flex items-center justify-center gap-6 text-[11px] font-mono text-white/30 tracking-wider">
+      <span>Código a medida</span>
+      <span class="text-white/15">·</span>
+      <span>Mobile-first</span>
+      <span class="text-white/15">·</span>
+      <span>Entrega en días</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- FILTER BAR -->
+<!-- ============================================ -->
+<section id="sectores" class="px-6 lg:px-8 pb-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-wrap items-center gap-3">
+      <span class="text-[11px] font-mono text-white/30 tracking-widest uppercase mr-2">Filtrar:</span>
+      <button class="filter-pill active px-4 py-2 text-xs font-mono text-white/60 tracking-wider uppercase" data-filter="all">Todos</button>
+      <button class="filter-pill px-4 py-2 text-xs font-mono text-white/60 tracking-wider uppercase" data-filter="legal">Legal</button>
+      <button class="filter-pill px-4 py-2 text-xs font-mono text-white/60 tracking-wider uppercase" data-filter="dental">Dental</button>
+      <button class="filter-pill px-4 py-2 text-xs font-mono text-white/60 tracking-wider uppercase" data-filter="cafe">Cafetería</button>
+      <button class="filter-pill px-4 py-2 text-xs font-mono text-white/60 tracking-wider uppercase" data-filter="reposteria">Repostería</button>
+      <button class="filter-pill px-4 py-2 text-xs font-mono text-white/60 tracking-wider uppercase" data-filter="construccion">Construcción</button>
+      <button class="filter-pill px-4 py-2 text-xs font-mono text-white/60 tracking-wider uppercase" data-filter="conceptos">Conceptos</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- DEMOS GRID -->
+<!-- ============================================ -->
+<section class="px-6 lg:px-8 pb-24">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- ===== SECTOR: LEGAL ===== -->
+    <div class="sector-group mb-20" data-sector="legal">
+      <div class="flex items-center gap-4 mb-8 fade-up">
+        <span class="text-sm font-mono text-white/40 tracking-widest uppercase">Sector Legal</span>
+        <div class="flex-1 h-px bg-white/10"></div>
+        <span class="text-xs font-mono text-white/20">8 soluciones</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <a href="/demos/cimet-abogados/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · CDMX</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Cimet Abogados</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Firma legal estratégica. Civil, mercantil, financiero, inmobiliario.</p>
+        </a>
+
+        <a href="/demos/adlex/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal" style="transition-delay:0.05s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · Corporativo</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Adlex Abogados</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Firma corporativa. Fiscal, corporativo y licitaciones.</p>
+        </a>
+
+        <a href="/demos/abogado-demo/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal" style="transition-delay:0.1s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · Premium</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Herrera & Asociados</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Firma premium. M&A, litigio complejo y derecho fiscal.</p>
+        </a>
+
+        <a href="/demos/torre-legal/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal" style="transition-delay:0.15s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · Toluca</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Torre Legal</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Abogados en Toluca. Estilo profesional.</p>
+        </a>
+
+        <a href="/demos/ayuda-legal/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · Cuernavaca</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Ayuda Legal</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Bufete jurídico. Penal, civil, familiar. 42+ años.</p>
+        </a>
+
+        <a href="/demos/cardenas-thomae/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal" style="transition-delay:0.05s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · Defensa</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Cárdenas Thomae</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Defensa legal profesional. Estilo corporativo.</p>
+        </a>
+
+        <a href="/demos/rios-abogados/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal" style="transition-delay:0.1s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · CDMX</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Ríos Abogados</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Boutique legal desde 1999. Estilo elegante.</p>
+        </a>
+
+        <a href="/demos/sjm-abogados/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="legal" style="transition-delay:0.15s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · Formal</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">SJM Abogados</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">San Juan Montañez & Asociados S.C.</p>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== SECTOR: DENTAL ===== -->
+    <div class="sector-group mb-20" data-sector="dental">
+      <div class="flex items-center gap-4 mb-8 fade-up">
+        <span class="text-sm font-mono text-white/40 tracking-widest uppercase">Sector Dental</span>
+        <div class="flex-1 h-px bg-white/10"></div>
+        <span class="text-xs font-mono text-white/20">5 soluciones</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <a href="/demos/dentista/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="dental">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Dental · Premium</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Dr. José Antonio</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Consultorio dental. Estilo dorado/premium.</p>
+        </a>
+
+        <a href="/demos/macdent/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="dental" style="transition-delay:0.05s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Dental · Profesional</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">MacDent MX</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Clínica dental. Estilo azul/profesional.</p>
+        </a>
+
+        <a href="/demos/serenitydent/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="dental" style="transition-delay:0.1s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Dental · Moderno</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">SerenityDent</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Clínica dental. Estilo turquesa/moderno.</p>
+        </a>
+
+        <a href="/demos/sonrisa-precision/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="dental" style="transition-delay:0.15s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Dental · Especializado</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Sonrisa Precisión</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Diseño de sonrisa. Estilo especializado.</p>
+        </a>
+
+        <a href="/demos/spota/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="dental">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Dental · Corporativo</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Clínicas Spota</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Clínicas dentales. Estilo azul corporativo.</p>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== SECTOR: CAFETERÍA ===== -->
+    <div class="sector-group mb-20" data-sector="cafe">
+      <div class="flex items-center gap-4 mb-8 fade-up">
+        <span class="text-sm font-mono text-white/40 tracking-widest uppercase">Sector Cafetería & Alimentos</span>
+        <div class="flex-1 h-px bg-white/10"></div>
+        <span class="text-xs font-mono text-white/20">4 soluciones</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <a href="/demos/brown-caffeine-lab/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="cafe">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Café · Especialidad</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Brown Caffeine Lab</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Café de especialidad en Puebla. Estilo craft/artesanal.</p>
+        </a>
+
+        <a href="/demos/cafevera-calavera/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="cafe" style="transition-delay:0.05s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Café · Barrio</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Cafevera Calavera</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Cafetería de barrio en CDMX. Estilo mexicano/barrial.</p>
+        </a>
+
+        <a href="/demos/margu/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="cafe" style="transition-delay:0.1s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Gourmet · Puebla</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Margu Casa Gourmet</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Casa gourmet en Puebla. Estilo elegante.</p>
+        </a>
+
+        <a href="/demos/garaje-central/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="cafe" style="transition-delay:0.15s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Automotriz · Alemanes</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Garaje Central</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Especialistas en autos alemanes. Taller mecánico.</p>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== SECTOR: REPOSTERÍA ===== -->
+    <div class="sector-group mb-20" data-sector="reposteria">
+      <div class="flex items-center gap-4 mb-8 fade-up">
+        <span class="text-sm font-mono text-white/40 tracking-widest uppercase">Sector Repostería & Pastelería</span>
+        <div class="flex-1 h-px bg-white/10"></div>
+        <span class="text-xs font-mono text-white/20">3 soluciones</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <a href="/demos/pasteleria-europea/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="reposteria">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Pastelería · Clásica</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Pastelería Europea d'Maruque</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Pastelería europea. Estilo clásico.</p>
+        </a>
+
+        <a href="/demos/violette/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="reposteria" style="transition-delay:0.05s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Repostería · Gourmet</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Violette Repostería</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Repostería gourmet. Estilo femenino/elegante.</p>
+        </a>
+
+        <a href="/demos/voila/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="reposteria" style="transition-delay:0.1s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Pastelería · Autor</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Voilà Pastelería de Autor</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Pastelería de autor. Estilo francés/premium.</p>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== SECTOR: CONSTRUCCIÓN ===== -->
+    <div class="sector-group mb-20" data-sector="construccion">
+      <div class="flex items-center gap-4 mb-8 fade-up">
+        <span class="text-sm font-mono text-white/40 tracking-widest uppercase">Sector Construcción</span>
+        <div class="flex-1 h-px bg-white/10"></div>
+        <span class="text-xs font-mono text-white/20">3 soluciones</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <a href="/demos/anirac/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="construccion">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Construcción · Tijuana</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Anirac Constructora</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Obras civiles, industrial, infraestructura. 25+ años.</p>
+        </a>
+
+        <a href="/demos/constructora-demo/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="construccion" style="transition-delay:0.05s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Construcción · General</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">Constructora Demo</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">"Edificamos tu Visión". Constructora genérica.</p>
+        </a>
+
+        <a href="/demos/techylam/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="construccion" style="transition-delay:0.1s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Estructuras · CDMX</span>
+          <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">TECHYLAM</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Techos y estructuras metálicas. Estilo industrial.</p>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ===== CONCEPTOS DE DISEÑO ===== -->
+    <div class="sector-group mb-20" data-sector="conceptos" id="conceptos">
+      <div class="flex items-center gap-4 mb-4 fade-up">
+        <span class="text-sm font-mono text-white/40 tracking-widest uppercase">Conceptos de Diseño</span>
+        <div class="flex-1 h-px bg-white/10"></div>
+        <span class="text-xs font-mono text-white/20">3 conceptos</span>
+      </div>
+      <p class="text-sm text-white/30 mb-8 max-w-2xl fade-up">
+        Exploraciones de diseño avanzado. Cada concepto demuestra una filosofía visual diferente aplicada a un sector específico.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <a href="/demos/nootropicos/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="conceptos">
+          <div class="tl"></div><div class="br"></div>
+          <div class="w-full aspect-[16/10] rounded-sm mb-4 bg-[#111] border border-white/5 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#CCFF00]/10 via-transparent to-[#FF006E]/10"></div>
+            <div class="text-center relative z-10">
+              <span class="font-mono text-[9px] text-[#CCFF00]/60 tracking-widest">NEUROVEX LABS</span>
+              <p class="font-bold text-2xl text-white/90 mt-1" style="font-family: 'Space Grotesk';">NF</p>
+              <span class="font-mono text-[9px] text-[#CCFF00]/80 tracking-wider">NEUROFIRE</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">E-commerce · Nootrópicos</span>
+            <span class="px-1.5 py-0.5 text-[9px] font-mono bg-white/10 text-white/50 tracking-wider">NUEVO</span>
+          </div>
+          <h3 class="text-base font-semibold text-white group-hover:text-white/90 transition-colors">"Precision Chaos"</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Hyperbold, dark, neón. Amarillo ácido + magenta. Text scramble, magnetic buttons, custom cursor.</p>
+        </a>
+
+        <a href="/demos/cafeteria-artesanal/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="conceptos" style="transition-delay:0.05s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="w-full aspect-[16/10] rounded-sm mb-4 border border-white/5 flex items-center justify-center overflow-hidden relative" style="background: #F7F5F0;">
+            <div class="text-center">
+              <p class="text-2xl text-[#2C2C2C] italic" style="font-family: 'Georgia', serif;">El Trazo</p>
+              <p class="text-[10px] text-[#6B6560] mt-1" style="font-family: 'Courier', monospace;">café de barrio</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Cafetería · Artesanal</span>
+            <span class="px-1.5 py-0.5 text-[9px] font-mono bg-white/10 text-white/50 tracking-wider">NUEVO</span>
+          </div>
+          <h3 class="text-base font-semibold text-white group-hover:text-white/90 transition-colors">"La Trazada Humana"</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Cálida, imperfecta, papel. Subrayados a mano, washi tape, bordes orgánicos, textura de papel.</p>
+        </a>
+
+        <a href="/demos/vega-herrera/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="conceptos" style="transition-delay:0.1s;">
+          <div class="tl"></div><div class="br"></div>
+          <div class="w-full aspect-[16/10] rounded-sm mb-4 border border-white/5 flex items-center justify-center overflow-hidden relative" style="background: #0A0C10;">
+            <div class="text-center">
+              <p class="text-lg text-[#E2E2DF]" style="font-family: 'Playfair Display', Georgia, serif;">Vega, Herrera <span class="text-[#6B7280]">&</span> Asociados</p>
+              <div class="w-12 h-px bg-[#B8956A] mx-auto mt-2"></div>
+              <p class="text-[9px] text-[#6B7280] mt-2 tracking-widest" style="font-family: monospace;">EST. 1987</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Legal · Corporativo</span>
+            <span class="px-1.5 py-0.5 text-[9px] font-mono bg-white/10 text-white/50 tracking-wider">NUEVO</span>
+          </div>
+          <h3 class="text-base font-semibold text-white group-hover:text-white/90 transition-colors">"La Institución Silenciosa"</h3>
+          <p class="mt-1 text-xs text-white/40 leading-relaxed">Poder, silencio, bronce. Serif monumental, transiciones lineales, cero decoración.</p>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CTA SECTION -->
+<!-- ============================================ -->
+<section class="relative py-32 px-6 lg:px-8 bg-[#0a0a0a]">
+  <div class="max-w-3xl mx-auto text-center fade-up">
+    <div class="h-[1px] w-16 bg-white/30 mx-auto mb-12"></div>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white italic leading-tight font-display">
+      ¿Ves algo que te gusta?<br/>Solo falta ponerle tu logo.
+    </h2>
+    <p class="mt-6 text-base text-white/50 leading-relaxed">
+      Cada solución se adapta a tu marca, tu contenido y tu mercado.<br/>
+      Entrega en días, no meses.
+    </p>
+    <div class="mt-10">
+      <a href="#" class="inline-flex items-center bg-white/10 text-white font-semibold border border-white/30 backdrop-blur-md px-8 py-4 text-base tracking-wide transition-all hover:bg-white/20 hover:border-white/50 hover:scale-105">
+        Agendar consultoría gratuita
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="py-12 px-6 lg:px-8 bg-[#0a0a0a] border-t border-white/10">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+    <span class="text-2xl font-semibold text-white font-display">Swift Service</span>
+    <p class="text-sm text-white/40 font-mono">© 2026 Swift Service. Showroom v1.0</p>
+  </div>
+</footer>
+
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+(function() {
+  'use strict';
+
+  // ---- SCROLL REVEAL ----
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    fadeEls.forEach(el => el.classList.add('visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  }
+
+  // ---- FILTER PILLS ----
+  const pills = document.querySelectorAll('.filter-pill');
+  const sectorGroups = document.querySelectorAll('.sector-group');
+  const allCards = document.querySelectorAll('.demo-card');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      // Update active state
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const filter = pill.dataset.filter;
+
+      if (filter === 'all') {
+        // Show all sectors and cards
+        sectorGroups.forEach(g => { g.style.display = ''; });
+        allCards.forEach(c => { c.style.display = ''; });
+      } else if (filter === 'conceptos') {
+        // Show only conceptos sector
+        sectorGroups.forEach(g => {
+          g.style.display = g.dataset.sector === 'conceptos' ? '' : 'none';
+        });
+      } else {
+        // Show matching sector, hide others
+        sectorGroups.forEach(g => {
+          g.style.display = g.dataset.sector === filter ? '' : 'none';
+        });
+      }
+
+      // Scroll to top of grid
+      document.getElementById('sectores').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ---- COUNTER: total demos ----
+  const totalCards = allCards.length;
+  // Could add a counter somewhere if needed
+
+})();
+</script>
+
+</body>
+</html>

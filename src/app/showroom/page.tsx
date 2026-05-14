@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { ContactModal } from "@/components/ContactModal";
 
 /* ─── Data ─── */
 interface Demo {
@@ -16,33 +17,33 @@ interface Demo {
 
 const DEMOS: Demo[] = [
   // Legal
-  { name: "Cimet Abogados", slug: "cimet-abogados", sector: "legal", label: "Legal · CDMX", description: "Firma legal estratégica. Civil, mercantil, financiero, inmobiliario." },
-  { name: "Adlex Abogados", slug: "adlex", sector: "legal", label: "Legal · Corporativo", description: "Firma corporativa. Fiscal, corporativo y licitaciones." },
-  { name: "Herrera & Asociados", slug: "abogado-demo", sector: "legal", label: "Legal · Premium", description: "Firma premium. M&A, litigio complejo y derecho fiscal." },
-  { name: "Torre Legal", slug: "torre-legal", sector: "legal", label: "Legal · Toluca", description: "Abogados en Toluca. Estilo profesional." },
-  { name: "Ayuda Legal", slug: "ayuda-legal", sector: "legal", label: "Legal · Cuernavaca", description: "Bufete jurídico. Penal, civil, familiar. 42+ años." },
-  { name: "Cárdenas Thomae", slug: "cardenas-thomae", sector: "legal", label: "Legal · Defensa", description: "Defensa legal profesional. Estilo corporativo." },
-  { name: "Ríos Abogados", slug: "rios-abogados", sector: "legal", label: "Legal · CDMX", description: "Boutique legal desde 1999. Estilo elegante." },
-  { name: "SJM Abogados", slug: "sjm-abogados", sector: "legal", label: "Legal · Formal", description: "San Juan Montañez & Asociados S.C." },
+  { name: "Firma Legal Estratégica", slug: "cimet-abogados", sector: "legal", label: "Legal · CDMX", description: "Firma legal estratégica. Civil, mercantil, financiero, inmobiliario." },
+  { name: "Despacho Corporativo", slug: "adlex", sector: "legal", label: "Legal · Corporativo", description: "Firma corporativa. Fiscal, corporativo y licitaciones." },
+  { name: "Bufete Premium", slug: "abogado-demo", sector: "legal", label: "Legal · Premium", description: "Firma premium. M&A, litigio complejo y derecho fiscal." },
+  { name: "Abogados Asociados", slug: "torre-legal", sector: "legal", label: "Legal · Toluca", description: "Abogados en Toluca. Estilo profesional." },
+  { name: "Asesoría Legal Integral", slug: "ayuda-legal", sector: "legal", label: "Legal · Cuernavaca", description: "Bufete jurídico. Penal, civil, familiar. 42+ años." },
+  { name: "Defensa Legal Profesional", slug: "cardenas-thomae", sector: "legal", label: "Legal · Defensa", description: "Defensa legal profesional. Estilo corporativo." },
+  { name: "Boutique Legal", slug: "rios-abogados", sector: "legal", label: "Legal · CDMX", description: "Boutique legal desde 1999. Estilo elegante." },
+  { name: "Firma Legal Formal", slug: "sjm-abogados", sector: "legal", label: "Legal · Formal", description: "Despacho de abogados. Estilo formal." },
   // Dental
-  { name: "Dr. José Antonio", slug: "dentista", sector: "dental", label: "Dental · Premium", description: "Consultorio dental. Estilo dorado/premium." },
-  { name: "MacDent MX", slug: "macdent", sector: "dental", label: "Dental · Profesional", description: "Clínica dental. Estilo azul/profesional." },
-  { name: "SerenityDent", slug: "serenitydent", sector: "dental", label: "Dental · Moderno", description: "Clínica dental. Estilo turquesa/moderno." },
-  { name: "Sonrisa Precisión", slug: "sonrisa-precision", sector: "dental", label: "Dental · Especializado", description: "Diseño de sonrisa. Estilo especializado." },
-  { name: "Clínicas Spota", slug: "spota", sector: "dental", label: "Dental · Corporativo", description: "Clínicas dentales. Estilo azul corporativo." },
+  { name: "Consultorio Dental Premium", slug: "dentista", sector: "dental", label: "Dental · Premium", description: "Consultorio dental. Estilo dorado/premium." },
+  { name: "Clínica Dental Profesional", slug: "macdent", sector: "dental", label: "Dental · Profesional", description: "Clínica dental. Estilo azul/profesional." },
+  { name: "Clínica Dental Moderna", slug: "serenitydent", sector: "dental", label: "Dental · Moderno", description: "Clínica dental. Estilo turquesa/moderno." },
+  { name: "Diseño de Sonrisa", slug: "sonrisa-precision", sector: "dental", label: "Dental · Especializado", description: "Diseño de sonrisa. Estilo especializado." },
+  { name: "Clínicas Dentales", slug: "spota", sector: "dental", label: "Dental · Corporativo", description: "Clínicas dentales. Estilo azul corporativo." },
   // Cafetería
-  { name: "Brown Caffeine Lab", slug: "brown-caffeine-lab", sector: "cafe", label: "Café · Especialidad", description: "Café de especialidad en Puebla. Estilo craft/artesanal." },
-  { name: "Cafevera Calavera", slug: "cafevera-calavera", sector: "cafe", label: "Café · Barrio", description: "Cafetería de barrio en CDMX. Estilo mexicano/barrial." },
-  { name: "Margu Casa Gourmet", slug: "margu", sector: "cafe", label: "Gourmet · Puebla", description: "Casa gourmet en Puebla. Estilo elegante." },
-  { name: "Garaje Central", slug: "garaje-central", sector: "cafe", label: "Automotriz · Alemanes", description: "Especialistas en autos alemanes. Taller mecánico." },
+  { name: "Café de Especialidad", slug: "brown-caffeine-lab", sector: "cafe", label: "Café · Especialidad", description: "Café de especialidad en Puebla. Estilo craft/artesanal." },
+  { name: "Cafetería de Barrio", slug: "cafevera-calavera", sector: "cafe", label: "Café · Barrio", description: "Cafetería de barrio en CDMX. Estilo mexicano/barrial." },
+  { name: "Casa Gourmet", slug: "margu", sector: "cafe", label: "Gourmet · Puebla", description: "Casa gourmet en Puebla. Estilo elegante." },
+  { name: "Taller Automotriz", slug: "garaje-central", sector: "cafe", label: "Automotriz · Alemanes", description: "Especialistas en autos alemanes. Taller mecánico." },
   // Repostería
-  { name: "Pastelería Europea d'Maruque", slug: "pasteleria-europea", sector: "reposteria", label: "Pastelería · Clásica", description: "Pastelería europea. Estilo clásico." },
-  { name: "Violette Repostería", slug: "violette", sector: "reposteria", label: "Repostería · Gourmet", description: "Repostería gourmet. Estilo femenino/elegante." },
-  { name: "Voilà Pastelería de Autor", slug: "voila", sector: "reposteria", label: "Pastelería · Autor", description: "Pastelería de autor. Estilo francés/premium." },
+  { name: "Pastelería Europea", slug: "pasteleria-europea", sector: "reposteria", label: "Pastelería · Clásica", description: "Pastelería europea. Estilo clásico." },
+  { name: "Repostería Gourmet", slug: "violette", sector: "reposteria", label: "Repostería · Gourmet", description: "Repostería gourmet. Estilo femenino/elegante." },
+  { name: "Pastelería de Autor", slug: "voila", sector: "reposteria", label: "Pastelería · Autor", description: "Pastelería de autor. Estilo francés/premium." },
   // Construcción
-  { name: "Anirac Constructora", slug: "anirac", sector: "construccion", label: "Construcción · Tijuana", description: "Obras civiles, industrial, infraestructura. 25+ años." },
-  { name: "Constructora Demo", slug: "constructora-demo", sector: "construccion", label: "Construcción · General", description: "\"Edificamos tu Visión\". Constructora genérica." },
-  { name: "TECHYLAM", slug: "techylam", sector: "construccion", label: "Estructuras · CDMX", description: "Techos y estructuras metálicas. Estilo industrial." },
+  { name: "Constructora Industrial", slug: "anirac", sector: "construccion", label: "Construcción · Tijuana", description: "Obras civiles, industrial, infraestructura. 25+ años." },
+  { name: "Constructora General", slug: "constructora-demo", sector: "construccion", label: "Construcción · General", description: "\"Edificamos tu Visión\". Constructora genérica." },
+  { name: "Estructuras Metálicas", slug: "techylam", sector: "construccion", label: "Estructuras · CDMX", description: "Techos y estructuras metálicas. Estilo industrial." },
 ];
 
 const CONCEPTS: Demo[] = [
@@ -179,6 +180,7 @@ function DemoCard({ demo, delay = 0 }: { demo: Demo; delay?: number }) {
 
 export default function ShowroomPage() {
   const [filter, setFilter] = useState("all");
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const filteredDemos = filter === "all" || filter === "conceptos"
     ? DEMOS
@@ -207,6 +209,14 @@ export default function ShowroomPage() {
             <Link href="/#servicios" className="text-sm text-white/60 hover:text-white transition-colors duration-300">Servicios</Link>
             <Link href="/#inversion" className="text-sm text-white/60 hover:text-white transition-colors duration-300">Inversión</Link>
             <span className="text-sm text-white font-medium">Portafolio</span>
+            <button
+              className="group relative text-sm font-medium text-white/80 hover:text-white px-3 py-2 transition-all duration-300"
+              onClick={() => setIsContactOpen(true)}
+            >
+              <span className="absolute left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">[</span>
+              <span className="px-2">Contacto</span>
+              <span className="absolute right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">]</span>
+            </button>
           </div>
         </div>
       </nav>
@@ -344,6 +354,9 @@ export default function ShowroomPage() {
           </p>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </main>
   );
 }
