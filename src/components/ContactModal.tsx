@@ -31,7 +31,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     try {
       await Promise.all([
-        fetch("https://n8n.swfitservice.online/webhook/audit-lead-capture", {
+        fetch("https://n8n.byluisbeltran.com/webhook/audit-lead-capture", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
