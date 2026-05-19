@@ -252,7 +252,21 @@ tailwind.config = {
 
         <a href="/demos/macdent/" target="_blank" class="demo-card brackets p-5 fade-up group" data-category="dental" style="transition-delay:0.05s;">
           <div class="tl"></div><div class="br"></div>
-          <div class="screenshot-placeholder w-full aspect-[16/10] rounded-sm mb-4"></div>
+          
+          <!-- CAMBIOS AQUÍ: Reemplazamos el placeholder vacío por un div con contenido -->
+          <div class="w-full aspect-[16/10] rounded-sm mb-4 bg-[#111] border border-white/5 flex items-center justify-center overflow-hidden relative">
+            <!-- Fondo decorativo azul para MacDent -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-blue-500/10"></div>
+            
+            <!-- Contenido simulado -->
+            <div class="text-center relative z-10">
+              <span class="font-mono text-[9px] text-blue-400/60 tracking-widest">MACDENT MX</span>
+              <p class="font-bold text-2xl text-white/90 mt-1" style="font-family: sans-serif;">MD</p>
+              <span class="font-mono text-[9px] text-blue-400/80 tracking-wider">CLÍNICA DENTAL</span>
+            </div>
+          </div>
+          <!-- FIN DE CAMBIOS -->
+
           <span class="text-[10px] font-mono text-white/30 tracking-widest uppercase">Dental · Profesional</span>
           <h3 class="mt-1 text-base font-semibold text-white group-hover:text-white/90 transition-colors">MacDent MX</h3>
           <p class="mt-1 text-xs text-white/40 leading-relaxed">Clínica dental. Estilo azul/profesional.</p>
