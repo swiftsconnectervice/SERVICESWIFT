@@ -12,38 +12,40 @@ interface Demo {
   label: string;
   description: string;
   isNew?: boolean;
-  preview?: "nootropicos" | "cafeteria" | "vegaherrera";
+  preview?: string;
 }
 
 const DEMOS: Demo[] = [
   // Legal
-  { name: "Firma Legal Estratégica", slug: "firma-legal-estrategica", sector: "legal", label: "Legal · Estratégica", description: "Firma legal estratégica. Civil, mercantil, financiero, inmobiliario." },
-  { name: "Despacho Corporativo", slug: "adlex", sector: "legal", label: "Legal · Corporativo", description: "Firma corporativa. Fiscal, corporativo y licitaciones." },
-  { name: "Bufete Premium", slug: "abogado-demo", sector: "legal", label: "Legal · Premium", description: "Firma premium. M&A, litigio complejo y derecho fiscal." },
-  { name: "Abogados Asociados", slug: "torre-legal", sector: "legal", label: "Legal · Toluca", description: "Abogados en Toluca. Estilo profesional." },
-  { name: "Asesoría Legal Integral", slug: "ayuda-legal", sector: "legal", label: "Legal · Cuernavaca", description: "Bufete jurídico. Penal, civil, familiar. 42+ años." },
-  { name: "Defensa Legal Profesional", slug: "cardenas-thomae", sector: "legal", label: "Legal · Defensa", description: "Defensa legal profesional. Estilo corporativo." },
-  { name: "Boutique Legal", slug: "rios-abogados", sector: "legal", label: "Legal · CDMX", description: "Boutique legal desde 1999. Estilo elegante." },
-  { name: "Firma Legal Formal", slug: "sjm-abogados", sector: "legal", label: "Legal · Formal", description: "Despacho de abogados. Estilo formal." },
+  { name: "Firma Legal Estratégica", slug: "firma-legal-estrategica", sector: "legal", label: "Legal · Estratégica", description: "Firma legal estratégica. Civil, mercantil, financiero, inmobiliario.", preview: "firma-legal-estrategica" },
+  { name: "Despacho Corporativo", slug: "adlex", sector: "legal", label: "Legal · Corporativo", description: "Firma corporativa. Fiscal, corporativo y licitaciones.", preview: "adlex" },
+  { name: "Bufete Premium", slug: "abogado-demo", sector: "legal", label: "Legal · Premium", description: "Firma premium. M&A, litigio complejo y derecho fiscal.", preview: "abogado-demo" },
+  { name: "Abogados Asociados", slug: "torre-legal", sector: "legal", label: "Legal · Toluca", description: "Abogados en Toluca. Estilo profesional.", preview: "torre-legal" },
+  { name: "Asesoría Legal Integral", slug: "ayuda-legal", sector: "legal", label: "Legal · Cuernavaca", description: "Bufete jurídico. Penal, civil, familiar. 42+ años.", preview: "ayuda-legal" },
+  { name: "Defensa Legal Profesional", slug: "cardenas-thomae", sector: "legal", label: "Legal · Defensa", description: "Defensa legal profesional. Estilo corporativo.", preview: "cardenas-thomae" },
+  { name: "Boutique Legal", slug: "rios-abogados", sector: "legal", label: "Legal · CDMX", description: "Boutique legal desde 1999. Estilo elegante.", preview: "rios-abogados" },
+  { name: "Firma Legal Formal", slug: "sjm-abogados", sector: "legal", label: "Legal · Formal", description: "Despacho de abogados. Estilo formal.", preview: "sjm-abogados" },
+  { name: "Firma Legal Corporativa", slug: "cimet-abogados", sector: "legal", label: "Legal · Corporativo", description: "Firma legal corporativa. Estilo profesional.", preview: "cimet-abogados" },
+  { name: "Firma Legal Textor", slug: "textor", sector: "legal", label: "Legal · Textor", description: "Firma legal. Estilo moderno.", preview: "textor" },
   // Dental
-  { name: "Consultorio Dental Premium", slug: "dentista", sector: "dental", label: "Dental · Premium", description: "Consultorio dental. Estilo dorado/premium." },
-  { name: "Clínica Dental Profesional", slug: "macdent", sector: "dental", label: "Dental · Profesional", description: "Clínica dental. Estilo azul/profesional." },
-  { name: "Clínica Dental Moderna", slug: "serenitydent", sector: "dental", label: "Dental · Moderno", description: "Clínica dental. Estilo turquesa/moderno." },
-  { name: "Diseño de Sonrisa", slug: "sonrisa-precision", sector: "dental", label: "Dental · Especializado", description: "Diseño de sonrisa. Estilo especializado." },
-  { name: "Clínicas Dentales", slug: "spota", sector: "dental", label: "Dental · Corporativo", description: "Clínicas dentales. Estilo azul corporativo." },
+  { name: "Consultorio Dental Premium", slug: "dentista", sector: "dental", label: "Dental · Premium", description: "Consultorio dental. Estilo dorado/premium.", preview: "dentista" },
+  { name: "Clínica Dental Profesional", slug: "macdent", sector: "dental", label: "Dental · Profesional", description: "Clínica dental. Estilo azul/profesional.", preview: "macdent" },
+  { name: "Clínica Dental Moderna", slug: "serenitydent", sector: "dental", label: "Dental · Moderno", description: "Clínica dental. Estilo turquesa/moderno.", preview: "serenitydent" },
+  { name: "Diseño de Sonrisa", slug: "sonrisa-precision", sector: "dental", label: "Dental · Especializado", description: "Diseño de sonrisa. Estilo especializado.", preview: "sonrisa-precision" },
+  { name: "Clínicas Dentales", slug: "spota", sector: "dental", label: "Dental · Corporativo", description: "Clínicas dentales. Estilo azul corporativo.", preview: "spota" },
   // Cafetería
-  { name: "Café de Especialidad", slug: "brown-caffeine-lab", sector: "cafe", label: "Café · Especialidad", description: "Café de especialidad en Puebla. Estilo craft/artesanal." },
-  { name: "Cafetería de Barrio", slug: "cafevera-calavera", sector: "cafe", label: "Café · Barrio", description: "Cafetería de barrio en CDMX. Estilo mexicano/barrial." },
-  { name: "Casa Gourmet", slug: "margu", sector: "cafe", label: "Gourmet · Puebla", description: "Casa gourmet en Puebla. Estilo elegante." },
-  { name: "Taller Automotriz", slug: "garaje-central", sector: "cafe", label: "Automotriz · Alemanes", description: "Especialistas en autos alemanes. Taller mecánico." },
+  { name: "Café de Especialidad", slug: "brown-caffeine-lab", sector: "cafe", label: "Café · Especialidad", description: "Café de especialidad en Puebla. Estilo craft/artesanal.", preview: "brown-caffeine-lab" },
+  { name: "Cafetería de Barrio", slug: "cafevera-calavera", sector: "cafe", label: "Café · Barrio", description: "Cafetería de barrio en CDMX. Estilo mexicano/barrial.", preview: "cafevera-calavera" },
+  { name: "Casa Gourmet", slug: "margu", sector: "cafe", label: "Gourmet · Puebla", description: "Casa gourmet en Puebla. Estilo elegante.", preview: "margu" },
+  { name: "Taller Automotriz", slug: "garaje-central", sector: "cafe", label: "Automotriz · Alemanes", description: "Especialistas en autos alemanes. Taller mecánico.", preview: "garaje-central" },
   // Repostería
-  { name: "Pastelería Europea", slug: "pasteleria-europea", sector: "reposteria", label: "Pastelería · Clásica", description: "Pastelería europea. Estilo clásico." },
-  { name: "Repostería Gourmet", slug: "violette", sector: "reposteria", label: "Repostería · Gourmet", description: "Repostería gourmet. Estilo femenino/elegante." },
-  { name: "Pastelería de Autor", slug: "voila", sector: "reposteria", label: "Pastelería · Autor", description: "Pastelería de autor. Estilo francés/premium." },
+  { name: "Pastelería Europea", slug: "pasteleria-europea", sector: "reposteria", label: "Pastelería · Clásica", description: "Pastelería europea. Estilo clásico.", preview: "pasteleria-europea" },
+  { name: "Repostería Gourmet", slug: "violette", sector: "reposteria", label: "Repostería · Gourmet", description: "Repostería gourmet. Estilo femenino/elegante.", preview: "violette" },
+  { name: "Pastelería de Autor", slug: "voila", sector: "reposteria", label: "Pastelería · Autor", description: "Pastelería de autor. Estilo francés/premium.", preview: "voila" },
   // Construcción
-  { name: "Constructora Industrial", slug: "anirac", sector: "construccion", label: "Construcción · Tijuana", description: "Obras civiles, industrial, infraestructura. 25+ años." },
-  { name: "Constructora General", slug: "constructora-demo", sector: "construccion", label: "Construcción · General", description: "\"Edificamos tu Visión\". Constructora genérica." },
-  { name: "Estructuras Metálicas", slug: "techylam", sector: "construccion", label: "Estructuras · CDMX", description: "Techos y estructuras metálicas. Estilo industrial." },
+  { name: "Constructora Industrial", slug: "anirac", sector: "construccion", label: "Construcción · Tijuana", description: "Obras civiles, industrial, infraestructura. 25+ años.", preview: "anirac" },
+  { name: "Constructora General", slug: "constructora-demo", sector: "construccion", label: "Construcción · General", description: "\"Edificamos tu Visión\". Constructora genérica.", preview: "constructora-demo" },
+  { name: "Estructuras Metálicas", slug: "techylam", sector: "construccion", label: "Estructuras · CDMX", description: "Techos y estructuras metálicas. Estilo industrial.", preview: "techylam" },
 ];
 
 const CONCEPTS: Demo[] = [
@@ -63,7 +65,7 @@ const SECTORS = [
 ];
 
 const SECTOR_LABELS: Record<string, { title: string; count: number }> = {
-  legal: { title: "Sector Legal", count: 8 },
+  legal: { title: "Sector Legal", count: 10 },
   dental: { title: "Sector Dental", count: 5 },
   cafe: { title: "Sector Cafetería & Alimentos", count: 4 },
   reposteria: { title: "Sector Repostería & Pastelería", count: 3 },
@@ -95,7 +97,8 @@ function FadeUp({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
-function ConceptPreview({ type }: { type: Demo["preview"] }) {
+function DemoPreview({ type }: { type: string }) {
+  // Conceptos originales
   if (type === "nootropicos") {
     return (
       <div className="w-full aspect-[16/10] rounded-sm bg-[#111] border border-white/5 flex items-center justify-center overflow-hidden relative">
@@ -129,6 +132,275 @@ function ConceptPreview({ type }: { type: Demo["preview"] }) {
       </div>
     );
   }
+
+  // SECTOR LEGAL
+  if (type === "firma-legal-estrategica") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#0D1117" }}>
+        <div className="text-center">
+          <p className="text-xl text-white font-semibold" style={{ fontFamily: "Georgia, serif" }}>Firma Legal Estratégica</p>
+          <div className="w-16 h-px bg-blue-500/50 mx-auto mt-3" />
+          <p className="text-[9px] text-white/40 mt-3 tracking-widest font-mono">CIVIL · MERCANTIL · FINANCIERO</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "adlex") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#1A1A2E" }}>
+        <div className="text-center">
+          <p className="text-3xl text-white font-bold tracking-wider">ADLEX</p>
+          <p className="text-[9px] text-blue-400/60 mt-2 tracking-widest font-mono">DESPACHO CORPORATIVO</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "abogado-demo") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)" }}>
+        <div className="text-center">
+          <p className="text-2xl text-amber-400 font-bold" style={{ fontFamily: "Georgia, serif" }}>Bufete Premium</p>
+          <div className="w-12 h-px bg-amber-400/50 mx-auto mt-2" />
+          <p className="text-[9px] text-white/50 mt-2 tracking-widest font-mono">M&A · LITIGIO · FISCAL</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "torre-legal") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#0F172A" }}>
+        <div className="text-center">
+          <p className="text-2xl text-white font-semibold">Torre Legal</p>
+          <p className="text-[9px] text-slate-400 mt-2 tracking-widest font-mono">ABOGADOS ASOCIADOS</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "ayuda-legal") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#1E293B" }}>
+        <div className="text-center">
+          <p className="text-xl text-white font-semibold" style={{ fontFamily: "Georgia, serif" }}>Ayuda Legal</p>
+          <p className="text-[9px] text-blue-300/60 mt-2 tracking-widest font-mono">42+ AÑOS DE EXPERIENCIA</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "cardenas-thomae") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#111827" }}>
+        <div className="text-center">
+          <p className="text-lg text-white font-bold tracking-wide">CÁRDENAS & THOMAE</p>
+          <p className="text-[9px] text-gray-400 mt-2 tracking-widest font-mono">DEFENSA LEGAL</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "rios-abogados") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#18181B" }}>
+        <div className="text-center">
+          <p className="text-xl text-white italic" style={{ fontFamily: "Georgia, serif" }}>Ríos & Abogados</p>
+          <p className="text-[9px] text-zinc-400 mt-2 tracking-widest font-mono">EST. 1999</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "sjm-abogados") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#0A0A0A" }}>
+        <div className="text-center">
+          <p className="text-2xl text-white font-bold tracking-widest">SJM</p>
+          <p className="text-[9px] text-white/40 mt-2 tracking-widest font-mono">ABOGADOS</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "cimet-abogados") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#1C1C1E" }}>
+        <div className="text-center">
+          <p className="text-2xl text-white font-semibold">CIMET</p>
+          <p className="text-[9px] text-gray-400 mt-2 tracking-widest font-mono">ABOGADOS</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "textor") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#141414" }}>
+        <div className="text-center">
+          <p className="text-2xl text-white font-bold tracking-tight">TEXTOR</p>
+          <div className="w-8 h-px bg-white/30 mx-auto mt-2" />
+          <p className="text-[9px] text-white/50 mt-2 tracking-widest font-mono">FIRMA LEGAL</p>
+        </div>
+      </div>
+    );
+  }
+
+  // SECTOR DENTAL
+  if (type === "dentista") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "linear-gradient(135deg, #1a1410 0%, #2d2416 100%)" }}>
+        <div className="text-center">
+          <p className="text-2xl text-amber-300 font-bold" style={{ fontFamily: "Georgia, serif" }}>Consultorio Dental</p>
+          <div className="w-12 h-px bg-amber-300/50 mx-auto mt-2" />
+          <p className="text-[9px] text-amber-200/40 mt-2 tracking-widest font-mono">PREMIUM</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "macdent") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm bg-[#111] border border-white/5 flex items-center justify-center overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-blue-500/10"></div>
+        <div className="text-center relative z-10">
+          <span className="font-mono text-[9px] text-blue-400/60 tracking-widest">MACDENT MX</span>
+          <p className="font-bold text-2xl text-white/90 mt-1" style={{ fontFamily: "sans-serif" }}>MD</p>
+          <span className="font-mono text-[9px] text-blue-400/80 tracking-wider">CLÍNICA DENTAL</span>
+        </div>
+      </div>
+    );
+  }
+  if (type === "serenitydent") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "linear-gradient(135deg, #0D1F1F 0%, #1A3535 100%)" }}>
+        <div className="text-center">
+          <p className="text-2xl text-teal-300 font-semibold">SerenityDent</p>
+          <p className="text-[9px] text-teal-200/50 mt-2 tracking-widest font-mono">CLÍNICA DENTAL MODERNA</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "sonrisa-precision") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#0F1419" }}>
+        <div className="text-center">
+          <p className="text-xl text-white font-semibold">Sonrisa Precisión</p>
+          <p className="text-[9px] text-cyan-400/60 mt-2 tracking-widest font-mono">DISEÑO DE SONRISA</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "spota") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#0A1628" }}>
+        <div className="text-center">
+          <p className="text-3xl text-blue-400 font-bold">SPOTA</p>
+          <p className="text-[9px] text-blue-300/50 mt-2 tracking-widest font-mono">CLÍNICAS DENTALES</p>
+        </div>
+      </div>
+    );
+  }
+
+  // SECTOR CAFETERÍA
+  if (type === "brown-caffeine-lab") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#2C1810" }}>
+        <div className="text-center">
+          <p className="text-xl text-amber-600 font-bold tracking-tight">BROWN</p>
+          <p className="text-sm text-amber-500/80 font-light italic">Caffeine Lab</p>
+          <p className="text-[9px] text-amber-400/40 mt-2 tracking-widest font-mono">CAFÉ DE ESPECIALIDAD</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "cafevera-calavera") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#1A0F0A" }}>
+        <div className="text-center">
+          <p className="text-2xl text-orange-400 font-bold">Cafévera Calavera</p>
+          <p className="text-[9px] text-orange-300/50 mt-2 tracking-widest font-mono">CAFÉ DE BARRIO</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "margu") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#1C1410" }}>
+        <div className="text-center">
+          <p className="text-2xl text-amber-200 italic" style={{ fontFamily: "Georgia, serif" }}>Margu</p>
+          <p className="text-[9px] text-amber-200/40 mt-2 tracking-widest font-mono">CASA GOURMET</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "garaje-central") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#0D0D0D" }}>
+        <div className="text-center">
+          <p className="text-2xl text-red-500 font-bold tracking-wider">GARAJE CENTRAL</p>
+          <p className="text-[9px] text-red-400/50 mt-2 tracking-widest font-mono">ESPECIALISTAS ALEMANES</p>
+        </div>
+      </div>
+    );
+  }
+
+  // SECTOR REPOSTERÍA
+  if (type === "pasteleria-europea") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#F5F1E8" }}>
+        <div className="text-center">
+          <p className="text-2xl text-[#4A3F35] italic" style={{ fontFamily: "Georgia, serif" }}>Pastelería Europea</p>
+          <p className="text-[9px] text-[#8B7355] mt-2 tracking-widest font-mono">TRADICIÓN CLÁSICA</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "violette") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "linear-gradient(135deg, #F8E8F5 0%, #E8D5E8 100%)" }}>
+        <div className="text-center">
+          <p className="text-2xl text-purple-900 italic" style={{ fontFamily: "Georgia, serif" }}>Violette</p>
+          <p className="text-[9px] text-purple-700/60 mt-2 tracking-widest font-mono">REPOSTERÍA GOURMET</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "voila") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#FFF8F0" }}>
+        <div className="text-center">
+          <p className="text-3xl text-[#2C2416] italic" style={{ fontFamily: "Georgia, serif" }}>Voilà</p>
+          <p className="text-[9px] text-[#8B7355] mt-2 tracking-widest font-mono">PASTELERÍA DE AUTOR</p>
+        </div>
+      </div>
+    );
+  }
+
+  // SECTOR CONSTRUCCIÓN
+  if (type === "anirac") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#1A1A1A" }}>
+        <div className="text-center">
+          <p className="text-3xl text-orange-500 font-bold tracking-wider">ANIRAC</p>
+          <p className="text-[9px] text-orange-400/50 mt-2 tracking-widest font-mono">CONSTRUCTORA INDUSTRIAL</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "constructora-demo") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#0F1419" }}>
+        <div className="text-center">
+          <p className="text-xl text-white font-bold">Constructora</p>
+          <p className="text-sm text-blue-400 italic mt-1">"Edificamos tu Visión"</p>
+          <p className="text-[9px] text-white/40 mt-2 tracking-widest font-mono">CONSTRUCCIÓN GENERAL</p>
+        </div>
+      </div>
+    );
+  }
+  if (type === "techylam") {
+    return (
+      <div className="w-full aspect-[16/10] rounded-sm border border-white/5 flex items-center justify-center overflow-hidden" style={{ background: "#141414" }}>
+        <div className="text-center">
+          <p className="text-2xl text-gray-300 font-bold tracking-wide">TECHYLAM</p>
+          <p className="text-[9px] text-gray-400 mt-2 tracking-widest font-mono">ESTRUCTURAS METÁLICAS</p>
+        </div>
+      </div>
+    );
+  }
+
   return null;
 }
 
@@ -151,12 +423,12 @@ function DemoCard({ demo, delay = 0 }: { demo: Demo; delay?: number }) {
           <div className="absolute bottom-0 right-0 w-0.5 h-3.5 bg-white/60" />
         </div>
 
-        {/* Screenshot placeholder or concept preview */}
-        {demo.preview ? (
-          <div className="mb-4"><ConceptPreview type={demo.preview} /></div>
-        ) : (
-          <div className="w-full aspect-[16/10] rounded-sm mb-4 bg-gradient-to-br from-[#111] via-[#151515] to-[#111] animate-pulse" />
-        )}
+        {/* Preview */}
+        <div className="mb-4">
+          {demo.preview ? <DemoPreview type={demo.preview} /> : (
+            <div className="w-full aspect-[16/10] rounded-sm bg-gradient-to-br from-[#111] via-[#151515] to-[#111] animate-pulse" />
+          )}
+        </div>
 
         {/* Label */}
         <div className="flex items-center gap-2 mb-1">
