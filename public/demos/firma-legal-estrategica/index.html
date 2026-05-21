@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Firma Legal Estrat�gica -� Soluciones Legales Estrat+�gicas</title>
+<title>Firma Legal Estratégica - Soluciones Legales Estratégicas</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -37,7 +37,7 @@ tailwind.config = {
   body { font-family: "Inter", sans-serif; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
 
-  /* Reveal animations (C+�rdenas Thomae style) */
+  /* Reveal animations */
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-d1 { transition-delay: 0.12s; }
@@ -72,26 +72,16 @@ tailwind.config = {
   /* Glass nav */
   .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 
-  /* Nav link underline draw effect */
-  .nav-link {
-    position: relative;
-    padding-bottom: 4px;
-  }
+  /* Nav link underline */
+  .nav-link { position: relative; padding-bottom: 4px; }
   .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #e8722a;
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: #e8722a;
     transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
-  .nav-link:hover::after {
-    width: 100%;
-  }
+  .nav-link:hover::after { width: 100%; }
 
-  /* Details/summary smooth open */
+  /* Details/summary */
   details summary { list-style: none; }
   details summary::-webkit-details-marker { display: none; }
   details[open] summary { border-bottom-color: transparent; }
@@ -104,17 +94,10 @@ tailwind.config = {
   /* Step connector */
   .step-connector { position: relative; }
   .step-connector::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -2rem;
-    width: 4rem;
-    height: 2px;
-    background: linear-gradient(90deg, #e8722a, transparent);
+    content: ''; position: absolute; top: 50%; right: -2rem;
+    width: 4rem; height: 2px; background: linear-gradient(90deg, #e8722a, transparent);
   }
-  @media (max-width: 768px) {
-    .step-connector::after { display: none; }
-  }
+  @media (max-width: 768px) { .step-connector::after { display: none; } }
 </style>
 </head>
 <body class="bg-surface font-body text-on-surface selection:bg-accent/20">
@@ -134,7 +117,7 @@ tailwind.config = {
     <nav class="hidden lg:flex items-center space-x-10">
       <a href="#firma" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">La Firma</a>
       <a href="#servicios" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Servicios</a>
-      <a href="#metodo" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">M+�todo</a>
+      <a href="#metodo" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Método</a>
       <a href="#fortalezas" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Fortalezas</a>
       <a href="#contacto" class="nav-link text-on-surface-md hover:text-navy transition-colors duration-300 font-headline text-[15px] tracking-tight">Contacto</a>
     </nav>
@@ -148,7 +131,7 @@ tailwind.config = {
 <section class="relative min-h-screen flex items-center overflow-hidden">
   <div class="absolute inset-0 z-0">
     <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="heroParallax">
-      <img src="https://images.unsplash.com/photo-1497366216548?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Oficina legal moderna"/>
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&fit=crop" class="w-full h-full object-cover" alt="Oficina legal moderna"/>
     </div>
     <div class="absolute inset-0 bg-gradient-to-r from-navy/92 via-navy/70 to-navy/30"></div>
   </div>
@@ -157,13 +140,13 @@ tailwind.config = {
     <div class="max-w-2xl">
       <div class="reveal flex items-center gap-4 mb-8">
         <div class="w-12 h-px bg-accent"></div>
-        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.35em]">Civil -� Mercantil -� Financiero -� Inmobiliario</span>
+        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.35em]">Civil · Mercantil · Financiero · Inmobiliario</span>
       </div>
       <h1 class="reveal reveal-d1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-headline text-white leading-[1.08] mb-8 tracking-tight">
         Protegemos tu patrimonio con <span class="text-accent italic">estrategia legal.</span>
       </h1>
       <p class="reveal reveal-d2 text-white/65 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
-        Firma legal estrat+�gica con atenci+�n directa y personalizada. Soluciones eficaces para cada caso, con compromiso +�tico y profesional.
+        Firma legal estratégica con atención directa y personalizada. Soluciones eficaces para cada caso, con compromiso ético y profesional.
       </p>
       <div class="reveal reveal-d3 flex flex-col sm:flex-row gap-4">
         <a href="#contacto" class="bg-accent hover:bg-accent-dk text-white font-semibold py-4 px-10 text-sm text-center transition-colors uppercase tracking-[0.12em]">
@@ -182,7 +165,7 @@ tailwind.config = {
       <div class="reveal bg-white shadow-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-outline-lt">
         <div class="p-6 md:p-8 text-center">
           <div class="font-headline text-3xl md:text-4xl text-navy font-light">+15</div>
-          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">A+�os de trayectoria</div>
+          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">Años de trayectoria</div>
         </div>
         <div class="p-6 md:p-8 text-center">
           <div class="font-headline text-3xl md:text-4xl text-navy font-light">+500</div>
@@ -194,7 +177,7 @@ tailwind.config = {
         </div>
         <div class="p-6 md:p-8 text-center">
           <div class="font-headline text-3xl md:text-4xl text-navy font-light">12</div>
-          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">+�reas de pr+�ctica</div>
+          <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] mt-1 font-medium">Áreas de práctica</div>
         </div>
       </div>
     </div>
@@ -219,14 +202,14 @@ tailwind.config = {
           Estrategia legal con <span class="text-accent italic">resultados reales.</span>
         </h2>
         <p class="reveal reveal-d2 text-on-surface-md leading-relaxed mb-6">
-          Firma Legal Estrat�gica es una firma legal estrat+�gica, especializada en derecho civil, mercantil, financiero, inmobiliario, as+� como de seguros y fianzas. Brindamos atenci+�n directa y personalizada con compromiso +�tico y profesional.
+          Firma Legal Estratégica es una firma legal estratégica, especializada en derecho civil, mercantil, financiero, inmobiliario, así como de seguros y fianzas. Brindamos atención directa y personalizada con compromiso ético y profesional.
         </p>
         <p class="reveal reveal-d3 text-on-surface-md leading-relaxed mb-10">
-          Ubicados en la Roma Norte, Ciudad de M+�xico, nuestro equipo se enfoca en lograr resultados satisfactorios y soluciones eficaces de acuerdo a las necesidades espec+�ficas de cada caso.
+          Ubicados en la Roma Norte, Ciudad de México, nuestro equipo se enfoca en lograr resultados satisfactorios y soluciones eficaces de acuerdo a las necesidades específicas de cada caso.
         </p>
         <div class="reveal reveal-d4 flex items-center gap-6">
           <a href="#contacto" class="bg-accent text-white font-semibold py-3 px-8 text-sm transition-colors hover:bg-accent-dk uppercase tracking-[0.1em]">
-            Conozca m+�s
+            Conozca más
           </a>
           <a href="tel:55 0000 0000" class="flex items-center gap-2 text-navy hover:text-accent transition-colors text-sm font-medium">
             <span class="material-symbols-outlined text-accent text-lg">call</span>
@@ -235,7 +218,7 @@ tailwind.config = {
         </div>
       </div>
       <div class="reveal img-reveal">
-        <img src="https://images.unsplash.com/photo-1507003211169-7986c2920216?w=800&q=80&fit=crop" class="w-full aspect-[4/5] object-cover" alt="Equipo Firma Legal Estrat�gica"/>
+        <img src="https://images.unsplash.com/photo-1507003211169-7986c2920216?w=800&q=80&fit=crop" class="w-full aspect-[4/5] object-cover" alt="Equipo Firma Legal Estratégica"/>
       </div>
     </div>
   </div>
@@ -246,18 +229,18 @@ tailwind.config = {
   <div class="line-draw h-px bg-accent/20 mx-auto"></div>
 </div>
 
-<!-- Servicios ��� 3 Grandes +�reas -->
+<!-- Servicios - 3 Grandes áreas -->
 <section class="py-24 bg-surface-warm" id="servicios">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="reveal flex items-center gap-3 mb-4">
       <div class="w-10 h-px bg-accent"></div>
-      <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">+�reas de pr+�ctica</span>
+      <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Áreas de práctica</span>
     </div>
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
       <h2 class="reveal reveal-d1 text-3xl md:text-4xl lg:text-5xl font-headline text-navy leading-tight max-w-xl">
         Soluciones integrales para <span class="text-accent italic">cada necesidad.</span>
       </h2>
-      <p class="reveal reveal-d2 text-on-surface-lt text-sm max-w-xs">12 +�reas de especialidad organizadas en tres pilares estrat+�gicos para facilitar su elecci+�n.</p>
+      <p class="reveal reveal-d2 text-on-surface-lt text-sm max-w-xs">12 áreas de especialidad organizadas en tres pilares estratégicos para facilitar su elección.</p>
     </div>
 
     <!-- 3 Pilares con servicios expandibles -->
@@ -268,7 +251,7 @@ tailwind.config = {
         <div class="bg-navy p-8 mb-1">
           <span class="material-symbols-outlined text-accent text-3xl mb-4">apartment</span>
           <h3 class="text-xl font-headline text-white mb-2">Empresas y Comercio</h3>
-          <p class="text-white/50 text-xs leading-relaxed">Protecci+�n integral para su negocio, desde la constituci+�n hasta operaciones complejas.</p>
+          <p class="text-white/50 text-xs leading-relaxed">Protección integral para su negocio, desde la constitución hasta operaciones complejas.</p>
         </div>
         <div class="space-y-px">
           <details class="group bg-surface-card border border-outline-lt">
@@ -280,7 +263,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Regula las relaciones comerciales o actos de comercio celebrados entre personas morales y/o f+�sicas. Incluye derecho bancario, cambiario, contractual, concursal, propiedad industrial, societario y t+�tulos de cr+�dito.
+              Regula las relaciones comerciales o actos de comercio celebrados entre personas morales y/o físicas. Incluye derecho bancario, cambiario, contractual, concursal, propiedad industrial, societario y títulos de crédito.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -292,7 +275,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Relacionado con el aspecto interno y regulatorio de todas las sociedades: constituci+�n, acciones, asambleas, derecho de voto, distribuci+�n de utilidades y contratos para lograr su objeto social.
+              Relacionado con el aspecto interno y regulatorio de todas las sociedades: constitución, acciones, asambleas, derecho de voto, distribución de utilidades y contratos para lograr su objeto social.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -304,7 +287,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Regula los procedimientos cuando un comerciante enfrenta complicaciones financieras. Buscamos la conciliaci+�n entre acreedores y deudor para que la actividad econ+�mica subsista.
+              Regula los procedimientos cuando un comerciante enfrenta complicaciones financieras. Buscamos la conciliación entre acreedores y deudor para que la actividad económica subsista.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -316,7 +299,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Investigaci+�n exhaustiva sobre un negocio o empresa para conocer a fondo su situaci+�n, identificar riesgos reales y planificar una estrategia adecuada para el objetivo del cliente.
+              Investigación exhaustiva sobre un negocio o empresa para conocer a fondo su situación, identificar riesgos reales y planificar una estrategia adecuada para el objetivo del cliente.
             </div>
           </details>
         </div>
@@ -327,7 +310,7 @@ tailwind.config = {
         <div class="bg-navy p-8 mb-1">
           <span class="material-symbols-outlined text-accent text-3xl mb-4">shield</span>
           <h3 class="text-xl font-headline text-white mb-2">Patrimonio y Bienes</h3>
-          <p class="text-white/50 text-xs leading-relaxed">Resguardamos lo que m+�s importa: su patrimonio, su familia y sus bienes inmuebles.</p>
+          <p class="text-white/50 text-xs leading-relaxed">Resguardamos lo que más importa: su patrimonio, su familia y sus bienes inmuebles.</p>
         </div>
         <div class="space-y-px">
           <details class="group bg-surface-card border border-outline-lt">
@@ -339,7 +322,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Regula las relaciones entre particulares: compra-venta, arrendamiento, comodato, usufructo, pr+�stamo, hipoteca, servidumbres, mandato, donaci+�n y dem+�s contratos de naturaleza civil.
+              Regula las relaciones entre particulares: compra-venta, arrendamiento, comodato, usufructo, préstamo, hipoteca, servidumbres, mandato, donación y demás contratos de naturaleza civil.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -351,7 +334,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Regula todo lo relativo a bienes inmuebles: urbanismo, regularizaci+�n de tierra, contratos, financiamiento, inversi+�n extranjera, registro p+�blico y resoluci+�n de controversias inmobiliarias.
+              Regula todo lo relativo a bienes inmuebles: urbanismo, regularización de tierra, contratos, financiamiento, inversión extranjera, registro público y resolución de controversias inmobiliarias.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -363,7 +346,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Protege todo lo inherente a la familia: matrimonio, filiaci+�n, pensi+�n alimenticia, patria potestad, adopci+�n, concubinato, divorcio y sucesiones (herencias).
+              Protege todo lo inherente a la familia: matrimonio, filiación, pensión alimenticia, patria potestad, adopción, concubinato, divorcio y sucesiones (herencias).
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -375,30 +358,30 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Regula la contrataci+�n, emisi+�n y ejecuci+�n de p+�lizas de seguros o fianzas, incluyendo obligaciones, derechos y excepciones en caso de siniestro.
+              Regula la contratación, emisión y ejecución de pólizas de seguros o fianzas, incluyendo obligaciones, derechos y excepciones en caso de siniestro.
             </div>
           </details>
         </div>
       </div>
 
-      <!-- Pilar 3: Resoluci+�n de Conflictos -->
+      <!-- Pilar 3: Resolución de Conflictos -->
       <div class="reveal reveal-d2">
         <div class="bg-navy p-8 mb-1">
           <span class="material-symbols-outlined text-accent text-3xl mb-4">gavel</span>
-          <h3 class="text-xl font-headline text-white mb-2">Resoluci+�n de Conflictos</h3>
-          <p class="text-white/50 text-xs leading-relaxed">M+�todos estrat+�gicos para resolver disputas de forma eficiente y favorable.</p>
+          <h3 class="text-xl font-headline text-white mb-2">Resolución de Conflictos</h3>
+          <p class="text-white/50 text-xs leading-relaxed">Métodos estratégicos para resolver disputas de forma eficiente y favorable.</p>
         </div>
         <div class="space-y-px">
           <details class="group bg-surface-card border border-outline-lt">
             <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
               <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-accent text-lg">handshake</span>
-                <span class="text-sm font-medium text-navy">Mediaci+�n y Arbitraje</span>
+                <span class="text-sm font-medium text-navy">Mediación y Arbitraje</span>
               </div>
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              M+�todos alternativos de soluci+�n de conflictos. Un tercero imparcial interviene para lograr un laudo o convenio dentro de un procedimiento +�gil, sin recurrir a un juicio largo.
+              Métodos alternativos de solución de conflictos. Un tercero imparcial interviene para lograr un laudo o convenio dentro de un procedimiento ágil, sin recurrir a un juicio largo.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -410,19 +393,19 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Regula la organizaci+�n y actividades de la administraci+�n p+�blica, as+� como los actos jur+�dicos celebrados entre servidores p+�blicos y el sector privado.
+              Regula la organización y actividades de la administración pública, así como los actos jurídicos celebrados entre servidores públicos y el sector privado.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
             <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-surface-warm transition-colors">
               <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-accent text-lg">psychology</span>
-                <span class="text-sm font-medium text-navy">Asesor+�a y Estrategia Jur+�dica</span>
+                <span class="text-sm font-medium text-navy">Asesoría y Estrategia Jurídica</span>
               </div>
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Proyectamos acciones y defensas para una correcta planeaci+�n estrat+�gica, incluyendo posibles escenarios ante tribunales judiciales, buscando el +�ptimo resultado.
+              Proyectamos acciones y defensas para una correcta planeación estratégica, incluyendo posibles escenarios ante tribunales judiciales, buscando el óptimo resultado.
             </div>
           </details>
           <details class="group bg-surface-card border border-outline-lt">
@@ -434,7 +417,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-on-surface-lt text-lg transition-transform group-open:rotate-180">expand_more</span>
             </summary>
             <div class="px-5 pb-5 text-sm text-on-surface-md leading-relaxed border-t border-outline-lt pt-4">
-              Firma l+�der en M+�xico en financiamiento de litigios nacionales e internacionales, en +�reas civil, mercantil, financiero, inmobiliario, seguros, fianzas y arbitraje.
+              Firma líder en México en financiamiento de litigios nacionales e internacionales, en áreas civil, mercantil, financiero, inmobiliario, seguros, fianzas y arbitraje.
             </div>
           </details>
         </div>
@@ -449,16 +432,16 @@ tailwind.config = {
   <div class="line-draw h-px bg-accent/20 mx-auto"></div>
 </div>
 
-<!-- M+�todo Firma Legal ��� 3 Pasos -->
+<!-- Método Firma Legal - 3 Pasos -->
 <section class="py-24 bg-surface" id="metodo">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="text-center mb-20">
       <div class="reveal flex items-center justify-center gap-3 mb-4">
         <div class="w-10 h-px bg-accent"></div>
-        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Nuestro m+�todo</span>
+        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Nuestro método</span>
         <div class="w-10 h-px bg-accent"></div>
       </div>
-      <h2 class="reveal reveal-d1 text-3xl md:text-4xl lg:text-5xl font-headline text-navy">El M+�todo <span class="text-accent italic">Firma Legal.</span></h2>
+      <h2 class="reveal reveal-d1 text-3xl md:text-4xl lg:text-5xl font-headline text-navy">El Método <span class="text-accent italic">Firma Legal.</span></h2>
       <p class="reveal reveal-d2 text-on-surface-lt text-sm mt-4 max-w-lg mx-auto">Un sistema ordenado y bajo control que garantiza resultados. No vendemos horas de servicio, vendemos tranquilidad.</p>
     </div>
 
@@ -470,7 +453,7 @@ tailwind.config = {
             <span class="text-accent font-headline text-3xl font-light">01</span>
           </div>
         </div>
-        <h4 class="text-xl font-headline text-navy mb-3">Diagn+�stico</h4>
+        <h4 class="text-xl font-headline text-navy mb-3">Diagnóstico</h4>
         <p class="text-on-surface-md text-sm leading-relaxed">Analizamos su caso a profundidad, identificamos riesgos y oportunidades. Escuchamos antes de actuar.</p>
       </div>
 
@@ -482,7 +465,7 @@ tailwind.config = {
           </div>
         </div>
         <h4 class="text-xl font-headline text-navy mb-3">Estrategia</h4>
-        <p class="text-on-surface-md text-sm leading-relaxed">Dise+�amos un plan de acci+�n personalizado con las alternativas m+�s acertadas para su situaci+�n espec+�fica.</p>
+        <p class="text-on-surface-md text-sm leading-relaxed">Diseñamos un plan de acción personalizado con las alternativas más acertadas para su situación específica.</p>
       </div>
 
       <!-- Paso 3 -->
@@ -490,8 +473,8 @@ tailwind.config = {
         <div class="w-20 h-20 bg-accent mx-auto mb-8 flex items-center justify-center">
           <span class="text-white font-headline text-3xl font-light">03</span>
         </div>
-        <h4 class="text-xl font-headline text-navy mb-3">Resoluci+�n</h4>
-        <p class="text-on-surface-md text-sm leading-relaxed">Ejecutamos la estrategia con precisi+�n, manteni+�ndole informado en cada paso hasta lograr el resultado deseado.</p>
+        <h4 class="text-xl font-headline text-navy mb-3">Resolución</h4>
+        <p class="text-on-surface-md text-sm leading-relaxed">Ejecutamos la estrategia con precisión, manteniéndole informado en cada paso hasta lograr el resultado deseado.</p>
       </div>
     </div>
   </div>
@@ -501,16 +484,16 @@ tailwind.config = {
 <section class="relative py-28 overflow-hidden">
   <div class="absolute inset-0">
     <div class="parallax-bg absolute inset-[-20%] w-[140%] h-[140%]" id="ctaParallax">
-      <img src="https://images.unsplash.com/photo-1507003211169-c627a92ad1ab?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-30" alt="Ciudad de M+�xico"/>
+      <img src="https://images.unsplash.com/photo-1507003211169-c627a92ad1ab?w=1600&q=80&fit=crop" class="w-full h-full object-cover opacity-30" alt="Ciudad de México"/>
     </div>
     <div class="absolute inset-0 bg-navy/85"></div>
   </div>
   <div class="relative z-10 max-w-3xl mx-auto px-6 md:px-12 text-center">
     <h2 class="reveal text-3xl md:text-4xl lg:text-5xl font-headline text-white font-light mb-6">
-      Su firma legal de confianza en la <span class="text-accent italic">Ciudad de M+�xico.</span>
+      Su firma legal de confianza en la <span class="text-accent italic">Ciudad de México.</span>
     </h2>
     <p class="reveal reveal-d1 text-white/50 text-sm leading-relaxed mb-10 max-w-lg mx-auto">
-      Desde la colonia Roma Norte, brindamos asesor+�a especializada con m+�s de 15 a+�os de experiencia en soluciones legales estrat+�gicas para particulares y empresas.
+      Desde la colonia Roma Norte, brindamos asesoría especializada con más de 15 años de experiencia en soluciones legales estratégicas para particulares y empresas.
     </p>
     <a href="#contacto" class="reveal reveal-d2 inline-block bg-accent hover:bg-accent-dk text-white font-semibold py-4 px-10 text-sm transition-colors uppercase tracking-[0.15em]">
       Agendar consulta gratuita
@@ -529,7 +512,7 @@ tailwind.config = {
     <div class="text-center mb-20">
       <div class="reveal flex items-center justify-center gap-3 mb-4">
         <div class="w-10 h-px bg-accent"></div>
-        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Por qu+� elegirnos</span>
+        <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Por qué elegirnos</span>
         <div class="w-10 h-px bg-accent"></div>
       </div>
       <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-headline text-navy">Principales <span class="text-accent italic">fortalezas.</span></h2>
@@ -541,7 +524,7 @@ tailwind.config = {
           <span class="material-symbols-outlined text-accent text-xl">workspace_premium</span>
         </div>
         <h4 class="text-navy font-headline text-lg mb-2">Experiencia</h4>
-        <p class="text-on-surface-lt text-xs leading-relaxed">+15 a+�os resolviendo casos complejos con resultados comprobables.</p>
+        <p class="text-on-surface-lt text-xs leading-relaxed">+15 años resolviendo casos complejos con resultados comprobables.</p>
       </div>
       <div class="reveal reveal-d1 text-center">
         <div class="w-16 h-16 border border-accent/25 flex items-center justify-center mx-auto mb-6">
@@ -555,14 +538,14 @@ tailwind.config = {
           <span class="material-symbols-outlined text-accent text-xl">lock</span>
         </div>
         <h4 class="text-navy font-headline text-lg mb-2">Confidencialidad</h4>
-        <p class="text-on-surface-lt text-xs leading-relaxed">Manejo discreto y seguro de toda la informaci+�n de nuestros clientes.</p>
+        <p class="text-on-surface-lt text-xs leading-relaxed">Manejo discreto y seguro de toda la información de nuestros clientes.</p>
       </div>
       <div class="reveal reveal-d3 text-center">
         <div class="w-16 h-16 border border-accent/25 flex items-center justify-center mx-auto mb-6">
           <span class="material-symbols-outlined text-accent text-xl">handshake</span>
         </div>
         <h4 class="text-navy font-headline text-lg mb-2">Compromiso</h4>
-        <p class="text-on-surface-lt text-xs leading-relaxed">Atenci+�n directa y personalizada con lealtad y asertividad.</p>
+        <p class="text-on-surface-lt text-xs leading-relaxed">Atención directa y personalizada con lealtad y asertividad.</p>
       </div>
     </div>
   </div>
@@ -573,7 +556,7 @@ tailwind.config = {
   <div class="line-draw h-px bg-accent/20 mx-auto"></div>
 </div>
 
-<!-- Diferenciaci+�n: Servicios destacados -->
+<!-- Diferenciación: Servicios destacados -->
 <section class="py-24 bg-surface-warm">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
@@ -582,27 +565,27 @@ tailwind.config = {
           <div class="w-10 h-px bg-accent"></div>
           <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Servicios destacados</span>
         </div>
-        <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-headline text-navy mb-8 leading-tight">L+�deres en <span class="text-accent italic">financiamiento de litigios</span> en M+�xico</h2>
+        <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-headline text-navy mb-8 leading-tight">Líderes en <span class="text-accent italic">financiamiento de litigios</span> en México</h2>
         <div class="space-y-8">
           <div class="reveal reveal-d2 flex items-start gap-6">
             <span class="material-symbols-outlined text-accent text-2xl mt-1">payments</span>
             <div>
               <h4 class="font-headline text-navy text-lg mb-2">Financiamiento de Litigios</h4>
-              <p class="text-on-surface-md text-sm leading-relaxed">Somos firma l+�der en M+�xico en el financiamiento de litigios nacionales e internacionales.</p>
+              <p class="text-on-surface-md text-sm leading-relaxed">Somos firma líder en México en el financiamiento de litigios nacionales e internacionales.</p>
             </div>
           </div>
           <div class="reveal reveal-d3 flex items-start gap-6">
             <span class="material-symbols-outlined text-accent text-2xl mt-1">search</span>
             <div>
               <h4 class="font-headline text-navy text-lg mb-2">Due Diligence Legal</h4>
-              <p class="text-on-surface-md text-sm leading-relaxed">Proceso de investigaci+�n durante la potencial compra de una sociedad para determinar riesgos.</p>
+              <p class="text-on-surface-md text-sm leading-relaxed">Proceso de investigación durante la potencial compra de una sociedad para determinar riesgos.</p>
             </div>
           </div>
           <div class="reveal reveal-d4 flex items-start gap-6">
             <span class="material-symbols-outlined text-accent text-2xl mt-1">security</span>
             <div>
               <h4 class="font-headline text-navy text-lg mb-2">Seguros y Fianzas</h4>
-              <p class="text-on-surface-md text-sm leading-relaxed">Regulamos todo lo relativo a las p+�lizas de seguros y fianzas, protegiendo sus intereses.</p>
+              <p class="text-on-surface-md text-sm leading-relaxed">Regulamos todo lo relativo a las pólizas de seguros y fianzas, protegiendo sus intereses.</p>
             </div>
           </div>
         </div>
@@ -629,10 +612,10 @@ tailwind.config = {
           <span class="text-accent text-[10px] font-medium uppercase tracking-[0.3em]">Contacto</span>
         </div>
         <h2 class="reveal reveal-d1 text-3xl md:text-4xl font-headline text-navy leading-tight mb-6">
-          Perm+�tanos <span class="text-accent italic">asesorarle.</span>
+          Permítanos <span class="text-accent italic">asesorarle.</span>
         </h2>
         <p class="reveal reveal-d2 text-on-surface-md leading-relaxed mb-12">
-          Puede llamarnos o completar el formulario. Nos pondremos en contacto a la brevedad. Lo importante es iniciar la conversaci+�n.
+          Puede llamarnos o completar el formulario. Nos pondremos en contacto a la brevedad. Lo importante es iniciar la conversación.
         </p>
 
         <div class="space-y-8">
@@ -641,8 +624,8 @@ tailwind.config = {
               <span class="material-symbols-outlined text-accent text-lg">location_on</span>
             </div>
             <div>
-              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Ubicaci+�n</div>
-              <p class="text-sm text-on-surface-md">Plaza Villa Madrid 1, PH<br/>Roma Norte, Cuauht+�moc, C.P. 06700<br/>Ciudad de M+�xico, M+�xico</p>
+              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Ubicación</div>
+              <p class="text-sm text-on-surface-md">Plaza Villa Madrid 1, PH<br/>Roma Norte, Cuauhtémoc, C.P. 06700<br/>Ciudad de México, México</p>
             </div>
           </div>
           <div class="reveal reveal-d1 flex items-start gap-5">
@@ -650,7 +633,7 @@ tailwind.config = {
               <span class="material-symbols-outlined text-accent text-lg">call</span>
             </div>
             <div>
-              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Tel+�fono</div>
+              <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-1">Teléfono</div>
               <a href="tel:55 0000 0000" class="text-sm text-on-surface-md hover:text-accent transition-colors">55 0000 0000</a>
             </div>
           </div>
@@ -675,7 +658,7 @@ tailwind.config = {
         </div>
       </div>
 
-      <!-- Formulario simplificado (solo 3 campos como sugiere SIMEC.MD) -->
+      <!-- Formulario simplificado -->
       <div class="reveal bg-surface-warm p-8 md:p-12 border border-outline-lt">
         <div class="text-[9px] text-on-surface-lt uppercase tracking-[0.2em] font-medium mb-8">Formulario de consulta</div>
         <form class="space-y-6" onsubmit="return false;">
@@ -684,16 +667,16 @@ tailwind.config = {
             <input type="text" placeholder="Su nombre completo" class="w-full bg-white border border-outline focus:border-accent focus:ring-0 px-4 py-3 text-sm text-on-surface placeholder-on-surface-lt/50 transition-colors"/>
           </div>
           <div>
-            <label class="block text-[10px] uppercase tracking-widest font-semibold text-navy mb-2">Tel+�fono o Email</label>
-            <input type="text" placeholder="Su tel+�fono o correo electr+�nico" class="w-full bg-white border border-outline focus:border-accent focus:ring-0 px-4 py-3 text-sm text-on-surface placeholder-on-surface-lt/50 transition-colors"/>
+            <label class="block text-[10px] uppercase tracking-widest font-semibold text-navy mb-2">Teléfono o Email</label>
+            <input type="text" placeholder="Su teléfono o correo electrónico" class="w-full bg-white border border-outline focus:border-accent focus:ring-0 px-4 py-3 text-sm text-on-surface placeholder-on-surface-lt/50 transition-colors"/>
           </div>
           <div>
-            <label class="block text-[10px] uppercase tracking-widest font-semibold text-navy mb-2">-+Qu+� tipo de problema tiene?</label>
+            <label class="block text-[10px] uppercase tracking-widest font-semibold text-navy mb-2">¿Qué tipo de problema tiene?</label>
             <select class="w-full bg-white border border-outline focus:border-accent focus:ring-0 px-4 py-3 text-sm text-on-surface transition-colors appearance-none">
-              <option value="">Seleccione un +�rea</option>
+              <option value="">Seleccione un área</option>
               <option>Empresas y Comercio (Mercantil, Corporativo, Quiebras)</option>
               <option>Patrimonio y Bienes (Civil, Inmobiliario, Familiar)</option>
-              <option>Resoluci+�n de Conflictos (Mediaci+�n, Administrativo)</option>
+              <option>Resolución de Conflictos (Mediación, Administrativo)</option>
               <option>Seguros y Fianzas</option>
               <option>Financiamiento de Litigios</option>
               <option>Otro / No estoy seguro</option>
@@ -704,7 +687,7 @@ tailwind.config = {
               Solicitar consulta gratuita
             </button>
             <p class="text-[10px] text-on-surface-lt/60 text-center mt-4 leading-relaxed italic">
-              Toda la informaci+�n es tratada con absoluta confidencialidad. Los detalles sensibles se tratar+�n personalmente.
+              Toda la información es tratada con absoluta confidencialidad. Los detalles sensibles se tratarán personalmente.
             </p>
           </div>
         </form>
@@ -723,7 +706,7 @@ tailwind.config = {
         </div>
         <span class="text-lg font-semibold tracking-[0.08em] uppercase text-white font-headline">Firma Legal</span>
       </div>
-      <p class="text-white/40 text-xs leading-loose">Firma legal estrat+�gica. Especialistas en derecho civil, mercantil, financiero, inmobiliario, seguros y fianzas.</p>
+      <p class="text-white/40 text-xs leading-loose">Firma legal estratégica. Especialistas en derecho civil, mercantil, financiero, inmobiliario, seguros y fianzas.</p>
     </div>
     <div class="space-y-6">
       <h6 class="text-accent text-[9px] font-bold uppercase tracking-widest">Empresas</h6>
@@ -762,16 +745,16 @@ tailwind.config = {
     </div>
   </div>
   <div class="px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-    <p class="text-white/30 text-[9px] uppercase tracking-[0.2em]">-� 2026 Firma Legal Estrat�gica. Todos los derechos reservados.</p>
+    <p class="text-white/30 text-[9px] uppercase tracking-[0.2em]">© 2026 Firma Legal Estratégica. Todos los derechos reservados.</p>
     <div class="flex items-center gap-6">
       <a href="https://www.tulogo.mx/aviso-de-privacidad.html" class="text-white/30 hover:text-white/60 text-[9px] uppercase tracking-[0.2em] transition-colors">Aviso de privacidad</a>
-      <p class="text-white/30 text-[9px] uppercase tracking-[0.2em]">Dise+�o web por <span class="text-accent">Service Swift</span></p>
+      <p class="text-white/30 text-[9px] uppercase tracking-[0.2em]">Diseño web por <span class="text-accent">Service Swift</span></p>
     </div>
   </div>
 </footer>
 
 <!-- WhatsApp -->
-<a href="https://api.whatsapp.com/send?phone=525500000000 0000 00008&text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios%20legales" target="_blank" rel="noopener"
+<a href="https://wa.me/525500000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios%20legales" target="_blank" rel="noopener"
    class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95 rounded-full"
    aria-label="Contactar por WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
@@ -811,4 +794,3 @@ parallax();
 
 </body>
 </html>
-
