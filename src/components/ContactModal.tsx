@@ -62,6 +62,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     } finally {
       setIsSubmitting(false);
     }
+  }; // <-- ESTA ES LA LLAVE Y PUNTO Y COMA QUE FALTABA
 
   const handleClose = () => {
     setIsSuccess(false);
