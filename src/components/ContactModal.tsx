@@ -30,27 +30,30 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const BATZ_URL = "https://preulivulvhsyycdyvqf.supabase.co/functions/v1/webhook-receiver";
 
     try {
-      await Promise.all([
-        fetch("https://n8n.byluisbeltran.com/webhook/audit-lead-capture", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...formData,
-            timestamp: new Date().toISOString(),
-            source: "contact-form",
-          }),
+      // 1. COMENTAMOS LA LLAMADA A N8N PARA QUE NO SE CRUCEN LAS RESPUESTAS
+      /*
+      await fetch("https://n8n.byluisbeltran.com/webhook/audit-lead-capture", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: "contact-form",
         }),
-        fetch(BATZ_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "x-api-key": BATZ_KEY },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: "",
-            message: formData.message,
-          }),
+      });
+      */
+
+      // 2. ENVIAMOS DIRECTAMENTE SOLO A SUPABASE
+      await fetch(BATZ_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-api-key": BATZ_KEY },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: "",
+          message: formData.message,
         }),
-      ]);
+      });
 
       setIsSuccess(true);
       setFormData({ name: "", email: "", message: "" });
@@ -59,7 +62,6 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     } finally {
       setIsSubmitting(false);
     }
-  };
 
   const handleClose = () => {
     setIsSuccess(false);
