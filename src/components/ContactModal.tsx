@@ -27,7 +27,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setError("");
 
     const BATZ_KEY = "batz_998f66d9-7c59-4518-b232-bc40bc52";
-    const BATZ_URL = "https://preulivulvhsyycdyvqf.supabase.co/functions/v1/webhook-receiver";
+    const BATZ_URL = "https://preulivulvhsyycdyvqf.supabase.co/functions/v1/receive-lead";
 
     try {
       // 1. COMENTAMOS LA LLAMADA A N8N PARA QUE NO SE CRUCEN LAS RESPUESTAS

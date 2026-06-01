@@ -102,25 +102,10 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            /*background: url('assets/luna.png') no-repeat center top;*/
+            height: 120%;
+            background: url('assets/luna.png') no-repeat center top;
             background-size: cover;
             z-index: 1;
-        }
-
-        /* 👇 NUEVO: Estilos para el video */
-        .hero__video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover; /* Mantiene proporción y cubre el área */
-            z-index: 1;
-            pointer-events: none; /* No interfiere con clics */
         }
 
         .hero__montanas {
@@ -1468,13 +1453,7 @@
 
     <!-- HERO SECTION -->
     <section class="hero" id="inicio">
-        <div class="hero__fondo" data-speed="0.2">
-                <video class="hero__video" autoplay loop muted playsinline preload="auto">
-                    <source src="assets/luna.mp4" type="video/mp4">
-                    <!-- Fallback para navegadores que no soportan video -->
-                    <img src="assets/luna.png" alt="Luna de fondo" style="width:100%; height:100%; object-fit:cover;">
-                </video>
-        </div>
+        <div class="hero__fondo" data-speed="0.2"></div>
         <div class="hero__montanas" data-speed="0.5"></div>
         <div class="hero__entrada"></div>
         
