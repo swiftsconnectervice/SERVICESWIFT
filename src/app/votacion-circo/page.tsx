@@ -191,7 +191,7 @@ function MetaRow({ label, value }: { label: string; value: string }) {
 }
 
 /* ──────────────────────────────────────────────
-   Tarjeta de votación
+   Tarjeta de votación - Estilo póster de circo vintage
 ────────────────────────────────────────────── */
 function VotingCard({
   artista,
@@ -204,54 +204,142 @@ function VotingCard({
 }) {
   return (
     <div className="group flex h-full flex-col">
-      <div className="relative aspect-3/4 w-full overflow-hidden border border-[#FFF8DC]/15 bg-[#0a0204]">
-        <img
-          src={artista.img}
-          alt={artista.nombre}
-          loading="lazy"
-          className="h-full w-full object-cover grayscale-[35%] contrast-110 transition-transform duration-700 ease-out group-hover:scale-105"
+      {/* Contenedor principal con borde ornamental */}
+      <div className="relative w-full overflow-hidden bg-[#0a0204]">
+        {/* Marco decorativo exterior - estilo póster vintage */}
+        <div className="absolute inset-0 border-4 border-[#8B4513]/40 pointer-events-none z-10" 
+             style={{ 
+               boxShadow: 'inset 0 0 0 1px rgba(255,248,220,0.1), inset 0 0 0 8px rgba(0,0,0,0.8)' 
+             }} 
         />
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{ background: "radial-gradient(100% 85% at 50% 30%, transparent 35%, rgba(90,0,26,0.55) 78%, rgba(90,0,26,0.92) 100%)" }}
-        />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-black via-black/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-          <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.35em] text-[#FFF8DC]/60 sm:text-[10px] sm:tracking-[0.4em]">
-            {artista.disciplina}
-          </span>
-          <h3
-            className="mt-1 font-[family-name:var(--font-archivo)] text-xl font-extrabold uppercase leading-[0.9] tracking-tight text-[#FFF8DC] sm:text-2xl"
-            style={{ filter: "url(#ink-bleed)" }}
-          >
-            {artista.nombre}
-          </h3>
-        </div>
-        {selected && (
-          <>
-            <div className="absolute right-2.5 top-2.5 bg-[#FF3300] px-2 py-1 sm:right-3 sm:top-3 sm:px-2.5">
-              <span className="font-[family-name:var(--font-space-mono)] text-[8px] font-bold uppercase tracking-widest text-black sm:text-[9px]">
-                Voto sellado
+        
+        {/* Esquinas decorativas art déco */}
+        <svg className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10" viewBox="0 0 100 100" fill="none">
+          <path d="M0 0 L30 0 L15 15 L0 30 Z" fill="rgba(255,248,220,0.15)" />
+          <path d="M0 0 L20 0 L10 10 L0 20 Z" fill="rgba(139,69,19,0.3)" />
+        </svg>
+        <svg className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10 rotate-90" viewBox="0 0 100 100" fill="none">
+          <path d="M0 0 L30 0 L15 15 L0 30 Z" fill="rgba(255,248,220,0.15)" />
+          <path d="M0 0 L20 0 L10 10 L0 20 Z" fill="rgba(139,69,19,0.3)" />
+        </svg>
+        <svg className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10 -rotate-90" viewBox="0 0 100 100" fill="none">
+          <path d="M0 0 L30 0 L15 15 L0 30 Z" fill="rgba(255,248,220,0.15)" />
+          <path d="M0 0 L20 0 L10 10 L0 20 Z" fill="rgba(139,69,19,0.3)" />
+        </svg>
+        <svg className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10 rotate-180" viewBox="0 0 100 100" fill="none">
+          <path d="M0 0 L30 0 L15 15 L0 30 Z" fill="rgba(255,248,220,0.15)" />
+          <path d="M0 0 L20 0 L10 10 L0 20 Z" fill="rgba(139,69,19,0.3)" />
+        </svg>
+
+        {/* Marco interior con padding */}
+        <div className="relative aspect-3/4 m-3">
+          {/* Imagen del artista */}
+          <img
+            src={artista.img}
+            alt={artista.nombre}
+            loading="lazy"
+            className="h-full w-full object-cover grayscale-[35%] contrast-110 transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          
+          {/* Textura de papel envejecido */}
+          <div 
+            className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-40"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' seed='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.7, 0 0 0 0 0.6, 0 0 0 0 0.4, 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23paper)'/%3E%3C/svg%3E")`,
+            }}
+          />
+          
+          {/* Viñeta circular intensa */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ background: "radial-gradient(circle at center, transparent 20%, rgba(90,0,26,0.6) 60%, rgba(10,2,4,0.95) 100%)" }}
+          />
+          
+          {/* Gradiente inferior para texto */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/80 to-transparent" />
+          
+          {/* Textos del artista - estilo letrero de circo */}
+          <div className="absolute inset-x-0 bottom-0 px-4 pb-4 sm:px-5 sm:pb-5">
+            <div className="mb-2 flex items-center justify-between">
+              <span className="font-[family-name:var(--font-space-mono)] text-[8px] uppercase tracking-[0.4em] text-[#C9A227] sm:text-[9px]">
+                {artista.disciplina}
               </span>
+              {/* Ornamento decorativo pequeño */}
+              <span className="text-[#8B4513] text-xs">◆</span>
             </div>
-            <div className="pointer-events-none absolute inset-0" style={{ boxShadow: "inset 0 0 0 2px #FF3300" }} />
-          </>
-        )}
+            <h3
+              className="font-[family-name:var(--font-archivo)] text-lg font-black uppercase leading-[0.85] tracking-tight text-[#FFF8DC] sm:text-xl"
+              style={{ 
+                filter: "url(#ink-bleed)",
+                textShadow: "2px 2px 0 rgba(139,69,19,0.3), -1px -1px 0 rgba(139,69,19,0.2)"
+              }}
+            >
+              {artista.nombre}
+            </h3>
+            {/* Línea decorativa */}
+            <div className="mt-2 flex items-center gap-2">
+              <div className="h-px flex-1 bg-gradient-to-r from-[#8B4513]/50 to-transparent" />
+              <span className="text-[#8B4513] text-[8px]">★</span>
+              <div className="h-px flex-1 bg-gradient-to-l from-[#8B4513]/50 to-transparent" />
+            </div>
+          </div>
+          
+          {/* Badge de voto sellado */}
+          {selected && (
+            <>
+              <div className="absolute right-2 top-2 bg-[#FF3300] px-2 py-1 sm:right-2.5 sm:top-2.5 sm:px-2.5" style={{ transform: 'rotate(-3deg)' }}>
+                <span className="font-[family-name:var(--font-space-mono)] text-[7px] font-bold uppercase tracking-widest text-black sm:text-[8px]">
+                  ★ VOTADO ★
+                </span>
+              </div>
+              <div className="pointer-events-none absolute inset-0 m-3" style={{ boxShadow: "inset 0 0 0 3px #FF3300" }} />
+            </>
+          )}
+        </div>
       </div>
 
-      <div className="mt-2.5 px-0.5 sm:mt-3">
-        <MetaRow label="Año" value={artista.anio} />
-        <MetaRow label="Origen" value={artista.origen} />
+      {/* Metadata con estilo ticket vintage */}
+      <div className="mt-2.5 border border-[#8B4513]/20 bg-[#1a0a0a] px-2.5 py-2 sm:mt-3 sm:px-3">
+        <div className="flex items-center justify-between border-b border-[#8B4513]/15 pb-1.5">
+          <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.25em] text-[#C9A227]/60">
+            Año
+          </span>
+          <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.2em] text-[#FFF8DC]/80">
+            {artista.anio}
+          </span>
+        </div>
+        <div className="flex items-center justify-between pt-1.5">
+          <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.25em] text-[#C9A227]/60">
+            Origen
+          </span>
+          <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.2em] text-[#FFF8DC]/80">
+            {artista.origen}
+          </span>
+        </div>
       </div>
 
+      {/* Botón de votar - estilo ticket stub */}
       <Button
         onClick={onVote}
-        className={`mt-2.5 h-auto w-full rounded-none border-0 py-3.5 font-[family-name:var(--font-archivo)] text-sm font-extrabold uppercase tracking-[0.2em] transition-colors duration-200 sm:mt-3 sm:py-4 sm:text-base sm:tracking-[0.25em] ${
-          selected ? "bg-[#FF3300] text-black hover:bg-[#FF3300]" : "bg-[#FFF8DC] text-black hover:bg-white"
+        className={`relative mt-2.5 h-auto w-full overflow-hidden rounded-none border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
+          selected 
+            ? "bg-[#FF3300] text-black hover:bg-[#FF3300] shadow-[0_0_20px_rgba(255,51,0,0.3)]" 
+            : "bg-[#FFF8DC] text-black hover:bg-white hover:shadow-[0_4px_12px_rgba(255,248,220,0.2)]"
         }`}
+        style={{
+          clipPath: selected ? 'none' : 'polygon(0 0, 100% 0, 100% 100%, 95% 90%, 5% 90%)'
+        }}
       >
+        {/* Textura de ticket perforado */}
+        {!selected && (
+          <div className="absolute top-0 left-0 right-0 h-1 flex justify-around opacity-30">
+            {[...Array(12)].map((_, i) => (
+              <div key={i} className="w-1 h-1 rounded-full bg-black" />
+            ))}
+          </div>
+        )}
         {selected && <CheckIcon className="size-4 sm:size-5" />}
-        {selected ? "VOTADO" : "VOTAR"}
+        {selected ? "★ VOTADO ★" : "VOTAR AHORA"}
       </Button>
     </div>
   );
