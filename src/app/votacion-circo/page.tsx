@@ -197,11 +197,120 @@ function VotingCard({
   artista,
   selected,
   onVote,
+  usePosterFrame = false,
 }: {
   artista: Artista;
   selected: boolean;
   onVote: () => void;
+  usePosterFrame?: boolean;
 }) {
+  if (usePosterFrame) {
+    // Versión con póster PNG superpuesto
+    return (
+      <div className="group flex h-full flex-col">
+        <div className="relative w-full overflow-hidden bg-[#0a0204]">
+          {/* Contenedor con aspect ratio */}
+          <div className="relative aspect-[3/4]">
+            {/* Imagen del artista de fondo */}
+            <img
+              src={artista.img}
+              alt={artista.nombre}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover grayscale-[35%] contrast-110 transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            
+            {/* Viñeta sobre la foto */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(circle at center, transparent 25%, rgba(90,0,26,0.4) 65%, rgba(10,2,4,0.8) 100%)" }}
+            />
+            
+            {/* Marco de póster PNG superpuesto */}
+            <img
+              src="/cartel1.png"
+              alt="Marco de circo"
+              className="absolute inset-0 h-full w-full object-cover pointer-events-none z-10"
+            />
+            
+            {/* Textos del artista - sobre el póster */}
+            <div className="absolute inset-x-0 bottom-0 px-4 pb-4 z-20 sm:px-5 sm:pb-5">
+              <div className="mb-2 flex items-center justify-center">
+                <span className="font-[family-name:var(--font-space-mono)] text-[8px] uppercase tracking-[0.4em] text-[#C9A227] sm:text-[9px]">
+                  {artista.disciplina}
+                </span>
+              </div>
+              <h3
+                className="text-center font-[family-name:var(--font-archivo)] text-lg font-black uppercase leading-[0.85] tracking-tight text-[#FFF8DC] sm:text-xl"
+                style={{ 
+                  filter: "url(#ink-bleed)",
+                  textShadow: "2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(255,248,220,0.3)"
+                }}
+              >
+                {artista.nombre}
+              </h3>
+            </div>
+            
+            {/* Badge de voto sellado */}
+            {selected && (
+              <>
+                <div className="absolute right-2 top-2 bg-[#FF3300] px-2 py-1 z-20 sm:right-2.5 sm:top-2.5 sm:px-2.5" style={{ transform: 'rotate(-3deg)' }}>
+                  <span className="font-[family-name:var(--font-space-mono)] text-[7px] font-bold uppercase tracking-widest text-black sm:text-[8px]">
+                    ★ VOTADO ★
+                  </span>
+                </div>
+                <div className="pointer-events-none absolute inset-0 z-20" style={{ boxShadow: "inset 0 0 0 3px #FF3300" }} />
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Metadata con estilo ticket vintage */}
+        <div className="mt-2.5 border border-[#8B4513]/20 bg-[#1a0a0a] px-2.5 py-2 sm:mt-3 sm:px-3">
+          <div className="flex items-center justify-between border-b border-[#8B4513]/15 pb-1.5">
+            <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.25em] text-[#C9A227]/60">
+              Año
+            </span>
+            <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.2em] text-[#FFF8DC]/80">
+              {artista.anio}
+            </span>
+          </div>
+          <div className="flex items-center justify-between pt-1.5">
+            <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.25em] text-[#C9A227]/60">
+              Origen
+            </span>
+            <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.2em] text-[#FFF8DC]/80">
+              {artista.origen}
+            </span>
+          </div>
+        </div>
+
+        {/* Botón de votar */}
+        <Button
+          onClick={onVote}
+          className={`relative mt-2.5 h-auto w-full overflow-hidden rounded-none border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
+            selected 
+              ? "bg-[#FF3300] text-black hover:bg-[#FF3300] shadow-[0_0_20px_rgba(255,51,0,0.3)]" 
+              : "bg-[#FFF8DC] text-black hover:bg-white hover:shadow-[0_4px_12px_rgba(255,248,220,0.2)]"
+          }`}
+          style={{
+            clipPath: selected ? 'none' : 'polygon(0 0, 100% 0, 100% 100%, 95% 90%, 5% 90%)'
+          }}
+        >
+          {!selected && (
+            <div className="absolute top-0 left-0 right-0 h-1 flex justify-around opacity-30">
+              {[...Array(12)].map((_, i) => (
+                <div key={i} className="w-1 h-1 rounded-full bg-black" />
+              ))}
+            </div>
+          )}
+          {selected && <CheckIcon className="size-4 sm:size-5" />}
+          {selected ? "★ VOTADO ★" : "VOTAR AHORA"}
+        </Button>
+      </div>
+    );
+  }
+
+  // Versión original con marcos CSS
   return (
     <div className="group flex h-full flex-col">
       {/* Contenedor principal con borde ornamental */}
@@ -464,7 +573,12 @@ function CategoriaRow({
           <CarouselContent className="-ml-3 sm:-ml-4 lg:-ml-5 xl:-ml-6">
             {categoria.artistas.map((a) => (
               <CarouselItem key={a.id} className="basis-[85%] pl-3 xs:basis-[70%] sm:basis-1/2 sm:pl-4 lg:basis-1/3 lg:pl-5 xl:basis-1/4 xl:pl-6">
-                <VotingCard artista={a} selected={voto === a.id} onVote={() => onVote(a.id)} />
+                <VotingCard 
+                  artista={a} 
+                  selected={voto === a.id} 
+                  onVote={() => onVote(a.id)}
+                  usePosterFrame={categoria.id === "revelacion"}
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
