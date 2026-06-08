@@ -271,7 +271,7 @@ function VotingCard({
         {/* Botón de votar - estilo ticket con perforación */}
         <Button
           onClick={onVote}
-          className={`relative mt-2.5 h-auto w-full overflow-visible border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
+          className={`relative mt-2.5 h-auto w-full overflow-visible border-0 py-2.5 font-[family-name:var(--font-archivo)] text-xs font-black uppercase tracking-[0.15em] transition-all duration-200 sm:mt-3 sm:py-3 sm:text-sm sm:tracking-[0.2em] ${
             selected 
               ? "bg-[#FF3300] text-black hover:bg-[#FF3300] shadow-[0_0_20px_rgba(255,51,0,0.3)]" 
               : "bg-[#FFF8DC] text-black hover:bg-white hover:shadow-[0_4px_12px_rgba(255,248,220,0.2)]"
@@ -285,18 +285,11 @@ function VotingCard({
           <div className="absolute -top-1 left-2 h-2 w-2 rounded-full bg-black" />
           <div className="absolute -top-1 right-2 h-2 w-2 rounded-full bg-black" />
           
-          {/* Línea perforada vertical en el medio */}
-          <div className="absolute left-1/2 top-0 bottom-0 flex flex-col items-center justify-around -translate-x-1/2 opacity-20">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="w-0.5 h-1.5 bg-black" />
-            ))}
-          </div>
-          
           {/* Perforaciones en esquinas inferiores */}
           <div className="absolute -bottom-1 left-2 h-2 w-2 rounded-full bg-black" />
           <div className="absolute -bottom-1 right-2 h-2 w-2 rounded-full bg-black" />
           
-          {selected && <CheckIcon className="size-4 sm:size-5 relative z-10" />}
+          {selected && <CheckIcon className="size-3.5 sm:size-4 relative z-10 mr-1.5" />}
           <span className="relative z-10">{selected ? "★ VOTADO ★" : "VOTAR AHORA"}</span>
         </Button>
       </div>
@@ -423,7 +416,7 @@ function VotingCard({
       {/* Botón de votar - estilo ticket con perforación */}
       <Button
         onClick={onVote}
-        className={`relative mt-2.5 h-auto w-full overflow-visible border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
+        className={`relative mt-2.5 h-auto w-full overflow-visible border-0 py-2.5 font-[family-name:var(--font-archivo)] text-xs font-black uppercase tracking-[0.15em] transition-all duration-200 sm:mt-3 sm:py-3 sm:text-sm sm:tracking-[0.2em] ${
           selected 
             ? "bg-[#FF3300] text-black hover:bg-[#FF3300] shadow-[0_0_20px_rgba(255,51,0,0.3)]" 
             : "bg-[#FFF8DC] text-black hover:bg-white hover:shadow-[0_4px_12px_rgba(255,248,220,0.2)]"
@@ -437,18 +430,11 @@ function VotingCard({
         <div className="absolute -top-1 left-2 h-2 w-2 rounded-full bg-black" />
         <div className="absolute -top-1 right-2 h-2 w-2 rounded-full bg-black" />
         
-        {/* Línea perforada vertical en el medio */}
-        <div className="absolute left-1/2 top-0 bottom-0 flex flex-col items-center justify-around -translate-x-1/2 opacity-20">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="w-0.5 h-1.5 bg-black" />
-          ))}
-        </div>
-        
         {/* Perforaciones en esquinas inferiores */}
         <div className="absolute -bottom-1 left-2 h-2 w-2 rounded-full bg-black" />
         <div className="absolute -bottom-1 right-2 h-2 w-2 rounded-full bg-black" />
         
-        {selected && <CheckIcon className="size-4 sm:size-5 relative z-10" />}
+        {selected && <CheckIcon className="size-3.5 sm:size-4 relative z-10 mr-1.5" />}
         <span className="relative z-10">{selected ? "★ VOTADO ★" : "VOTAR AHORA"}</span>
       </Button>
     </div>
