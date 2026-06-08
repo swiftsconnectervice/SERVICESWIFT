@@ -268,27 +268,36 @@ function VotingCard({
           </div>
         </div>
 
-        {/* Botón de votar */}
+        {/* Botón de votar - estilo ticket con perforación */}
         <Button
           onClick={onVote}
-          className={`relative mt-2.5 h-auto w-full overflow-hidden rounded-none border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
+          className={`relative mt-2.5 h-auto w-full overflow-visible border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
             selected 
               ? "bg-[#FF3300] text-black hover:bg-[#FF3300] shadow-[0_0_20px_rgba(255,51,0,0.3)]" 
               : "bg-[#FFF8DC] text-black hover:bg-white hover:shadow-[0_4px_12px_rgba(255,248,220,0.2)]"
           }`}
           style={{
-            clipPath: selected ? 'none' : 'polygon(0 0, 100% 0, 100% 100%, 95% 90%, 5% 90%)'
+            clipPath: 'polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px)',
+            borderRadius: '0'
           }}
         >
-          {!selected && (
-            <div className="absolute top-0 left-0 right-0 h-1 flex justify-around opacity-30">
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="w-1 h-1 rounded-full bg-black" />
-              ))}
-            </div>
-          )}
-          {selected && <CheckIcon className="size-4 sm:size-5" />}
-          {selected ? "★ VOTADO ★" : "VOTAR AHORA"}
+          {/* Perforaciones en esquinas superiores */}
+          <div className="absolute -top-1 left-2 h-2 w-2 rounded-full bg-black" />
+          <div className="absolute -top-1 right-2 h-2 w-2 rounded-full bg-black" />
+          
+          {/* Línea perforada vertical en el medio */}
+          <div className="absolute left-1/2 top-0 bottom-0 flex flex-col items-center justify-around -translate-x-1/2 opacity-20">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="w-0.5 h-1.5 bg-black" />
+            ))}
+          </div>
+          
+          {/* Perforaciones en esquinas inferiores */}
+          <div className="absolute -bottom-1 left-2 h-2 w-2 rounded-full bg-black" />
+          <div className="absolute -bottom-1 right-2 h-2 w-2 rounded-full bg-black" />
+          
+          {selected && <CheckIcon className="size-4 sm:size-5 relative z-10" />}
+          <span className="relative z-10">{selected ? "★ VOTADO ★" : "VOTAR AHORA"}</span>
         </Button>
       </div>
     );
@@ -411,28 +420,36 @@ function VotingCard({
         </div>
       </div>
 
-      {/* Botón de votar - estilo ticket stub */}
+      {/* Botón de votar - estilo ticket con perforación */}
       <Button
         onClick={onVote}
-        className={`relative mt-2.5 h-auto w-full overflow-hidden rounded-none border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
+        className={`relative mt-2.5 h-auto w-full overflow-visible border-0 py-3 font-[family-name:var(--font-archivo)] text-sm font-black uppercase tracking-[0.25em] transition-all duration-200 sm:mt-3 sm:py-3.5 sm:text-base ${
           selected 
             ? "bg-[#FF3300] text-black hover:bg-[#FF3300] shadow-[0_0_20px_rgba(255,51,0,0.3)]" 
             : "bg-[#FFF8DC] text-black hover:bg-white hover:shadow-[0_4px_12px_rgba(255,248,220,0.2)]"
         }`}
         style={{
-          clipPath: selected ? 'none' : 'polygon(0 0, 100% 0, 100% 100%, 95% 90%, 5% 90%)'
+          clipPath: 'polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px)',
+          borderRadius: '0'
         }}
       >
-        {/* Textura de ticket perforado */}
-        {!selected && (
-          <div className="absolute top-0 left-0 right-0 h-1 flex justify-around opacity-30">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="w-1 h-1 rounded-full bg-black" />
-            ))}
-          </div>
-        )}
-        {selected && <CheckIcon className="size-4 sm:size-5" />}
-        {selected ? "★ VOTADO ★" : "VOTAR AHORA"}
+        {/* Perforaciones en esquinas superiores */}
+        <div className="absolute -top-1 left-2 h-2 w-2 rounded-full bg-black" />
+        <div className="absolute -top-1 right-2 h-2 w-2 rounded-full bg-black" />
+        
+        {/* Línea perforada vertical en el medio */}
+        <div className="absolute left-1/2 top-0 bottom-0 flex flex-col items-center justify-around -translate-x-1/2 opacity-20">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="w-0.5 h-1.5 bg-black" />
+          ))}
+        </div>
+        
+        {/* Perforaciones en esquinas inferiores */}
+        <div className="absolute -bottom-1 left-2 h-2 w-2 rounded-full bg-black" />
+        <div className="absolute -bottom-1 right-2 h-2 w-2 rounded-full bg-black" />
+        
+        {selected && <CheckIcon className="size-4 sm:size-5 relative z-10" />}
+        <span className="relative z-10">{selected ? "★ VOTADO ★" : "VOTAR AHORA"}</span>
       </Button>
     </div>
   );
@@ -447,12 +464,14 @@ function VerTodosDialog({
   onVote,
   open,
   onOpenChange,
+  posterImage,
 }: {
   categoria: Categoria;
   votoActual: string | null;
   onVote: (id: string) => void;
   open: boolean;
   onOpenChange: (v: boolean) => void;
+  posterImage?: string;
 }) {
   const [q, setQ] = useState("");
   const filtrados = categoria.artistas.filter((a) =>
@@ -488,6 +507,8 @@ function VerTodosDialog({
                 artista={a}
                 selected={votoActual === a.id}
                 onVote={() => onVote(a.id)}
+                usePosterFrame={!!posterImage}
+                posterImage={posterImage}
               />
             ))}
           </div>
@@ -518,6 +539,20 @@ function CategoriaRow({
 }) {
   const [verTodos, setVerTodos] = useState(false);
   const mostrarVerTodos = categoria.artistas.length >= UMBRAL_VER_TODOS;
+
+  // Mapeo de categorías a pósters - distribuyendo los 4 pósters entre las 7 categorías
+  const posterMap: Record<string, string> = {
+    "revelacion": "/votacion-circo/cartel1.png",
+    "trapecio": "/votacion-circo/cartel2.png",
+    "ceremonias": "/votacion-circo/cartel3.png",
+    "ilusionismo": "/votacion-circo/cartel4.png",
+    "espectaculo": "/votacion-circo/cartel1.png",
+    "contorsion": "/votacion-circo/cartel2.png",
+    "payaso": "/votacion-circo/cartel3.png",
+  };
+  
+  const posterImage = posterMap[categoria.id];
+  const usePoster = !!posterImage;
 
   return (
     <section
@@ -556,20 +591,6 @@ function CategoriaRow({
         <Carousel opts={{ align: "start", dragFree: true }} className="px-0">
           <CarouselContent className="-ml-3 sm:-ml-4 lg:-ml-5 xl:-ml-6">
             {categoria.artistas.map((a) => {
-              // Mapeo de categorías a pósters - distribuyendo los 4 pósters entre las 7 categorías
-              const posterMap: Record<string, string> = {
-                "revelacion": "/votacion-circo/cartel1.png",
-                "trapecio": "/votacion-circo/cartel2.png",
-                "ceremonias": "/votacion-circo/cartel3.png",
-                "ilusionismo": "/votacion-circo/cartel4.png",
-                "espectaculo": "/votacion-circo/cartel1.png",
-                "contorsion": "/votacion-circo/cartel2.png",
-                "payaso": "/votacion-circo/cartel3.png",
-              };
-              
-              const posterImage = posterMap[categoria.id];
-              const usePoster = !!posterImage;
-              
               return (
                 <CarouselItem key={a.id} className="basis-[85%] pl-3 xs:basis-[70%] sm:basis-1/2 sm:pl-4 lg:basis-1/3 lg:pl-5 xl:basis-1/4 xl:pl-6">
                   <VotingCard 
@@ -594,6 +615,7 @@ function CategoriaRow({
         onVote={(id) => { onVote(id); }}
         open={verTodos}
         onOpenChange={setVerTodos}
+        posterImage={posterImage}
       />
     </section>
   );
