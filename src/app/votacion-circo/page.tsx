@@ -28,7 +28,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 /* ──────────────────────────────────────────────
-   DATA
+   DATA & TYPES
 ────────────────────────────────────────────── */
 interface Artista {
   id: string;
