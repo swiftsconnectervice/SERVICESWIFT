@@ -227,7 +227,7 @@ function VotingCard({
             
             {/* Marco de póster PNG superpuesto */}
             <img
-              src="/cartel1.png"
+              src="/votacion-circo/cartel1.png"
               alt="Marco de circo"
               className="absolute inset-0 h-full w-full object-cover pointer-events-none z-10"
             />
