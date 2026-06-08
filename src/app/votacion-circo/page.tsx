@@ -430,7 +430,7 @@ function CategoriaRow({
     <section
       id={categoria.id}
       ref={(el) => registerRef(categoria.id, el)}
-      className="scroll-mt-24 px-4 pb-12 sm:scroll-mt-28 sm:px-6 sm:pb-16 lg:scroll-mt-32 lg:pb-20 lg:pr-44"
+      className="scroll-mt-24 px-4 pb-12 sm:scroll-mt-28 sm:px-6 sm:pb-16 lg:scroll-mt-32 lg:pb-20 lg:pr-52"
     >
       <div className="mx-auto max-w-6xl">
         {/* Header de la categoría */}
@@ -576,7 +576,7 @@ export default function VotacionCircoPage() {
       </div>
 
       {/* ===== HEADER ===== */}
-      <header className="sticky top-0 z-50 border-b border-[#FF3300]/40 bg-black/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 border-b-2 border-[#FF3300]/60 bg-black/90 backdrop-blur-md shadow-lg">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <div className="flex items-center gap-3 sm:gap-4">
             <span className="font-[family-name:var(--font-archivo)] text-sm font-extrabold uppercase tracking-tight text-[#FFF8DC] sm:text-base lg:text-lg">
@@ -584,7 +584,7 @@ export default function VotacionCircoPage() {
             </span>
 
             {/* Dropdown de categorías — móvil y tablet */}
-            <div className="relative 2xl:hidden">
+            <div className="relative lg:hidden">
               <button
                 onClick={() => setCatMenuOpen(!catMenuOpen)}
                 className="flex items-center gap-1.5 border border-[#FFF8DC]/20 px-2.5 py-1.5 font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-widest text-[#FFF8DC]/70 transition-colors hover:border-[#FF3300] hover:text-[#FFF8DC] sm:gap-2 sm:px-3 sm:py-2 sm:text-[10px]"
@@ -645,7 +645,7 @@ export default function VotacionCircoPage() {
       </header>
 
       {/* ===== ÍNDICE VERTICAL LATERAL DERECHO (scroll-spy) — desktop ===== */}
-      <nav className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end gap-2 xl:right-6 xl:gap-2.5 2xl:flex">
+      <nav className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end gap-2.5 lg:flex">
         {CATEGORIAS.map((c) => {
           const active = activeCat === c.id;
           const voted = !!votos[c.id];
@@ -653,10 +653,10 @@ export default function VotacionCircoPage() {
             <button
               key={c.id}
               onClick={() => scrollToCat(c.id)}
-              className="group flex items-center justify-end gap-2 xl:gap-3"
+              className="group flex items-center justify-end gap-3"
             >
               <span
-                className={`font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-widest transition-all duration-300 xl:text-[10px] ${
+                className={`font-[family-name:var(--font-space-mono)] text-[10px] uppercase tracking-widest transition-all duration-300 ${
                   active
                     ? "text-[#FFF8DC]"
                     : "text-[#FFF8DC]/35 group-hover:text-[#FFF8DC]/70"
@@ -664,10 +664,10 @@ export default function VotacionCircoPage() {
               >
                 {c.titulo}
               </span>
-              {voted && <span className="text-[7px] text-[#FF3300] xl:text-[8px]">●</span>}
+              {voted && <span className="text-[8px] text-[#FF3300]">●</span>}
               <span
                 className={`h-px transition-all duration-300 ${
-                  active ? "w-6 bg-[#FF3300] xl:w-8" : "w-3 bg-[#FFF8DC]/25 group-hover:w-5 xl:w-4 xl:group-hover:w-6"
+                  active ? "w-8 bg-[#FF3300]" : "w-4 bg-[#FFF8DC]/25 group-hover:w-6"
                 }`}
               />
             </button>
@@ -676,7 +676,7 @@ export default function VotacionCircoPage() {
       </nav>
 
       {/* ===== HERO ===== */}
-      <section className="px-4 pt-12 pb-10 text-center sm:px-6 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 lg:pr-44 xl:pt-24">
+      <section className="px-4 pt-12 pb-10 text-center sm:px-6 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 lg:pr-52 xl:pt-24">
         <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.35em] text-[#C9A227] sm:text-[10px] sm:tracking-[0.4em] lg:text-xs">
           Gala anual · Edición IV
         </span>
@@ -705,7 +705,7 @@ export default function VotacionCircoPage() {
       ))}
 
       {/* ===== BARRA STICKY "MI VOTO" ===== */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#FF3300]/40 bg-black/95 backdrop-blur-sm">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-[#FF3300]/60 bg-black/90 backdrop-blur-md shadow-[0_-4px_20px_rgba(255,51,0,0.15)]">
         <div className="mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-3 px-4 py-3 sm:flex-row sm:items-center sm:gap-4 sm:px-6 sm:py-4">
           <div className="flex items-center gap-2 sm:gap-3">
             <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.25em] text-[#FFF8DC]/50 sm:text-[10px] sm:tracking-[0.3em]">
