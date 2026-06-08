@@ -198,14 +198,16 @@ function VotingCard({
   selected,
   onVote,
   usePosterFrame = false,
+  posterImage,
 }: {
   artista: Artista;
   selected: boolean;
   onVote: () => void;
   usePosterFrame?: boolean;
+  posterImage?: string;
 }) {
-  if (usePosterFrame) {
-    // Versión con póster PNG superpuesto
+  if (usePosterFrame && posterImage) {
+    // Versión con póster PNG superpuesto - SIN textos superpuestos
     return (
       <div className="group flex h-full flex-col">
         <div className="relative w-full overflow-hidden bg-[#0a0204]">
@@ -227,28 +229,10 @@ function VotingCard({
             
             {/* Marco de póster PNG superpuesto */}
             <img
-              src="/votacion-circo/cartel1.png"
+              src={posterImage}
               alt="Marco de circo"
               className="absolute inset-0 h-full w-full object-cover pointer-events-none z-10"
             />
-            
-            {/* Textos del artista - sobre el póster */}
-            <div className="absolute inset-x-0 bottom-0 px-4 pb-4 z-20 sm:px-5 sm:pb-5">
-              <div className="mb-2 flex items-center justify-center">
-                <span className="font-[family-name:var(--font-space-mono)] text-[8px] uppercase tracking-[0.4em] text-[#C9A227] sm:text-[9px]">
-                  {artista.disciplina}
-                </span>
-              </div>
-              <h3
-                className="text-center font-[family-name:var(--font-archivo)] text-lg font-black uppercase leading-[0.85] tracking-tight text-[#FFF8DC] sm:text-xl"
-                style={{ 
-                  filter: "url(#ink-bleed)",
-                  textShadow: "2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(255,248,220,0.3)"
-                }}
-              >
-                {artista.nombre}
-              </h3>
-            </div>
             
             {/* Badge de voto sellado */}
             {selected && (
@@ -571,16 +555,33 @@ function CategoriaRow({
         {/* Carrusel */}
         <Carousel opts={{ align: "start", dragFree: true }} className="px-0">
           <CarouselContent className="-ml-3 sm:-ml-4 lg:-ml-5 xl:-ml-6">
-            {categoria.artistas.map((a) => (
-              <CarouselItem key={a.id} className="basis-[85%] pl-3 xs:basis-[70%] sm:basis-1/2 sm:pl-4 lg:basis-1/3 lg:pl-5 xl:basis-1/4 xl:pl-6">
-                <VotingCard 
-                  artista={a} 
-                  selected={voto === a.id} 
-                  onVote={() => onVote(a.id)}
-                  usePosterFrame={categoria.id === "revelacion"}
-                />
-              </CarouselItem>
-            ))}
+            {categoria.artistas.map((a) => {
+              // Mapeo de categorías a pósters - distribuyendo los 4 pósters entre las 7 categorías
+              const posterMap: Record<string, string> = {
+                "revelacion": "/votacion-circo/cartel1.png",
+                "trapecio": "/votacion-circo/cartel2.png",
+                "ceremonias": "/votacion-circo/cartel3.png",
+                "ilusionismo": "/votacion-circo/cartel4.png",
+                "espectaculo": "/votacion-circo/cartel1.png",
+                "contorsion": "/votacion-circo/cartel2.png",
+                "payaso": "/votacion-circo/cartel3.png",
+              };
+              
+              const posterImage = posterMap[categoria.id];
+              const usePoster = !!posterImage;
+              
+              return (
+                <CarouselItem key={a.id} className="basis-[85%] pl-3 xs:basis-[70%] sm:basis-1/2 sm:pl-4 lg:basis-1/3 lg:pl-5 xl:basis-1/4 xl:pl-6">
+                  <VotingCard 
+                    artista={a} 
+                    selected={voto === a.id} 
+                    onVote={() => onVote(a.id)}
+                    usePosterFrame={usePoster}
+                    posterImage={posterImage}
+                  />
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
           <CarouselPrevious className="hidden rounded-none border-[#FFF8DC]/20 bg-black text-[#FFF8DC] hover:bg-[#5A001A] hover:text-[#FFF8DC] lg:flex" />
           <CarouselNext className="hidden rounded-none border-[#FFF8DC]/20 bg-black text-[#FFF8DC] hover:bg-[#5A001A] hover:text-[#FFF8DC] lg:flex" />
